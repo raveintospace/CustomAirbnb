@@ -83,12 +83,15 @@ import Foundation
 
 struct Listing: Codable, Identifiable {
     
+    // Listing details
     let id: String
     let listingURL: String?
     let name: String?
     let summary: String?
     let houseRules: String?
     let thumbnailURL: String?
+    let mediumURL: String?
+    let xlPictureURL: String?
     let neighbourhood: String?
     let price: Int?
     
@@ -102,6 +105,8 @@ struct Listing: Codable, Identifiable {
         case listingURL = "listing_url"
         case houseRules = "house_rules"
         case thumbnailURL = "thumbnail_url"
+        case mediumURL = "medium_url"
+        case xlPictureURL = "xl_picture_url"
         case hostName = "host_name"
         case hostSince = "host_since"
         case hostThumbnailURL = "host_thumbnail_url"
