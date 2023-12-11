@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */; };
-		344DC51A2B277D6100481B0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5192B277D6100481B0E /* ContentView.swift */; };
+		344DC51A2B277D6100481B0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5192B277D6100481B0E /* HomeView.swift */; };
 		344DC51C2B277D6400481B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344DC51B2B277D6400481B0E /* Assets.xcassets */; };
 		344DC51F2B277D6400481B0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344DC51E2B277D6400481B0E /* Preview Assets.xcassets */; };
+		344DC5282B277F4700481B0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5272B277F4700481B0E /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		344DC5142B277D6100481B0E /* CustomAirbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAirbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAirbnbApp.swift; sourceTree = "<group>"; };
-		344DC5192B277D6100481B0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		344DC5192B277D6100481B0E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		344DC51B2B277D6400481B0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		344DC51E2B277D6400481B0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		344DC5272B277F4700481B0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */,
-				344DC5192B277D6100481B0E /* ContentView.swift */,
+				344DC5262B277F3400481B0E /* Extensions */,
+				344DC5252B277DBD00481B0E /* Views */,
 				344DC51B2B277D6400481B0E /* Assets.xcassets */,
 				344DC51D2B277D6400481B0E /* Preview Content */,
 			);
@@ -65,6 +68,22 @@
 				344DC51E2B277D6400481B0E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		344DC5252B277DBD00481B0E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				344DC5192B277D6100481B0E /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		344DC5262B277F3400481B0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				344DC5272B277F4700481B0E /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				344DC51A2B277D6100481B0E /* ContentView.swift in Sources */,
+				344DC51A2B277D6100481B0E /* HomeView.swift in Sources */,
+				344DC5282B277F4700481B0E /* Color.swift in Sources */,
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
