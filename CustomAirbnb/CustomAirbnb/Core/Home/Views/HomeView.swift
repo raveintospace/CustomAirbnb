@@ -10,10 +10,12 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Rectangle()
+                .foregroundColor(Color.theme.accent)
+            Rectangle()
+                .foregroundColor(Color.theme.background)
+            Rectangle()
+                .foregroundColor(Color.theme.secondaryText)
         }
         .padding()
     }
