@@ -12,9 +12,13 @@ struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.allListings) { listing in
-                Text(listing.name ?? "no name")
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            
+            VStack {
+                homeHeader
+                dummyList
             }
         }
     }
@@ -27,5 +31,28 @@ struct ContentView_Previews: PreviewProvider {
                 .navigationBarHidden(true)
         }
         .environmentObject(HomeViewModel())
+    }
+}
+
+extension HomeView {
+    
+    private var homeHeader: some View {
+        HStack {
+            Spacer()
+            Text("Airbnb")
+                .font(.headline)
+                .fontWeight(.heavy)
+                .foregroundColor(Color.theme.accent)
+            Spacer()
+        }
+        .padding(.horizontal)
+    }
+    
+    private var dummyList: some View {
+        List {
+            ForEach(viewModel.allListings) { listing in
+                Text(listing.name ?? "no name")
+            }
+        }
     }
 }
