@@ -51,7 +51,8 @@ extension HomeView {
     private var dummyList: some View {
         List {
             ForEach(viewModel.allListings) { listing in
-                Text(listing.name ?? "no name")
+                Text(listing.summary ?? "no name")
+                    .multilineTextAlignment(.center)
             }
         }
     }

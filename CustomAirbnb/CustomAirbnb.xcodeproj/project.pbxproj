@@ -17,6 +17,8 @@
 		34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A62B30B646003966B9 /* NetworkManager.swift */; };
 		34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A92B30B69F003966B9 /* ListingDataService.swift */; };
 		34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063AB2B30B90D003966B9 /* HomeViewModel.swift */; };
+		34F063AE2B30BFFB003966B9 /* ListingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063AD2B30BFFB003966B9 /* ListingRowView.swift */; };
+		34F063B02B30C041003966B9 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063AF2B30C040003966B9 /* PreviewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		34F063A62B30B646003966B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F063A92B30B69F003966B9 /* ListingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataService.swift; sourceTree = "<group>"; };
 		34F063AB2B30B90D003966B9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		34F063AD2B30BFFB003966B9 /* ListingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRowView.swift; sourceTree = "<group>"; };
+		34F063AF2B30C040003966B9 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				344DC5192B277D6100481B0E /* HomeView.swift */,
+				34F063AD2B30BFFB003966B9 /* ListingRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				344DC5272B277F4700481B0E /* Color.swift */,
+				34F063AF2B30C040003966B9 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,8 +231,10 @@
 				34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */,
 				344DC52E2B2780FF00481B0E /* Listing.swift in Sources */,
 				34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */,
+				34F063AE2B30BFFB003966B9 /* ListingRowView.swift in Sources */,
 				34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */,
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
+				34F063B02B30C041003966B9 /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
