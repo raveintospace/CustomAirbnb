@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var viewModel = HomeViewModel()
+    @EnvironmentObject private var viewModel: HomeViewModel
     
     var body: some View {
         List {
@@ -22,6 +22,10 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        NavigationView {
+            HomeView()
+                .navigationBarHidden(true)
+        }
+        .environmentObject(HomeViewModel())
     }
 }
