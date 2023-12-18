@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(Color.theme.accent)
-            Rectangle()
-                .foregroundColor(Color.theme.background)
-            Rectangle()
-                .foregroundColor(Color.theme.secondaryText)
+        List {
+            ForEach(viewModel.allListings) { listing in
+                Text(listing.name ?? "no name")
+            }
         }
-        .padding()
     }
 }
 

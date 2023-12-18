@@ -14,6 +14,9 @@
 		344DC5282B277F4700481B0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5272B277F4700481B0E /* Color.swift */; };
 		344DC52E2B2780FF00481B0E /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC52D2B2780FF00481B0E /* Listing.swift */; };
 		34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */; };
+		34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A62B30B646003966B9 /* NetworkManager.swift */; };
+		34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A92B30B69F003966B9 /* ListingDataService.swift */; };
+		34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063AB2B30B90D003966B9 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		344DC5272B277F4700481B0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		344DC52D2B2780FF00481B0E /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsResponse.swift; sourceTree = "<group>"; };
+		34F063A62B30B646003966B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		34F063A92B30B69F003966B9 /* ListingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataService.swift; sourceTree = "<group>"; };
+		34F063AB2B30B90D003966B9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */,
+				34F063A52B30B633003966B9 /* Utilities */,
 				344DC5262B277F3400481B0E /* Extensions */,
+				34F063A82B30B670003966B9 /* Services */,
 				344DC52C2B27806F00481B0E /* Models */,
 				344DC52A2B27803800481B0E /* Core */,
 				344DC51B2B277D6400481B0E /* Assets.xcassets */,
@@ -111,6 +119,7 @@
 		344DC52B2B27805E00481B0E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				34F063AB2B30B90D003966B9 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,10 +127,26 @@
 		344DC52C2B27806F00481B0E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				344DC52D2B2780FF00481B0E /* Listing.swift */,
 				34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */,
+				344DC52D2B2780FF00481B0E /* Listing.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		34F063A52B30B633003966B9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				34F063A62B30B646003966B9 /* NetworkManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		34F063A82B30B670003966B9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34F063A92B30B69F003966B9 /* ListingDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +219,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */,
 				344DC51A2B277D6100481B0E /* HomeView.swift in Sources */,
 				344DC5282B277F4700481B0E /* Color.swift in Sources */,
+				34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */,
 				344DC52E2B2780FF00481B0E /* Listing.swift in Sources */,
+				34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */,
 				34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */,
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
 			);
