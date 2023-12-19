@@ -13,6 +13,8 @@
 		344DC51F2B277D6400481B0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344DC51E2B277D6400481B0E /* Preview Assets.xcassets */; };
 		344DC5282B277F4700481B0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5272B277F4700481B0E /* Color.swift */; };
 		344DC52E2B2780FF00481B0E /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC52D2B2780FF00481B0E /* Listing.swift */; };
+		34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC02B320E700051985E /* ListingImageView.swift */; };
+		34B8CBC32B320F6C0051985E /* ListingImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */; };
 		34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */; };
 		34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A62B30B646003966B9 /* NetworkManager.swift */; };
 		34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A92B30B69F003966B9 /* ListingDataService.swift */; };
@@ -29,6 +31,8 @@
 		344DC51E2B277D6400481B0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		344DC5272B277F4700481B0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		344DC52D2B2780FF00481B0E /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		34B8CBC02B320E700051985E /* ListingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageView.swift; sourceTree = "<group>"; };
+		34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageDataService.swift; sourceTree = "<group>"; };
 		34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsResponse.swift; sourceTree = "<group>"; };
 		34F063A62B30B646003966B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F063A92B30B69F003966B9 /* ListingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataService.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		344DC52A2B27803800481B0E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				34B8CBBF2B320E570051985E /* Components */,
 				344DC5292B27800700481B0E /* Home */,
 			);
 			path = Core;
@@ -139,6 +144,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		34B8CBBF2B320E570051985E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				34B8CBC02B320E700051985E /* ListingImageView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		34F063A52B30B633003966B9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				34F063A92B30B69F003966B9 /* ListingDataService.swift */,
+				34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -225,12 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B8CBC32B320F6C0051985E /* ListingImageDataService.swift in Sources */,
 				34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */,
 				344DC51A2B277D6100481B0E /* HomeView.swift in Sources */,
 				344DC5282B277F4700481B0E /* Color.swift in Sources */,
 				34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */,
 				344DC52E2B2780FF00481B0E /* Listing.swift in Sources */,
 				34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */,
+				34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */,
 				34F063AE2B30BFFB003966B9 /* ListingRowView.swift in Sources */,
 				34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */,
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
