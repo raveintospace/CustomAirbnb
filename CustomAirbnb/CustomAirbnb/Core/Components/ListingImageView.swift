@@ -21,11 +21,10 @@ struct ListingImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-            } else if viewModel.isLoading {
-                ProgressView()
             } else {
-                Image(systemName: "questionmark")
-                    .foregroundColor(Color.theme.secondaryText)
+                Image("airlogo")
+                    .resizable()
+                    .scaledToFit()
             }
         }
     }

@@ -37,7 +37,7 @@ class ListingImageDataService {
     
     private func downloadListingImage() {
         
-        guard let url = URL(string: listing.xlPictureURL ?? "") else { return }
+        guard let url = URL(string: listing.mediumURL ?? "") else { return }
         
         imageSubscription = NetworkManager.fetch(url: url)
             .tryMap({ (data) -> UIImage? in
