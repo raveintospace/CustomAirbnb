@@ -33,10 +33,14 @@ struct ListingRowView_Previews: PreviewProvider {
 extension ListingRowView {
     
     private var leftColumn: some View {
-        Text(listing.name?.capitalized ?? "Airbnb Property")
-            .font(.headline)
-            .padding(.leading, 6)
-            .foregroundColor(Color.theme.accent)
+        VStack(alignment: .leading, spacing: 3) {
+            Text(listing.name?.capitalized ?? "Airbnb Property")
+                .font(.headline)
+            
+            Text(listing.neighbourhood?.capitalized ?? "Neighbourhood n/a")
+                .font(.caption)
+        }
+        .foregroundColor(Color.theme.accent)
     }
     
     private var rightColumn: some View {
