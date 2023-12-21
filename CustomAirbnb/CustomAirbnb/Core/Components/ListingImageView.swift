@@ -9,11 +9,24 @@ import SwiftUI
 
 struct ListingImageView: View {
     
-    let listing: Listing
+    @StateObject var viewModel: ListingImageViewModel
+    
+    init(listing: Listing) {
+        _viewModel = StateObject(wrappedValue: ListingImageViewModel(listing: listing))
+    }
     
     var body: some View {
         ZStack {
-            
+            if let image = viewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+            } else if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Image(systemName: "questionmark")
+                    .foregroundColor(Color.theme.secondaryText)
+            }
         }
     }
 }

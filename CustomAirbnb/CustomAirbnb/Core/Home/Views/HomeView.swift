@@ -51,9 +51,10 @@ extension HomeView {
     private var dummyList: some View {
         List {
             ForEach(viewModel.allListings) { listing in
-                Text(listing.summary ?? "no name")
-                    .multilineTextAlignment(.center)
+                ListingRowView(listing: listing)
             }
+            .listRowBackground(Color.theme.background)
         }
+        .listStyle(.plain)
     }
 }
