@@ -36,6 +36,7 @@ extension ListingRowView {
         VStack(alignment: .leading, spacing: 3) {
             Text(listing.name?.capitalized ?? "Airbnb Property")
                 .font(.headline)
+                .lineLimit(2)
             
             Text(listing.neighbourhood?.capitalized ?? "Neighbourhood n/a")
                 .font(.caption)
