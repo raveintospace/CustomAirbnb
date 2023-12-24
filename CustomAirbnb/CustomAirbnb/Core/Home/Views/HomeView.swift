@@ -25,7 +25,7 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(isPresented: $showDetailView) {
-                    Rectangle()
+                    DetailLoadingView(listing: $selectedListing)
                 }
         }
     }
