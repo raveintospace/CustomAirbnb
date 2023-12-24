@@ -127,6 +127,7 @@
 			children = (
 				34B8CBBF2B320E570051985E /* Components */,
 				344DC5292B27800700481B0E /* Home */,
+				348A574D2B38519F007FBB9B /* Detail */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -146,6 +147,13 @@
 				344DC52D2B2780FF00481B0E /* Listing.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		348A574D2B38519F007FBB9B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		34B8CBBF2B320E570051985E /* Components */ = {

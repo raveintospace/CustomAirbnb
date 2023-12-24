@@ -10,16 +10,23 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var viewModel: HomeViewModel
+    @State private var selectedListing: Listing? = nil
+    @State private var showDetailView: Bool = false
     
     var body: some View {
-        ZStack {
-            Color.theme.background
-                .ignoresSafeArea()
-            
-            VStack {
-                homeHeader
-                dummyList
+        NavigationStack {
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                VStack {
+                    homeHeader
+                    dummyList
+                }
             }
+            .navigationDestination(isPresented: $showDetailView) {
+                    Rectangle()
+                }
         }
     }
 }
@@ -52,9 +59,17 @@ extension HomeView {
         List {
             ForEach(viewModel.allListings) { listing in
                 ListingRowView(listing: listing)
+                    .onTapGesture {
+                        segue(listing: listing)
+                    }
             }
             .listRowBackground(Color.theme.background)
         }
         .listStyle(.plain)
+    }
+    
+    private func segue(listing: Listing) {
+        selectedListing = listing
+        showDetailView.toggle()
     }
 }
