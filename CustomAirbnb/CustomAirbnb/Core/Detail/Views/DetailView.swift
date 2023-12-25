@@ -30,9 +30,12 @@ struct DetailView: View {
     }
     
     var body: some View {
-        VStack {
-            Text(viewModel.listing.name ?? "No name")
-            Text(viewModel.listing.hostName ?? "No hostName")
+        ScrollView {
+            VStack {
+                ImagesSlider(listing: viewModel.listing)
+                Text(viewModel.listing.name ?? "No name")
+                Text(viewModel.listing.hostName ?? "No hostName")
+            }
         }
     }
 }
