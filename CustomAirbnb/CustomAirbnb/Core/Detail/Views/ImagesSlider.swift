@@ -24,14 +24,18 @@ struct ImagesSlider: View {
                         topTrailingRadius: 10
                     )
                 )
-            
+            // if host info is available
             ZStack {
                 Rectangle()
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .foregroundColor(Color.theme.airRed)
-                Text(listing.id)
-                    .foregroundStyle(Color.theme.accent)
+                HStack {
+                    Text(listing.id)
+                        .foregroundStyle(Color.theme.accent)
+                    Spacer()
+                }
+                .padding(.horizontal, 15)
             }
         }
     }
