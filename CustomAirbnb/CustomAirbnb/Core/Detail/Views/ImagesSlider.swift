@@ -25,7 +25,6 @@ struct ImagesSlider: View {
                     )
                 )
             
-            // if host info is available
             if let hostWebsite = listing.hostURL {
                 ZStack {
                     Rectangle()
@@ -34,10 +33,10 @@ struct ImagesSlider: View {
                         .foregroundColor(Color.theme.airRed)
                     HStack {
                         Image(systemName: "person")
-                        Link("Host profile", destination: URL(string: hostWebsite)!)
+                        Link("Airbnb Host Profile", destination: URL(string: hostWebsite)!)
                         Spacer()
                     }
-                    .foregroundStyle(Color.theme.accent)
+                    .foregroundStyle(Color.white)
                     .padding(.horizontal, 15)
                 }
             }
