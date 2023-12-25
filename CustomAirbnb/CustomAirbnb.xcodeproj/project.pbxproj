@@ -181,11 +181,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		34B8CBBF2B320E570051985E /* Components */ = {
+		34B762932B39DCB300B026AA /* ListingImage */ = {
 			isa = PBXGroup;
 			children = (
 				34A1EFF02B34AE3300E1F948 /* ListingImageViewModel.swift */,
 				34B8CBC02B320E700051985E /* ListingImageView.swift */,
+			);
+			path = ListingImage;
+			sourceTree = "<group>";
+		};
+		34B762942B39DD2F00B026AA /* HostImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HostImage;
+			sourceTree = "<group>";
+		};
+		34B8CBBF2B320E570051985E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				34B762942B39DD2F00B026AA /* HostImage */,
+				34B762932B39DCB300B026AA /* ListingImage */,
 			);
 			path = Components;
 			sourceTree = "<group>";
