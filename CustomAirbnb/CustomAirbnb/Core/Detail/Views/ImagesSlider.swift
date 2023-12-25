@@ -24,18 +24,22 @@ struct ImagesSlider: View {
                         topTrailingRadius: 10
                     )
                 )
+            
             // if host info is available
-            ZStack {
-                Rectangle()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .foregroundColor(Color.theme.airRed)
-                HStack {
-                    Text(listing.id)
-                        .foregroundStyle(Color.theme.accent)
-                    Spacer()
+            if let hostWebsite = listing.hostURL {
+                ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .foregroundColor(Color.theme.airRed)
+                    HStack {
+                        Image(systemName: "person")
+                        Link("Host profile", destination: URL(string: hostWebsite)!)
+                        Spacer()
+                    }
+                    .foregroundStyle(Color.theme.accent)
+                    .padding(.horizontal, 15)
                 }
-                .padding(.horizontal, 15)
             }
         }
     }
