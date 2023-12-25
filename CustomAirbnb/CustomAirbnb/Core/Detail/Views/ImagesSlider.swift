@@ -12,13 +12,27 @@ struct ImagesSlider: View {
     let listing: Listing
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Rectangle()
+                .foregroundStyle(Color.green)
                 .frame(height: 400)
-                .padding(.horizontal, 1)
-                .cornerRadius(10)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 10
+                    )
+                )
             
-            Text(listing.id)
+            ZStack {
+                Rectangle()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .foregroundColor(Color.theme.airRed)
+                Text(listing.id)
+                    .foregroundStyle(Color.theme.accent)
+            }
         }
     }
 }

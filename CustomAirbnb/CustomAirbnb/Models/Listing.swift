@@ -99,6 +99,7 @@ struct Listing: Codable, Identifiable {
     let hostName: String?
     let hostSince: String?
     let hostThumbnailURL: String?
+    let hostURL: String?
     
     enum CodingKeys: String, CodingKey {
         case id, name, summary, neighbourhood, price
@@ -110,5 +111,6 @@ struct Listing: Codable, Identifiable {
         case hostName = "host_name"
         case hostSince = "host_since"
         case hostThumbnailURL = "host_thumbnail_url"
+        case hostURL = "host_url"
     }
 }
