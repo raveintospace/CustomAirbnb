@@ -31,10 +31,11 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 ImagesSlider(listing: viewModel.listing)
-                Text(viewModel.listing.name ?? "No name")
-                Text(viewModel.listing.hostName ?? "No hostName")
+                aptInfo
+                Divider()
+                    .overlay(Color.theme.airRed)
             }
         }
     }
@@ -45,5 +46,27 @@ struct DetailView_Previews: PreviewProvider {
         NavigationStack {
             DetailView(listing: dev.listing)
         }
+    }
+}
+
+extension DetailView {
+    
+    private var aptInfo: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(viewModel.listing.name ?? "Name n/a")
+                .font(.title)
+                .bold()
+            if let price = viewModel.listing.price {
+                Text("Daily price: \(price) €")
+                    .font(.title2)
+            } else {
+                Text("Price n/a")
+                    .font(.title3)
+            }
+            Text(viewModel.listing.neighbourhood ?? "Neighbourhood n/a")
+                .font(.system(size: 15))
+                .foregroundStyle(Color.theme.secondaryText)
+        }
+        .padding()
     }
 }
