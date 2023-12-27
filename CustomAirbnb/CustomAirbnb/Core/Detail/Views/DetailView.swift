@@ -36,6 +36,9 @@ struct DetailView: View {
                 aptInfo
                 Divider()
                     .overlay(Color.theme.airRed)
+                HostInfoView(listing: viewModel.listing)
+                    .padding(.top, 5)
+                    .padding(.horizontal)
             }
         }
     }

@@ -99,6 +99,7 @@ struct Listing: Codable, Identifiable {
     let hostName: String?
     let hostThumbnailURL: String?
     let hostURL: String?
+    let hostListingsCount: Int
     let numberOfReviews: Int?
     let reviewScoresRating: Int?
     
@@ -113,6 +114,7 @@ struct Listing: Codable, Identifiable {
         case hostName = "host_name"
         case hostThumbnailURL = "host_thumbnail_url"
         case hostURL = "host_url"
+        case hostListingsCount = "host_listings_count"
         case numberOfReviews = "number_of_reviews"
         case reviewScoresRating = "review_scores_rating"
     }

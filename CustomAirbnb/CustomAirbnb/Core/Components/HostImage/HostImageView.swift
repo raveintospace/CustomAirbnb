@@ -10,6 +10,7 @@ import SwiftUI
 struct HostImageView: View {
     
     @StateObject var viewModel: HostImageViewModel
+    let circleSize: CGFloat = 65
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: HostImageViewModel(listing: listing))
@@ -21,13 +22,13 @@ struct HostImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 32, height: 32)
+                    .frame(width: circleSize, height: circleSize)
                     .clipShape(Circle())
             } else {
                 Image("hostPlaceholder")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 32, height: 32)
+                    .frame(width: circleSize, height: circleSize)
                     .clipShape(Circle())
             }
         }
