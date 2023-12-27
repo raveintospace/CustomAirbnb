@@ -33,7 +33,7 @@ class DeveloperPreview {
         neighbourhood: "El Poble-sec",
         price: 209,
         hostName: "Francisco",
-        hostThumbnailURL: "https://a0.muscache.com/im/pictures/b8e6d554-7efa-48eb-98d0-5926714fe335.jpg?aki_policy=profile_small", 
+        hostThumbnailURL: "https://a0.muscache.com/im/users/4101093/profile_pic/1352841808/original.jpg?aki_policy=profile_small", 
         hostURL: "https://www.airbnb.com/users/show/10188615",
         numberOfReviews: 87,
         reviewScoresRating: 46
