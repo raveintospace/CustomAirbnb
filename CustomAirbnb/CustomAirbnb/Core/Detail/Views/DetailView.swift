@@ -40,6 +40,9 @@ struct DetailView: View {
                 redDivider
                 descriptionTitle
                 ListingDescriptionView(listing: viewModel.listing)
+                // grid beds
+                redDivider
+                // button to report -> sheet as in wallapop
             }
         }
     }
