@@ -28,7 +28,6 @@ struct ImagesSlider: View {
             if let listingWebsite = listing.listingURL {
                 ZStack {
                     Rectangle()
-                        .frame(maxWidth: .infinity)
                         .frame(height: 50)
                         .foregroundColor(Color.theme.airRed)
                     HStack {

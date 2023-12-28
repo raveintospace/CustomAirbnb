@@ -34,8 +34,13 @@ struct ListingDescriptionView: View {
                     })
                     .tint(.blue)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
+            }
+            else {
+                Text("Description not available")
+                    .font(.callout)
+                    .foregroundColor(Color.theme.secondaryText)
+                    .padding()
             }
         }
     }
