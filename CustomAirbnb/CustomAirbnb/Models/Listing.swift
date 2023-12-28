@@ -87,7 +87,7 @@ struct Listing: Codable, Identifiable {
     let id: String
     let listingURL: String?
     let name: String?
-    let summary: String?
+    let description: String?
     let houseRules: String?
     let thumbnailURL: String?
     let mediumURL: String?
@@ -105,7 +105,7 @@ struct Listing: Codable, Identifiable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id, name, summary, neighbourhood, price
+        case id, name, description, neighbourhood, price
         case listingURL = "listing_url"
         case houseRules = "house_rules"
         case thumbnailURL = "thumbnail_url"

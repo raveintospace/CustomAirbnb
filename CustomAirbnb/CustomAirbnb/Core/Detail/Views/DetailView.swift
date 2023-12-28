@@ -34,11 +34,11 @@ struct DetailView: View {
             VStack(alignment: .leading) {
                 ImagesSlider(listing: viewModel.listing)
                 aptInfo
-                Divider()
-                    .overlay(Color.theme.airRed)
+                redDivider
                 HostInfoView(listing: viewModel.listing)
-                    .padding(.top, 5)
-                    .padding(.horizontal)
+                    .padding()
+                redDivider
+                ListingDescriptionView(listing: viewModel.listing)
             }
         }
     }
@@ -71,5 +71,10 @@ extension DetailView {
                 .foregroundStyle(Color.theme.secondaryText)
         }
         .padding()
+    }
+    
+    private var redDivider: some View {
+        Divider()
+            .overlay(Color.theme.airRed)
     }
 }
