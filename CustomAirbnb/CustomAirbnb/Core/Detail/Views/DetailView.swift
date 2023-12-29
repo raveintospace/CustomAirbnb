@@ -48,7 +48,7 @@ struct DetailView: View {
                 descriptionTitle
                 ListingDescriptionView(listing: viewModel.listing)
                 redDivider
-                listingGrid
+                ListingGridView(listing: viewModel.listing)
                 redDivider
                 // button to report -> sheet as in wallapop
             }
@@ -100,78 +100,11 @@ extension DetailView {
             .padding(.horizontal)
     }
     
-    private var capacityStat: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Guests")
-                .font(.headline)
-                .bold()
-            
-            HStack(spacing: 4) {
-                Image(systemName: "figure.stand")
-                Text("\(viewModel.listing.accommodates)")
-            }
-            .font(.system(size: 20))
-        }
-        .foregroundColor(Color.theme.accent)
-    }
-    
-    private var bedStat: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Beds")
-                .font(.headline)
-                .bold()
-            
-            HStack(spacing: 4) {
-                Image(systemName: "bed.double.circle")
-                Text("\(viewModel.listing.beds)")
-            }
-            .font(.system(size: 20))
-        }
-        .foregroundColor(Color.theme.accent)
-    }
-    
-    private var bedroomStat: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Bedrooms")
-                .font(.headline)
-                .bold()
-            
-            HStack(spacing: 4) {
-                Image(systemName: "door.left.hand.closed")
-                Text("\(viewModel.listing.bedrooms)")
-            }
-            .font(.system(size: 20))
-        }
-        .foregroundColor(Color.theme.accent)
-    }
-    
-    private var bathroomStat: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Bathrooms")
-                .font(.headline)
-                .bold()
-            
-            HStack(spacing: 4) {
-                Image(systemName: "toilet")
-                Text(viewModel.listing.bathrooms.asNumberStringRounded())
-            }
-            .font(.system(size: 20))
-        }
-        .foregroundColor(Color.theme.accent)
-    }
-    
-    private var listingGrid: some View {
-        LazyVGrid(
-            columns: columns,
-            alignment: .leading,
-            spacing: spacing,
-            pinnedViews: [],
-            content: {
-                capacityStat
-                bedStat
-                bedroomStat
-                bathroomStat
-            })
-        .padding()
+    private var reportButton: some View {
+        Button(action: {
+            debugPrint("report button pressed")
+        }, label: {
+            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+        })
     }
 }
