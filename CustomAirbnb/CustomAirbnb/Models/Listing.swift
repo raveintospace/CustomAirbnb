@@ -94,7 +94,7 @@ struct Listing: Codable, Identifiable {
     let neighbourhood: String?
     let price: Int?
     
-    // Listing grid accommodates, bathrooms, bedrooms, beds
+    // Listing grid
     let accommodates: Int
     let bathrooms: Double
     let bedrooms: Int

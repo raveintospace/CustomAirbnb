@@ -23,6 +23,13 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     
+    // properties for LazyVGrid
+    private let columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    private let spacing: CGFloat = 30
+    
     @StateObject private var viewModel: DetailViewModel
     
     init(listing: Listing) {
@@ -40,7 +47,8 @@ struct DetailView: View {
                 redDivider
                 descriptionTitle
                 ListingDescriptionView(listing: viewModel.listing)
-                // grid beds
+                redDivider
+                listingGrid
                 redDivider
                 // button to report -> sheet as in wallapop
             }
@@ -90,5 +98,48 @@ extension DetailView {
             .padding(.top, 5)
             .padding(.bottom, -5)
             .padding(.horizontal)
+    }
+    
+    private var capacityStat: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Guests")
+                .font(.headline)
+            
+            HStack(spacing: 4) {
+                Image(systemName: "figure.stand")
+                    .font(.caption)
+                Text("\(viewModel.listing.accommodates)")
+            }
+        }
+        .foregroundColor(Color.theme.accent)
+    }
+    
+    private var bedsStat: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Beds")
+                .font(.headline)
+            
+            HStack(spacing: 4) {
+                Image(systemName: "figure.stand")
+                    .font(.caption)
+                Text("\(viewModel.listing.beds)")
+            }
+        }
+        .foregroundColor(Color.theme.accent)
+    }
+    
+    private var listingGrid: some View {
+        LazyVGrid(
+            columns: columns,
+            alignment: .leading,
+            spacing: spacing,
+            pinnedViews: [],
+            content: {
+                capacityStat
+                capacityStat
+                capacityStat
+                capacityStat
+            })
+        .padding()
     }
 }
