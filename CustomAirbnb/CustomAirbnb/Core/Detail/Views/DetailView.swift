@@ -149,7 +149,7 @@ extension DetailView {
             
             HStack(spacing: 4) {
                 Image(systemName: "toilet")
-                Text("\(viewModel.listing.bathrooms)")
+                Text(viewModel.listing.bathrooms.asNumberString())
             }
             .font(.system(size: 20))
         }
