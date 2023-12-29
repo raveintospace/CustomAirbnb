@@ -104,6 +104,7 @@ extension DetailView {
         VStack(alignment: .leading, spacing: 4) {
             Text("Guests")
                 .font(.headline)
+                .bold()
             
             HStack(spacing: 4) {
                 Image(systemName: "figure.stand")
@@ -118,6 +119,7 @@ extension DetailView {
         VStack(alignment: .leading, spacing: 4) {
             Text("Beds")
                 .font(.headline)
+                .bold()
             
             HStack(spacing: 4) {
                 Image(systemName: "bed.double.circle")
@@ -132,6 +134,7 @@ extension DetailView {
         VStack(alignment: .leading, spacing: 4) {
             Text("Bedrooms")
                 .font(.headline)
+                .bold()
             
             HStack(spacing: 4) {
                 Image(systemName: "door.left.hand.closed")
@@ -146,10 +149,11 @@ extension DetailView {
         VStack(alignment: .leading, spacing: 4) {
             Text("Bathrooms")
                 .font(.headline)
+                .bold()
             
             HStack(spacing: 4) {
                 Image(systemName: "toilet")
-                Text(viewModel.listing.bathrooms.asNumberString())
+                Text(viewModel.listing.bathrooms.asNumberStringRounded())
             }
             .font(.system(size: 20))
         }

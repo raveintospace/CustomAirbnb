@@ -10,9 +10,10 @@ import Foundation
 extension Double {
     /// Convert a Double into a String representation
     /// ```
-    /// Convert 1.23456 to "1.2"
+    /// Convert 1.23456 to "1"
+    /// Convert 1.5 to "2"
     /// ```
-    func asNumberString() -> String {
-        return String(format: "%.1f", self)
+    func asNumberStringRounded() -> String {
+        return String(format: "%.0f", self.rounded())
     }
 }
