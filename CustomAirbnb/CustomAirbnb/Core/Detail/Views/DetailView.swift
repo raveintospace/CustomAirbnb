@@ -50,8 +50,9 @@ struct DetailView: View {
                 redDivider
                 ListingGridView(listing: viewModel.listing)
                 redDivider
-                // button to report -> sheet as in wallapop
             }
+            reportButton
+                .padding(.top, 5)
         }
     }
 }
@@ -104,7 +105,13 @@ extension DetailView {
         Button(action: {
             debugPrint("report button pressed")
         }, label: {
-            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+            HStack {
+                Image(systemName: "exclamationmark.shield")
+                Text("Report listing")
+            }
         })
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.capsule)
+        .tint(Color.theme.airRed)
     }
 }
