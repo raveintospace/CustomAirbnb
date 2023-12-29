@@ -88,12 +88,17 @@ struct Listing: Codable, Identifiable {
     let listingURL: String?
     let name: String?
     let description: String?
-    let houseRules: String?
     let thumbnailURL: String?
     let mediumURL: String?
     let xlPictureURL: String?
     let neighbourhood: String?
     let price: Int?
+    
+    // Listing grid accommodates, bathrooms, bedrooms, beds
+    let accommodates: Int
+    let bathrooms: Double
+    let bedrooms: Int
+    let beds: Int
     
     // Host details
     let hostName: String?
@@ -105,9 +110,8 @@ struct Listing: Codable, Identifiable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, neighbourhood, price
+        case id, name, description, neighbourhood, price, accommodates, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
-        case houseRules = "house_rules"
         case thumbnailURL = "thumbnail_url"
         case mediumURL = "medium_url"
         case xlPictureURL = "xl_picture_url"
