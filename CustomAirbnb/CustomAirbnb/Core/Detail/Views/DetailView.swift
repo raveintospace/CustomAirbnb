@@ -40,7 +40,7 @@ struct DetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 ImagesSlider(listing: viewModel.listing)
-                aptInfo
+                apartmentInfo
                 redDivider
                 HostInfoView(listing: viewModel.listing)
                     .padding()
@@ -66,7 +66,7 @@ struct DetailView_Previews: PreviewProvider {
 
 extension DetailView {
     
-    private var aptInfo: some View {
+    private var apartmentInfo: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(viewModel.listing.name ?? "Name n/a")
                 .font(.title)

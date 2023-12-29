@@ -21,7 +21,7 @@ struct HomeView: View {
                 
                 VStack {
                     homeHeader
-                    dummyList
+                    apartmentsList
                 }
             }
             .navigationDestination(isPresented: $showDetailView) {
@@ -55,7 +55,7 @@ extension HomeView {
         .padding(.horizontal)
     }
     
-    private var dummyList: some View {
+    private var apartmentsList: some View {
         List {
             ForEach(viewModel.allListings) { listing in
                 ListingRowView(listing: listing)

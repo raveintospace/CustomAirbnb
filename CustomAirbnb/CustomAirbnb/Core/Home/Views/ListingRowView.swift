@@ -46,6 +46,6 @@ extension ListingRowView {
     
     private var rightColumn: some View {
         ListingImageView(listing: listing)
-            .frame(width: 90, height: 70)
+            .frame(width: 95, height: 70)
     }
 }

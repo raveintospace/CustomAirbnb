@@ -21,10 +21,12 @@ struct ListingImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 10))
             } else {
                 Image("airlogo")
                     .resizable()
                     .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 10))
             }
         }
     }
