@@ -107,23 +107,51 @@ extension DetailView {
             
             HStack(spacing: 4) {
                 Image(systemName: "figure.stand")
-                    .font(.caption)
                 Text("\(viewModel.listing.accommodates)")
             }
+            .font(.system(size: 20))
         }
         .foregroundColor(Color.theme.accent)
     }
     
-    private var bedsStat: some View {
+    private var bedStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Beds")
                 .font(.headline)
             
             HStack(spacing: 4) {
-                Image(systemName: "figure.stand")
-                    .font(.caption)
+                Image(systemName: "bed.double.circle")
                 Text("\(viewModel.listing.beds)")
             }
+            .font(.system(size: 20))
+        }
+        .foregroundColor(Color.theme.accent)
+    }
+    
+    private var bedroomStat: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Bedrooms")
+                .font(.headline)
+            
+            HStack(spacing: 4) {
+                Image(systemName: "door.left.hand.closed")
+                Text("\(viewModel.listing.bedrooms)")
+            }
+            .font(.system(size: 20))
+        }
+        .foregroundColor(Color.theme.accent)
+    }
+    
+    private var bathroomStat: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Bathrooms")
+                .font(.headline)
+            
+            HStack(spacing: 4) {
+                Image(systemName: "toilet")
+                Text("\(viewModel.listing.bathrooms)")
+            }
+            .font(.system(size: 20))
         }
         .foregroundColor(Color.theme.accent)
     }
@@ -136,9 +164,9 @@ extension DetailView {
             pinnedViews: [],
             content: {
                 capacityStat
-                capacityStat
-                capacityStat
-                capacityStat
+                bedStat
+                bedroomStat
+                bathroomStat
             })
         .padding()
     }
