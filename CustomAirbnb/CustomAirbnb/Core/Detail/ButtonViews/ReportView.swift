@@ -11,42 +11,48 @@ struct ReportView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var showReportAlert: Bool = false
+    
     var body: some View {
         NavigationStack {
-            List {
-                jokeReason
-                spamReason
-                doubledReason
-                explicitReason
-                photoReason
-                forbiddenReason
-                
-            }
-            .foregroundStyle(Color.theme.secondaryText)
-            .font(.system(size: 20))
-            .padding(.top, 5)
-            .listStyle(.plain)
-            
-            .onTapGesture {
-                debugPrint("report done")
-            }
-            
-            .background(
+            ZStack {
                 Color.theme.background
                     .ignoresSafeArea()
-            )
-            .navigationTitle("Report listing")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }, label: {
-                        Image(systemName: "xmark")
-                            .font(.headline)
-                    })
+                
+                List {
+                    jokeReason
+                    spamReason
+                    doubledReason
+                    explicitReason
+                    photoReason
+                    forbiddenReason
                 }
-            })
+                .foregroundStyle(Color.theme.secondaryText)
+                .font(.system(size: 20))
+                .padding(.top, 5)
+                .listStyle(.plain)
+                
+                .onTapGesture {
+                    showReportAlert = true
+                }
+                .alert(isPresented: $showReportAlert) {
+                    Alert(
+                        title: Text("Report listing"),
+                        message: Text("Are you sure you want to report this listing"),
+                        primaryButton: .default(Text("Report")) {
+                            dismiss()
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+                .navigationTitle("Reason to report")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        dismissButton
+                    }
+                })
+            }
         }
     }
 }
@@ -73,6 +79,7 @@ extension ReportView {
             Image(systemName: "s.circle.fill")
             Text("Spam")
                 .padding(.leading, 5)
+            Spacer()
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
@@ -118,5 +125,14 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+    }
+    
+    private var dismissButton: some View {
+        Button(action: {
+            dismiss()
+        }, label: {
+            Image(systemName: "xmark")
+                .font(.headline)
+        })
     }
 }
