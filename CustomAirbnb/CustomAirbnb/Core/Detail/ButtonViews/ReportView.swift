@@ -20,7 +20,7 @@ struct ReportView: View {
                     .ignoresSafeArea()
                 
                 List {
-                    jokeReason
+                    ReportRowView(reason: "Joke", icon: "mustache.fill")
                     spamReason
                     doubledReason
                     explicitReason
@@ -32,9 +32,6 @@ struct ReportView: View {
                 .padding(.top, 5)
                 .listStyle(.plain)
                 
-                .onTapGesture {
-                    showReportAlert = true
-                }
                 .alert(isPresented: $showReportAlert) {
                     Alert(
                         title: Text("Report listing"),
@@ -72,6 +69,9 @@ extension ReportView {
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
         .listRowBackground(Color.theme.background)
+        .onTapGesture {
+            showReportAlert = true
+        }
     }
     
     private var spamReason: some View {

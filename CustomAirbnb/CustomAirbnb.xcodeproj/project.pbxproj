@@ -27,6 +27,7 @@
 		34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC02B320E700051985E /* ListingImageView.swift */; };
 		34B8CBC32B320F6C0051985E /* ListingImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */; };
 		34D358182B40625100255E11 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358172B40625100255E11 /* ReportView.swift */; };
+		34D3581A2B4098F800255E11 /* ReportRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358192B4098F800255E11 /* ReportRowView.swift */; };
 		34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */; };
 		34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A62B30B646003966B9 /* NetworkManager.swift */; };
 		34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A92B30B69F003966B9 /* ListingDataService.swift */; };
@@ -58,6 +59,7 @@
 		34B8CBC02B320E700051985E /* ListingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageView.swift; sourceTree = "<group>"; };
 		34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageDataService.swift; sourceTree = "<group>"; };
 		34D358172B40625100255E11 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		34D358192B4098F800255E11 /* ReportRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRowView.swift; sourceTree = "<group>"; };
 		34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsResponse.swift; sourceTree = "<group>"; };
 		34F063A62B30B646003966B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F063A92B30B69F003966B9 /* ListingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataService.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				34D358172B40625100255E11 /* ReportView.swift */,
+				34D358192B4098F800255E11 /* ReportRowView.swift */,
 			);
 			path = ButtonViews;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				349588DD2B3F40BF00B55884 /* ListingGridView.swift in Sources */,
 				34F063B02B30C041003966B9 /* PreviewProvider.swift in Sources */,
 				348A57532B3852DD007FBB9B /* DetailViewModel.swift in Sources */,
+				34D3581A2B4098F800255E11 /* ReportRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
