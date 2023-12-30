@@ -11,7 +11,7 @@ import SwiftUI
 struct DetailLoadingView: View {
     
     @Binding var listing: Listing?
-    
+        
     var body: some View {
         ZStack {
             if let listing = listing {
@@ -36,20 +36,30 @@ struct DetailView: View {
         _viewModel = StateObject(wrappedValue: DetailViewModel(listing: listing))
     }
     
+    @State private var showReportView: Bool = false
+    
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
-                ImagesSlider(listing: viewModel.listing)
-                apartmentInfo
-                redDivider
-                HostInfoView(listing: viewModel.listing)
-                    .padding()
-                redDivider
-                descriptionTitle
-                ListingDescriptionView(listing: viewModel.listing)
-                redDivider
-                ListingGridView(listing: viewModel.listing)
-                redDivider
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                    .sheet(isPresented: $showReportView) {
+                        ReportView()
+                    }
+                
+                VStack(alignment: .leading) {
+                    ImagesSlider(listing: viewModel.listing)
+                    apartmentInfo
+                    redDivider
+                    HostInfoView(listing: viewModel.listing)
+                        .padding()
+                    redDivider
+                    descriptionTitle
+                    ListingDescriptionView(listing: viewModel.listing)
+                    redDivider
+                    ListingGridView(listing: viewModel.listing)
+                    redDivider
+                }
             }
             reportButton
                 .padding(.top, 5)
@@ -103,7 +113,7 @@ extension DetailView {
     
     private var reportButton: some View {
         Button(action: {
-            debugPrint("report button pressed")
+            showReportView.toggle()
         }, label: {
             HStack {
                 Image(systemName: "exclamationmark.shield")
