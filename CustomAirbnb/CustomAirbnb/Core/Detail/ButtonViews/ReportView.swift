@@ -19,6 +19,7 @@ struct ReportView: View {
             }
             .padding(.top, 5)
             .listStyle(.plain)
+            
             .background(
                 Color.theme.background
                     .ignoresSafeArea()
@@ -46,12 +47,15 @@ struct ReportView: View {
 extension ReportView {
     
     private var jokeReason: some View {
-        HStack() {
+        HStack(spacing: 15) {
+            Text("")    // -> necessary for RowSeparator to occupy the whole screen
             Image(systemName: "mustache.fill")
             Text("Joke")
         }
+        .foregroundStyle(Color.theme.secondaryText)
+        .font(.system(size: 20))
         .listRowSeparatorTint(Color.theme.airRed)
-        .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+        .listRowInsets(EdgeInsets())
         .onTapGesture {
             debugPrint("report done")
         }
