@@ -17,8 +17,14 @@ struct ReportView: View {
                 jokeReason
                 jokeReason
             }
+            .foregroundStyle(Color.theme.secondaryText)
+            .font(.system(size: 20))
             .padding(.top, 5)
             .listStyle(.plain)
+            
+            .onTapGesture {
+                debugPrint("report done")
+            }
             
             .background(
                 Color.theme.background
@@ -52,12 +58,7 @@ extension ReportView {
             Image(systemName: "mustache.fill")
             Text("Joke")
         }
-        .foregroundStyle(Color.theme.secondaryText)
-        .font(.system(size: 20))
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
-        .onTapGesture {
-            debugPrint("report done")
-        }
     }
 }
