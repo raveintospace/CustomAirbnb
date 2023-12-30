@@ -67,6 +67,28 @@ extension ReportView {
         .listRowInsets(EdgeInsets())
     }
     
+    private var spamReason: some View {
+        HStack(spacing: 15) {
+            Text("")
+            Image(systemName: "s.circle.fill")
+            Text("Spam")
+                .padding(.leading, 5)
+        }
+        .listRowSeparatorTint(Color.theme.airRed)
+        .listRowInsets(EdgeInsets())
+    }
+    
+    private var doubledReason: some View {
+        HStack(spacing: 15) {
+            Text("")
+            Image(systemName: "repeat.1.circle.fill")
+            Text("Doubled listing")
+                .padding(.leading, 5)
+        }
+        .listRowSeparatorTint(Color.theme.airRed)
+        .listRowInsets(EdgeInsets())
+    }
+    
     private var explicitReason: some View {
         HStack(spacing: 15) {
             Text("")
@@ -87,33 +109,11 @@ extension ReportView {
         .listRowInsets(EdgeInsets())
     }
     
-    private var doubledReason: some View {
-        HStack(spacing: 15) {
-            Text("")
-            Image(systemName: "repeat.1.circle.fill")
-            Text("Doubled listing")
-                .padding(.leading, 5)
-        }
-        .listRowSeparatorTint(Color.theme.airRed)
-        .listRowInsets(EdgeInsets())
-    }
-    
     private var forbiddenReason: some View {
         HStack(spacing: 15) {
             Text("")
             Image(systemName: "xmark.seal.fill")
             Text("Forbidded content or service")
-                .padding(.leading, 5)
-        }
-        .listRowSeparatorTint(Color.theme.airRed)
-        .listRowInsets(EdgeInsets())
-    }
-    
-    private var spamReason: some View {
-        HStack(spacing: 15) {
-            Text("")
-            Image(systemName: "s.circle.fill")
-            Text("Spam")
                 .padding(.leading, 5)
         }
         .listRowSeparatorTint(Color.theme.airRed)
