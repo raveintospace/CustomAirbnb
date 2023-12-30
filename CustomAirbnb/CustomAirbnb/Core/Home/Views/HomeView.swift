@@ -59,6 +59,8 @@ extension HomeView {
         List {
             ForEach(viewModel.allListings) { listing in
                 ListingRowView(listing: listing)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .listRowSeparatorTint(Color.theme.airRed)
                     .onTapGesture {
                         segue(listing: listing)
                     }
