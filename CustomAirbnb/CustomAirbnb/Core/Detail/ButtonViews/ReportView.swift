@@ -71,6 +71,7 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var spamReason: some View {
@@ -79,10 +80,10 @@ extension ReportView {
             Image(systemName: "s.circle.fill")
             Text("Spam")
                 .padding(.leading, 5)
-            Spacer()
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var doubledReason: some View {
@@ -94,6 +95,7 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var explicitReason: some View {
@@ -104,6 +106,7 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var photoReason: some View {
@@ -114,6 +117,7 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var forbiddenReason: some View {
@@ -125,6 +129,7 @@ extension ReportView {
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.theme.background)
     }
     
     private var dismissButton: some View {
