@@ -11,6 +11,8 @@ struct ReportView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @StateObject private var viewModel: DetailViewModel
+    
     @State private var showReportAlert: Bool = false
     
     var body: some View {

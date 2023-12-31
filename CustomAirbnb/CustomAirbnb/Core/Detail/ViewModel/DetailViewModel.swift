@@ -11,6 +11,8 @@ class DetailViewModel: ObservableObject {
     
     @Published var listing: Listing
     
+    let ReportReasonArray = ReportReason.getReportReasons()
+    
     init(listing: Listing) {
         self.listing = listing
     }
