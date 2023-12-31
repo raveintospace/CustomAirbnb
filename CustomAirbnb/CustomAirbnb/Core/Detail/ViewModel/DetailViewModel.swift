@@ -7,11 +7,11 @@
 
 import Foundation
 
-class DetailViewModel: ObservableObject {
+final class DetailViewModel: ObservableObject {
     
     @Published var listing: Listing
     
-    let ReportReasonArray = ReportReason.getReportReasons()
+    let reportReasons = ReportReason.stub
     
     init(listing: Listing) {
         self.listing = listing

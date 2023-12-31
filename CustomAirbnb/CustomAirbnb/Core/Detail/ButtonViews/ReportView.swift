@@ -22,7 +22,7 @@ struct ReportView: View {
                     .ignoresSafeArea()
                 
                 List {
-                    ForEach(viewModel.ReportReasonArray) { reportReason in
+                    ForEach(viewModel.reportReasons) { reportReason in
                         ReportRowView(reason: reportReason.reason, icon: reportReason.icon)
                             .onTapGesture {
                                 showReportAlert = true

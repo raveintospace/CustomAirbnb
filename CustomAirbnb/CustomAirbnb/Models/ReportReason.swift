@@ -11,17 +11,20 @@ struct ReportReason: Identifiable {
     let id = UUID()
     let reason: String
     let icon: String
-    
-    static func getReportReasons() -> [Self] {
-        return [
+}
+
+#if DEBUG
+extension ReportReason {
+    static var stub: [ReportReason] {
+        [
             ReportReason(reason: "Joke", icon: "mustache.fill"),
             ReportReason(reason: "Spam", icon: "s.circle.fill"),
             ReportReason(reason: "Doubled listing", icon: "repeat.1.circle.fill"),
             ReportReason(reason: "Explicit content", icon: "eye.trianglebadge.exclamationmark.fill"),
             ReportReason(reason: "Photos don't match", icon: "camera.fill"),
             ReportReason(reason: "Forbidden content or service", icon: "xmark.seal.fill")
-            ]
+        ]
     }
 }
-
+#endif
 
