@@ -13,7 +13,7 @@ struct ReportRowView: View {
     let icon: String
     
     var body: some View {
-        HStack(spacing: 15) {
+        HStack() {
             Text("")    // -> necessary for RowSeparator to occupy the whole screen
             Image(systemName: icon)
             Text(reason)
@@ -25,5 +25,12 @@ struct ReportRowView: View {
 }
 
 #Preview {
-    ReportRowView(reason: "Joke", icon: "mustache.fill")
+    VStack(alignment: .leading) {
+        ReportRowView(reason: "Joke", icon: "mustache.fill")
+        ReportRowView(reason: "Spam", icon: "s.circle.fill")
+        ReportRowView(reason: "Doubled listing", icon: "repeat.1.circle.fill")
+        ReportRowView(reason: "Explicit content", icon: "eye.trianglebadge.exclamationmark.fill")
+        ReportRowView(reason: "Photos don't match", icon: "camera.fill")
+        ReportRowView(reason: "Forbidden content or service", icon: "xmark.seal.fill")
+    }
 }

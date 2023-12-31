@@ -23,7 +23,7 @@ struct ReportView: View {
                 
                 List {
                     ForEach(viewModel.ReportReasonArray) { reportReason in
-                        ReportRowView(reason: reportReason.name, icon: reportReason.icon)
+                        ReportRowView(reason: reportReason.reason, icon: reportReason.icon)
                     }
                 }
                 .foregroundStyle(Color.theme.secondaryText)
