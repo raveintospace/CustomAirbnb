@@ -24,11 +24,10 @@ struct ReportView: View {
                 List {
                     ForEach(viewModel.ReportReasonArray) { reportReason in
                         ReportRowView(reason: reportReason.reason, icon: reportReason.icon)
+                            .onTapGesture {
+                                showReportAlert = true
+                            }
                     }
-                    .onTapGesture {
-                        showReportAlert = true
-                    }
-
                 }
                 .foregroundStyle(Color.theme.secondaryText)
                 .font(.system(size: 20))
