@@ -14,12 +14,11 @@ struct ReportRowView: View {
     
     var body: some View {
         HStack() {
-            Text("")    // -> necessary for RowSeparator to occupy the whole screen
             Image(systemName: icon)
+                .frame(width: 30)
             Text(reason)
         }
         .listRowSeparatorTint(Color.theme.airRed)
-        .listRowInsets(EdgeInsets())
         .listRowBackground(Color.theme.background)
     }
 }
