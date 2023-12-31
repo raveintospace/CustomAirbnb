@@ -44,7 +44,7 @@ struct DetailView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                     .sheet(isPresented: $showReportView) {
-                        ReportView()
+                        ReportView(viewModel: viewModel)
                     }
                 
                 VStack(alignment: .leading) {

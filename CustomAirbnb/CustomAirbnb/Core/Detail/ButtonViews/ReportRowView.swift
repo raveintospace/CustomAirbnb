@@ -15,8 +15,8 @@ struct ReportRowView: View {
     var body: some View {
         HStack(spacing: 15) {
             Text("")    // -> necessary for RowSeparator to occupy the whole screen
-            Image(systemName: "mustache.fill")
-            Text("Joke")
+            Image(systemName: icon)
+            Text(reason)
         }
         .listRowSeparatorTint(Color.theme.airRed)
         .listRowInsets(EdgeInsets())

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReportReason {
+struct ReportReason: Identifiable {
     let id = UUID()
     let name: String
     let icon: String
