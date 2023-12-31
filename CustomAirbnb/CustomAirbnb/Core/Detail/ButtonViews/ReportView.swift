@@ -25,6 +25,10 @@ struct ReportView: View {
                     ForEach(viewModel.ReportReasonArray) { reportReason in
                         ReportRowView(reason: reportReason.reason, icon: reportReason.icon)
                     }
+                    .onTapGesture {
+                        showReportAlert = true
+                    }
+
                 }
                 .foregroundStyle(Color.theme.secondaryText)
                 .font(.system(size: 20))
