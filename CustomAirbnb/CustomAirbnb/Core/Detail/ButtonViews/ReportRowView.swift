@@ -17,7 +17,7 @@ struct ReportRowView: View {
             Text("") // -> separator occupies all width
             Image(systemName: icon)
                 .frame(width: 30)
-            Text(reason)
+            Text(reason)  
             Spacer()
         }
         .listRowSeparatorTint(Color.theme.airRed)
