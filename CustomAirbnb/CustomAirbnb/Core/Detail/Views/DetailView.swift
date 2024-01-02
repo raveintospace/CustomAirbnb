@@ -37,6 +37,7 @@ struct DetailView: View {
     }
     
     @State private var showReportView: Bool = false
+    @State private var showReportThanks: Bool = false
     
     var body: some View {
         ScrollView {
@@ -44,7 +45,7 @@ struct DetailView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                     .sheet(isPresented: $showReportView) {
-                        ReportView(viewModel: viewModel)
+                        ReportView(viewModel: viewModel, activateReportThanks: showReportThanks)
                     }
                 
                 VStack(alignment: .leading) {
@@ -123,5 +124,13 @@ extension DetailView {
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
         .tint(Color.theme.airRed)
+    }
+    
+    private func showReportThanks(response: ReportAction) {
+        switch response {
+        case .confirmed:
+            showReportThanks.toggle()
+            debugPrint("Say thanks")
+        }
     }
 }
