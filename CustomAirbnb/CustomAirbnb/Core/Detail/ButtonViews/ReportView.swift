@@ -34,6 +34,7 @@ struct ReportView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(selectedReportReason?.id == reportReason.id ? Color.theme.airRed : Color.clear, lineWidth: 1)
+                                    .padding(.horizontal, 4)
                                 )
                     }
                 }
