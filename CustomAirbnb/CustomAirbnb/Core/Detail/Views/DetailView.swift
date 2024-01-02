@@ -45,7 +45,7 @@ struct DetailView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                     .sheet(isPresented: $showReportView) {
-                        ReportView(viewModel: viewModel, activateReportThanks: showReportThanks)
+                        ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
                     }
                 
                 VStack(alignment: .leading) {
@@ -126,11 +126,8 @@ extension DetailView {
         .tint(Color.theme.airRed)
     }
     
-    private func showReportThanks(response: ReportAction) {
-        switch response {
-        case .confirmed:
+    private func activateReportThanks() {
             showReportThanks.toggle()
             debugPrint("Say thanks")
-        }
     }
 }

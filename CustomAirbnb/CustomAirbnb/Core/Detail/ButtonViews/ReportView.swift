@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum ReportAction {
-    case confirmed
-}
-
 struct ReportView: View {
     
     @Environment(\.dismiss) var dismiss
@@ -20,7 +16,8 @@ struct ReportView: View {
     @State private var selectedReportReason: ReportReason? = nil
     @State private var showReportAlert: Bool = false
     
-    var activateReportThanks: ((ReportAction) -> Void)?
+    //
+    var activateReportThanks: () -> Void
     
     var body: some View {
         NavigationStack {
@@ -55,7 +52,7 @@ struct ReportView: View {
                         message: Text("Are you sure you want to report this listing"),
                         primaryButton: .default(Text("Report")) {
                             dismiss()
-                            activateReportThanks?(.confirmed)
+                            self.activateReportThanks()
                         },
                         secondaryButton: .cancel() {
                             removeSelectedReportReason()
@@ -74,13 +71,13 @@ struct ReportView: View {
     }
 }
 
-struct ReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            ReportView(viewModel: DetailViewModel(listing: dev.listing))
-        }
-    }
-}
+//struct ReportView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            ReportView(viewModel: DetailViewModel(listing: dev.listing), activateReportThanksInDetail: self.activ)
+//        }
+//    }
+//}
 
 extension ReportView {
     
