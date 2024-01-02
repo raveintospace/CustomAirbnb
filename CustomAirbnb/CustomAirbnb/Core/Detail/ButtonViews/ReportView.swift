@@ -13,6 +13,7 @@ struct ReportView: View {
     
     @StateObject var viewModel: DetailViewModel
     
+    @State private var selectedReportReason: ReportReason? = nil
     @State private var showReportAlert: Bool = false
     
     var body: some View {
@@ -25,8 +26,15 @@ struct ReportView: View {
                     ForEach(viewModel.reportReasons) { reportReason in
                         ReportRowView(reason: reportReason.reason, icon: reportReason.icon)
                             .onTapGesture {
+                                withAnimation(.easeIn(duration: 0.1)) {
+                                    selectedReportReason = reportReason
+                                }
                                 showReportAlert = true
                             }
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(selectedReportReason?.id == reportReason.id ? Color.theme.airRed : Color.clear, lineWidth: 1)
+                                )
                     }
                 }
                 .foregroundStyle(Color.theme.secondaryText)
@@ -41,7 +49,9 @@ struct ReportView: View {
                         primaryButton: .default(Text("Report")) {
                             dismiss()
                         },
-                        secondaryButton: .cancel()
+                        secondaryButton: .cancel() {
+                            removeSelectedReportReason()
+                        }
                     )
                 }
                 .navigationTitle("Reason to report")
@@ -73,5 +83,9 @@ extension ReportView {
             Image(systemName: "xmark")
                 .font(.headline)
         })
+    }
+    
+    private func removeSelectedReportReason() {
+        selectedReportReason = nil
     }
 }
