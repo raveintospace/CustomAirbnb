@@ -41,12 +41,8 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            
-            if showReportThanks {
-                thanksRectangle
-            }
-            
             ZStack {
+                
                 Color.theme.background
                     .ignoresSafeArea()
                     .sheet(isPresented: $showReportView) {
@@ -66,7 +62,12 @@ struct DetailView: View {
                     ListingGridView(listing: viewModel.listing)
                     redDivider
                 }
+                
+                if showReportThanks {
+                    thanksRectangle
+                }
             }
+            
             reportButton
                 .padding(.top, 5)
         }
@@ -133,16 +134,18 @@ extension DetailView {
     
     private var thanksRectangle: some View {
         Rectangle()
-            .frame(height: 50).ignoresSafeArea()
+            .frame(height: 50)
             .frame(maxWidth: .infinity)
-            .foregroundStyle(Color.green)
+            .foregroundStyle(Color.green).opacity(0.8)
             .overlay(
                 HStack(spacing: 2) {
-                    Text("Thanks for reporting")
+                    Text("Listing reported, thanks")
                     Image(systemName: "checkmark.shield")
                 }
                 .foregroundStyle(Color.white)
+                .bold()
             )
+            .ignoresSafeArea()
     }
     
     private func activateReportThanks() {
