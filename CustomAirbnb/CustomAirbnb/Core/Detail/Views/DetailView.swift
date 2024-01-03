@@ -41,6 +41,11 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
+            
+            if showReportThanks {
+                thanksRectangle
+            }
+            
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()
@@ -126,8 +131,28 @@ extension DetailView {
         .tint(Color.theme.airRed)
     }
     
+    private var thanksRectangle: some View {
+        Rectangle()
+            .frame(height: 50).ignoresSafeArea()
+            .frame(maxWidth: .infinity)
+            .foregroundStyle(Color.green)
+            .overlay(
+                HStack(spacing: 2) {
+                    Text("Thanks for reporting")
+                    Image(systemName: "checkmark.shield")
+                }
+                .foregroundStyle(Color.white)
+            )
+    }
+    
     private func activateReportThanks() {
-            showReportThanks.toggle()
+            showReportThanks = true
             debugPrint("Say thanks")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeOut) {
+                showReportThanks = false
+            }
+        }
     }
 }

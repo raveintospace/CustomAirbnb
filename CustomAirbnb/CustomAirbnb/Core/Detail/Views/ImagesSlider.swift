@@ -14,7 +14,7 @@ struct ImagesSlider: View {
     var body: some View {
         VStack(spacing: 0) {
             Rectangle()
-                .foregroundStyle(Color.green)
+                .foregroundStyle(Color.yellow)
                 .frame(height: 400)
                 .clipShape(
                     .rect(
