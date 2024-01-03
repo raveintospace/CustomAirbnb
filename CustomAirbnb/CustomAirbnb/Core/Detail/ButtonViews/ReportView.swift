@@ -71,13 +71,15 @@ struct ReportView: View {
     }
 }
 
-//struct ReportView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            ReportView(viewModel: DetailViewModel(listing: dev.listing), activateReportThanksInDetail: self.activ)
-//        }
-//    }
-//}
+struct ReportView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        
+        NavigationStack {
+            ReportView(viewModel: DetailViewModel(listing: dev.listing), activateReportThanks: {})
+        }
+    }
+}
 
 extension ReportView {
     
