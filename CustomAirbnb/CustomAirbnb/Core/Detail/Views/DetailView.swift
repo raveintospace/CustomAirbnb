@@ -62,16 +62,14 @@ struct DetailView: View {
                         ListingGridView(listing: viewModel.listing)
                         redDivider
                     }
-                    
-                    if showReportThanks {
-                        thanksRectangle
-                            //.frame(height: geometry.size.height / 2, alignment: .bottom)
-                            .position(x: geometry.size.width / 2, y: geometry.size.height * 1.4)
-                    }
                 }
-                
                 reportButton
                     .padding(.top, 5)
+            }
+            .safeAreaInset(edge: .bottom) {
+                if showReportThanks {
+                    thanksRectangle
+                }
             }
         }
     }
@@ -136,6 +134,7 @@ extension DetailView {
         .tint(Color.theme.airRed)
     }
     
+    // mirar bottom del frame https://www.hackingwithswift.com/quick-start/swiftui/how-to-inset-the-safe-area-with-custom-content
     private var thanksRectangle: some View {
         Rectangle()
             .frame(height: 100)
@@ -149,7 +148,6 @@ extension DetailView {
                 .foregroundStyle(Color.white)
                 .bold()
             )
-            .ignoresSafeArea()
     }
     
     private func activateReportThanks() {
