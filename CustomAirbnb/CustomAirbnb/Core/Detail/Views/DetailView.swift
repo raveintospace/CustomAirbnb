@@ -40,36 +40,39 @@ struct DetailView: View {
     @State private var showReportThanks: Bool = false
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                
-                Color.theme.background
-                    .ignoresSafeArea()
-                    .sheet(isPresented: $showReportView) {
-                        ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
+        GeometryReader { geometry in
+            ScrollView {
+                ZStack {
+                    Color.theme.background
+                        .ignoresSafeArea()
+                        .sheet(isPresented: $showReportView) {
+                            ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
+                        }
+                    
+                    VStack(alignment: .leading) {
+                        ImagesSlider(listing: viewModel.listing)
+                        apartmentInfo
+                        redDivider
+                        HostInfoView(listing: viewModel.listing)
+                            .padding()
+                        redDivider
+                        descriptionTitle
+                        ListingDescriptionView(listing: viewModel.listing)
+                        redDivider
+                        ListingGridView(listing: viewModel.listing)
+                        redDivider
                     }
-                
-                VStack(alignment: .leading) {
-                    ImagesSlider(listing: viewModel.listing)
-                    apartmentInfo
-                    redDivider
-                    HostInfoView(listing: viewModel.listing)
-                        .padding()
-                    redDivider
-                    descriptionTitle
-                    ListingDescriptionView(listing: viewModel.listing)
-                    redDivider
-                    ListingGridView(listing: viewModel.listing)
-                    redDivider
+                    
+                    if showReportThanks {
+                        thanksRectangle
+                            //.frame(height: geometry.size.height / 2, alignment: .bottom)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height * 1.4)
+                    }
                 }
                 
-                if showReportThanks {
-                    thanksRectangle
-                }
+                reportButton
+                    .padding(.top, 5)
             }
-            
-            reportButton
-                .padding(.top, 5)
         }
     }
 }
@@ -135,7 +138,7 @@ extension DetailView {
     
     private var thanksRectangle: some View {
         Rectangle()
-            .frame(height: 50)
+            .frame(height: 100)
             .frame(maxWidth: .infinity)
             .foregroundStyle(Color.green).opacity(0.8)
             .overlay(
