@@ -89,6 +89,7 @@ extension DetailView {
             Text(viewModel.listing.name ?? "Name n/a")
                 .font(.title)
                 .bold()
+                .fixedSize(horizontal: false, vertical: true) // allows multiple text lines
             if let price = viewModel.listing.price {
                 Text("Daily price: \(price) €")
                     .font(.title2)

@@ -14,7 +14,7 @@ struct ReportRowView: View {
     
     var body: some View {
         HStack() {
-            Text("") // -> separator occupies all width
+            Text("") // separator occupies all width
             Image(systemName: icon)
                 .frame(width: 30)
             Text(reason)  
