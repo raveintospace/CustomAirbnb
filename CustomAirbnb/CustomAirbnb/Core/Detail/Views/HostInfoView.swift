@@ -54,7 +54,7 @@ extension HostInfoView {
         
         return stars.overlay(
             GeometryReader { g in
-                let width = 3 / CGFloat(5) * g.size.width
+                let width = listing.starsWidth / 5 * g.size.width
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .frame(width: width)
@@ -63,7 +63,7 @@ extension HostInfoView {
             }
                 .mask(stars)
         )
-        .foregroundColor(.gray)
+        .foregroundColor(.gray.opacity(0.3))
     }
     
     private var bookButton: some View {

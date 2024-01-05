@@ -125,7 +125,7 @@ struct Listing: Codable, Identifiable {
     
     var starsWidth: Double {
         if let score = reviewScoresRating {
-            return Double(score / 20)
+            return (Double(score) / Double(20))
         } else {
             return 0
         }
