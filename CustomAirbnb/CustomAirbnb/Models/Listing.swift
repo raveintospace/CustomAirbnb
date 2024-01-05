@@ -122,4 +122,12 @@ struct Listing: Codable, Identifiable {
         case numberOfReviews = "number_of_reviews"
         case reviewScoresRating = "review_scores_rating"
     }
+    
+    var starsWidth: Double {
+        if let score = reviewScoresRating {
+            return Double(score / 20)
+        } else {
+            return 0
+        }
+    }
 }

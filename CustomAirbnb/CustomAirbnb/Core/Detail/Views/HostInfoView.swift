@@ -48,7 +48,6 @@ extension HostInfoView {
         let stars = HStack(spacing: 0) {
             ForEach(0..<5, id: \.self) { _ in
                 Image(systemName: "star.fill")
-                    //.resizable()
                     .aspectRatio(contentMode: .fit)
             }
         }
