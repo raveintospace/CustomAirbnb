@@ -40,36 +40,34 @@ struct DetailView: View {
     @State private var showReportThanks: Bool = false
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                ZStack {
-                    Color.theme.background
-                        .ignoresSafeArea()
-                        .sheet(isPresented: $showReportView) {
-                            ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
-                        }
-                    
-                    VStack(alignment: .leading) {
-                        ImagesSlider(listing: viewModel.listing)
-                        apartmentInfo
-                        redDivider
-                        HostInfoView(listing: viewModel.listing)
-                            .padding()
-                        redDivider
-                        descriptionTitle
-                        ListingDescriptionView(listing: viewModel.listing)
-                        redDivider
-                        ListingGridView(listing: viewModel.listing)
-                        redDivider
+        ScrollView {
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                    .sheet(isPresented: $showReportView) {
+                        ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
                     }
+                
+                VStack(alignment: .leading) {
+                    ImagesSlider(listing: viewModel.listing)
+                    apartmentInfo
+                    redDivider
+                    HostInfoView(listing: viewModel.listing)
+                        .padding()
+                    redDivider
+                    descriptionTitle
+                    ListingDescriptionView(listing: viewModel.listing)
+                    redDivider
+                    ListingGridView(listing: viewModel.listing)
+                    redDivider
                 }
-                reportButton
-                    .padding(.top, 5)
             }
-            .safeAreaInset(edge: .bottom) {
-                if showReportThanks {
-                    thanksRectangle
-                }
+            reportButton
+                .padding(.top, 5)
+        }
+        .safeAreaInset(edge: .bottom) {
+            if showReportThanks {
+                thanksRectangle
             }
         }
     }
@@ -134,7 +132,6 @@ extension DetailView {
         .tint(Color.theme.airRed)
     }
     
-    // mirar bottom del frame https://www.hackingwithswift.com/quick-start/swiftui/how-to-inset-the-safe-area-with-custom-content
     private var thanksRectangle: some View {
         Rectangle()
             .frame(height: 100)
