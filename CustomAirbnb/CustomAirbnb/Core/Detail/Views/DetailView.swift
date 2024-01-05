@@ -65,7 +65,7 @@ struct DetailView: View {
             reportButton
                 .padding(.top, 5)
         }
-        .safeAreaInset(edge: .top) {
+        .safeAreaInset(edge: .bottom) {
             if showReportThanks {
                 thanksRectangle
             }
@@ -137,7 +137,7 @@ extension DetailView {
             .ignoresSafeArea()
             .frame(height: 75)
             .frame(maxWidth: .infinity)
-            .foregroundStyle(Color.green).opacity(0.8)
+            .foregroundStyle(Color.green).opacity(0.9)
             .overlay(
                 HStack(spacing: 2) {
                     Text("Listing reported, thanks")
@@ -145,12 +145,15 @@ extension DetailView {
                 }
                 .foregroundStyle(Color.white)
                 .bold()
+                .font(.system(size: 18))
             )
     }
     
     private func activateReportThanks() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             showReportThanks = true
             debugPrint("Say thanks")
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeOut) {

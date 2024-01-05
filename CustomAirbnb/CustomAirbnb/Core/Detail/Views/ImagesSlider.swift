@@ -33,6 +33,7 @@ struct ImagesSlider: View {
                     HStack {
                         Image(systemName: "house")
                         Link("Listing Website", destination: URL(string: listingWebsite)!)
+                            .bold()
                         Spacer()
                     }
                     .foregroundStyle(Color.white)
