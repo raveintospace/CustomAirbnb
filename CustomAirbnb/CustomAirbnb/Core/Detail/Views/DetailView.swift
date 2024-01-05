@@ -65,7 +65,7 @@ struct DetailView: View {
             reportButton
                 .padding(.top, 5)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .top) {
             if showReportThanks {
                 thanksRectangle
             }
@@ -134,7 +134,8 @@ extension DetailView {
     
     private var thanksRectangle: some View {
         Rectangle()
-            .frame(height: 100)
+            .ignoresSafeArea()
+            .frame(height: 75)
             .frame(maxWidth: .infinity)
             .foregroundStyle(Color.green).opacity(0.8)
             .overlay(
