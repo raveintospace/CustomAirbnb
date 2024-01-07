@@ -23,12 +23,15 @@ final class HomeViewModel: ObservableObject {
     }
     
     func addSubscribers() {
-        listingDataService.$allListings
+        $searchText
+            .combineLatest(listingDataService.$allListings)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .map(filterListings)
             .sink { [weak self] (returnedListings) in
                 guard let self = self else { return }
                 self.allListings = returnedListings
             }
-            .store(in: &cancellables)        
+            .store(in: &cancellables)
     }
     
     // extracted .map from $searchText
@@ -45,3 +48,12 @@ final class HomeViewModel: ObservableObject {
         }
     }
 }
+
+/*
+ listingDataService.$allListings
+     .sink { [weak self] (returnedListings) in
+         guard let self = self else { return }
+         self.allListings = returnedListings
+     }
+     .store(in: &cancellables)
+ */
