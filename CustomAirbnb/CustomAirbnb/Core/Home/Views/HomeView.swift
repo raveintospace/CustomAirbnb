@@ -21,6 +21,7 @@ struct HomeView: View {
                 
                 VStack {
                     homeHeader
+                    SearchBarView(searchText: $viewModel.searchText)
                     apartmentsList
                 }
             }
