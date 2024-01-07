@@ -81,16 +81,16 @@ extension DetailView {
             Text(viewModel.listing.name ?? "Name n/a")
                 .font(.title)
                 .bold()
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
                 .fixedSize(horizontal: false, vertical: true) // allows multiple text lines
             if let price = viewModel.listing.price {
                 Text("Daily price: \(price) €")
                     .font(.title2)
-                    .foregroundColor(Color.theme.accent)
+                    .foregroundStyle(Color.theme.accent)
             } else {
                 Text("Price n/a")
                     .font(.title3)
-                    .foregroundColor(Color.theme.accent)
+                    .foregroundStyle(Color.theme.accent)
             }
             Text(viewModel.listing.neighbourhood ?? "Neighbourhood n/a")
                 .font(.system(size: 15))
@@ -108,7 +108,7 @@ extension DetailView {
         Text("Apartment description")
             .font(.title2)
             .bold()
-            .foregroundColor(Color.theme.accent)
+            .foregroundStyle(Color.theme.accent)
             .padding(.top, 5)
             .padding(.bottom, -5)
             .padding(.horizontal)

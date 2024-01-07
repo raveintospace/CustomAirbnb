@@ -29,7 +29,7 @@ struct ImagesSlider: View {
                 ZStack {
                     Rectangle()
                         .frame(height: 50)
-                        .foregroundColor(Color.theme.airRed)
+                        .foregroundStyle(Color.theme.airRed)
                     HStack {
                         Image(systemName: "house")
                         Link("Listing Website", destination: URL(string: listingWebsite)!)

@@ -65,12 +65,12 @@ extension HostInfoView {
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .frame(width: width)
-                        .foregroundColor(.yellow)
+                        .foregroundStyle(.yellow)
                 }
             }
                 .mask(stars)
         )
-        .foregroundColor(Color.theme.secondaryText.opacity(0.3))
+        .foregroundStyle(Color.theme.secondaryText.opacity(0.3))
     }
     
     private var totalReviews: some View {

@@ -49,7 +49,7 @@ extension HomeView {
             Text("Airbnb")
                 .font(.headline)
                 .fontWeight(.heavy)
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
             Spacer()
         }
         .padding(.horizontal)

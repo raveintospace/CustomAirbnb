@@ -20,7 +20,7 @@ struct ListingDescriptionView: View {
                     Text(listingDescription)
                         .lineLimit(showFullDescription ? nil : 3)
                         .font(.callout)
-                        .foregroundColor(Color.theme.secondaryText)
+                        .foregroundStyle(Color.theme.secondaryText)
                     
                     Button(action: {
                         withAnimation(.easeInOut) {
@@ -39,7 +39,7 @@ struct ListingDescriptionView: View {
             else {
                 Text("Description not available")
                     .font(.callout)
-                    .foregroundColor(Color.theme.secondaryText)
+                    .foregroundStyle(Color.theme.secondaryText)
                     .padding()
             }
         }

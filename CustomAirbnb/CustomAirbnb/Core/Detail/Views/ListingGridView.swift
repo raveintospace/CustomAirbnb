@@ -47,14 +47,14 @@ extension ListingGridView {
             Text("Guests")
                 .font(.headline)
                 .bold()
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "figure.stand")
                 Text("\(listing.accommodates)")
             }
             .font(.system(size: 20))
-            .foregroundColor(Color.theme.secondaryText)
+            .foregroundStyle(Color.theme.secondaryText)
         }
     }
     
@@ -63,14 +63,14 @@ extension ListingGridView {
             Text("Beds")
                 .font(.headline)
                 .bold()
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "bed.double.circle")
                 Text("\(listing.beds)")
             }
             .font(.system(size: 20))
-            .foregroundColor(Color.theme.secondaryText)
+            .foregroundStyle(Color.theme.secondaryText)
         }
     }
     
@@ -79,14 +79,14 @@ extension ListingGridView {
             Text("Bedrooms")
                 .font(.headline)
                 .bold()
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "door.left.hand.closed")
                 Text("\(listing.bedrooms)")
             }
             .font(.system(size: 20))
-            .foregroundColor(Color.theme.secondaryText)
+            .foregroundStyle(Color.theme.secondaryText)
         }
     }
     
@@ -95,14 +95,14 @@ extension ListingGridView {
             Text("Bathrooms")
                 .font(.headline)
                 .bold()
-                .foregroundColor(Color.theme.accent)
+                .foregroundStyle(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "toilet")
                 Text(listing.bathrooms.asNumberStringRounded())
             }
             .font(.system(size: 20))
-            .foregroundColor(Color.theme.secondaryText)
+            .foregroundStyle(Color.theme.secondaryText)
         }
     }
 }
