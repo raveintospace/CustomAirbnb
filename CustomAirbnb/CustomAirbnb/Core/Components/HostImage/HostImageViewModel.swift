@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class HostImageViewModel: ObservableObject {
+final class HostImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
     

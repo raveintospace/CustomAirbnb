@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ListingDataService {
+final class ListingDataService {
     
     @Published var allListings: [Listing] = []
     

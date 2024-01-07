@@ -12,6 +12,8 @@ final class HomeViewModel: ObservableObject {
     
     @Published var allListings: [Listing] = []
     
+    
+    
     private let listingDataService = ListingDataService()
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription

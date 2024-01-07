@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ListingImageDataService {
+final class ListingImageDataService {
     
     @Published var image: UIImage? = nil
     

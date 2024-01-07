@@ -21,6 +21,7 @@ struct SearchBarView: View {
                 )
             
             TextField("Search by name or neighbourhood", text: $searchText)
+                .font(.system(size: 16))
                 .foregroundColor(Color.theme.accent)
                 .autocorrectionDisabled()
                 .overlay(

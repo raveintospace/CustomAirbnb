@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class HostImageDataService {
+final class HostImageDataService {
     
     @Published var image: UIImage? = nil
     

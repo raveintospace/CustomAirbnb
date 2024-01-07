@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ListingImageViewModel: ObservableObject {
+final class ListingImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
     
