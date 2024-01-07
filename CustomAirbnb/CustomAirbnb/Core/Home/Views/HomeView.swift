@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var selectedListing: Listing? = nil
     @State private var showDetailView: Bool = false
     @State private var showSettingsView: Bool = false
+    @State private var showFavoritesView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -48,21 +49,33 @@ extension HomeView {
     private var homeHeader: some View {
         HStack {
             CircleButtonView(iconName: "info.circle")
+                .foregroundStyle(showSettingsView ? Color.theme.airRed : Color.theme.accent)
                 .onTapGesture {
-                    withAnimation(.spring()) {
-                        debugPrint("create the show settings view!")
-                        showSettingsView.toggle()
-                    }
+                    debugPrint("create the show settings view!")
+                    showSettingsView.toggle()
                 }
                 .background(
                     CircleButtonAnimationView(animate: $showSettingsView)
                 )
             Spacer()
-            Text("Available listings")
+            Text(showFavoritesView ? "Favorite listings" : "Available listings")
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundStyle(Color.theme.accent)
+                .transaction { transaction in
+                    transaction.animation = nil
+                }
             Spacer()
+            CircleButtonView(iconName: "heart")
+                .foregroundStyle(showFavoritesView ? Color.theme.airRed : Color.theme.accent)
+                .onTapGesture {
+                    withAnimation {
+                        showFavoritesView.toggle()
+                    }
+                }
+                .background(
+                    CircleButtonAnimationView(animate: $showFavoritesView)
+                )
         }
         .padding(.horizontal)
     }
