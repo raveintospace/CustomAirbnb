@@ -42,29 +42,20 @@ struct ListingStatsView_Previews: PreviewProvider {
 
 extension ListingGridView {
     
-    private var descriptionTitle: some View {
-        Text("Apartment description")
-            .font(.title2)
-            .bold()
-            .foregroundColor(Color.theme.accent)
-            .padding(.top, 5)
-            .padding(.bottom, -5)
-            .padding(.horizontal)
-    }
-    
     private var capacityStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Guests")
                 .font(.headline)
                 .bold()
+                .foregroundColor(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "figure.stand")
                 Text("\(listing.accommodates)")
             }
             .font(.system(size: 20))
+            .foregroundColor(Color.theme.secondaryText)
         }
-        .foregroundColor(Color.theme.accent)
     }
     
     private var bedStat: some View {
@@ -72,14 +63,15 @@ extension ListingGridView {
             Text("Beds")
                 .font(.headline)
                 .bold()
+                .foregroundColor(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "bed.double.circle")
                 Text("\(listing.beds)")
             }
             .font(.system(size: 20))
+            .foregroundColor(Color.theme.secondaryText)
         }
-        .foregroundColor(Color.theme.accent)
     }
     
     private var bedroomStat: some View {
@@ -87,14 +79,15 @@ extension ListingGridView {
             Text("Bedrooms")
                 .font(.headline)
                 .bold()
+                .foregroundColor(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "door.left.hand.closed")
                 Text("\(listing.bedrooms)")
             }
             .font(.system(size: 20))
+            .foregroundColor(Color.theme.secondaryText)
         }
-        .foregroundColor(Color.theme.accent)
     }
     
     private var bathroomStat: some View {
@@ -102,13 +95,14 @@ extension ListingGridView {
             Text("Bathrooms")
                 .font(.headline)
                 .bold()
+                .foregroundColor(Color.theme.accent)
             
             HStack(spacing: 4) {
                 Image(systemName: "toilet")
                 Text(listing.bathrooms.asNumberStringRounded())
             }
             .font(.system(size: 20))
+            .foregroundColor(Color.theme.secondaryText)
         }
-        .foregroundColor(Color.theme.accent)
     }
 }

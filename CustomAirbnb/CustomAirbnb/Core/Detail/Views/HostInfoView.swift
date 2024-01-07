@@ -34,6 +34,7 @@ extension HostInfoView {
         VStack(alignment: .leading) {
             Text(listing.hostName ?? "Name n/a")
                 .bold()
+                .foregroundStyle(Color.theme.accent)
             HStack(spacing: 3) {
                 starsStack
                 totalReviews
@@ -42,8 +43,10 @@ extension HostInfoView {
             
             if listing.hostListingsCount == 1 {
                 Text("\(listing.hostListingsCount) listing")
+                    .foregroundStyle(Color.theme.secondaryText)
             } else {
                 Text("\(listing.hostListingsCount) listings")
+                    .foregroundStyle(Color.theme.secondaryText)
             }
         }
     }
@@ -88,6 +91,7 @@ extension HostInfoView {
                 Image(systemName: "calendar")
                 Text("Book it")
             }
+            .foregroundStyle(Color.white)
         })
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)

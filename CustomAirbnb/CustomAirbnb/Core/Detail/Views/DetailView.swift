@@ -23,13 +23,6 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     
-    // properties for LazyVGrid
-    private let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
-    private let spacing: CGFloat = 30
-    
     @StateObject private var viewModel: DetailViewModel
     
     init(listing: Listing) {
@@ -88,13 +81,16 @@ extension DetailView {
             Text(viewModel.listing.name ?? "Name n/a")
                 .font(.title)
                 .bold()
+                .foregroundColor(Color.theme.accent)
                 .fixedSize(horizontal: false, vertical: true) // allows multiple text lines
             if let price = viewModel.listing.price {
                 Text("Daily price: \(price) €")
                     .font(.title2)
+                    .foregroundColor(Color.theme.accent)
             } else {
                 Text("Price n/a")
                     .font(.title3)
+                    .foregroundColor(Color.theme.accent)
             }
             Text(viewModel.listing.neighbourhood ?? "Neighbourhood n/a")
                 .font(.system(size: 15))
