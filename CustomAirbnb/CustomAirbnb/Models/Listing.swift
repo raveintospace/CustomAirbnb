@@ -130,4 +130,20 @@ struct Listing: Codable, Identifiable {
             return 0
         }
     }
+    
+    var nameToSearch: String {
+        if let nameFromApi = name {
+            return nameFromApi
+        } else {
+            return ""
+        }
+    }
+    
+    var hoodToSearch: String {
+        if let hoodFromApi = neighbourhood {
+            return hoodFromApi
+        } else {
+            return ""
+        }
+    }
 }

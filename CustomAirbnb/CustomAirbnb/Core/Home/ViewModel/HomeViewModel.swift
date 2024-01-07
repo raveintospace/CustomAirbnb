@@ -12,7 +12,7 @@ final class HomeViewModel: ObservableObject {
     
     @Published var allListings: [Listing] = []
     
-    
+    @Published var searchText: String = ""
     
     private let listingDataService = ListingDataService()
     
@@ -29,5 +29,19 @@ final class HomeViewModel: ObservableObject {
                 self.allListings = returnedListings
             }
             .store(in: &cancellables)        
+    }
+    
+    // extracted .map from $searchText
+    private func filterListings(text: String, listings: [Listing]) -> [Listing] {
+        guard !text.isEmpty else {
+            return listings
+        }
+        
+        let lowercasedText = text.lowercased()
+        
+        return listings.filter { (listing) -> Bool in
+            return listing.nameToSearch.lowercased().contains(lowercasedText) ||
+            listing.hoodToSearch.lowercased().contains(lowercasedText)
+        }
     }
 }
