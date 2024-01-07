@@ -122,6 +122,7 @@ extension DetailView {
                 Image(systemName: "exclamationmark.shield")
                 Text("Report listing")
             }
+            .foregroundStyle(Color.white)
         })
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
