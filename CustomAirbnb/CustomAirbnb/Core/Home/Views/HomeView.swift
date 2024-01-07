@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
     @State private var selectedListing: Listing? = nil
     @State private var showDetailView: Bool = false
+    @State private var showSettingsView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -46,8 +47,18 @@ extension HomeView {
     
     private var homeHeader: some View {
         HStack {
+            CircleButtonView(iconName: "info.circle")
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        debugPrint("create the show settings view!")
+                        showSettingsView.toggle()
+                    }
+                }
+                .background(
+                    CircleButtonAnimationView(animate: $showSettingsView)
+                )
             Spacer()
-            Text("Airbnb")
+            Text("Available listings")
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundStyle(Color.theme.accent)
