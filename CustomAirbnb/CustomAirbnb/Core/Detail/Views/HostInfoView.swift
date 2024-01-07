@@ -34,7 +34,11 @@ extension HostInfoView {
         VStack(alignment: .leading) {
             Text(listing.hostName ?? "Name n/a")
                 .bold()
-            starsStack
+            HStack(spacing: 3) {
+                starsStack
+                totalReviews
+                    .foregroundStyle(Color.theme.secondaryText)
+            }
             
             if listing.hostListingsCount == 1 {
                 Text("\(listing.hostListingsCount) listing")
@@ -63,7 +67,17 @@ extension HostInfoView {
             }
                 .mask(stars)
         )
-        .foregroundColor(.gray.opacity(0.3))
+        .foregroundColor(Color.theme.secondaryText.opacity(0.3))
+    }
+    
+    private var totalReviews: some View {
+        if let reviewsInTotal = listing.numberOfReviews {
+            Text("(\(reviewsInTotal))")
+                .font(.caption2)
+        } else {
+            Text("(0)")
+                .font(.caption2)
+        }
     }
     
     private var bookButton: some View {
