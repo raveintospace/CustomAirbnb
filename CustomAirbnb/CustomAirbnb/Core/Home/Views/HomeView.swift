@@ -107,12 +107,20 @@ extension HomeView {
     }
     
     private var favoriteListEmptyView: some View {
-        Text("You haven't tagged any listing as favorite. Swipe left on the listing you want to favorite or press the ❤️ button when checking its details.")
-            .font(.callout)
-            .foregroundColor(Color.theme.accent)
-            .fontWeight(.medium)
-            .multilineTextAlignment(.center)
-            .padding(50)
+        VStack(spacing: 30) {
+            Image(systemName: "heart.slash")
+                .font(.system(size: 40))
+                .foregroundStyle(Color.theme.secondaryText.opacity(0.3))
+            Text("No favorites")
+                .font(.system(size: 40))
+                .bold()
+            Text("You haven't tagged any listing as favorite. Swipe left on the listing you want to favorite or press the ❤️ button when checking its details.")
+                .font(.callout)
+        }
+        .foregroundColor(Color.theme.accent)
+        .multilineTextAlignment(.center)
+        .padding(50)
+        
     }
     
     private func segue(listing: Listing) {
