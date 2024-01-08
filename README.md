@@ -25,6 +25,6 @@ This app features:
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>Empty view shown if user hasn't favorited any listing</li>
 <br/>
-<li>DetailView that replicate's Wallapop DetailView</li>
+<li>DetailView that replicates Wallapop's DetailView</li>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
