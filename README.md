@@ -11,7 +11,7 @@ This app features:
 <li>Custom Header for Navigation View, with animated icons and titles</li>
 <li>Overrided navigationBarTitles to use Color Theme</li>
 <br/>
-<li>Extensions for Double, Preview Provider (Object model mocks)</li>
+<li>Extensions for Double (to a rounded String), Preview Provider (Object model mocks)</li>
 <br/>
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
@@ -23,5 +23,8 @@ This app features:
 <li>UIApplication extension to dismiss keyboard</li>
 <br/>
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
+<li>Empty view shown if user hasn't favorited any listing</li>
 <br/>
 <li>DetailView that replicate's Wallapop DetailView</li>
+<br/>
+<li>Core Data to manage listings favorited by user, including a DataService</li>
