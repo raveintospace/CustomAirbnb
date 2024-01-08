@@ -11,10 +11,12 @@ import Combine
 final class HomeViewModel: ObservableObject {
     
     @Published var allListings: [Listing] = []
+    @Published var favoriteListings: [Listing] = []
     
     @Published var searchText: String = ""
     
     private let listingDataService = ListingDataService()
+    private let favoritesDataService = FavoritesDataService()
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     

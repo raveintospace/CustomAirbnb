@@ -1,7 +1,7 @@
 //
 //  FavoritesDataService.swift
 //  CustomAirbnb
-//
+//  https://youtu.be/7cqag8Acr2s
 //  Created by Uri on 8/1/24.
 //
 
@@ -25,6 +25,18 @@ final class FavoritesDataService {
                 debugPrint("Error loading Core Data: \(error)")
             }
             self.getFavorites()
+        }
+    }
+    
+    // MARK: - Public method, called from somewhere else in the app
+    func updatePortfolio(listing: Listing) {
+        
+        // check if listing is already in our FavoritesContainer
+        if let entity = savedEntities.first(where: { $0.listingID == listing.id }) {
+            delete(entity: entity)
+            
+        } else {    // listing is not in FavoritesContainer, it's a new one to add
+            add(listing: listing)
         }
     }
     
