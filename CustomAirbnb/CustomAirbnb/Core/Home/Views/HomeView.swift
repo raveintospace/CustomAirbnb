@@ -24,7 +24,18 @@ struct HomeView: View {
                 VStack {
                     homeHeader
                     SearchBarView(searchText: $viewModel.searchText)
-                    apartmentsList
+                    
+                    if !showFavoritesView {
+                        apartmentsList
+                            .transition(.move(edge: .leading))
+                    }
+                    if showFavoritesView {
+                        ZStack(alignment: .top) {
+                            favoriteListEmptyView
+                        }
+                        .transition(.move(edge: .trailing))
+                    }
+                    Spacer(minLength: 0) // avoids header to go down
                 }
             }
             .navigationDestination(isPresented: $showDetailView) {
@@ -93,6 +104,15 @@ extension HomeView {
             .listRowBackground(Color.theme.background)
         }
         .listStyle(.plain)
+    }
+    
+    private var favoriteListEmptyView: some View {
+        Text("You haven't tagged any listing as favorite. Swipe left on the listing you want to favorite or press the ❤️ button when checking its details.")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private func segue(listing: Listing) {
