@@ -26,12 +26,17 @@ struct HomeView: View {
                     SearchBarView(searchText: $viewModel.searchText)
                     
                     if !showFavoritesView {
-                        apartmentsList
+                        allApartmentsList
                             .transition(.move(edge: .leading))
                     }
                     if showFavoritesView {
                         ZStack(alignment: .top) {
-                            favoriteListEmptyView
+                            if viewModel.favoriteListings.isEmpty {
+                                favoriteListEmptyView
+                            } else {
+                                favApartmentsList
+                            }
+                            
                         }
                         .transition(.move(edge: .trailing))
                     }
@@ -91,7 +96,7 @@ extension HomeView {
         .padding(.horizontal)
     }
     
-    private var apartmentsList: some View {
+    private var allApartmentsList: some View {
         List {
             ForEach(viewModel.allListings) { listing in
                 ListingRowView(listing: listing)
@@ -119,6 +124,29 @@ extension HomeView {
         .listStyle(.plain)
     }
     
+    private var favApartmentsList: some View {
+        List {
+            ForEach(viewModel.favoriteListings) { listing in
+                ListingRowView(listing: listing)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .listRowSeparatorTint(Color.theme.airRed)
+                    .onTapGesture {
+                        segue(listing: listing)
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(action: {
+                            viewModel.updateFavorites(listing: listing)
+                        }, label: {
+                            Label("Unfavorite", systemImage: "heart.slash")
+                        })
+                        .tint(Color.theme.airRed)
+                    }
+            }
+            .listRowBackground(Color.theme.background)
+        }
+        .listStyle(.plain)
+    }
+    
     private var favoriteListEmptyView: some View {
         VStack(spacing: 30) {
             Image(systemName: "heart.slash")
@@ -133,7 +161,6 @@ extension HomeView {
         .foregroundColor(Color.theme.accent)
         .multilineTextAlignment(.center)
         .padding(50)
-        
     }
     
     private func segue(listing: Listing) {
