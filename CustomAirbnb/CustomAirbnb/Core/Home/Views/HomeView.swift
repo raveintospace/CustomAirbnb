@@ -100,6 +100,14 @@ extension HomeView {
                     .onTapGesture {
                         segue(listing: listing)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button(action: {
+                            viewModel.updateFavorites(listing: listing)
+                        }, label: {
+                            Label("Favorite", systemImage: "heart.fill")
+                        })
+                        .tint(Color.theme.airRed)
+                    }
             }
             .listRowBackground(Color.theme.background)
         }
