@@ -139,6 +139,14 @@ struct Listing: Codable, Identifiable {
         }
     }
     
+    var descriptionToSearch: String {
+        if let descriptionFromApi = description {
+            return descriptionFromApi
+        } else {
+            return ""
+        }
+    }
+    
     var hoodToSearch: String {
         if let hoodFromApi = neighbourhood {
             return hoodFromApi

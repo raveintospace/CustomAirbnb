@@ -73,7 +73,8 @@ final class HomeViewModel: ObservableObject {
         
         return listings.filter { (listing) -> Bool in
             return listing.nameToSearch.lowercased().contains(lowercasedText) ||
-            listing.hoodToSearch.lowercased().contains(lowercasedText)
+            listing.hoodToSearch.lowercased().contains(lowercasedText) ||
+            listing.descriptionToSearch.lowercased().contains(lowercasedText)
         }
     }
     
