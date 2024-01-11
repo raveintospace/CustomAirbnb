@@ -53,6 +53,16 @@ final class HomeViewModel: ObservableObject {
         favoritesDataService.updatePortfolio(listing: listing)
     }
     
+    func setHeartImageInSwipe(listing: Listing) -> Bool {
+        if favoriteListings.contains(where: { $0.id == listing.id }) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+// MARK: - Extracted methods
+    
     // extracted .map from $searchText
     private func filterListings(text: String, listings: [Listing]) -> [Listing] {
         guard !text.isEmpty else {

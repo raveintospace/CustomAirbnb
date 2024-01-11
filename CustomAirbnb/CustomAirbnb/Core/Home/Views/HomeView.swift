@@ -100,11 +100,16 @@ extension HomeView {
                     .onTapGesture {
                         segue(listing: listing)
                     }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button(action: {
                             viewModel.updateFavorites(listing: listing)
                         }, label: {
-                            Label("Favorite", systemImage: "heart.fill")
+                            if !viewModel.setHeartImageInSwipe(listing: listing) {
+                                Label("Favorite", systemImage: "heart.fill")
+                            }
+                            else {
+                                Label("Unfavorite", systemImage: "heart.slash")
+                            }
                         })
                         .tint(Color.theme.airRed)
                     }
