@@ -31,7 +31,7 @@ struct HomeView: View {
                     }
                     if showFavoritesView {
                         ZStack(alignment: .top) {
-                            if viewModel.favoriteListings.isEmpty {
+                            if viewModel.favoriteListings.isEmpty && viewModel.searchText.isEmpty {
                                 favoriteListEmptyView
                             } else {
                                 favApartmentsList
