@@ -84,7 +84,7 @@ final class HomeViewModel: ObservableObject {
         // return nil for listings not included in favs
         allListings
             .compactMap { (listing) -> Listing? in
-                guard let entity = favoriteEntities.first(where: { $0.listingID == listing.id }) else {
+                guard favoriteEntities.first(where: { $0.listingID == listing.id }) != nil else {
                     return nil
                 }
                 return listing
