@@ -23,6 +23,7 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     @StateObject private var viewModel: DetailViewModel
     
     init(listing: Listing) {
@@ -86,7 +87,11 @@ extension DetailView {
     
     private var navigationBarTrailingHeart: some View {
         Button(action: {
-            debugPrint("heart DV pressed")
+            if !homeViewModel.setDesignForHeartFav(listing: viewModel.listing) {
+                debugPrint("heart DV not in fav")
+            } else {
+                debugPrint("heart DV already in fav")
+            }
         }, label: {
             Image(systemName: "heart.fill")
         })

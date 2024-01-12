@@ -82,7 +82,7 @@ extension HomeView {
                     transaction.animation = nil
                 }
             Spacer()
-            CircleButtonView(iconName: "heart")
+            CircleButtonView(iconName: showFavoritesView ? "heart.fill" : "heart")
                 .foregroundStyle(showFavoritesView ? Color.theme.airRed : Color.theme.accent)
                 .onTapGesture {
                     withAnimation {
