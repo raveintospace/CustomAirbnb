@@ -87,13 +87,9 @@ extension DetailView {
     
     private var navigationBarTrailingHeart: some View {
         Button(action: {
-            if !homeViewModel.setDesignForHeartFav(listing: viewModel.listing) {
-                debugPrint("heart DV not in fav")
-            } else {
-                debugPrint("heart DV already in fav")
-            }
+            homeViewModel.updateFavorites(listing: viewModel.listing)
         }, label: {
-            Image(systemName: "heart.fill")
+            Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
         })
         .tint(Color.theme.airRed)
     }
