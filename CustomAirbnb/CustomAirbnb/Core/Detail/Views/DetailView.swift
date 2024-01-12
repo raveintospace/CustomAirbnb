@@ -66,7 +66,11 @@ struct DetailView: View {
         .background(
             Color.theme.background
         )
-        
+        .toolbar() {
+            ToolbarItem(placement: .topBarTrailing) {
+                navigationBarTrailingHeart
+            }
+        }
     }
 }
 
@@ -79,6 +83,15 @@ struct DetailView_Previews: PreviewProvider {
 }
 
 extension DetailView {
+    
+    private var navigationBarTrailingHeart: some View {
+        Button(action: {
+            debugPrint("heart DV pressed")
+        }, label: {
+            Image(systemName: "heart.fill")
+        })
+        .tint(Color.theme.airRed)
+    }
     
     private var apartmentInfo: some View {
         VStack(alignment: .leading, spacing: 5) {
