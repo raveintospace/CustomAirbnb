@@ -109,7 +109,7 @@ extension HomeView {
                         Button(action: {
                             viewModel.updateFavorites(listing: listing)
                         }, label: {
-                            if !viewModel.setHeartImageInSwipe(listing: listing) {
+                            if !viewModel.setDesignForHeartFav(listing: listing) {
                                 Label("Favorite", systemImage: "heart.fill")
                             }
                             else {
