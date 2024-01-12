@@ -16,7 +16,7 @@ struct ReportView: View {
     @State private var selectedReportReason: ReportReason? = nil
     @State private var showReportAlert: Bool = false
     
-    //
+    // notifies DetailView to activate a thanks view
     var activateReportThanks: () -> Void
     
     var body: some View {
@@ -73,8 +73,6 @@ struct ReportView: View {
 
 struct ReportView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        
         NavigationStack {
             ReportView(viewModel: DetailViewModel(listing: dev.listing), activateReportThanks: {})
         }

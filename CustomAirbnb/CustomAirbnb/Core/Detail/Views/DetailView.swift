@@ -63,6 +63,10 @@ struct DetailView: View {
                 thanksRectangle
             }
         }
+        .background(
+            Color.theme.background
+        )
+        
     }
 }
 
