@@ -26,5 +26,7 @@ This app features:
 <li>Empty view shown if user hasn't favorited any listing</li>
 <br/>
 <li>DetailView that replicates Wallapop's DetailView</li>
+<li>ReportView to report listings, notifies DetailView to show a gratitude message to user</li>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
+<li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
