@@ -46,7 +46,7 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading) {
                     ImagesSlider(listing: viewModel.listing)
-                    apartmentInfo
+                    ApartmentInfoView(listing: viewModel.listing)
                     redDivider
                     HostInfoView(listing: viewModel.listing)
                         .padding()
@@ -124,29 +124,6 @@ extension DetailView {
             }
         }
         .tint(Color.theme.accent)
-    }
-    
-    private var apartmentInfo: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(viewModel.listing.name ?? "Name n/a")
-                .font(.title)
-                .bold()
-                .foregroundStyle(Color.theme.accent)
-                .fixedSize(horizontal: false, vertical: true) // allows multiple text lines
-            if let price = viewModel.listing.price {
-                Text("Daily price: \(price) €")
-                    .font(.title2)
-                    .foregroundStyle(Color.theme.accent)
-            } else {
-                Text("Price n/a")
-                    .font(.title3)
-                    .foregroundStyle(Color.theme.accent)
-            }
-            Text(viewModel.listing.neighbourhood ?? "Neighbourhood n/a")
-                .font(.system(size: 15))
-                .foregroundStyle(Color.theme.secondaryText)
-        }
-        .padding()
     }
     
     private var redDivider: some View {
