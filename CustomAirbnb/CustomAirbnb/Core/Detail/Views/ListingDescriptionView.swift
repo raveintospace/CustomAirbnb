@@ -17,6 +17,12 @@ struct ListingDescriptionView: View {
             if let listingDescription = listing.description,
                !listingDescription.isEmpty {
                 VStack(alignment: .leading) {
+                    Text("Apartment description")
+                        .font(.title2)
+                        .bold()
+                        .foregroundStyle(Color.theme.accent)
+                        .padding(.bottom, 5)
+
                     Text(listingDescription)
                         .lineLimit(showFullDescription ? nil : 3)
                         .font(.callout)

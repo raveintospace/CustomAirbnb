@@ -51,7 +51,6 @@ struct DetailView: View {
                     HostInfoView(listing: viewModel.listing)
                         .padding()
                     redDivider
-                    descriptionTitle
                     ListingDescriptionView(listing: viewModel.listing)
                     redDivider
                     ListingGridView(listing: viewModel.listing)
@@ -153,16 +152,6 @@ extension DetailView {
     private var redDivider: some View {
         Divider()
             .overlay(Color.theme.airRed)
-    }
-    
-    private var descriptionTitle: some View {
-        Text("Apartment description")
-            .font(.title2)
-            .bold()
-            .foregroundStyle(Color.theme.accent)
-            .padding(.top, 5)
-            .padding(.bottom, -5)
-            .padding(.horizontal)
     }
     
     private var reportButton: some View {
