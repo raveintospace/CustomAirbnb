@@ -18,5 +18,12 @@ final class DetailViewModel: ObservableObject {
     }
     
    // return listingwebsite or return my github // refactor funcs
+    func returnListingStringForURL() -> String {
+        if let listingWebsite = listing.listingURL {
+            return listingWebsite
+        } else {
+            return "https://github.com/raveintospace/CustomAirbnb"
+        }
+    }
     
 }

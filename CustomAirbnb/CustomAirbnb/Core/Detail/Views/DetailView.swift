@@ -119,7 +119,7 @@ extension DetailView {
     }
     
     private var navigationBarTrailingShare: some View {
-        ShareLink(item: URL(string: "https://www.google.com")!) {
+        ShareLink(item: URL(string: viewModel.returnListingStringForURL())!) {
             withAnimation {
                 Image(systemName: "square.and.arrow.up")
             }
