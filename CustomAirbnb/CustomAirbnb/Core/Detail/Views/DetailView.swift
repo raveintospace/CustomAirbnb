@@ -104,12 +104,11 @@ extension DetailView {
             Image(systemName: "arrow.left")
         })
         .tint(Color.theme.accent)
-        
     }
     
     private var navigationBarTrailingHeart: some View {
         Button(action: {
-            withAnimation(.spring) {
+            withAnimation {
                 homeViewModel.updateFavorites(listing: viewModel.listing)
             }
         }, label: {
@@ -121,7 +120,7 @@ extension DetailView {
     
     private var navigationBarTrailingShare: some View {
         ShareLink(item: URL(string: "https://www.google.com")!) {
-            withAnimation(.spring) {
+            withAnimation {
                 Image(systemName: "square.and.arrow.up")
             }
         }
