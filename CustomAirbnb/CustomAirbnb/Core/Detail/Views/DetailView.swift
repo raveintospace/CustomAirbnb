@@ -26,6 +26,8 @@ struct DetailView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @StateObject private var viewModel: DetailViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: DetailViewModel(listing: listing))
     }
@@ -68,10 +70,14 @@ struct DetailView: View {
             Color.theme.background
         )
         .toolbar() {
+            ToolbarItem(placement: .topBarLeading) {
+                navigationBarLeadingArrow
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 navigationBarTrailingHeart
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -79,11 +85,22 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             DetailView(listing: dev.listing)
+                .environmentObject(dev.homeVM)  // to make preview work
         }
     }
 }
 
 extension DetailView {
+    
+    private var navigationBarLeadingArrow: some View {
+        Button(action: {
+            dismiss()
+        }, label: {
+            Image(systemName: "arrow.left")
+        })
+        .tint(Color.theme.accent)
+        
+    }
     
     private var navigationBarTrailingHeart: some View {
         Button(action: {

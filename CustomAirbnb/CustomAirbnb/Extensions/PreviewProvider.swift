@@ -21,6 +21,8 @@ final class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() { }  // instance can only be initialized from class DeveloperPreview
     
+    let homeVM = HomeViewModel()
+    
     let listing = Listing(
         id: "15386249",
         listingURL: "https://www.airbnb.com/rooms/15386249",
