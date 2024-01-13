@@ -58,6 +58,8 @@ struct DetailView: View {
                     redDivider
                 }
             }
+            .padding(.top, -42)
+            
             reportButton
                 .padding(.top, 5)
         }
