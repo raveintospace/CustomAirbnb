@@ -87,7 +87,9 @@ extension DetailView {
     
     private var navigationBarTrailingHeart: some View {
         Button(action: {
-            homeViewModel.updateFavorites(listing: viewModel.listing)
+            withAnimation(.spring) {
+                homeViewModel.updateFavorites(listing: viewModel.listing)
+            }
         }, label: {
             Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
         })
