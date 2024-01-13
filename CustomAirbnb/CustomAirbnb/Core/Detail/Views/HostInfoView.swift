@@ -18,13 +18,13 @@ struct HostInfoView: View {
             Spacer()
             bookButton
         }
+        .padding()
     }
 }
 
 struct HostInfoView_Previews: PreviewProvider {
     static var previews: some View {
         HostInfoView(listing: dev.listing)
-            .padding(.horizontal)
     }
 }
 

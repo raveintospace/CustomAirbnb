@@ -49,7 +49,6 @@ struct DetailView: View {
                     ApartmentInfoView(listing: viewModel.listing)
                     redDivider
                     HostInfoView(listing: viewModel.listing)
-                        .padding()
                     redDivider
                     ListingDescriptionView(listing: viewModel.listing)
                     redDivider
