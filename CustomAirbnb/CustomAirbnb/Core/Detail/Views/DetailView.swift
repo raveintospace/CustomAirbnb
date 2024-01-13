@@ -188,7 +188,6 @@ extension DetailView {
     private func activateReportThanks() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             showReportThanks = true
-            debugPrint("Say thanks")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
