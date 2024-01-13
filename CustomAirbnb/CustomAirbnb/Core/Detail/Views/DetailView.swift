@@ -76,7 +76,10 @@ struct DetailView: View {
                 navigationBarLeadingArrow
             }
             ToolbarItem(placement: .topBarTrailing) {
-                navigationBarTrailingHeart
+                HStack(alignment: .bottom, spacing: 0) {
+                    navigationBarTrailingHeart
+                    navigationBarTrailingShare
+                }
             }
         }
         .navigationBarBackButtonHidden()
@@ -111,8 +114,18 @@ extension DetailView {
             }
         }, label: {
             Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
+                .font(.system(size: 20))
         })
-        .tint(Color.theme.airRed)
+        .tint(homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? Color.theme.airRed : Color.theme.accent)
+    }
+    
+    private var navigationBarTrailingShare: some View {
+        ShareLink(item: URL(string: "https://www.google.com")!) {
+            withAnimation(.spring) {
+                Image(systemName: "square.and.arrow.up")
+            }
+        }
+        .tint(Color.theme.accent)
     }
     
     private var apartmentInfo: some View {

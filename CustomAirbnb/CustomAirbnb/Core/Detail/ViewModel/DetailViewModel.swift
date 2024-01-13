@@ -16,4 +16,7 @@ final class DetailViewModel: ObservableObject {
     init(listing: Listing) {
         self.listing = listing
     }
+    
+   // return listingwebsite or return my github // refactor funcs
+    
 }
