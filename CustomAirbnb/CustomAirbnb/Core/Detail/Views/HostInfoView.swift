@@ -11,7 +11,7 @@ struct HostInfoView: View {
     
     let listing: Listing
     
-    // notifies DetailView to activate a thanks view
+    // notifies DetailView to present bookView
     var activateBookView: () -> Void
     
     var body: some View {

@@ -38,9 +38,6 @@ struct DetailView: View {
     }
     
     @State private var sheet: Sheet?
-    
-   // @State private var showBookView: Bool = false
-   // @State private var showReportView: Bool = false
     @State private var showReportThanks: Bool = false
     
     var body: some View {

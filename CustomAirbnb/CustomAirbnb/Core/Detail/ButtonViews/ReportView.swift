@@ -16,7 +16,7 @@ struct ReportView: View {
     @State private var selectedReportReason: ReportReason? = nil
     @State private var showReportAlert: Bool = false
     
-    // notifies DetailView to activate a thanks view
+    // notifies DetailView to activate a thanks message
     var activateReportThanks: () -> Void
     
     var body: some View {
