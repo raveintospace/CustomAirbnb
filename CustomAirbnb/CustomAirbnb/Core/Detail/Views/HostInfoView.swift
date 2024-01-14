@@ -11,6 +11,9 @@ struct HostInfoView: View {
     
     let listing: Listing
     
+    // notifies DetailView to activate a thanks view
+    var activateBookView: () -> Void
+    
     var body: some View {
         HStack() {
             HostImageView(listing: listing)
@@ -24,7 +27,7 @@ struct HostInfoView: View {
 
 struct HostInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        HostInfoView(listing: dev.listing)
+        HostInfoView(listing: dev.listing, activateBookView: {})
     }
 }
 
@@ -85,7 +88,7 @@ extension HostInfoView {
     
     private var bookButton: some View {
         Button(action: {
-            debugPrint("book button pressed")
+            self.activateBookView()
         }, label: {
             HStack {
                 Image(systemName: "calendar")

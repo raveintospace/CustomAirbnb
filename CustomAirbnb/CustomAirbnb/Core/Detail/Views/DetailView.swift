@@ -23,6 +23,11 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     
+    enum Sheet: String, Identifiable {
+        case bookView, reportView
+        var id: String { rawValue }
+    }
+    
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @StateObject private var viewModel: DetailViewModel
     
@@ -32,6 +37,9 @@ struct DetailView: View {
         _viewModel = StateObject(wrappedValue: DetailViewModel(listing: listing))
     }
     
+    @State private var sheet: Sheet?
+    
+    @State private var showBookView: Bool = false
     @State private var showReportView: Bool = false
     @State private var showReportThanks: Bool = false
     
@@ -48,7 +56,7 @@ struct DetailView: View {
                     ImagesSlider(listing: viewModel.listing)
                     ApartmentInfoView(listing: viewModel.listing)
                     redDivider
-                    HostInfoView(listing: viewModel.listing)
+                    HostInfoView(listing: viewModel.listing, activateBookView: self.activateBookView)
                     redDivider
                     ListingDescriptionView(listing: viewModel.listing)
                     redDivider
@@ -133,6 +141,7 @@ extension DetailView {
     private var reportButton: some View {
         Button(action: {
             showReportView.toggle()
+            sheet = .reportView
         }, label: {
             HStack {
                 Image(systemName: "exclamationmark.shield")
@@ -171,6 +180,21 @@ extension DetailView {
             withAnimation(.easeOut) {
                 showReportThanks = false
             }
+        }
+    }
+    
+    private func activateBookView() {
+        showReportView = true
+        sheet = .bookView
+    }
+    
+    @ViewBuilder
+    func makeSheet(_ sheet: Sheet) -> some View {
+        switch sheet {
+        case .bookView:
+            BookView()
+        case .reportView:
+            ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
         }
     }
 }
