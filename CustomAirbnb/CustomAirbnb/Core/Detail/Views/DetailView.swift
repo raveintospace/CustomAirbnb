@@ -39,8 +39,8 @@ struct DetailView: View {
     
     @State private var sheet: Sheet?
     
-    @State private var showBookView: Bool = false
-    @State private var showReportView: Bool = false
+   // @State private var showBookView: Bool = false
+   // @State private var showReportView: Bool = false
     @State private var showReportThanks: Bool = false
     
     var body: some View {
@@ -48,9 +48,7 @@ struct DetailView: View {
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()
-                    .sheet(isPresented: $showReportView) {
-                        ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
-                    }
+                    .sheet(item: $sheet, content: makeSheet)
                 
                 VStack(alignment: .leading) {
                     ImagesSlider(listing: viewModel.listing)
@@ -140,7 +138,6 @@ extension DetailView {
     
     private var reportButton: some View {
         Button(action: {
-            showReportView.toggle()
             sheet = .reportView
         }, label: {
             HStack {
@@ -184,7 +181,6 @@ extension DetailView {
     }
     
     private func activateBookView() {
-        showReportView = true
         sheet = .bookView
     }
     
