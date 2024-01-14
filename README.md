@@ -27,6 +27,8 @@ This app features:
 <br/>
 <li>DetailView that replicates Wallapop's DetailView</li>
 <li>ReportView to report listings, notifies DetailView to show a gratitude message to user</li>
+<li>BookView to simulate a booking request for the listing</li>
+<li>ReportView & BookView shown using @ViewBuilder & switch</li>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
