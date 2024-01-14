@@ -19,18 +19,22 @@ struct BookView: View {
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()
-                
-                List {
-                    DatePicker("Date of arrival", selection: $today, displayedComponents: .date)
-                        .padding(.vertical)
-                    DatePicker("Date of departure", selection: $tomorrow, displayedComponents: .date)
-                        .padding(.vertical)
-                    Text("Number of nights")
-                        .padding(.vertical)
-                    Text("Total price")
-                        .padding(.vertical)
+                VStack {
+                    VStack {
+                        DatePicker("Date of arrival", selection: $today, displayedComponents: .date)
+                            .padding(.vertical)
+                        //redDivider
+                        DatePicker("Date of departure", selection: $tomorrow, displayedComponents: .date)
+                            .padding(.vertical)
+                        nightsHStack
+                        priceHStack
+                        
+                        requestBookButton
+                    }
+                    .foregroundStyle(Color.theme.accent)
+                    .padding(.horizontal)
+                    Spacer()
                 }
-                
                     .navigationTitle("Book this listing")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar(content: {
@@ -48,5 +52,40 @@ struct BookView: View {
 }
 
 extension BookView {
+    
+    private var nightsHStack: some View {
+        HStack {
+            Text("Number of nights")
+            Spacer()
+            Text("5")
+                .bold()
+        }
+        .padding(.vertical)
+    }
+    
+    private var priceHStack: some View {
+        HStack {
+            Text("Total price")
+            Spacer()
+            Text("450 €")
+                .bold()
+        }
+        .padding(.vertical)
+    }
+    
+    private var requestBookButton: some View {
+        Button(action: {
+            debugPrint("request button pressed")
+        }, label: {
+            HStack {
+                Image(systemName: "paperplane")
+                Text("Send book request")
+            }
+            .foregroundStyle(Color.white)
+        })
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.capsule)
+        .tint(Color.theme.airRed)
+    }
     
 }
