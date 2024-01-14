@@ -21,7 +21,7 @@ struct BookView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            dismissButton
+                            DismissXButton()
                         }
                     })
             }
@@ -31,16 +31,4 @@ struct BookView: View {
 
 #Preview {
     BookView()
-}
-
-extension BookView {
-    
-    private var dismissButton: some View {
-        Button(action: {
-            dismiss()
-        }, label: {
-            Image(systemName: "xmark")
-                .font(.headline)
-        })
-    }
 }

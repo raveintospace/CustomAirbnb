@@ -63,7 +63,7 @@ struct ReportView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        dismissButton
+                        DismissXButton()
                     }
                 })
             }
@@ -80,15 +80,6 @@ struct ReportView_Previews: PreviewProvider {
 }
 
 extension ReportView {
-    
-    private var dismissButton: some View {
-        Button(action: {
-            dismiss()
-        }, label: {
-            Image(systemName: "xmark")
-                .font(.headline)
-        })
-    }
     
     private func removeSelectedReportReason() {
         selectedReportReason = nil
