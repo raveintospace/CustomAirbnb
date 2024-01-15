@@ -50,13 +50,13 @@ struct DetailView: View {
                 VStack(alignment: .leading) {
                     ImagesSlider(listing: viewModel.listing)
                     ApartmentInfoView(listing: viewModel.listing)
-                    redDivider
+                    RedDivider()
                     HostInfoView(listing: viewModel.listing, activateBookView: self.activateBookView)
-                    redDivider
+                    RedDivider()
                     ListingDescriptionView(listing: viewModel.listing)
-                    redDivider
+                    RedDivider()
                     ListingGridView(listing: viewModel.listing)
-                    redDivider
+                    RedDivider()
                 }
             }
             .padding(.top, -42)
@@ -126,11 +126,6 @@ extension DetailView {
             }
         }
         .tint(Color.theme.accent)
-    }
-    
-    private var redDivider: some View {
-        Divider()
-            .overlay(Color.theme.airRed)
     }
     
     private var reportButton: some View {

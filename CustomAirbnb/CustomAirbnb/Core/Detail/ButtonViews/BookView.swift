@@ -13,8 +13,8 @@ struct BookView: View {
     
     @StateObject var viewModel: DetailViewModel
     
-    @State private var today = Date.now
-    @State private var tomorrow = Date.now.addingTimeInterval(86400)
+    @State private var arrivalDate = Date.now
+    @State private var departureDate = Date.now.addingTimeInterval(86400)
     @State private var numberOfNights: Int = 0
     
     var body: some View {
@@ -24,18 +24,18 @@ struct BookView: View {
                     .ignoresSafeArea()
                 VStack {
                     VStack {
-                        DatePicker("Date of arrival", selection: $today, displayedComponents: .date)
-                            .padding(.vertical)
-                        //redDivider
-                        DatePicker("Date of departure", selection: $tomorrow, displayedComponents: .date)
-                            .padding(.vertical)
+                        arrivalDatePicker
+                        RedDivider()
+                        departureDatePicker
+                        RedDivider()
                         nightsHStack
+                        RedDivider()
                         priceHStack
+                        RedDivider()
                         
                         requestBookButton
                     }
                     .foregroundStyle(Color.theme.accent)
-                    .padding(.horizontal)
                     Spacer()
                 }
                     .navigationTitle("Book this listing")
@@ -58,14 +58,30 @@ struct BookView_Previews: PreviewProvider {
 
 extension BookView {
     
+    private var arrivalDatePicker: some View {
+        DatePicker("Date of arrival",
+                   selection: $arrivalDate,
+                   in: Date()...,
+                   displayedComponents: .date)
+            .padding()
+    }
+    
+    private var departureDatePicker: some View {
+        DatePicker("Date of departure",
+                   selection: $departureDate,
+                   in: viewModel.returnNextDay(currentDay: arrivalDate)...,
+                   displayedComponents: .date)
+            .padding()
+    }
+    
     private var nightsHStack: some View {
         HStack {
             Text("Number of nights")
             Spacer()
-            Text("\(viewModel.calculateDaysBetweenDates(startDate: today, endDate: tomorrow))")
+            Text("\(viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate))")
                 .bold()
         }
-        .padding(.vertical)
+        .padding()
     }
     
     private var priceHStack: some View {
@@ -75,7 +91,7 @@ extension BookView {
             Text("450 €")
                 .bold()
         }
-        .padding(.vertical)
+        .padding()
     }
     
     private var requestBookButton: some View {
@@ -91,6 +107,7 @@ extension BookView {
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
         .tint(Color.theme.airRed)
+        .padding()
     }
     
 }

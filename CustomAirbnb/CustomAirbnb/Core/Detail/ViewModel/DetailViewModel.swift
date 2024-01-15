@@ -17,7 +17,7 @@ final class DetailViewModel: ObservableObject {
         self.listing = listing
     }
     
-   // return listingwebsite or return my github // refactor funcs
+   // return listingwebsite or return my github
     func returnListingStringForURL() -> String {
         if let listingWebsite = listing.listingURL {
             return listingWebsite
@@ -26,10 +26,19 @@ final class DetailViewModel: ObservableObject {
         }
     }
     
-    func calculateDaysBetweenDates(startDate: Date, endDate: Date) -> Int {
+    func returnNextDay(currentDay: Date) -> Date {
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: startDate, to: endDate)
-        return components.day ?? 0
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentDay) {
+            return tomorrow
+        }
+        return Date()
     }
     
+    func calculateDaysBetweenDates(startDate: Date, endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let numberOfDays = calendar.dateComponents([.day], from: startDate, to: endDate)
+        
+        return numberOfDays.day!
+    }
+
 }
