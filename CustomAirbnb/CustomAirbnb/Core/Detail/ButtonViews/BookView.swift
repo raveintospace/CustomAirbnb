@@ -11,8 +11,11 @@ struct BookView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @StateObject var viewModel: DetailViewModel
+    
     @State private var today = Date.now
     @State private var tomorrow = Date.now.addingTimeInterval(86400)
+    @State private var numberOfNights: Int = 0
     
     var body: some View {
         NavigationStack {
@@ -47,8 +50,10 @@ struct BookView: View {
     }
 }
 
-#Preview {
-    BookView()
+struct BookView_Previews: PreviewProvider {
+    static var previews: some View {
+        BookView(viewModel: DetailViewModel(listing: dev.listing))
+    }
 }
 
 extension BookView {
@@ -57,7 +62,7 @@ extension BookView {
         HStack {
             Text("Number of nights")
             Spacer()
-            Text("5")
+            Text("\(viewModel.calculateDaysBetweenDates(startDate: today, endDate: tomorrow))")
                 .bold()
         }
         .padding(.vertical)
