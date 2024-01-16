@@ -78,7 +78,7 @@ extension BookView {
         HStack {
             Text("Number of nights")
             Spacer()
-            Text("\(viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate))")
+            Text("\(calculateNumberOfNights())")
                 .bold()
         }
         .padding()
@@ -89,7 +89,7 @@ extension BookView {
         HStack {
             Text("Total price")
             Spacer()
-            Text("\((viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)) €")
+            Text("\(calculateTotalPrice()) €")
                 .bold()
         }
         .padding()
@@ -111,4 +111,11 @@ extension BookView {
         .padding()
     }
     
+    private func calculateNumberOfNights() -> Int {
+        viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)
+    }
+    
+    private func calculateTotalPrice() -> Int {
+        return (viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)
+    }
 }
