@@ -17,6 +17,7 @@ struct BookView: View {
     
     @State private var arrivalDate = Date.now
     @State private var departureDate = Date.now.addingTimeInterval(86400)
+    @State private var showBookAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -37,6 +38,18 @@ struct BookView: View {
                     }
                     .foregroundStyle(Color.theme.accent)
                     Spacer()
+                }
+                .alert(isPresented: $showBookAlert) {
+                    Alert(
+                        title: Text("Book listing"),
+                        message: Text("Do you want to send this book request?"),
+                        primaryButton: .default(Text("Confirm")) {
+                            dismiss()
+                        },
+                        secondaryButton: .cancel() {
+                            debugPrint("cancel pressed")
+                        }
+                    )
                 }
                     .navigationTitle("Book this listing")
                     .navigationBarTitleDisplayMode(.inline)
@@ -97,7 +110,7 @@ extension BookView {
     
     private var requestBookButton: some View {
         Button(action: {
-            debugPrint("request button pressed")
+            showBookAlert = true
         }, label: {
             HStack {
                 Image(systemName: "paperplane")
