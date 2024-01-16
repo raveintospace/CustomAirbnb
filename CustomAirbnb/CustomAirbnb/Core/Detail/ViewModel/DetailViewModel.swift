@@ -36,9 +36,12 @@ final class DetailViewModel: ObservableObject {
     
     func calculateDaysBetweenDates(startDate: Date, endDate: Date) -> Int {
         let calendar = Calendar.current
-        let numberOfDays = calendar.dateComponents([.day], from: startDate, to: endDate)
-        
-        return numberOfDays.day!
+        let startOfStartDate = calendar.startOfDay(for: startDate)
+        let startOfEndDate = calendar.startOfDay(for: endDate)
+
+        let numberOfDays = calendar.dateComponents([.day], from: startOfStartDate, to: startOfEndDate)
+
+        return max(numberOfDays.day!, 0)
     }
 
 }
