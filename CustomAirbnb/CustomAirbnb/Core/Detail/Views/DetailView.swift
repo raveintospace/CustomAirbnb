@@ -180,7 +180,7 @@ extension DetailView {
     func makeSheet(_ sheet: Sheet) -> some View {
         switch sheet {
         case .bookView:
-            BookView(viewModel: viewModel)
+            BookView(listing: viewModel.listing, viewModel: viewModel)
         case .reportView:
             ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
         }

@@ -9,13 +9,14 @@ import SwiftUI
 
 struct BookView: View {
     
+    let listing: Listing
+    
     @Environment(\.dismiss) var dismiss
     
     @StateObject var viewModel: DetailViewModel
     
     @State private var arrivalDate = Date.now
     @State private var departureDate = Date.now.addingTimeInterval(86400)
-    @State private var numberOfNights: Int = 0
     
     var body: some View {
         NavigationStack {
@@ -32,7 +33,6 @@ struct BookView: View {
                         RedDivider()
                         priceHStack
                         RedDivider()
-                        
                         requestBookButton
                     }
                     .foregroundStyle(Color.theme.accent)
@@ -52,7 +52,7 @@ struct BookView: View {
 
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        BookView(viewModel: DetailViewModel(listing: dev.listing))
+        BookView(listing: dev.listing, viewModel: DetailViewModel(listing: dev.listing))
     }
 }
 
@@ -85,10 +85,11 @@ extension BookView {
     }
     
     private var priceHStack: some View {
+        
         HStack {
             Text("Total price")
             Spacer()
-            Text("450 €")
+            Text("\((viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)) €")
                 .bold()
         }
         .padding()
