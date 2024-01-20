@@ -68,6 +68,8 @@ struct DetailView: View {
         .safeAreaInset(edge: .bottom) {
             if showReportThanks {
                 thanksRectangle
+            } else if showBookRequestConfirmation {
+                bookRequestSent
             }
         }
         .background(
@@ -154,6 +156,23 @@ extension DetailView {
                 HStack(spacing: 2) {
                     Text("Listing reported, thanks")
                     Image(systemName: "checkmark.shield")
+                }
+                .foregroundStyle(Color.white)
+                .bold()
+                .font(.system(size: 18))
+            )
+    }
+    
+    private var bookRequestSent: some View {
+        Rectangle()
+            .ignoresSafeArea()
+            .frame(height: 75)
+            .frame(maxWidth: .infinity)
+            .foregroundStyle(Color.green).opacity(0.9)
+            .overlay(
+                HStack(spacing: 2) {
+                    Text("Book request sent")
+                    Image(systemName: "clock.badge.checkmark")
                 }
                 .foregroundStyle(Color.white)
                 .bold()
