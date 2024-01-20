@@ -67,9 +67,9 @@ struct DetailView: View {
         }
         .safeAreaInset(edge: .bottom) {
             if showReportThanks {
-                thanksRectangle
+                ConfirmationRectangle(copy: "Listing reported, thanks", iconName: "checkmark.shield")
             } else if showBookRequestConfirmation {
-                bookRequestSent
+                ConfirmationRectangle(copy: "Book request sent", iconName: "clock.badge.checkmark")
             }
         }
         .background(
@@ -131,6 +131,22 @@ extension DetailView {
         .tint(Color.theme.accent)
     }
     
+    private func activateBookView() {
+        sheet = .bookView
+    }
+    
+    private func activateBookRequestConfirmation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            showBookRequestConfirmation = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeOut) {
+                showBookRequestConfirmation = false
+            }
+        }
+    }
+    
     private var reportButton: some View {
         Button(action: {
             sheet = .reportView
@@ -146,40 +162,6 @@ extension DetailView {
         .tint(Color.theme.airRed)
     }
     
-    private var thanksRectangle: some View {
-        Rectangle()
-            .ignoresSafeArea()
-            .frame(height: 75)
-            .frame(maxWidth: .infinity)
-            .foregroundStyle(Color.green).opacity(0.9)
-            .overlay(
-                HStack(spacing: 2) {
-                    Text("Listing reported, thanks")
-                    Image(systemName: "checkmark.shield")
-                }
-                .foregroundStyle(Color.white)
-                .bold()
-                .font(.system(size: 18))
-            )
-    }
-    
-    private var bookRequestSent: some View {
-        Rectangle()
-            .ignoresSafeArea()
-            .frame(height: 75)
-            .frame(maxWidth: .infinity)
-            .foregroundStyle(Color.green).opacity(0.9)
-            .overlay(
-                HStack(spacing: 2) {
-                    Text("Book request sent")
-                    Image(systemName: "clock.badge.checkmark")
-                }
-                .foregroundStyle(Color.white)
-                .bold()
-                .font(.system(size: 18))
-            )
-    }
-    
     private func activateReportThanks() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             showReportThanks = true
@@ -188,22 +170,6 @@ extension DetailView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeOut) {
                 showReportThanks = false
-            }
-        }
-    }
-    
-    private func activateBookView() {
-        sheet = .bookView
-    }
-    
-    private func activateBookRequestConfirmation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            showBookRequestConfirmation = true
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            withAnimation(.easeOut) {
-                showBookRequestConfirmation = false
             }
         }
     }
