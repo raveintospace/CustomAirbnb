@@ -78,6 +78,7 @@ extension BookView {
                    selection: $arrivalDate,
                    in: Date()...,
                    displayedComponents: .date)
+            .tint(Color.theme.airRed)
             .padding()
     }
     
@@ -86,6 +87,7 @@ extension BookView {
                    selection: $departureDate,
                    in: viewModel.returnNextDay(currentDay: arrivalDate)...,
                    displayedComponents: .date)
+            .tint(Color.theme.airRed)
             .padding()
     }
     
