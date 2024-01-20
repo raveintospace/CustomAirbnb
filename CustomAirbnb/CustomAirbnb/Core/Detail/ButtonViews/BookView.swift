@@ -102,7 +102,6 @@ extension BookView {
     }
     
     private var priceHStack: some View {
-        
         HStack {
             Text("Total price")
             Spacer()
@@ -133,6 +132,6 @@ extension BookView {
     }
     
     private func calculateTotalPrice() -> Int {
-        return (viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)
+        (viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)
     }
 }
