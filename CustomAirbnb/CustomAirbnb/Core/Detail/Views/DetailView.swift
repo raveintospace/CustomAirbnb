@@ -39,6 +39,7 @@ struct DetailView: View {
     
     @State private var sheet: Sheet?
     @State private var showReportThanks: Bool = false
+    @State private var showBookRequestConfirmation: Bool = false
     
     var body: some View {
         ScrollView {
@@ -176,11 +177,23 @@ extension DetailView {
         sheet = .bookView
     }
     
+    private func activateBookRequestConfirmation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            showBookRequestConfirmation = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeOut) {
+                showBookRequestConfirmation = false
+            }
+        }
+    }
+    
     @ViewBuilder
     func makeSheet(_ sheet: Sheet) -> some View {
         switch sheet {
         case .bookView:
-            BookView(listing: viewModel.listing, viewModel: viewModel)
+            BookView(listing: viewModel.listing, viewModel: viewModel, activateBookRequested: self.activateBookRequestConfirmation)
         case .reportView:
             ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
         }

@@ -19,6 +19,9 @@ struct BookView: View {
     @State private var departureDate = Date.now.addingTimeInterval(86400)
     @State private var showBookAlert: Bool = false
     
+    // notifies DetailView to activate a book confirmation
+    var activateBookRequested: () -> Void
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -45,10 +48,9 @@ struct BookView: View {
                         message: Text("Do you want to send this book request?"),
                         primaryButton: .default(Text("Confirm")) {
                             dismiss()
+                            self.activateBookRequested()
                         },
-                        secondaryButton: .cancel() {
-                            debugPrint("cancel pressed")
-                        }
+                        secondaryButton: .cancel()
                     )
                 }
                     .navigationTitle("Book this listing")
@@ -65,7 +67,7 @@ struct BookView: View {
 
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        BookView(listing: dev.listing, viewModel: DetailViewModel(listing: dev.listing))
+        BookView(listing: dev.listing, viewModel: DetailViewModel(listing: dev.listing), activateBookRequested: {})
     }
 }
 
