@@ -11,19 +11,16 @@ struct ImagesSlider: View {
     
     let listing: Listing
     
+    let dummyImages = [
+        "dummyPicSlider1",
+        "dummyPicSlider2",
+        "dummyPicSlider3",
+        "dummyPicSlider4"
+    ]
+    
     var body: some View {
         VStack(spacing: 0) {
-            Rectangle()
-                .foregroundStyle(Color.yellow)
-                .frame(height: 400)
-                .clipShape(
-                    .rect(
-                        topLeadingRadius: 10,
-                        bottomLeadingRadius: 0,
-                        bottomTrailingRadius: 0,
-                        topTrailingRadius: 10
-                    )
-                )
+            dummySlider
             
             if let listingWebsite = listing.listingURL {
                 ZStack {
@@ -47,5 +44,45 @@ struct ImagesSlider: View {
 struct ImagesSlider_Previews: PreviewProvider {
     static var previews: some View {
         ImagesSlider(listing: dev.listing)
+    }
+}
+
+extension ImagesSlider {
+    
+    private var dummySlider: some View {
+        VStack {
+            TabView {
+                ForEach(dummyImages, id: \.self) { image in
+                    Image(image)
+                        .resizable()
+                        .scaledToFill()
+                }
+            }
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        }
+        .frame(height: 400)
+        .clipShape(
+            .rect(
+                topLeadingRadius: 10,
+                bottomLeadingRadius: 0,
+                bottomTrailingRadius: 0,
+                topTrailingRadius: 10
+            )
+        )
+    }
+    
+    private var dummyRectangle: some View {
+        Rectangle()
+            .foregroundStyle(Color.yellow)
+            .frame(height: 400)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 10,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 10
+                )
+            )
     }
 }
