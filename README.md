@@ -25,7 +25,7 @@ This app features:
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>Empty view shown if user hasn't favorited any listing</li>
 <br/>
-<li>DetailView that replicates Wallapop's DetailView</li>
+<li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
 <li>ReportView to report listings, notifies DetailView to show a gratitude message to user</li>
 <li>BookView to simulate a booking request for the listing, with DatePicker & Stepper</li>
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
