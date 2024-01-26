@@ -20,6 +20,11 @@ struct ImagesSlider: View {
     
     @State private var showFullScreenImage: Bool = false
     
+    init(listing: Listing) {
+        self.listing = listing
+        setupTabViewAppearance()
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             dummySlider
@@ -40,7 +45,9 @@ struct ImagesSlider: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $showFullScreenImage, content: FullScreenImageView.init)
+        .fullScreenCover(isPresented: $showFullScreenImage) {
+            FullScreenImageView()
+        }
     }
 }
 
@@ -78,19 +85,9 @@ extension ImagesSlider {
         )
     }
     
-    private var dummyRectangle: some View {
-        Rectangle()
-            .foregroundStyle(Color.yellow)
-            .frame(height: 400)
-            .clipShape(
-                .rect(
-                    topLeadingRadius: 10,
-                    bottomLeadingRadius: 0,
-                    bottomTrailingRadius: 0,
-                    topTrailingRadius: 10
-                )
-            )
+    private func setupTabViewAppearance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .red.withAlphaComponent(0.5)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
     }
 }
 
-// scale to fill i on tap, scale to fit
