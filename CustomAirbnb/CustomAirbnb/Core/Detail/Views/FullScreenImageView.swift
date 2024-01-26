@@ -11,13 +11,31 @@ struct FullScreenImageView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    let dummyImages = [
+        "dummyPicSlider1",
+        "dummyPicSlider2",
+        "dummyPicSlider3",
+        "dummyPicSlider4"
+    ]
+    
     var body: some View {
-        Image("dummyPicSlider1")
-            .resizable()
-            .scaledToFit()
-        
-        Button("Dismiss") {
-            dismiss()
+        NavigationStack {
+            HStack() {
+                Spacer()
+                DismissXButton()
+            }
+            .padding(.horizontal)
+            VStack {
+                TabView {
+                    ForEach(dummyImages, id: \.self) { image in
+                        Image(image)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            }
         }
     }
 }
