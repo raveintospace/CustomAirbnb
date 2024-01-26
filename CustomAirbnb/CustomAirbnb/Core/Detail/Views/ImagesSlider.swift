@@ -18,6 +18,8 @@ struct ImagesSlider: View {
         "dummyPicSlider4"
     ]
     
+    @State private var showFullScreenImage: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
             dummySlider
@@ -38,6 +40,7 @@ struct ImagesSlider: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $showFullScreenImage, content: FullScreenImageView.init)
     }
 }
 
@@ -56,6 +59,9 @@ extension ImagesSlider {
                     Image(image)
                         .resizable()
                         .scaledToFill()
+                }
+                .onTapGesture {
+                    showFullScreenImage.toggle()
                 }
             }
             .tabViewStyle(PageTabViewStyle())
@@ -86,3 +92,5 @@ extension ImagesSlider {
             )
     }
 }
+
+// scale to fill i on tap, scale to fit
