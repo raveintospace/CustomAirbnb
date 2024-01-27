@@ -36,9 +36,3 @@ struct XLImageView_Previews: PreviewProvider {
         XLImageView(listing: dev.listing)
     }
 }
-
-extension XLImageView {
-    private func insertImage(image: UIImage) {
-        viewModel.insertToDummyImagesForSlider(image: image)
-    }
-}
