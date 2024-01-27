@@ -18,7 +18,7 @@ final class ListingImageDataService {
     
     private let listing: Listing
     private let fileManager = LocalFileManager.instance
-    private let folderName = "listing_images"  // -> custom name for the folder where we store coin images
+    private let folderName = "listing_images"  // -> custom name for the folder where we store listing images
     private let imageName: String
     
     init(listing: Listing) {

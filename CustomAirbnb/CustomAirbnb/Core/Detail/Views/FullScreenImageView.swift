@@ -44,5 +44,5 @@ struct FullScreenImageView: View {
 }
 
 #Preview {
-    FullScreenImageView(sliderCurrentIndex: .constant(2))
+    FullScreenImageView(sliderCurrentIndex: .constant(1))
 }

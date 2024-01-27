@@ -1,43 +1,43 @@
 //
-//  HostImageDataService.swift
+//  XLPictureDataService.swift
 //  CustomAirbnb
 //
-//  Created by Uri on 27/12/23.
+//  Created by Uri on 27/1/24.
 //
 
 import Foundation
 import SwiftUI
 import Combine
 
-final class HostImageDataService {
+final class XLPictureDataService {
     
     @Published var image: UIImage? = nil
     
-    // exclusive cancellable for getHostImage
+    // exclusive cancellable for getXLPictureImage
     private var imageSubscription: AnyCancellable?
     
     private let listing: Listing
     private let fileManager = LocalFileManager.instance
-    private let folderName = "host_images"  // -> custom name for the folder where we store host images
+    private let folderName = "xlpicture_images"  // -> custom name for the folder where we store xlpicture images
     private let imageName: String
     
     init(listing: Listing) {
         self.listing = listing
         self.imageName = listing.id
-        getHostImage()
+        getXLPictureImage()
     }
     
-    private func getHostImage() {
+    private func getXLPictureImage() {
         if let savedImage = fileManager.getImage(imageName: imageName, folderName: folderName) {
             image = savedImage
         } else {
-            downloadHostImage()
+            downloadListingImage()
         }
     }
     
-    private func downloadHostImage() {
+    private func downloadListingImage() {
         
-        guard let url = URL(string: listing.hostThumbnailURL ?? "") else { return }
+        guard let url = URL(string: listing.xlPictureURL ?? "") else { return }
         
         imageSubscription = NetworkManager.fetch(url: url)
             .tryMap({ (data) -> UIImage? in
