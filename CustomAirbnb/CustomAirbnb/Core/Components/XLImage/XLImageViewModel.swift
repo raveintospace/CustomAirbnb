@@ -61,7 +61,7 @@ final class XLImageViewModel: ObservableObject {
             } receiveValue: { [weak self] (returnedImage) in
                 guard let self = self else { return }
                 
-                // Assigns image from dataService or the placeholder
+                // Assign image from dataService or the placeholder
                 self.image = returnedImage ?? self.defaultReturnedImage
                 
                 // Create the array
