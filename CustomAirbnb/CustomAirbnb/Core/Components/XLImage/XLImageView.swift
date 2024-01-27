@@ -14,13 +14,6 @@ struct XLImageView: View {
         _viewModel = StateObject(wrappedValue: XLImageViewModel(listing: listing))
     }
     
-    var dummyImagesForSlider: [Image] = [
-        Image("dummyPicSlider1"),
-        Image("dummyPicSlider2"),
-        Image("dummyPicSlider3"),
-        Image("dummyPicSlider4")
-    ]
-    
     var body: some View {
         ZStack {
             if let image = viewModel.image {
@@ -45,5 +38,7 @@ struct XLImageView_Previews: PreviewProvider {
 }
 
 extension XLImageView {
-
+    private func insertImage(image: UIImage) {
+        viewModel.insertToDummyImagesForSlider(image: image)
+    }
 }

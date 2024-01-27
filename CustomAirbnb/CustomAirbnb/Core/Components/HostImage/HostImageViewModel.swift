@@ -24,12 +24,11 @@ final class HostImageViewModel: ObservableObject {
     }
     
     private func addSubscribers() {
-        
         dataService.$image
             .sink { (_) in
-            } receiveValue: { [weak self] (returndImage) in
+            } receiveValue: { [weak self] (returnedImage) in
                 guard let self = self else { return }
-                self.image = returndImage
+                self.image = returnedImage
             }
             .store(in: &cancellables)
     }

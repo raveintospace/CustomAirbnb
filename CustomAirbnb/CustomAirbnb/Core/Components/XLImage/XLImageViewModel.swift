@@ -35,10 +35,11 @@ final class XLImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
     
-    @Published var dummyImagesForSlider: [ImageType] = [
+    @Published var imagesForSlider: [ImageType] = [
         
     ]
     
+    let defaultReturnedImage = UIImage(named: "dummyPicSlider1") // -> create a placeholder with canva
     let dummyImageOne = Image("dummyPicSlider1")
     let dummyImageTwo = Image("dummyPicSlider2")
     let dummyImageThree = Image("dummyPicSlider3")
@@ -55,25 +56,31 @@ final class XLImageViewModel: ObservableObject {
     }
     
     private func addSubscribers() {
-        
         dataService.$image
             .sink { (_) in
-            } receiveValue: { [weak self] (returndImage) in
+            } receiveValue: { [weak self] (returnedImage) in
                 guard let self = self else { return }
-                self.image = returndImage
+                
+                // Assigns image from dataService or the placeholder
+                self.image = returnedImage ?? self.defaultReturnedImage
+                
+                // Create the array
+                if let image = self.image {
+                    self.populateImagesForSliderWith(image: image)
+                }
             }
             .store(in: &cancellables)
     }
     
-    func insertToDummyImagesForSlider(image: UIImage) {
-        dummyImagesForSlider.insert(UIKitImage(uiImage: image), at: 0)
-        populateDummyImagesForSlider()        
+    func populateImagesForSliderWith(image: UIImage) {
+        imagesForSlider.insert(UIKitImage(uiImage: image), at: 0)
+        appendDummyImagesForSlider()
     }
     
-    func populateDummyImagesForSlider() {
-        dummyImagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageOne))
-        dummyImagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageTwo))
-        dummyImagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageThree))
-        dummyImagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageFour))
+    func appendDummyImagesForSlider() {
+        imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageOne))
+        imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageTwo))
+        imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageThree))
+        imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageFour))
     }
 }
