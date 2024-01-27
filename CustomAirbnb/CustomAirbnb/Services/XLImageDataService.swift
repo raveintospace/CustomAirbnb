@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class XLPictureDataService {
+final class XLImageDataService {
     
     @Published var image: UIImage? = nil
     
@@ -18,16 +18,16 @@ final class XLPictureDataService {
     
     private let listing: Listing
     private let fileManager = LocalFileManager.instance
-    private let folderName = "xlpicture_images"  // -> custom name for the folder where we store xlpicture images
+    private let folderName = "xl_images"  // -> custom name for the folder where we store xl images
     private let imageName: String
     
     init(listing: Listing) {
         self.listing = listing
         self.imageName = listing.id
-        getXLPictureImage()
+        getXLImage()
     }
     
-    private func getXLPictureImage() {
+    private func getXLImage() {
         if let savedImage = fileManager.getImage(imageName: imageName, folderName: folderName) {
             image = savedImage
         } else {
