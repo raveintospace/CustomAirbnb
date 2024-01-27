@@ -16,7 +16,8 @@ This app features:
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
 <li>Reusable Network Manager</li>
-<li>Specific module for downloaded images: Views, Model, ViewModel & DataService</li>
+<br/>
+<li>Specific modules for downloaded images: Views, ViewModel & DataService</li>
 <li>Reusable Local FileManager to store downloaded images from API</li>
 <br/>
 <li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
@@ -27,7 +28,7 @@ This app features:
 <br/>
 <li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
 <li>ReportView to report listings, notifies DetailView to show a gratitude message to user</li>
-<li>BookView to simulate a booking request for the listing, with DatePicker & Stepper</li>
+<li>BookView to simulate a booking request for the listing, with DatePicker</li>
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
