@@ -18,6 +18,7 @@ struct ImagesSlider: View {
         "dummyPicSlider4"
     ]
     
+    @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
     
     init(listing: Listing) {
@@ -61,14 +62,16 @@ extension ImagesSlider {
     
     private var dummySlider: some View {
         VStack {
-            TabView {
-                ForEach(dummyImages, id: \.self) { image in
-                    Image(image)
+            TabView(selection: $sliderCurrentIndex) {
+                ForEach(0..<dummyImages.count, id: \.self) { imageIndex in
+                    Image(dummyImages[imageIndex])
                         .resizable()
                         .scaledToFill()
+                        .tag(imageIndex)
                 }
                 .onTapGesture {
                     showFullScreenImage.toggle()
+                    debugPrint(sliderCurrentIndex)
                 }
             }
             .tabViewStyle(PageTabViewStyle())
