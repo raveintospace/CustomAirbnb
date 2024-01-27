@@ -47,7 +47,7 @@ struct ImagesSlider: View {
             }
         }
         .fullScreenCover(isPresented: $showFullScreenImage) {
-            FullScreenImageView()
+            FullScreenImageView(sliderCurrentIndex: $sliderCurrentIndex)
         }
     }
 }
@@ -71,7 +71,6 @@ extension ImagesSlider {
                 }
                 .onTapGesture {
                     showFullScreenImage.toggle()
-                    debugPrint(sliderCurrentIndex)
                 }
             }
             .tabViewStyle(PageTabViewStyle())

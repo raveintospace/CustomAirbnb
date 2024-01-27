@@ -18,6 +18,8 @@ struct FullScreenImageView: View {
         "dummyPicSlider4"
     ]
     
+    @Binding var sliderCurrentIndex: Int
+    
     var body: some View {
         NavigationStack {
             HStack() {
@@ -26,11 +28,12 @@ struct FullScreenImageView: View {
             }
             .padding(.horizontal)
             VStack {
-                TabView {
-                    ForEach(dummyImages, id: \.self) { image in
-                        Image(image)
+                TabView(selection: $sliderCurrentIndex) {
+                    ForEach(0..<dummyImages.count, id: \.self) { imageIndex in
+                        Image(dummyImages[imageIndex])
                             .resizable()
                             .scaledToFit()
+                            .tag(imageIndex)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
@@ -41,5 +44,5 @@ struct FullScreenImageView: View {
 }
 
 #Preview {
-    FullScreenImageView()
+    FullScreenImageView(sliderCurrentIndex: .constant(2))
 }
