@@ -34,7 +34,7 @@ struct FullScreenImageView: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
             }
         }
     }

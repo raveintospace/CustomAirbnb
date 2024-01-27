@@ -75,7 +75,7 @@ extension ImagesSlider {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
         }
         .frame(height: 400)
         .clipShape(
