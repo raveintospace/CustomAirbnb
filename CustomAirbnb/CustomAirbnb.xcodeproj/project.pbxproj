@@ -13,6 +13,7 @@
 		341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58992B3C9FAB00414188 /* HostInfoView.swift */; };
 		342FB6A82B654E5300611B25 /* XLImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6A72B654E5300611B25 /* XLImageDataService.swift */; };
 		342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AA2B65501000611B25 /* XLImageViewModel.swift */; };
+		342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AC2B65568F00611B25 /* XLImageView.swift */; };
 		343374052B5304EB001A5144 /* ApartmentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343374042B5304EB001A5144 /* ApartmentInfoView.swift */; };
 		343EE7072B39A95400F1E548 /* ImagesSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EE7062B39A95400F1E548 /* ImagesSlider.swift */; };
 		344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */; };
@@ -59,6 +60,7 @@
 		341A58992B3C9FAB00414188 /* HostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoView.swift; sourceTree = "<group>"; };
 		342FB6A72B654E5300611B25 /* XLImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageDataService.swift; sourceTree = "<group>"; };
 		342FB6AA2B65501000611B25 /* XLImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageViewModel.swift; sourceTree = "<group>"; };
+		342FB6AC2B65568F00611B25 /* XLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageView.swift; sourceTree = "<group>"; };
 		343374042B5304EB001A5144 /* ApartmentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentInfoView.swift; sourceTree = "<group>"; };
 		343EE7062B39A95400F1E548 /* ImagesSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSlider.swift; sourceTree = "<group>"; };
 		344DC5142B277D6100481B0E /* CustomAirbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAirbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				342FB6AA2B65501000611B25 /* XLImageViewModel.swift */,
+				342FB6AC2B65568F00611B25 /* XLImageView.swift */,
 			);
 			path = XLImage;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
 				348603472B55AE6D0064C51D /* RedDivider.swift in Sources */,
 				348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */,
+				342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */,
 				348A57512B385202007FBB9B /* DetailView.swift in Sources */,
 				342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */,
 				349588DD2B3F40BF00B55884 /* ListingGridView.swift in Sources */,
