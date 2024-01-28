@@ -61,12 +61,11 @@ final class XLImageViewModel: ObservableObject {
             } receiveValue: { [weak self] (returnedImage) in
                 guard let self = self else { return }
                 
-                // Assign image from dataService or the placeholder
-                self.image = returnedImage ?? self.defaultReturnedImage
-                
-                // Create the array
-                if let image = self.image {
-                    self.populateImagesForSliderWith(image: image)
+                // Create an array with the image from the Api call or assign the placeholder
+                if let xlImage = returnedImage {
+                    self.populateImagesForSliderWith(image: xlImage)
+                } else {
+                    self.image = defaultReturnedImage
                 }
             }
             .store(in: &cancellables)
