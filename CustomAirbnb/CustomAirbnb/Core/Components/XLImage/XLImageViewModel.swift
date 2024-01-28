@@ -48,7 +48,7 @@ final class XLImageViewModel: ObservableObject {
         
     ]
     
-    let defaultReturnedImage = UIImage(named: "noPictureAvailable")
+    let defaultReturnedImage = UIImage(named: "noXLPictureAvailable")
     let dummyImageOne = Image("dummyPicSlider1")
     let dummyImageTwo = Image("dummyPicSlider2")
     let dummyImageThree = Image("dummyPicSlider3")
