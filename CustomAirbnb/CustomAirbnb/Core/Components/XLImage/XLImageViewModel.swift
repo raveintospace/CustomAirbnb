@@ -12,13 +12,18 @@ import Combine
 // MARK: - Handle an array that supports UIImage & Image
 protocol ImageType {
     var image: AnyView { get }
+    var aspectRatio: CGFloat { get }
 }
 
 struct UIKitImage: ImageType {
     let uiImage: UIImage
     
     var image: AnyView {
-        AnyView(Image(uiImage: uiImage))
+        AnyView(Image(uiImage: uiImage).resizable())
+    }
+    
+    var aspectRatio: CGFloat {
+        return uiImage.size.width / uiImage.size.height
     }
 }
 
@@ -26,7 +31,11 @@ struct SwiftUIImage: ImageType {
     let swiftUIImage: Image
     
     var image: AnyView {
-        AnyView(swiftUIImage)
+        AnyView(swiftUIImage.resizable())
+    }
+    
+    var aspectRatio: CGFloat {
+        return 1.0
     }
 }
 
@@ -39,13 +48,13 @@ final class XLImageViewModel: ObservableObject {
         
     ]
     
-    let defaultReturnedImage = UIImage(named: "dummyPicSlider1") // -> create a placeholder with canva
+    let defaultReturnedImage = UIImage(named: "noPictureAvailable")
     let dummyImageOne = Image("dummyPicSlider1")
     let dummyImageTwo = Image("dummyPicSlider2")
     let dummyImageThree = Image("dummyPicSlider3")
     let dummyImageFour = Image("dummyPicSlider4")
     
-    private let listing: Listing
+    let listing: Listing
     private let dataService: XLImageDataService
     private var cancellables = Set<AnyCancellable>()
     

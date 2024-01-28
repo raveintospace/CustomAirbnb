@@ -11,16 +11,6 @@ struct ImagesSlider: View {
     
     let listing: Listing
     
-    let dummyImages = [
-        "dummyPicSlider1",
-        "dummyPicSlider2",
-        "dummyPicSlider3",
-        "dummyPicSlider4"
-    ]
-    
-    @State private var sliderCurrentIndex: Int = 0
-    @State private var showFullScreenImage: Bool = false
-    
     init(listing: Listing) {
         self.listing = listing
         setupTabViewAppearance()
@@ -28,7 +18,7 @@ struct ImagesSlider: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            dummySlider
+            XLImageView(listing: listing)
             
             if let listingWebsite = listing.listingURL {
                 ZStack {
@@ -46,9 +36,6 @@ struct ImagesSlider: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $showFullScreenImage) {
-            FullScreenImageView(sliderCurrentIndex: $sliderCurrentIndex)
-        }
     }
 }
 
@@ -59,33 +46,6 @@ struct ImagesSlider_Previews: PreviewProvider {
 }
 
 extension ImagesSlider {
-    
-    private var dummySlider: some View {
-        VStack {
-            TabView(selection: $sliderCurrentIndex) {
-                ForEach(0..<dummyImages.count, id: \.self) { imageIndex in
-                    Image(dummyImages[imageIndex])
-                        .resizable()
-                        .scaledToFill()
-                        .tag(imageIndex)
-                }
-                .onTapGesture {
-                    showFullScreenImage.toggle()
-                }
-            }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
-        }
-        .frame(height: 400)
-        .clipShape(
-            .rect(
-                topLeadingRadius: 10,
-                bottomLeadingRadius: 0,
-                bottomTrailingRadius: 0,
-                topTrailingRadius: 10
-            )
-        )
-    }
     
     private func setupTabViewAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .red.withAlphaComponent(0.5)
