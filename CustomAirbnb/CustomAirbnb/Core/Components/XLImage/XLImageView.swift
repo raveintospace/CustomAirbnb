@@ -24,15 +24,7 @@ struct XLImageView: View {
             VStack {
                 xlPicturesSlider
             }
-            .frame(height: 400)
-            .clipShape(
-                .rect(
-                    topLeadingRadius: 10,
-                    bottomLeadingRadius: 0,
-                    bottomTrailingRadius: 0,
-                    topTrailingRadius: 10
-                )
-            )
+            .frameRectTenShape(height: 400)
             .fullScreenCover(isPresented: $showFullScreenImage) {
                 FullScreenImageView(listing: viewModel.listing, sliderCurrentIndex: $sliderCurrentIndex)
             }
@@ -43,15 +35,7 @@ struct XLImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .opacity(0.75)
-                    .frame(height: 400)
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 10,
-                            bottomLeadingRadius: 0,
-                            bottomTrailingRadius: 0,
-                            topTrailingRadius: 10
-                        )
-                    )
+                    .frameRectTenShape(height: 400)
             }
         }
     }

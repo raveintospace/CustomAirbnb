@@ -38,6 +38,7 @@
 		34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4E5442B54245D00FDE7E4 /* BookView.swift */; };
 		34B4E5492B542F2800FDE7E4 /* DismissXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4E5482B542F2800FDE7E4 /* DismissXButton.swift */; };
 		34B635A22B681513007D980F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B635A12B681513007D980F /* ImageType.swift */; };
+		34B635A52B681D13007D980F /* FrameRectTen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B635A42B681D13007D980F /* FrameRectTen.swift */; };
 		34B661F42B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34B661F22B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld */; };
 		34B661F62B4C6DB4006ABA26 /* FavoritesDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B661F52B4C6DB4006ABA26 /* FavoritesDataService.swift */; };
 		34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC02B320E700051985E /* ListingImageView.swift */; };
@@ -87,6 +88,7 @@
 		34B4E5442B54245D00FDE7E4 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		34B4E5482B542F2800FDE7E4 /* DismissXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissXButton.swift; sourceTree = "<group>"; };
 		34B635A12B681513007D980F /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		34B635A42B681D13007D980F /* FrameRectTen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameRectTen.swift; sourceTree = "<group>"; };
 		34B661F32B4C6D11006ABA26 /* FavoritesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesContainer.xcdatamodel; sourceTree = "<group>"; };
 		34B661F52B4C6DB4006ABA26 /* FavoritesDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDataService.swift; sourceTree = "<group>"; };
 		34B8CBC02B320E700051985E /* ListingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */,
 				34B635A02B6814FB007D980F /* Protocols */,
 				34F063A52B30B633003966B9 /* Utilities */,
+				34B635A32B681CE6007D980F /* ViewModifiers */,
 				344DC5262B277F3400481B0E /* Extensions */,
 				34F063A82B30B670003966B9 /* Services */,
 				344DC52C2B27806F00481B0E /* Models */,
@@ -267,6 +270,14 @@
 				34B635A12B681513007D980F /* ImageType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		34B635A32B681CE6007D980F /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				34B635A42B681D13007D980F /* FrameRectTen.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		34B762932B39DCB300B026AA /* ListingImage */ = {
@@ -437,6 +448,7 @@
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
 				348603472B55AE6D0064C51D /* RedDivider.swift in Sources */,
 				348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */,
+				34B635A52B681D13007D980F /* FrameRectTen.swift in Sources */,
 				342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */,
 				348A57512B385202007FBB9B /* DetailView.swift in Sources */,
 				342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */,
