@@ -12,6 +12,8 @@ This app features:
 <li>Overrided navigationBarTitles to use Color Theme</li>
 <br/>
 <li>Extensions for Double (to a rounded String), Preview Provider (Object model mocks), UIApplication (dismiss keyboard)</li>
+<li>ImageType protocol to handle an array of UIImage & Image</li>
+<li>ViewModifiers extracted for modularity</li>
 <br/>
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
@@ -33,3 +35,4 @@ This app features:
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
+</br>
