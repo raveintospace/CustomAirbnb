@@ -24,14 +24,7 @@ struct ImagesSlider: View {
                     Rectangle()
                         .frame(height: 50)
                         .foregroundStyle(Color.theme.airRed)
-                    HStack {
-                        Image(systemName: "house")
-                        Link("Listing Website", destination: URL(string: listingWebsite)!)
-                            .bold()
-                        Spacer()
-                    }
-                    .foregroundStyle(Color.white)
-                    .padding(.horizontal, 15)
+                    listingWebsiteHStack
                 }
             }
         }
@@ -45,6 +38,16 @@ struct ImagesSlider_Previews: PreviewProvider {
 }
 
 extension ImagesSlider {
-    
+
+    private var listingWebsiteHStack: some View {
+        HStack {
+            Image(systemName: "house")
+            Link("Listing Website", destination: URL(string: listing.listingURL!)!)
+                .bold()
+            Spacer()
+        }
+        .foregroundStyle(Color.white)
+        .padding(.horizontal, 15)
+    }
 }
 
