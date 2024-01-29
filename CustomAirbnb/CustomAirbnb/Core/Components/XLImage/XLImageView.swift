@@ -22,24 +22,7 @@ struct XLImageView: View {
     var body: some View {
         if !viewModel.imagesForSlider.isEmpty {
             VStack {
-                TabView(selection: $sliderCurrentIndex) {
-                    ForEach(0..<viewModel.imagesForSlider.count, id: \.self) { imageIndex in
-                        
-                        // convert images from array to use them in slider
-                        let imageType = viewModel.imagesForSlider[imageIndex]
-                        let image = imageType.image
-                        
-                        image
-                            .scaledToFill()
-                            .aspectRatio(imageType.aspectRatio, contentMode: .fill)
-                            .tag(imageIndex)
-                            .onTapGesture {
-                                showFullScreenImage.toggle()
-                            }
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
+                xlPicturesSlider
             }
             .frame(height: 400)
             .clipShape(
@@ -84,5 +67,26 @@ extension XLImageView {
     private func setupTabViewAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .red.withAlphaComponent(0.5)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
+    }
+    
+    private var xlPicturesSlider: some View {
+        TabView(selection: $sliderCurrentIndex) {
+            ForEach(0..<viewModel.imagesForSlider.count, id: \.self) { imageIndex in
+                
+                // convert images from array to use them in slider
+                let imageType = viewModel.imagesForSlider[imageIndex]
+                let image = imageType.image
+                
+                image
+                    .scaledToFill()
+                    .aspectRatio(imageType.aspectRatio, contentMode: .fill)
+                    .tag(imageIndex)
+                    .onTapGesture {
+                        showFullScreenImage.toggle()
+                    }
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
     }
 }

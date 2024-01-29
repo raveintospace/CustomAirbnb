@@ -13,7 +13,6 @@ struct ImagesSlider: View {
     
     init(listing: Listing) {
         self.listing = listing
-        setupTabViewAppearance()
     }
     
     var body: some View {
@@ -47,9 +46,5 @@ struct ImagesSlider_Previews: PreviewProvider {
 
 extension ImagesSlider {
     
-    private func setupTabViewAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .red.withAlphaComponent(0.5)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
-    }
 }
 
