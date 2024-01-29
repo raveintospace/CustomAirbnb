@@ -9,37 +9,6 @@ import Foundation
 import SwiftUI
 import Combine
 
-// MARK: - Handle an array that supports UIImage & Image
-protocol ImageType {
-    var image: AnyView { get }
-    var aspectRatio: CGFloat { get }
-}
-
-struct UIKitImage: ImageType {
-    let uiImage: UIImage
-    
-    var image: AnyView {
-        AnyView(Image(uiImage: uiImage).resizable())
-    }
-    
-    var aspectRatio: CGFloat {
-        return uiImage.size.width / uiImage.size.height
-    }
-}
-
-struct SwiftUIImage: ImageType {
-    let swiftUIImage: Image
-    
-    var image: AnyView {
-        AnyView(swiftUIImage.resizable())
-    }
-    
-    var aspectRatio: CGFloat {
-        return 1.0
-    }
-}
-
-// MARK: - ViewModel
 final class XLImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
@@ -48,11 +17,11 @@ final class XLImageViewModel: ObservableObject {
         
     ]
     
-    let defaultReturnedImage = UIImage(named: "noXLPictureAvailable")
-    let dummyImageOne = Image("dummyPicSlider1")
-    let dummyImageTwo = Image("dummyPicSlider2")
-    let dummyImageThree = Image("dummyPicSlider3")
-    let dummyImageFour = Image("dummyPicSlider4")
+    private let defaultReturnedImage = UIImage(named: "noXLPictureAvailable")
+    private let dummyImageOne = Image("dummyPicSlider1")
+    private let dummyImageTwo = Image("dummyPicSlider2")
+    private let dummyImageThree = Image("dummyPicSlider3")
+    private let dummyImageFour = Image("dummyPicSlider4")
     
     let listing: Listing
     private let dataService: XLImageDataService
