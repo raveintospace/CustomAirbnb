@@ -42,6 +42,7 @@ struct XLImageView: View {
             if let image = viewModel.image {
                 Image(uiImage: image)
                     .resizable()
+                    .opacity(0.75)
                     .frame(height: 400)
                     .clipShape(
                         .rect(
