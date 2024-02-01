@@ -58,7 +58,8 @@ final class HomeViewModel: ObservableObject {
         destinationForDataService
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink { [weak self] (destination) in
-                self?.listingDataService.destination = destination
+                guard let self = self else { return }
+                self.listingDataService.destination = destination
             }
             .store(in: &cancellables)
         

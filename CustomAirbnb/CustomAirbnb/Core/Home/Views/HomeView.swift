@@ -87,6 +87,7 @@ extension HomeView {
             
             VStack {
                 Text(destination)
+                    .fontWeight(.heavy)
                     .onChange(of: destination) { newValue in
                         viewModel.destination = destination
                                 }
@@ -94,7 +95,6 @@ extension HomeView {
                 Text(showFavoritesView ? "Favorite listings" : "Available listings")
             }
             .font(.headline)
-            .fontWeight(.heavy)
             .foregroundStyle(Color.theme.accent)
             .transaction { transaction in
                 transaction.animation = nil
@@ -174,7 +174,7 @@ extension HomeView {
             Text("No favorites")
                 .font(.system(size: 40))
                 .bold()
-            Text("You haven't tagged any listing as favorite. Swipe left on the listing you want to favorite or press the ❤️ button when checking its details.")
+            Text("You haven't tagged any listing as favorite for this destination. Swipe left on the listing you want to favorite or press the ❤️ button when checking its details.")
                 .font(.callout)
         }
         .foregroundColor(Color.theme.accent)
