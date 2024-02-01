@@ -33,6 +33,8 @@ This app features:
 <li>BookView to simulate a booking request for the listing, with DatePicker</li>
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
 <br/>
+<li>DestinationView where user chooses destination. It updates the API call with the value selected</li>
+<br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
 </br>
