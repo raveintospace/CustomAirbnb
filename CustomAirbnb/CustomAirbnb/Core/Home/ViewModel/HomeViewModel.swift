@@ -14,9 +14,16 @@ final class HomeViewModel: ObservableObject {
     @Published var favoriteListings: [Listing] = []
     
     @Published var searchText: String = ""
+    @Published var destination: String = "" {
+        didSet {
+            destinationForDataService.send(destination)
+        }
+    }
     
     private let listingDataService = ListingDataService()
     private let favoritesDataService = FavoritesDataService()
+    
+    private let destinationForDataService = PassthroughSubject<String, Never>()
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     
@@ -44,6 +51,14 @@ final class HomeViewModel: ObservableObject {
             .sink { [weak self] (returnedListings) in
                 guard let self = self else { return }
                 self.favoriteListings = returnedListings
+            }
+            .store(in: &cancellables)
+        
+        // subscription to destination
+        destinationForDataService
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink { [weak self] (destination) in
+                self?.listingDataService.destination = destination
             }
             .store(in: &cancellables)
         

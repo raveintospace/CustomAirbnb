@@ -84,14 +84,23 @@ extension HomeView {
                     CircleButtonAnimationView(animate: $showDestinationView)
                 )
             Spacer()
-            Text(showFavoritesView ? "Favorite listings" : "Available listings")
-                .font(.headline)
-                .fontWeight(.heavy)
-                .foregroundStyle(Color.theme.accent)
-                .transaction { transaction in
-                    transaction.animation = nil
-                }
+            
+            VStack {
+                Text(destination)
+                    .onChange(of: destination) { newValue in
+                        viewModel.destination = destination
+                                }
+                    
+                Text(showFavoritesView ? "Favorite listings" : "Available listings")
+            }
+            .font(.headline)
+            .fontWeight(.heavy)
+            .foregroundStyle(Color.theme.accent)
+            .transaction { transaction in
+                transaction.animation = nil
+            }
             Spacer()
+            
             CircleButtonView(iconName: showFavoritesView ? "heart.fill" : "heart")
                 .foregroundStyle(showFavoritesView ? Color.theme.airRed : Color.theme.accent)
                 .onTapGesture {

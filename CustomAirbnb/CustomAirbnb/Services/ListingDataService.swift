@@ -11,16 +11,23 @@ import Combine
 final class ListingDataService {
     
     @Published var allListings: [Listing] = []
+    @Published var destination: String = "" {
+        didSet {
+            getListings(city: destination)
+        }
+    }
     
     // exclusive cancellable for getListings
     var listingSubscription: AnyCancellable?
     
     init() {
-        getListings()
+        getListings(city: "Barcelona")
     }
     
-    func getListings() {
-        guard let url = URL(string: "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/airbnb-listings/records?limit=40&refine=room_type%3A%22Entire%20home%2Fapt%22&refine=city%3A%22Barcelona%22") else { return }
+    func getListings(city: String) {
+        guard let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        
+        guard let url = URL(string: "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/airbnb-listings/records?limit=40&refine=room_type%3A%22Entire%20home%2Fapt%22&refine=city%3A%22\(encodedCity)%22") else { return }
         
         listingSubscription = NetworkManager.fetch(url: url)
             .decode(type: ListingsResponse.self, decoder: JSONDecoder())
@@ -32,5 +39,4 @@ final class ListingDataService {
                 self.listingSubscription?.cancel()
             })
     }
-    
 }
