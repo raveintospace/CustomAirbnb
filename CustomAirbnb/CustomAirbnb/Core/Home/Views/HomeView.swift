@@ -75,11 +75,6 @@ extension HomeView {
             CircleButtonView(iconName: "airplane")
                 .foregroundStyle(showDestinationView ? Color.theme.airRed : Color.theme.accent)
                 .rotationEffect(Angle(degrees: showDestinationView ? -45 : 0))
-                .onTapGesture {
-                    withAnimation(.spring()) {
-                        showDestinationView.toggle()
-                    }
-                }
                 .background(
                     CircleButtonAnimationView(animate: $showDestinationView)
                 )
@@ -98,6 +93,12 @@ extension HomeView {
             .foregroundStyle(Color.theme.accent)
             .transaction { transaction in
                 transaction.animation = nil
+                
+            }
+            .onTapGesture {
+                withAnimation(.spring()) {
+                    showDestinationView.toggle()
+                }
             }
             Spacer()
             
