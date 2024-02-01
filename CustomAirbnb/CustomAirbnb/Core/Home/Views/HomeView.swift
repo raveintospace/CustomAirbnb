@@ -10,10 +10,15 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var viewModel: HomeViewModel
+    
     @State private var selectedListing: Listing? = nil
+    
+    @State private var destination: String = "Barcelona"
+    
     @State private var showDetailView: Bool = false
-    @State private var showSettingsView: Bool = false
+    @State private var showDestinationView: Bool = false
     @State private var showFavoritesView: Bool = false
+    
     
     var body: some View {
         NavigationStack {
@@ -42,8 +47,8 @@ struct HomeView: View {
                     }
                     Spacer(minLength: 0) // avoids header to go down
                 }
-                .popover(isPresented: $showSettingsView) {
-                    SettingsView()
+                .sheet(isPresented: $showDestinationView) {
+                    DestinationView(destination: $destination)
                 }
             }
             .navigationDestination(isPresented: $showDetailView) {
@@ -67,15 +72,16 @@ extension HomeView {
     
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: "gearshape")
-                .foregroundStyle(showSettingsView ? Color.theme.airRed : Color.theme.accent)
+            CircleButtonView(iconName: "airplane")
+                .foregroundStyle(showDestinationView ? Color.theme.airRed : Color.theme.accent)
+                .rotationEffect(Angle(degrees: showDestinationView ? -45 : 0))
                 .onTapGesture {
-                    withAnimation {
-                        showSettingsView.toggle()
+                    withAnimation(.spring()) {
+                        showDestinationView.toggle()
                     }
                 }
                 .background(
-                    CircleButtonAnimationView(animate: $showSettingsView)
+                    CircleButtonAnimationView(animate: $showDestinationView)
                 )
             Spacer()
             Text(showFavoritesView ? "Favorite listings" : "Available listings")

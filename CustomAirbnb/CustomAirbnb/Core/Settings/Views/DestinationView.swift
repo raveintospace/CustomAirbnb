@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct DestinationView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var selection = "Barcelona"
+    @Binding var destination: String
     let cities = ["Amsterdam", "Barcelona", "London", "Los Angeles", "Melbourne"]
     
     var body: some View {
@@ -21,7 +21,7 @@ struct SettingsView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Picker("Select your destination", selection: $selection) {
+                    Picker("Select your destination", selection: $destination) {
                         ForEach(cities, id: \.self) {
                             Text($0)
                         }
@@ -43,5 +43,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    DestinationView(destination: .constant("Barcelona"))
 }
