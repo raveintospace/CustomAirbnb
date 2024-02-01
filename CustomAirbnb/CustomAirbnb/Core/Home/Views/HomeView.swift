@@ -42,6 +42,9 @@ struct HomeView: View {
                     }
                     Spacer(minLength: 0) // avoids header to go down
                 }
+                .popover(isPresented: $showSettingsView) {
+                    SettingsView()
+                }
             }
             .navigationDestination(isPresented: $showDetailView) {
                     DetailLoadingView(listing: $selectedListing)
@@ -64,7 +67,7 @@ extension HomeView {
     
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: "info.circle")
+            CircleButtonView(iconName: "gearshape")
                 .foregroundStyle(showSettingsView ? Color.theme.airRed : Color.theme.accent)
                 .onTapGesture {
                     debugPrint("create the show settings view!")
