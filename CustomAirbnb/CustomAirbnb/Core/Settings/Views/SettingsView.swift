@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @State private var selection = "Barcelona"
+    let cities = ["Amsterdam", "Barcelona", "London", "Los Angeles", "Melbourne"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Picker("Select your destination", selection: $selection) {
+                        ForEach(cities, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .scaleEffect(1.2)
+                    Spacer()
+                }
+                .navigationTitle("Select your destination")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        DismissXButton()
+                    }
+                })
+            }
+        }
     }
 }
 

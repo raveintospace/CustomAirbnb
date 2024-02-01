@@ -70,8 +70,9 @@ extension HomeView {
             CircleButtonView(iconName: "gearshape")
                 .foregroundStyle(showSettingsView ? Color.theme.airRed : Color.theme.accent)
                 .onTapGesture {
-                    debugPrint("create the show settings view!")
-                    showSettingsView.toggle()
+                    withAnimation {
+                        showSettingsView.toggle()
+                    }
                 }
                 .background(
                     CircleButtonAnimationView(animate: $showSettingsView)
