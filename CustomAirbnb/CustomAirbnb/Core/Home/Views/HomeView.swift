@@ -9,22 +9,30 @@ import SwiftUI
 
 struct HomeView: View {
     
+    enum Sheet: String, Identifiable {
+        case destinationView, infoView, uploadView
+        var id: String { rawValue }
+    }
+    
     @EnvironmentObject private var viewModel: HomeViewModel
     
     @State private var selectedListing: Listing? = nil
     
     @State private var destination: String = "Barcelona"
     
+    @State private var sheet: Sheet?
     @State private var showDetailView: Bool = false
     @State private var showDestinationView: Bool = false
     @State private var showFavoritesView: Bool = false
-    
+    @State private var showInfoview: Bool = false
+    @State private var showUploadView: Bool = false
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()
+                    .sheet(item: $sheet, content: makeSheet)
                 
                 VStack {
                     homeHeader
@@ -46,9 +54,6 @@ struct HomeView: View {
                         .transition(.move(edge: .trailing))
                     }
                     Spacer(minLength: 0) // avoids header to go down
-                }
-                .sheet(isPresented: $showDestinationView) {
-                    DestinationView(destination: $destination)
                 }
             }
             .navigationDestination(isPresented: $showDetailView) {
@@ -72,11 +77,21 @@ extension HomeView {
     
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: "airplane")
-                .foregroundStyle(showDestinationView ? Color.theme.airRed : Color.theme.accent)
-                .rotationEffect(Angle(degrees: showDestinationView ? -45 : 0))
+            CircleButtonView(iconName: showFavoritesView ? "plus" : "info")
+                .transaction { transaction in
+                    transaction.animation = nil
+                }
+                .onTapGesture {
+                    if showFavoritesView {
+                        showUploadView.toggle()
+                        sheet = .uploadView
+                    } else {
+                        showInfoview.toggle()
+                        sheet = .infoView
+                    }
+                }
                 .background(
-                    CircleButtonAnimationView(animate: $showDestinationView)
+                    CircleButtonAnimationView(animate: $showFavoritesView)
                 )
             Spacer()
             
@@ -98,6 +113,7 @@ extension HomeView {
             .onTapGesture {
                 withAnimation(.spring()) {
                     showDestinationView.toggle()
+                    sheet = .destinationView
                 }
             }
             Spacer()
@@ -109,9 +125,6 @@ extension HomeView {
                         showFavoritesView.toggle()
                     }
                 }
-                .background(
-                    CircleButtonAnimationView(animate: $showFavoritesView)
-                )
         }
         .padding(.horizontal)
     }
@@ -186,5 +199,17 @@ extension HomeView {
     private func segue(listing: Listing) {
         selectedListing = listing
         showDetailView.toggle()
+    }
+    
+    @ViewBuilder
+    func makeSheet(_ sheet: Sheet) -> some View {
+        switch sheet {
+        case .destinationView:
+            DestinationView(destination: $destination)
+        case .infoView:
+            InfoView()
+        case .uploadView:
+            UploadView()
+        }
     }
 }

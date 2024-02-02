@@ -17,7 +17,7 @@ struct CircleButtonAnimationView: View {
             .scale(animate ? 1.0 : 0.0)
             .opacity(animate ? 0.0: 1.0)
             .transaction { transaction in
-                transaction.animation = animate ? .easeOut(duration: 0.5) : nil
+                transaction.animation = animate ? .easeOut(duration: 1.0) : nil
             }
     }
 }
