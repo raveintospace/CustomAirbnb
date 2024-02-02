@@ -203,7 +203,9 @@
 				34B8CBBF2B320E570051985E /* Components */,
 				344DC5292B27800700481B0E /* Home */,
 				348A574D2B38519F007FBB9B /* Detail */,
+				3495754C2B6D385C00DC4643 /* Info */,
 				34E05C392B6BDD9600146F73 /* Destination */,
+				3495754D2B6D387D00DC4643 /* Upload */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -263,6 +265,36 @@
 				341A58992B3C9FAB00414188 /* HostInfoView.swift */,
 				34F440342B3DED69004D581A /* ListingDescriptionView.swift */,
 				349588DC2B3F40BF00B55884 /* ListingGridView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3495754C2B6D385C00DC4643 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				3495754E2B6D38A900DC4643 /* Views */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		3495754D2B6D387D00DC4643 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				3495754F2B6D38B000DC4643 /* Views */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		3495754E2B6D38A900DC4643 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3495754F2B6D38B000DC4643 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -12,6 +12,7 @@ struct DestinationView: View {
     @Environment(\.dismiss) var dismiss
     
     @Binding var destination: String
+    
     let cities = ["Amsterdam", "Barcelona", "London", "Los Angeles", "Melbourne", "Paris", "Roma", "San Diego", "Toronto"]
     
     var body: some View {
