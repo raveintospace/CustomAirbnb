@@ -1,6 +1,6 @@
 # CustomAirbnb
 <br/>
-SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Freestyle project testing my learnings from previews projects and new challenges.
+SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Freestyle app to test my learnings from previous projects and new challenges.
 
 ⚠️ Project in construction ⚠️
 <br/>
@@ -19,13 +19,15 @@ This app features:
 <br/>
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>Empty view shown if user hasn't favorited any listing</li>
+<li>DestinationView, InfoView & UploadView sheets presented using @ViewBuilder & switch</li>
 <br/>
 <li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
 <li>ReportView to report listings, notifies DetailView to show a gratitude message to user</li>
-<li>BookView to simulate a booking request for the listing, with DatePicker</li>
+<li>BookView to simulate a booking request for the listing, with DatePicker and price calculation</li>
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
 <br/>
 <li>DestinationView where user chooses destination. It updates the API call with the value selected</li>
+<li>InfoView shows info about the app's project</li>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
@@ -37,4 +39,5 @@ This app features:
 <li>Extensions for Double (to a rounded String), Preview Provider (Object model mocks), UIApplication (dismiss keyboard)</li>
 <li>ImageType protocol to handle an array of UIImage & Image</li>
 <li>ViewModifiers extracted for modularity</li>
+<li>City & ReportReason models with Stub</li>
 <br/>
