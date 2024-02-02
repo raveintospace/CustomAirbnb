@@ -31,6 +31,7 @@
 		348A57532B3852DD007FBB9B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A57522B3852DD007FBB9B /* DetailViewModel.swift */; };
 		348A87482B4ACF7300BBDF4D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A87472B4ACF7300BBDF4D /* SearchBarView.swift */; };
 		348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A87492B4ACFD300BBDF4D /* UIApplication.swift */; };
+		349575512B6D39D500DC4643 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575502B6D39D500DC4643 /* City.swift */; };
 		349588DB2B3F3B9900B55884 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DA2B3F3B9900B55884 /* Double.swift */; };
 		349588DD2B3F40BF00B55884 /* ListingGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DC2B3F40BF00B55884 /* ListingGridView.swift */; };
 		34A1EFEF2B34AD2400E1F948 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */; };
@@ -82,6 +83,7 @@
 		348A57522B3852DD007FBB9B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		348A87472B4ACF7300BBDF4D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		348A87492B4ACFD300BBDF4D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		349575502B6D39D500DC4643 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		349588DA2B3F3B9900B55884 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		349588DC2B3F40BF00B55884 /* ListingGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingGridView.swift; sourceTree = "<group>"; };
 		34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
@@ -221,8 +223,9 @@
 		344DC52C2B27806F00481B0E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */,
+				349575502B6D39D500DC4643 /* City.swift */,
 				344DC52D2B2780FF00481B0E /* Listing.swift */,
+				34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */,
 				347E60C12B41AC7E00A86FDD /* ReportReason.swift */,
 				34B661F22B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld */,
 			);
@@ -232,8 +235,8 @@
 		346DEBE62B4AF2290090BD27 /* CircleButton */ = {
 			isa = PBXGroup;
 			children = (
-				346DEBE72B4AF2400090BD27 /* CircleButtonView.swift */,
 				346DEBE92B4AF3150090BD27 /* CircleButtonAnimationView.swift */,
+				346DEBE72B4AF2400090BD27 /* CircleButtonView.swift */,
 			);
 			path = CircleButton;
 			sourceTree = "<group>";
@@ -340,10 +343,10 @@
 				34B762932B39DCB300B026AA /* ListingImage */,
 				34B762942B39DD2F00B026AA /* HostImage */,
 				342FB6A92B654FED00611B25 /* XLImage */,
-				348A87472B4ACF7300BBDF4D /* SearchBarView.swift */,
+				34E8B08A2B5C3C390043B979 /* ConfirmationRectangle.swift */,
 				34B4E5482B542F2800FDE7E4 /* DismissXButton.swift */,
 				348603462B55AE6D0064C51D /* RedDivider.swift */,
-				34E8B08A2B5C3C390043B979 /* ConfirmationRectangle.swift */,
+				348A87472B4ACF7300BBDF4D /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -378,8 +381,8 @@
 		34F063A52B30B633003966B9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				34F063A62B30B646003966B9 /* NetworkManager.swift */,
 				34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */,
+				34F063A62B30B646003966B9 /* NetworkManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -387,11 +390,11 @@
 		34F063A82B30B670003966B9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				341A58932B3C99DC00414188 /* HostImageDataService.swift */,
+				34B661F52B4C6DB4006ABA26 /* FavoritesDataService.swift */,
 				34F063A92B30B69F003966B9 /* ListingDataService.swift */,
 				34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */,
-				341A58932B3C99DC00414188 /* HostImageDataService.swift */,
 				342FB6A72B654E5300611B25 /* XLImageDataService.swift */,
-				34B661F52B4C6DB4006ABA26 /* FavoritesDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				34E05C3C2B6BDDC500146F73 /* DestinationView.swift in Sources */,
 				34A1EFEF2B34AD2400E1F948 /* LocalFileManager.swift in Sources */,
 				347E60C22B41AC7E00A86FDD /* ReportReason.swift in Sources */,
+				349575512B6D39D500DC4643 /* City.swift in Sources */,
 				341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */,
 				341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */,
 				341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */,

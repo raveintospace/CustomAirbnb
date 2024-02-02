@@ -13,7 +13,7 @@ struct DestinationView: View {
     
     @Binding var destination: String
     
-    let cities = ["Amsterdam", "Barcelona", "London", "Los Angeles", "Melbourne", "Paris", "Roma", "San Diego", "Toronto"]
+    let cities = City.stub
     
     var body: some View {
         NavigationStack {
@@ -23,8 +23,9 @@ struct DestinationView: View {
                 
                 VStack {
                     Picker("Select your destination", selection: $destination) {
-                        ForEach(cities, id: \.self) {
-                            Text($0)
+                        ForEach(cities) { city in
+                            Text(city.name)
+                                .tag(city.name)
                         }
                     }
                     .pickerStyle(.menu)
