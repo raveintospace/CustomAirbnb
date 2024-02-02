@@ -20,11 +20,9 @@ struct InfoView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // background
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                // content
                 List {
                     courseInfoSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
@@ -60,7 +58,7 @@ extension InfoView {
     private var courseInfoSection: some View {
         Section {
             VStack(alignment: .leading) {
-                Image("logo")
+                Image("customlogo")
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -82,11 +80,12 @@ extension InfoView {
     private var coinGeckoSection: some View {
         Section {
             VStack(alignment: .leading) {
-                Image("coingecko")
+                Image("ods")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
                 Text("The Airbnb data used in this app comes from a free Opendata's API. JSON content may vary or come incomplete.")
                     .font(.callout)
                     .fontWeight(.medium)
@@ -107,6 +106,7 @@ extension InfoView {
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.bottom, 10)
                 Text("""
                     This is Uri, a junior iOS developer trying to get my first iOS job.
 
