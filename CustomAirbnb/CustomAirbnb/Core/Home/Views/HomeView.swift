@@ -131,12 +131,16 @@ extension HomeView {
     }
     
     private var sortPicker: some View {
-        Picker("Sort listings", selection: $viewModel.sortOption) {
-            ForEach(SortOption.allCases, id: \.self) { sortOption in
-                Text(sortOption.rawValue.capitalized)
+        HStack {
+            Picker("Sort listings", selection: $viewModel.sortOption) {
+                ForEach(SortOption.allCases, id: \.self) { sortOption in
+                    Text(sortOption.displayName())
+                }
             }
+            .pickerStyle(.menu)
+            Spacer()
         }
-        .pickerStyle(.menu)
+        .frame(height: 10)
     }
     
     private var allApartmentsList: some View {
