@@ -139,6 +139,12 @@ extension HomeView {
             }
             .pickerStyle(.menu)
             Spacer()
+            Picker("Guests", selection: $viewModel.bedsFilter) {
+                ForEach(0..<5) { number in
+                    Text("\(number)")
+                }
+            }
+            .pickerStyle(.menu)
         }
         .frame(height: 10)
     }

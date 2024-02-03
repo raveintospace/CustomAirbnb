@@ -14,17 +14,44 @@ final class HomeViewModel: ObservableObject {
     @Published var favoriteListings: [Listing] = []
     
     @Published var sortOption: SortOption = .price
+    
     @Published var searchText: String = ""
     @Published var destination: String = "" {
         didSet {
-            destinationForDataService.send(destination)
+            destinationPublisher.send(destination)
+        }
+    }
+    
+    // MARK: - Grid properties
+    @Published var guestsFilter: Int = 0 {
+        didSet {
+            updateListingsWithAllFilters()
+        }
+    }
+    
+    @Published var bedroomsFilter: Int = 0 {
+        didSet {
+            updateListingsWithAllFilters()
+        }
+    }
+    
+    @Published var bedsFilter: Int = 0 {
+        didSet {
+            updateListingsWithAllFilters()
+        }
+    }
+    
+    @Published var bathroomsFilter: Double = 0 {
+        didSet {
+            updateListingsWithAllFilters()
         }
     }
     
     private let listingDataService = ListingDataService()
     private let favoritesDataService = FavoritesDataService()
     
-    private let destinationForDataService = PassthroughSubject<String, Never>()
+    // sinks HomeViewModel destination to ListingDataService destination
+    private let destinationPublisher = PassthroughSubject<String, Never>()
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     
@@ -32,6 +59,7 @@ final class HomeViewModel: ObservableObject {
         addSubscribers()
     }
     
+    // MARK: - Methods
     func addSubscribers() {
         
         // subscription to listingDataService, searchText & sortOption
@@ -55,15 +83,43 @@ final class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        // subscription to destination
-        destinationForDataService
+        // subscriptions to grid filters
+        $guestsFilter
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.updateListingsWithAllFilters()
+            }
+            .store(in: &cancellables)
+        
+        $bedroomsFilter
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.updateListingsWithAllFilters()
+            }
+            .store(in: &cancellables)
+        
+        $bedsFilter
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.updateListingsWithAllFilters()
+            }
+            .store(in: &cancellables)
+        
+        $bathroomsFilter
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.updateListingsWithAllFilters()
+            }
+            .store(in: &cancellables)
+        
+        // subscription to destinationPublisher
+        destinationPublisher
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink { [weak self] (destination) in
                 guard let self = self else { return }
                 self.listingDataService.destination = destination
             }
             .store(in: &cancellables)
-        
     }
     
     func updateFavorites(listing: Listing) {
@@ -80,15 +136,17 @@ final class HomeViewModel: ObservableObject {
     
 // MARK: - Extracted methods
     
-    // filter using searchText
+    // filter using searchText & grid filters
     private func filterListings(text: String, listings: [Listing]) -> [Listing] {
         guard !text.isEmpty else {
-            return listings
+            return applyGridFilters(listings)
         }
         
         let lowercasedText = text.lowercased()
         
-        return listings.filter { (listing) -> Bool in
+        let filteredListings = applyGridFilters(listings)
+        
+        return filteredListings.filter { (listing) -> Bool in
             return listing.nameToSearch.lowercased().contains(lowercasedText) ||
             listing.hoodToSearch.lowercased().contains(lowercasedText) ||
             listing.descriptionToSearch.lowercased().contains(lowercasedText)
@@ -114,6 +172,50 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    // filter listings by searchText & gridFilters + sort them
+    private func updateListingsWithAllFilters() {
+        var updatedListings = filterListings(text: searchText, listings: listingDataService.allListings)
+        sortListings(sort: sortOption, listings: &updatedListings)
+        allListings = updatedListings
+    }
+    
+    // MARK: - Grid methods
+    private func applyGridFilters(_ listings: [Listing]) -> [Listing] {
+        return applyBathroomsFilter(applyBedsFilter(applyBedroomsFilter(applyGuestsFilter(listings))))
+    }
+
+    private func applyGuestsFilter(_ listings: [Listing]) -> [Listing] {
+        guard guestsFilter > 0 else {
+            return listings
+        }
+        
+        return listings.filter( { $0.guests >= guestsFilter })
+    }
+    
+    private func applyBedroomsFilter(_ listings: [Listing]) -> [Listing] {
+        guard bedroomsFilter > 0 else {
+            return listings
+        }
+        
+        return listings.filter( { $0.bedrooms >= bedroomsFilter })
+    }
+    
+    private func applyBedsFilter(_ listings: [Listing]) -> [Listing] {
+        guard bedsFilter > 0 else {
+            return listings
+        }
+        
+        return listings.filter( { $0.beds >= bedsFilter })
+    }
+    
+    private func applyBathroomsFilter(_ listings: [Listing]) -> [Listing] {
+        guard bathroomsFilter > 0 else {
+            return listings
+        }
+        
+        return listings.filter( { $0.bathrooms >= bathroomsFilter })
+    }
+    
     // extracted .map from $searchText
     private func filterAndSortListings(text: String, listings: [Listing], sort: SortOption) -> [Listing] {
         var updatedListing = filterListings(text: text, listings: listings)
@@ -134,4 +236,3 @@ final class HomeViewModel: ObservableObject {
             }
     }
 }
-
