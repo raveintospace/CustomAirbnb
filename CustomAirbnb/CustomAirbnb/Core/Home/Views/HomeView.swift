@@ -130,7 +130,7 @@ extension HomeView {
     }
     
     private var sortPicker: some View {
-        Picker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<Hashable>#>, content: <#T##() -> View#>)
+        Text("hello")
         
         /*
          Picker("Select your destination", selection: $destination) {

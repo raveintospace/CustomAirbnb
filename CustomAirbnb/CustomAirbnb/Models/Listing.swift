@@ -154,4 +154,12 @@ struct Listing: Codable, Identifiable {
             return ""
         }
     }
+    
+    var priceToSearch: Int {
+        if let priceFromApi = price {
+            return priceFromApi
+        } else {
+            return 0
+        }
+    }
 }

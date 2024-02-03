@@ -13,6 +13,7 @@ final class HomeViewModel: ObservableObject {
     @Published var allListings: [Listing] = []
     @Published var favoriteListings: [Listing] = []
     
+    @Published var sortOption: SortOption = .price
     @Published var searchText: String = ""
     @Published var destination: String = "" {
         didSet {
@@ -27,17 +28,21 @@ final class HomeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     
+    enum SortOption {
+        case name, nameReversed, price, priceReversed, neighbourhood, neighbourhoodReversed
+    }
+    
     init() {
         addSubscribers()
     }
     
     func addSubscribers() {
         
-        // subscription to listingDataService & searchText
+        // subscription to listingDataService, searchText & sortOption
         $searchText
-            .combineLatest(listingDataService.$allListings)
+            .combineLatest(listingDataService.$allListings, $sortOption)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .map(filterListings)
+            .map(filterAndSortListings)
             .sink { [weak self] (returnedListings) in
                 guard let self = self else { return }
                 self.allListings = returnedListings
@@ -79,7 +84,7 @@ final class HomeViewModel: ObservableObject {
     
 // MARK: - Extracted methods
     
-    // extracted .map from $searchText
+    // filter using searchText
     private func filterListings(text: String, listings: [Listing]) -> [Listing] {
         guard !text.isEmpty else {
             return listings
@@ -92,6 +97,32 @@ final class HomeViewModel: ObservableObject {
             listing.hoodToSearch.lowercased().contains(lowercasedText) ||
             listing.descriptionToSearch.lowercased().contains(lowercasedText)
         }
+    }
+    
+    // sort using SortOption
+    // inout -> get and return the same array after being sorted
+    private func sortListings(sort: SortOption, listings: inout [Listing]) {
+        switch sort {
+        case .name:
+            listings.sort(by: { $0.nameToSearch < $1.nameToSearch })
+        case .nameReversed:
+            listings.sort(by: { $0.nameToSearch > $1.nameToSearch })
+        case .price:
+            listings.sort(by: { $0.priceToSearch < $1.priceToSearch })
+        case .priceReversed:
+            listings.sort(by: { $0.priceToSearch > $1.priceToSearch })
+        case .neighbourhood:
+            listings.sort(by: { $0.hoodToSearch < $1.hoodToSearch })
+        case .neighbourhoodReversed:
+            listings.sort(by: { $0.hoodToSearch > $1.hoodToSearch })
+        }
+    }
+    
+    // extracted .map from $searchText
+    private func filterAndSortListings(text: String, listings: [Listing], sort: SortOption) -> [Listing] {
+        var updatedListing = filterListings(text: text, listings: listings)
+        sortListings(sort: sort, listings: &updatedListing)
+        return updatedListing
     }
     
     // extracted .map from $allListings
