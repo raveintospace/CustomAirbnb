@@ -51,7 +51,7 @@ extension ListingRowView {
             
             Text(listing.neighbourhood?.capitalized ?? "Neighbourhood n/a")
                 .font(.caption)
-                .foregroundStyle(Color.theme.secondaryText).opacity(0.8)
+                .foregroundStyle(Color.theme.secondaryText)
         }
     }
     

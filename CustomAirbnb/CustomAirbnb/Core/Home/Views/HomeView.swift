@@ -129,6 +129,21 @@ extension HomeView {
         .padding(.horizontal)
     }
     
+    private var sortPicker: some View {
+        Picker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<Hashable>#>, content: <#T##() -> View#>)
+        
+        /*
+         Picker("Select your destination", selection: $destination) {
+             ForEach(cities) { city in
+                 Text(city.name)
+                     .tag(city.name)
+             }
+         }
+         .pickerStyle(.menu)
+         .scaleEffect(1.2)
+         */
+    }
+    
     private var allApartmentsList: some View {
         List {
             ForEach(viewModel.allListings) { listing in
