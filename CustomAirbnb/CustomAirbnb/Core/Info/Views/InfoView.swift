@@ -18,7 +18,7 @@ struct InfoView: View {
     let gitHubURL = URL(string: "https://github.com/raveintospace")!
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()

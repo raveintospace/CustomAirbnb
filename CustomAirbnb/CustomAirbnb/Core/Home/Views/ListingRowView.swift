@@ -39,9 +39,19 @@ extension ListingRowView {
                 .foregroundStyle(Color.theme.accent)
                 .lineLimit(2)
             
+            if let price = listing.price {
+                Text("Daily price: \(price)€")
+                    .font(.subheadline)
+                    .foregroundStyle(Color.theme.secondaryText)
+            } else {
+                Text("Price n/a")
+                    .font(.subheadline)
+                    .foregroundStyle(Color.theme.secondaryText)
+            }
+            
             Text(listing.neighbourhood?.capitalized ?? "Neighbourhood n/a")
                 .font(.caption)
-                .foregroundStyle(Color.theme.secondaryText)
+                .foregroundStyle(Color.theme.secondaryText).opacity(0.8)
         }
     }
     
