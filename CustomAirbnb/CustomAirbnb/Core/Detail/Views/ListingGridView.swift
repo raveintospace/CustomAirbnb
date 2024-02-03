@@ -51,7 +51,7 @@ extension ListingGridView {
             
             HStack(spacing: 4) {
                 Image(systemName: "figure.stand")
-                Text("\(listing.accommodates)")
+                Text("\(listing.guests)")
             }
             .font(.system(size: 20))
             .foregroundStyle(Color.theme.secondaryText)

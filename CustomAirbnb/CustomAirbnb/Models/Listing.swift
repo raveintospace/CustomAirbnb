@@ -95,7 +95,7 @@ struct Listing: Codable, Identifiable {
     let price: Int?
     
     // Listing grid
-    let accommodates: Int
+    let guests: Int
     let bathrooms: Double
     let bedrooms: Int
     let beds: Int
@@ -110,11 +110,12 @@ struct Listing: Codable, Identifiable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, neighbourhood, price, accommodates, bathrooms, bedrooms, beds
+        case id, name, description, neighbourhood, price, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
         case thumbnailURL = "thumbnail_url"
         case mediumURL = "medium_url"
         case xlPictureURL = "xl_picture_url"
+        case guests = "accommodates"
         case hostName = "host_name"
         case hostThumbnailURL = "host_thumbnail_url"
         case hostURL = "host_url"

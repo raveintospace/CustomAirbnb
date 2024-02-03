@@ -33,7 +33,7 @@ final class DeveloperPreview {
         xlPictureURL: "https://a0.muscache.com/im/pictures/8c9873ca-2f7b-498c-a130-ef904128fede.jpg?aki_policy=x_large",
         neighbourhood: "El Poble-sec",
         price: 209,
-        accommodates: 4,
+        guests: 4,
         bathrooms: 1.5,
         bedrooms: 4,
         beds: 6,
