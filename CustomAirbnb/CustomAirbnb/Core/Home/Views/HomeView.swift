@@ -37,6 +37,7 @@ struct HomeView: View {
                 VStack {
                     homeHeader
                     SearchBarView(searchText: $viewModel.searchText)
+                    sortPicker
                     
                     if !showFavoritesView {
                         allApartmentsList
@@ -130,18 +131,12 @@ extension HomeView {
     }
     
     private var sortPicker: some View {
-        Text("hello")
-        
-        /*
-         Picker("Select your destination", selection: $destination) {
-             ForEach(cities) { city in
-                 Text(city.name)
-                     .tag(city.name)
-             }
-         }
-         .pickerStyle(.menu)
-         .scaleEffect(1.2)
-         */
+        Picker("Sort listings", selection: $viewModel.sortOption) {
+            ForEach(SortOption.allCases, id: \.self) { sortOption in
+                Text(sortOption.rawValue.capitalized)
+            }
+        }
+        .pickerStyle(.menu)
     }
     
     private var allApartmentsList: some View {

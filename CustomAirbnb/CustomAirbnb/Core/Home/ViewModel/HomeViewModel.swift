@@ -28,10 +28,6 @@ final class HomeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     
-    enum SortOption {
-        case name, nameReversed, price, priceReversed, neighbourhood, neighbourhoodReversed
-    }
-    
     init() {
         addSubscribers()
     }
