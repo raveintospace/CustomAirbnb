@@ -12,7 +12,7 @@ This app features:
 <li>Reusable Network Manager</li>
 <br/>
 <li>Specific modules for downloaded images: Views, ViewModel & DataService</li>
-<li>A reusable Local FileManager is used to store downloaded images from the API</li>
+<li>Reusable Local FileManager, to store downloaded images from the API</li>
 <br/>
 <li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
 <li>Reusable custom Circle Button View, Circle Button Animation, Divider, Dismiss Button & Confirmation Rectangle</li>
@@ -21,6 +21,7 @@ This app features:
 <li>An empty view is displayed if the user hasn't favorited any listing</li>
 <li>DestinationView, InfoView & UploadView sheets presented using @ViewBuilder & switch</li>
 <li>The list of apartments can be sorted with six different criteria</li>
+<li>The list of apartments can be filtered with four different criteria + text of SearchBar</li>
 <br/>
 <li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
 <li>ReportView for reporting listings, notifies DetailView to display a gratitude message to the user</li>
