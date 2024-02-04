@@ -212,6 +212,7 @@ extension HomeView {
             }
         }
         .pickerStyle(.menu)
+        .tint(Color.theme.airRed)
         .scaleEffect(1.2)
     }
     

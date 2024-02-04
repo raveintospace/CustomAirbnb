@@ -19,7 +19,10 @@ struct FiltersRow: View {
                 }
             }
             .pickerStyle(.menu)
+            .tint(Color.theme.airRed)
+            
             Spacer()
+            
             Picker("Guests", selection: $viewModel.bedsFilter) {
                 ForEach(0..<5) { number in
                     Text("\(number)")
@@ -28,6 +31,8 @@ struct FiltersRow: View {
             .pickerStyle(.menu)
         }
         .frame(height: 10)
+        .padding(.bottom, 2)
+        .padding(.trailing, 5)
     }
 }
 
