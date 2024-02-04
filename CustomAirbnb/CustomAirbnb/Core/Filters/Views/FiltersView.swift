@@ -11,6 +11,8 @@ struct FiltersView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var guests: Int = 1
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -18,9 +20,14 @@ struct FiltersView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Filters view")
+                    Slider(
+                        value: .convert(from: $guests),
+                        in: 1...10,
+                        step: 1
+                    )
+                    
                 }
-                .navigationTitle("Select your destination")
+                .navigationTitle("Filter listings")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading) {

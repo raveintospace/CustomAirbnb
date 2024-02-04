@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34013B582B6FAAE400D65078 /* FiltersRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34013B572B6FAAE400D65078 /* FiltersRowView.swift */; };
+		340631D92B6FD60200D85802 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340631D82B6FD60200D85802 /* Binding.swift */; };
 		341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58932B3C99DC00414188 /* HostImageDataService.swift */; };
 		341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58952B3C9B7300414188 /* HostImageViewModel.swift */; };
 		341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58972B3C9C7C00414188 /* HostImageView.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		34013B572B6FAAE400D65078 /* FiltersRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersRowView.swift; sourceTree = "<group>"; };
+		340631D82B6FD60200D85802 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		341A58932B3C99DC00414188 /* HostImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageDataService.swift; sourceTree = "<group>"; };
 		341A58952B3C9B7300414188 /* HostImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageViewModel.swift; sourceTree = "<group>"; };
 		341A58972B3C9C7C00414188 /* HostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		344DC5262B277F3400481B0E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				340631D82B6FD60200D85802 /* Binding.swift */,
 				344DC5272B277F4700481B0E /* Color.swift */,
 				349588DA2B3F3B9900B55884 /* Double.swift */,
 				34F063AF2B30C040003966B9 /* PreviewProvider.swift */,
@@ -517,6 +520,7 @@
 				34B4E5492B542F2800FDE7E4 /* DismissXButton.swift in Sources */,
 				34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */,
 				34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */,
+				340631D92B6FD60200D85802 /* Binding.swift in Sources */,
 				349575552B6D3F0100DC4643 /* UploadView.swift in Sources */,
 				346DEBE82B4AF2400090BD27 /* CircleButtonView.swift in Sources */,
 				342FB6A82B654E5300611B25 /* XLImageDataService.swift in Sources */,
