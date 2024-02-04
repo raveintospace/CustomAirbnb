@@ -25,10 +25,10 @@ struct ListingGridView: View {
             spacing: spacing,
             pinnedViews: [],
             content: {
-                capacityStat
-                bedStat
-                bedroomStat
-                bathroomStat
+                guestsStat
+                bedsStat
+                bedroomsStat
+                bathroomsStat
             })
         .padding()
     }
@@ -42,7 +42,7 @@ struct ListingStatsView_Previews: PreviewProvider {
 
 extension ListingGridView {
     
-    private var capacityStat: some View {
+    private var guestsStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Guests")
                 .font(.headline)
@@ -58,7 +58,7 @@ extension ListingGridView {
         }
     }
     
-    private var bedStat: some View {
+    private var bedsStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Beds")
                 .font(.headline)
@@ -74,7 +74,7 @@ extension ListingGridView {
         }
     }
     
-    private var bedroomStat: some View {
+    private var bedroomsStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Bedrooms")
                 .font(.headline)
@@ -90,7 +90,7 @@ extension ListingGridView {
         }
     }
     
-    private var bathroomStat: some View {
+    private var bathroomsStat: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Bathrooms")
                 .font(.headline)
