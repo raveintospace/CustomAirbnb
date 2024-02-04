@@ -23,16 +23,15 @@ struct FiltersRow: View {
             
             Spacer()
             
-            Picker("Guests", selection: $viewModel.bedsFilter) {
-                ForEach(0..<5) { number in
-                    Text("\(number)")
-                }
+            HStack(spacing: 5) {
+                Text("Filters")
+                Image(systemName: "line.3.horizontal.decrease.circle")
             }
-            .pickerStyle(.menu)
+            .foregroundStyle(Color.theme.airRed)
         }
         .frame(height: 10)
         .padding(.bottom, 2)
-        .padding(.trailing, 5)
+        .padding(.trailing, 20)
     }
 }
 
@@ -42,3 +41,12 @@ struct FiltersRow_Previews: PreviewProvider {
             .environmentObject(HomeViewModel())
     }
 }
+
+/*
+ Picker("Guests", selection: $viewModel.bedsFilter) {
+     ForEach(0..<5) { number in
+         Text("\(number)")
+     }
+ }
+ .pickerStyle(.menu)
+ */
