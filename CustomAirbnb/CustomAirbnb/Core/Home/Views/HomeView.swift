@@ -27,6 +27,8 @@ struct HomeView: View {
     @State private var showInfoview: Bool = false
     @State private var showUploadView: Bool = false
     
+    let cities = City.stub
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -96,26 +98,22 @@ extension HomeView {
                 )
             Spacer()
             
-            VStack {
-                Text(destination)
-                    .fontWeight(.heavy)
-                    .onChange(of: destination) { newValue in
-                        viewModel.destination = destination
-                                }
+            VStack(spacing: 0) {
+                Picker("Select your destination", selection: $destination) {
+                    ForEach(cities) { city in
+                        Text(city.name)
+                            .tag(city.name)
+                            .onChange(of: destination) { newValue in
+                                viewModel.destination = destination
+                                        }
+                    }
+                }
+                .pickerStyle(.menu)
+                .scaleEffect(1.2)
                     
                 Text(showFavoritesView ? "Favorite listings" : "Available listings")
-            }
-            .font(.headline)
-            .foregroundStyle(Color.theme.accent)
-            .transaction { transaction in
-                transaction.animation = nil
-                
-            }
-            .onTapGesture {
-                withAnimation(.spring()) {
-                    showDestinationView.toggle()
-                    sheet = .destinationView
-                }
+                    .font(.headline)
+                    .foregroundStyle(Color.theme.accent)
             }
             Spacer()
             
