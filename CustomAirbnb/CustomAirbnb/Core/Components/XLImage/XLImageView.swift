@@ -13,6 +13,7 @@ struct XLImageView: View {
     
     @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
+    @State private var isLoading: Bool = true
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: XLImageViewModel(listing: listing))
@@ -20,22 +21,35 @@ struct XLImageView: View {
     }
     
     var body: some View {
-        if !viewModel.imagesForSlider.isEmpty {
-            VStack {
-                xlPicturesSlider
-            }
-            .frameRectTenShape(height: 400)
-            .fullScreenCover(isPresented: $showFullScreenImage) {
-                FullScreenImageView(listing: viewModel.listing, sliderCurrentIndex: $sliderCurrentIndex)
-            }
-        }
         
-        else {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .opacity(0.75)
-                    .frameRectTenShape(height: 400)
+        if isLoading {
+            ProgressView("Loading pictures ⏳")
+                .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                        isLoading = false
+                    }
+                }
+                .frameRectTenShape(height: 400)
+            
+        } else {
+            if !viewModel.imagesForSlider.isEmpty {
+                VStack {
+                    xlPicturesSlider
+                }
+                .frameRectTenShape(height: 400)
+                .fullScreenCover(isPresented: $showFullScreenImage) {
+                    FullScreenImageView(listing: viewModel.listing, sliderCurrentIndex: $sliderCurrentIndex)
+                }
+            }
+            
+            else {
+                if let image = viewModel.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .opacity(0.75)
+                        .frameRectTenShape(height: 400)
+                }
             }
         }
     }
