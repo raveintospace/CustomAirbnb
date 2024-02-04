@@ -23,14 +23,7 @@ struct XLImageView: View {
     var body: some View {
         
         if isLoading {
-            ProgressView("Loading pictures ⏳")
-                .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
-                        isLoading = false
-                    }
-                }
-                .frameRectTenShape(height: 400)
+            loadingPicturesProgressView
             
         } else {
             if !viewModel.imagesForSlider.isEmpty {
@@ -41,9 +34,7 @@ struct XLImageView: View {
                 .fullScreenCover(isPresented: $showFullScreenImage) {
                     FullScreenImageView(listing: viewModel.listing, sliderCurrentIndex: $sliderCurrentIndex)
                 }
-            }
-            
-            else {
+            } else {
                 if let image = viewModel.image {
                     Image(uiImage: image)
                         .resizable()
@@ -66,6 +57,22 @@ extension XLImageView {
     private func setupTabViewAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .red.withAlphaComponent(0.5)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
+    }
+    
+    private var loadingPicturesProgressView: some View {
+        ProgressView {
+            Text("Loading pictures ⏳")
+                .foregroundStyle(Color.theme.airRed)
+                .bold()
+        }
+        .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+        .controlSize(.large)
+        .frameRectTenShape(height: 400)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                isLoading = false
+            }
+        }
     }
     
     private var xlPicturesSlider: some View {

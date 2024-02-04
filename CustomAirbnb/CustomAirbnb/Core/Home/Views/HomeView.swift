@@ -43,7 +43,7 @@ struct HomeView: View {
                     FiltersRow()
                     
                     if isLoading {
-                        redProgressView
+                        loadingListingsProgressView
                         
                     } else {
                         if !showFavoritesView {
@@ -191,9 +191,14 @@ extension HomeView {
         .padding(50)
     }
     
-    private var redProgressView: some View {
-        ProgressView("Loading listings ⏳")
-            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+    private var loadingListingsProgressView: some View {
+        ProgressView {
+            Text("Loading listings ⏳")
+                .foregroundStyle(Color.theme.airRed)
+                .bold()
+        }
+        .controlSize(.large)
+        .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
     }
     
     private var destinationPicker: some View {
