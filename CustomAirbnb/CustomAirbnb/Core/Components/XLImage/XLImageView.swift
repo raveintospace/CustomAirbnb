@@ -61,8 +61,8 @@ extension XLImageView {
     
     private var loadingPicturesProgressView: some View {
         ProgressView {
-            Text("Loading pictures ⏳")
-                .foregroundStyle(Color.theme.airRed)
+            Text("Loading pictures")
+                .foregroundStyle(Color.theme.secondaryText)
                 .bold()
         }
         .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))

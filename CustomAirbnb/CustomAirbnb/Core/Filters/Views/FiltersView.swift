@@ -54,9 +54,13 @@ extension FiltersView {
         Button(action: {
             viewModel.resetFiltersValues()
         }, label: {
-            Text("Reset filters")
+            VStack(spacing: 0) {
+                Text("Reset")
+                Text("filters")
+            }
+            .font(.headline)
         })
-        .tint(Color.theme.accent)
+        .tint(Color.theme.airRed).opacity(0.8)
     }
     
     private var guestsFilter: some View {

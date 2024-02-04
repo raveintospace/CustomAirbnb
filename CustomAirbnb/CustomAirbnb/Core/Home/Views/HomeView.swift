@@ -191,8 +191,8 @@ extension HomeView {
     
     private var loadingListingsProgressView: some View {
         ProgressView {
-            Text("Loading listings ⏳")
-                .foregroundStyle(Color.theme.airRed)
+            Text("Loading listings")
+                .foregroundStyle(Color.theme.secondaryText)
                 .bold()
         }
         .controlSize(.large)
