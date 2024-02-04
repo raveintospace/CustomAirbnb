@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FiltersView: View {
     
+    @EnvironmentObject private var viewModel: HomeViewModel
+    
     @Environment(\.dismiss) var dismiss
     
     @State private var guests: Int = 1
@@ -21,10 +23,16 @@ struct FiltersView: View {
                 
                 VStack {
                     Slider(
-                        value: .convert(from: $guests),
+                        value: .convert(from: $viewModel.guestsFilter),
                         in: 1...10,
-                        step: 1
+                        step: 1,
+                        minimumValueLabel: Text("1"),
+                        maximumValueLabel: Text("10"),
+                        label: {
+                            Text("Values")
+                        }
                     )
+                    Text("Guests: \(viewModel.guestsFilter)")
                     
                 }
                 .navigationTitle("Filter listings")
@@ -39,6 +47,18 @@ struct FiltersView: View {
     }
 }
 
-#Preview {
-    FiltersView()
+struct FiltersView_Previews: PreviewProvider {
+    static var previews: some View {
+        FiltersView()
+            .environmentObject(HomeViewModel())
+    }
 }
+
+/*
+ Picker("Guests", selection: $viewModel.bedsFilter) {
+     ForEach(0..<5) { number in
+         Text("\(number)")
+     }
+ }
+ .pickerStyle(.menu)
+ */

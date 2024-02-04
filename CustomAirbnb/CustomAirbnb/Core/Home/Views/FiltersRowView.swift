@@ -38,18 +38,9 @@ struct FiltersRowView: View {
     }
 }
 
-struct FiltersRow_Previews: PreviewProvider {
+struct FiltersRowView_Previews: PreviewProvider {
     static var previews: some View {
         FiltersRowView()
             .environmentObject(HomeViewModel())
     }
 }
-
-/*
- Picker("Guests", selection: $viewModel.bedsFilter) {
-     ForEach(0..<5) { number in
-         Text("\(number)")
-     }
- }
- .pickerStyle(.menu)
- */
