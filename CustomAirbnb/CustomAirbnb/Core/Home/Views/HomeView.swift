@@ -22,10 +22,7 @@ struct HomeView: View {
     
     @State private var sheet: Sheet?
     @State private var showDetailView: Bool = false
-    @State private var showFiltersView: Bool = false
     @State private var showFavoritesView: Bool = false
-    @State private var showInfoview: Bool = false
-    @State private var showUploadView: Bool = false
     @State private var isLoading: Bool = false
     
     private let cities = City.stub
@@ -95,10 +92,8 @@ extension HomeView {
                 }
                 .onTapGesture {
                     if showFavoritesView {
-                        showUploadView.toggle()
                         sheet = .uploadView
                     } else {
-                        showInfoview.toggle()
                         sheet = .infoView
                     }
                 }
