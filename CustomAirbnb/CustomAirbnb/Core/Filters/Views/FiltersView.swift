@@ -49,9 +49,12 @@ extension FiltersView {
     
     private var guestsFilter: some View {
         VStack {
-            Text("Guests: \(viewModel.guestsFilter)")
-                .font(.title3)
-                .foregroundStyle(Color.theme.accent)
+            HStack {
+                Image(systemName: "figure.stand")
+                Text("Guests: \(viewModel.guestsFilter)")
+                    .font(.title3)
+                    .foregroundStyle(Color.theme.accent)
+            }
             Slider(
                 value: .convert(from: $viewModel.guestsFilter),
                 in: 1...20,
@@ -68,9 +71,12 @@ extension FiltersView {
     
     private var bedsFilter: some View {
         VStack(spacing: 5) {
-            Text("Beds: \(viewModel.bedsFilter)")
-                .font(.title3)
-                .foregroundStyle(Color.theme.accent)
+            HStack {
+                Image(systemName: "bed.double.fill")
+                Text("Beds: \(viewModel.bedsFilter)")
+                    .font(.title3)
+                    .foregroundStyle(Color.theme.accent)
+            }
             Slider(
                 value: .convert(from: $viewModel.bedsFilter),
                 in: 1...20,
@@ -87,9 +93,12 @@ extension FiltersView {
     
     private var bedroomsFilter: some View {
         VStack {
-            Text("Bedrooms: \(viewModel.bedroomsFilter)")
-                .font(.title3)
-                .foregroundStyle(Color.theme.accent)
+            HStack {
+                Image(systemName: "door.left.hand.closed")
+                Text("Bedrooms: \(viewModel.bedroomsFilter)")
+                    .font(.title3)
+                    .foregroundStyle(Color.theme.accent)
+            }
             Slider(
                 value: .convert(from: $viewModel.bedroomsFilter),
                 in: 1...20,
@@ -106,9 +115,13 @@ extension FiltersView {
     
     private var bathroomsFilter: some View {
         VStack {
-            Text("Bathrooms: \(viewModel.bathroomsFilter.asNumberStringRounded())")
-                .font(.title3)
-                .foregroundStyle(Color.theme.accent)
+            HStack() {
+                Image(systemName: "toilet")
+                Text("Bathrooms: \(viewModel.bathroomsFilter.asNumberStringRounded())")
+            }
+            .font(.title3)
+            .foregroundStyle(Color.theme.accent)
+            
             Slider(
                 value: $viewModel.bathroomsFilter,
                 in: 1...20,
@@ -126,9 +139,9 @@ extension FiltersView {
 
 /*
  Picker("Guests", selection: $viewModel.bedsFilter) {
-     ForEach(0..<5) { number in
-         Text("\(number)")
-     }
+ ForEach(0..<5) { number in
+ Text("\(number)")
+ }
  }
  .pickerStyle(.menu)
  */

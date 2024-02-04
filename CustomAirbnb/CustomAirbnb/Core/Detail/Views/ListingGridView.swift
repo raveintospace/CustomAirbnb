@@ -66,7 +66,7 @@ extension ListingGridView {
                 .foregroundStyle(Color.theme.accent)
             
             HStack(spacing: 4) {
-                Image(systemName: "bed.double.circle")
+                Image(systemName: "bed.double.fill")
                 Text("\(listing.beds)")
             }
             .font(.system(size: 20))
