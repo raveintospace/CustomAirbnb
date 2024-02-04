@@ -40,11 +40,11 @@ struct HomeView: View {
                 VStack {
                     homeHeader
                     SearchBarView(searchText: $viewModel.searchText)
-                    sortPicker
+                    FiltersRow()
                     
                     if isLoading {
-                        ProgressView("Loading listings ⏳")
-                            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+                        redProgressView
+                        
                     } else {
                         if !showFavoritesView {
                             allApartmentsList
@@ -105,22 +105,7 @@ extension HomeView {
             Spacer()
             
             VStack(spacing: 0) {
-                Picker("Select your destination", selection: $destination) {
-                    ForEach(cities) { city in
-                        Text(city.name)
-                            .tag(city.name)
-                            .onChange(of: destination) { newValue in
-                                viewModel.destination = destination
-                                isLoading = true
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                    isLoading = false
-                                }
-                            }
-                    }
-                }
-                .pickerStyle(.menu)
-                .scaleEffect(1.2)
+                destinationPicker
                     
                 Text(showFavoritesView ? "Favorite listings" : "Available listings")
                     .font(.headline)
@@ -137,25 +122,6 @@ extension HomeView {
                 }
         }
         .padding(.horizontal)
-    }
-    
-    private var sortPicker: some View {
-        HStack {
-            Picker("Sort listings", selection: $viewModel.sortOption) {
-                ForEach(SortOption.allCases, id: \.self) { sortOption in
-                    Text(sortOption.displayName())
-                }
-            }
-            .pickerStyle(.menu)
-            Spacer()
-            Picker("Guests", selection: $viewModel.bedsFilter) {
-                ForEach(0..<5) { number in
-                    Text("\(number)")
-                }
-            }
-            .pickerStyle(.menu)
-        }
-        .frame(height: 10)
     }
     
     private var allApartmentsList: some View {
@@ -223,6 +189,30 @@ extension HomeView {
         .foregroundColor(Color.theme.accent)
         .multilineTextAlignment(.center)
         .padding(50)
+    }
+    
+    private var redProgressView: some View {
+        ProgressView("Loading listings ⏳")
+            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+    }
+    
+    private var destinationPicker: some View {
+        Picker("Select your destination", selection: $destination) {
+            ForEach(cities) { city in
+                Text(city.name)
+                    .tag(city.name)
+                    .onChange(of: destination) { newValue in
+                        viewModel.destination = destination
+                        isLoading = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            isLoading = false
+                        }
+                    }
+            }
+        }
+        .pickerStyle(.menu)
+        .scaleEffect(1.2)
     }
     
     private func segue(listing: Listing) {

@@ -23,8 +23,8 @@ struct FullScreenImageView: View {
     var body: some View {
         NavigationStack {
             HStack() {
-                Spacer()
                 DismissXButton()
+                Spacer()
             }
             .padding(.horizontal)
             VStack {
