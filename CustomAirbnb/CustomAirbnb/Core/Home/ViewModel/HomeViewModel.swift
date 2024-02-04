@@ -22,7 +22,9 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Grid properties
+    // MARK: - Filters
+    @Published var showFiltersView: Bool = false
+    
     @Published var guestsFilter: Int = 0 {
         didSet {
             updateListingsWithAllFilters()
@@ -47,6 +49,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    // DataServices
     private let listingDataService = ListingDataService()
     private let favoritesDataService = FavoritesDataService()
     

@@ -28,6 +28,9 @@ struct FiltersRowView: View {
                 Image(systemName: "line.3.horizontal.decrease.circle")
             }
             .foregroundStyle(Color.theme.airRed)
+            .onTapGesture {
+                debugPrint("show filters view")
+            }
         }
         .frame(height: 10)
         .padding(.bottom, 2)

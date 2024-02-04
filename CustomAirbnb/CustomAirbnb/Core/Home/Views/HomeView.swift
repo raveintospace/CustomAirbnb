@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     enum Sheet: String, Identifiable {
-        case destinationView, infoView, uploadView
+        case filtersView, infoView, uploadView
         var id: String { rawValue }
     }
     
@@ -22,7 +22,7 @@ struct HomeView: View {
     
     @State private var sheet: Sheet?
     @State private var showDetailView: Bool = false
-    @State private var showDestinationView: Bool = false
+    @State private var showFiltersView: Bool = false
     @State private var showFavoritesView: Bool = false
     @State private var showInfoview: Bool = false
     @State private var showUploadView: Bool = false
@@ -36,6 +36,9 @@ struct HomeView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                     .sheet(item: $sheet, content: makeSheet)
+                    .sheet(isPresented: $viewModel.showFiltersView) {
+                            FiltersView()
+                    }
                 
                 VStack {
                     homeHeader
@@ -229,8 +232,8 @@ extension HomeView {
     @ViewBuilder
     func makeSheet(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .destinationView:
-            DestinationView(destination: $destination)
+        case .filtersView:
+            FiltersView()
         case .infoView:
             InfoView()
         case .uploadView:

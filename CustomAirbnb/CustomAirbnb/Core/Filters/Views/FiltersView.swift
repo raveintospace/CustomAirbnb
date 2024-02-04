@@ -7,13 +7,9 @@
 
 import SwiftUI
 
-struct DestinationView: View {
+struct FiltersView: View {
     
     @Environment(\.dismiss) var dismiss
-    
-    @Binding var destination: String
-    
-    let cities = City.stub
     
     var body: some View {
         NavigationStack {
@@ -22,15 +18,7 @@ struct DestinationView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Picker("Select your destination", selection: $destination) {
-                        ForEach(cities) { city in
-                            Text(city.name)
-                                .tag(city.name)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .scaleEffect(1.2)
-                    Spacer()
+                    Text("Filters view")
                 }
                 .navigationTitle("Select your destination")
                 .navigationBarTitleDisplayMode(.inline)
@@ -45,5 +33,5 @@ struct DestinationView: View {
 }
 
 #Preview {
-    DestinationView(destination: .constant("Barcelona"))
+    FiltersView()
 }
