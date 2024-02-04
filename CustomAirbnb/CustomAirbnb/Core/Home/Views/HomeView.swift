@@ -26,8 +26,9 @@ struct HomeView: View {
     @State private var showFavoritesView: Bool = false
     @State private var showInfoview: Bool = false
     @State private var showUploadView: Bool = false
+    @State private var isLoading: Bool = false
     
-    let cities = City.stub
+    private let cities = City.stub
     
     var body: some View {
         NavigationStack {
@@ -41,20 +42,25 @@ struct HomeView: View {
                     SearchBarView(searchText: $viewModel.searchText)
                     sortPicker
                     
-                    if !showFavoritesView {
-                        allApartmentsList
-                            .transition(.move(edge: .leading))
-                    }
-                    if showFavoritesView {
-                        ZStack(alignment: .top) {
-                            if viewModel.favoriteListings.isEmpty && viewModel.searchText.isEmpty {
-                                favoriteListEmptyView
-                            } else {
-                                favApartmentsList
-                            }
-                            
+                    if isLoading {
+                        ProgressView("Loading listings ⏳")
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+                    } else {
+                        if !showFavoritesView {
+                            allApartmentsList
+                                .transition(.move(edge: .leading))
                         }
-                        .transition(.move(edge: .trailing))
+                        if showFavoritesView {
+                            ZStack(alignment: .top) {
+                                if viewModel.favoriteListings.isEmpty && viewModel.searchText.isEmpty {
+                                    favoriteListEmptyView
+                                } else {
+                                    favApartmentsList
+                                }
+                                
+                            }
+                            .transition(.move(edge: .trailing))
+                        }
                     }
                     Spacer(minLength: 0) // avoids header to go down
                 }
@@ -105,7 +111,12 @@ extension HomeView {
                             .tag(city.name)
                             .onChange(of: destination) { newValue in
                                 viewModel.destination = destination
-                                        }
+                                isLoading = true
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    isLoading = false
+                                }
+                            }
                     }
                 }
                 .pickerStyle(.menu)

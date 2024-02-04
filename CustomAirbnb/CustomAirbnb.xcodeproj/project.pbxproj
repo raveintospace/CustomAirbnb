@@ -213,7 +213,7 @@
 				344DC5292B27800700481B0E /* Home */,
 				348A574D2B38519F007FBB9B /* Detail */,
 				3495754C2B6D385C00DC4643 /* Info */,
-				34E05C392B6BDD9600146F73 /* Destination */,
+				34E05C392B6BDD9600146F73 /* Filters */,
 				3495754D2B6D387D00DC4643 /* Upload */,
 			);
 			path = Core;
@@ -371,12 +371,12 @@
 			path = ButtonViews;
 			sourceTree = "<group>";
 		};
-		34E05C392B6BDD9600146F73 /* Destination */ = {
+		34E05C392B6BDD9600146F73 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
 				34E05C3A2B6BDDB400146F73 /* Views */,
 			);
-			path = Destination;
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		34E05C3A2B6BDDB400146F73 /* Views */ = {
