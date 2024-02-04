@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     enum Sheet: String, Identifiable {
-        case filtersView, infoView, uploadView
+        case infoView, uploadView
         var id: String { rawValue }
     }
     
@@ -232,8 +232,6 @@ extension HomeView {
     @ViewBuilder
     func makeSheet(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .filtersView:
-            FiltersView()
         case .infoView:
             InfoView()
         case .uploadView:

@@ -29,7 +29,7 @@ struct FiltersRowView: View {
             }
             .foregroundStyle(Color.theme.airRed)
             .onTapGesture {
-                debugPrint("show filters view")
+                viewModel.showFiltersView = true
             }
         }
         .frame(height: 10)
