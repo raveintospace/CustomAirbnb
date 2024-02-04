@@ -13,8 +13,6 @@ struct FiltersView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var guests: Int = 1
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,19 +20,22 @@ struct FiltersView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Slider(
-                        value: .convert(from: $viewModel.guestsFilter),
-                        in: 1...10,
-                        step: 1,
-                        minimumValueLabel: Text("1"),
-                        maximumValueLabel: Text("10"),
-                        label: {
-                            Text("Values")
-                        }
-                    )
-                    Text("Guests: \(viewModel.guestsFilter)")
-                    
+                    VStack {
+                        Text("Guests: \(viewModel.guestsFilter)")
+                        Slider(
+                            value: .convert(from: $viewModel.guestsFilter),
+                            in: 1...20,
+                            step: 1,
+                            minimumValueLabel: Text("1"),
+                            maximumValueLabel: Text("20"),
+                            label: {
+                                Text("Values")
+                            }
+                        )
+                        .tint(Color.theme.airRed)
+                    }
                 }
+                .padding()
                 .navigationTitle("Filter listings")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {

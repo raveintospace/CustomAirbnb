@@ -25,25 +25,25 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Filters
     @Published var showFiltersView: Bool = false
     
-    @Published var guestsFilter: Int = 0 {
+    @Published var guestsFilter: Int = 1 {
         didSet {
             updateListingsWithAllFilters()
         }
     }
     
-    @Published var bedroomsFilter: Int = 0 {
+    @Published var bedroomsFilter: Int = 1 {
         didSet {
             updateListingsWithAllFilters()
         }
     }
     
-    @Published var bedsFilter: Int = 0 {
+    @Published var bedsFilter: Int = 1 {
         didSet {
             updateListingsWithAllFilters()
         }
     }
     
-    @Published var bathroomsFilter: Double = 0 {
+    @Published var bathroomsFilter: Double = 1 {
         didSet {
             updateListingsWithAllFilters()
         }
@@ -188,7 +188,7 @@ final class HomeViewModel: ObservableObject {
     }
 
     private func applyGuestsFilter(_ listings: [Listing]) -> [Listing] {
-        guard guestsFilter > 0 else {
+        guard guestsFilter >= 1 else {
             return listings
         }
         
@@ -196,7 +196,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func applyBedroomsFilter(_ listings: [Listing]) -> [Listing] {
-        guard bedroomsFilter > 0 else {
+        guard bedroomsFilter >= 1 else {
             return listings
         }
         
@@ -204,7 +204,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func applyBedsFilter(_ listings: [Listing]) -> [Listing] {
-        guard bedsFilter > 0 else {
+        guard bedsFilter >= 1 else {
             return listings
         }
         
@@ -212,7 +212,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func applyBathroomsFilter(_ listings: [Listing]) -> [Listing] {
-        guard bathroomsFilter > 0 else {
+        guard bathroomsFilter >= 1 else {
             return listings
         }
         
