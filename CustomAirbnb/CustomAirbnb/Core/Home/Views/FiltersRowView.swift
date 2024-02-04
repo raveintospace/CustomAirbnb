@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FiltersRow: View {
+struct FiltersRowView: View {
     
     @EnvironmentObject private var viewModel: HomeViewModel
     
@@ -37,7 +37,7 @@ struct FiltersRow: View {
 
 struct FiltersRow_Previews: PreviewProvider {
     static var previews: some View {
-        FiltersRow()
+        FiltersRowView()
             .environmentObject(HomeViewModel())
     }
 }

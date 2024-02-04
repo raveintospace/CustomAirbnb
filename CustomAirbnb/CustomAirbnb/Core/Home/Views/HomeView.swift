@@ -40,7 +40,7 @@ struct HomeView: View {
                 VStack {
                     homeHeader
                     SearchBarView(searchText: $viewModel.searchText)
-                    FiltersRow()
+                    FiltersRowView()
                     
                     if isLoading {
                         loadingListingsProgressView

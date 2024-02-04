@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34013B582B6FAAE400D65078 /* FiltersRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34013B572B6FAAE400D65078 /* FiltersRow.swift */; };
+		34013B582B6FAAE400D65078 /* FiltersRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34013B572B6FAAE400D65078 /* FiltersRowView.swift */; };
 		341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58932B3C99DC00414188 /* HostImageDataService.swift */; };
 		341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58952B3C9B7300414188 /* HostImageViewModel.swift */; };
 		341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58972B3C9C7C00414188 /* HostImageView.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		34013B572B6FAAE400D65078 /* FiltersRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersRow.swift; sourceTree = "<group>"; };
+		34013B572B6FAAE400D65078 /* FiltersRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersRowView.swift; sourceTree = "<group>"; };
 		341A58932B3C99DC00414188 /* HostImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageDataService.swift; sourceTree = "<group>"; };
 		341A58952B3C9B7300414188 /* HostImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageViewModel.swift; sourceTree = "<group>"; };
 		341A58972B3C9C7C00414188 /* HostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageView.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				344DC5192B277D6100481B0E /* HomeView.swift */,
-				34013B572B6FAAE400D65078 /* FiltersRow.swift */,
+				34013B572B6FAAE400D65078 /* FiltersRowView.swift */,
 				34F063AD2B30BFFB003966B9 /* ListingRowView.swift */,
 			);
 			path = Views;
@@ -513,7 +513,7 @@
 				343374052B5304EB001A5144 /* ApartmentInfoView.swift in Sources */,
 				34B635A22B681513007D980F /* ImageType.swift in Sources */,
 				34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */,
-				34013B582B6FAAE400D65078 /* FiltersRow.swift in Sources */,
+				34013B582B6FAAE400D65078 /* FiltersRowView.swift in Sources */,
 				34B4E5492B542F2800FDE7E4 /* DismissXButton.swift in Sources */,
 				34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */,
 				34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */,
