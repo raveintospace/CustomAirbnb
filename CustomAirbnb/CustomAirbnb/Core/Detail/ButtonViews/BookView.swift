@@ -56,7 +56,7 @@ struct BookView: View {
                     .navigationTitle("Book this listing")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar(content: {
-                        ToolbarItem(placement: .navigationBarLeading) {
+                        ToolbarItem(placement: .topBarLeading) {
                             DismissXButton()
                         }
                     })

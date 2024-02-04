@@ -77,12 +77,12 @@ struct DetailView: View {
         )
         .toolbar() {
             ToolbarItem(placement: .topBarLeading) {
-                navigationBarLeadingArrow
+                topBarLeadingArrow
             }
             ToolbarItem(placement: .topBarTrailing) {
                 HStack(alignment: .bottom, spacing: 0) {
-                    navigationBarTrailingHeart
-                    navigationBarTrailingShare
+                    topBarTrailingHeart
+                    topBarTrailingShare
                 }
             }
         }
@@ -101,7 +101,7 @@ struct DetailView_Previews: PreviewProvider {
 
 extension DetailView {
     
-    private var navigationBarLeadingArrow: some View {
+    private var topBarLeadingArrow: some View {
         Button(action: {
             dismiss()
         }, label: {
@@ -110,7 +110,7 @@ extension DetailView {
         .tint(Color.theme.accent)
     }
     
-    private var navigationBarTrailingHeart: some View {
+    private var topBarTrailingHeart: some View {
         Button(action: {
             withAnimation {
                 homeViewModel.updateFavorites(listing: viewModel.listing)
@@ -122,7 +122,7 @@ extension DetailView {
         .tint(homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? Color.theme.airRed : Color.theme.accent)
     }
     
-    private var navigationBarTrailingShare: some View {
+    private var topBarTrailingShare: some View {
         ShareLink(item: URL(string: viewModel.returnListingStringForURL())!) {
             withAnimation {
                 Image(systemName: "square.and.arrow.up")

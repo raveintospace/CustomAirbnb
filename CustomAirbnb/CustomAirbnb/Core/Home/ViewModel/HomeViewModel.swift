@@ -137,6 +137,13 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    func resetFiltersValues() {
+        guestsFilter = 1
+        bedroomsFilter = 1
+        bedsFilter = 1
+        bathroomsFilter = 1
+    }
+    
 // MARK: - Extracted methods
     
     // filter using searchText & grid filters

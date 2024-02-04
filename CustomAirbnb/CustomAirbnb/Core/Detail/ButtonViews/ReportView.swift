@@ -62,7 +62,7 @@ struct ReportView: View {
                 .navigationTitle("Reason to report")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
                         DismissXButton()
                     }
                 })

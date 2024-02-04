@@ -29,8 +29,11 @@ struct FiltersView: View {
                 .navigationTitle("Filter listings")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
                         DismissXButton()
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        navigationBarResetButton
                     }
                 })
             }
@@ -46,6 +49,15 @@ struct FiltersView_Previews: PreviewProvider {
 }
 
 extension FiltersView {
+    
+    private var navigationBarResetButton: some View {
+        Button(action: {
+            viewModel.resetFiltersValues()
+        }, label: {
+            Text("Reset filters")
+        })
+        .tint(Color.theme.accent)
+    }
     
     private var guestsFilter: some View {
         VStack {
@@ -136,12 +148,3 @@ extension FiltersView {
         }
     }
 }
-
-/*
- Picker("Guests", selection: $viewModel.bedsFilter) {
- ForEach(0..<5) { number in
- Text("\(number)")
- }
- }
- .pickerStyle(.menu)
- */

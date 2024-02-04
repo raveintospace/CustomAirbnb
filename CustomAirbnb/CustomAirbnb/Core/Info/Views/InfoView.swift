@@ -39,7 +39,7 @@ struct InfoView: View {
             .listStyle(GroupedListStyle())
             .navigationTitle("App info")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     DismissXButton()
                 }
             }
