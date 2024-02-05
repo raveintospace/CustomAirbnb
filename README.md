@@ -30,8 +30,12 @@ This app features:
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
 <br/>
 <li>FiltersView for refining the results according to four criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms)</li>
-<li>InfoView shows info about the app's project</li>
-<li>UploadView: TBA</li>
+<li>InfoView presents info about the app's project</li>
+<br/>
+<li>UploadView for listing a new apartment in three steps</li>
+  <ul>
+    <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
+  </ul>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
