@@ -25,8 +25,6 @@ struct HomeView: View {
     @State private var showFavoritesView: Bool = false
     @State private var isLoading: Bool = false
     
-    private let cities = City.stub
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -201,7 +199,7 @@ extension HomeView {
     
     private var destinationPicker: some View {
         Picker("Select your destination", selection: $destination) {
-            ForEach(cities) { city in
+            ForEach(viewModel.cities) { city in
                 Text(city.name)
                     .tag(city.name)
                     .onChange(of: destination) { newValue in
@@ -230,7 +228,7 @@ extension HomeView {
         case .infoView:
             InfoView()
         case .uploadView:
-            UploadView()
+            UploadFirstView()
         }
     }
 }

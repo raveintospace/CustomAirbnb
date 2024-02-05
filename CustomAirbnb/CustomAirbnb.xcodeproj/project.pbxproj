@@ -35,7 +35,7 @@
 		348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A87492B4ACFD300BBDF4D /* UIApplication.swift */; };
 		349575512B6D39D500DC4643 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575502B6D39D500DC4643 /* City.swift */; };
 		349575532B6D3EE100DC4643 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575522B6D3EE100DC4643 /* InfoView.swift */; };
-		349575552B6D3F0100DC4643 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575542B6D3F0100DC4643 /* UploadView.swift */; };
+		349575552B6D3F0100DC4643 /* UploadFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575542B6D3F0100DC4643 /* UploadFirstView.swift */; };
 		349588DB2B3F3B9900B55884 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DA2B3F3B9900B55884 /* Double.swift */; };
 		349588DD2B3F40BF00B55884 /* ListingGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DC2B3F40BF00B55884 /* ListingGridView.swift */; };
 		34A1EFEF2B34AD2400E1F948 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */; };
@@ -92,7 +92,7 @@
 		348A87492B4ACFD300BBDF4D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		349575502B6D39D500DC4643 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		349575522B6D3EE100DC4643 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		349575542B6D3F0100DC4643 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		349575542B6D3F0100DC4643 /* UploadFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFirstView.swift; sourceTree = "<group>"; };
 		349588DA2B3F3B9900B55884 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		349588DC2B3F40BF00B55884 /* ListingGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingGridView.swift; sourceTree = "<group>"; };
 		34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 		3495754F2B6D38B000DC4643 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				349575542B6D3F0100DC4643 /* UploadView.swift */,
+				349575542B6D3F0100DC4643 /* UploadFirstView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 				34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */,
 				34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */,
 				340631D92B6FD60200D85802 /* Binding.swift in Sources */,
-				349575552B6D3F0100DC4643 /* UploadView.swift in Sources */,
+				349575552B6D3F0100DC4643 /* UploadFirstView.swift in Sources */,
 				346DEBE82B4AF2400090BD27 /* CircleButtonView.swift in Sources */,
 				342FB6A82B654E5300611B25 /* XLImageDataService.swift in Sources */,
 				34F063AE2B30BFFB003966B9 /* ListingRowView.swift in Sources */,

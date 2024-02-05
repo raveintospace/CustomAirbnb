@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UploadView: View {
+struct UploadFirstView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -23,6 +23,7 @@ struct UploadView: View {
                     Text("Where is your home?")
                         .font(.title)
                         .bold()
+
                     
                     .toolbar(content: {
                         ToolbarItem(placement: .topBarLeading) {
@@ -37,6 +38,6 @@ struct UploadView: View {
 
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadView()
+        UploadFirstView()
     }
 }

@@ -58,6 +58,8 @@ final class HomeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()    // we won't cancel this subscription
     
+    let cities = City.stub
+    
     init() {
         addSubscribers()
     }
