@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct UploadView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        Text("This is the upload view")
+        NavigationStack {
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 15) {
+                    Image(systemName: "globe.americas")
+                        .font(.system(size: 80))
+                        .foregroundStyle(Color.theme.airRed)
+                    Text("Where is your home?")
+                        .font(.title)
+                        .bold()
+                    
+                    .toolbar(content: {
+                        ToolbarItem(placement: .topBarLeading) {
+                            DismissXButton()
+                        }
+                })
+                }
+            }
+        }
     }
 }
 
-#Preview {
-    UploadView()
+struct UploadView_Previews: PreviewProvider {
+    static var previews: some View {
+        UploadView()
+    }
 }

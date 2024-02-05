@@ -19,10 +19,13 @@ struct FiltersView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                VStack(spacing: 50) {
+                VStack(spacing: 40) {
                     guestsFilter
+                    RedDivider()
                     bedsFilter
+                    RedDivider()
                     bedroomsFilter
+                    RedDivider()
                     bathroomsFilter
                 }
                 .padding(.horizontal, 25)
