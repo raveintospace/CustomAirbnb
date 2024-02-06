@@ -57,7 +57,7 @@ extension UploadFirstView {
     
     private var globeImages: some View {
         Image(systemName: viewModel.globeImages[currentImageIndex])
-            .font(.system(size: 80))
+            .font(.system(size: 80, weight: .light))
             .foregroundStyle(Color.theme.airRed)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
