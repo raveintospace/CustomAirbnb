@@ -9,7 +9,21 @@ import SwiftUI
 
 struct UploadSecondView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                Text("Second view")
+                
+            }
+            .toolbar() {
+                ToolbarItem(placement: .topBarLeading) {
+                    TopBarLeadingArrow()
+                }
+            }
+            .navigationBarBackButtonHidden()
+        }
     }
 }
 

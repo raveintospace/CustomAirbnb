@@ -60,7 +60,7 @@ struct DetailView: View {
                     RedDivider()
                 }
             }
-            .padding(.top, -42)
+            .padding(.top, -42) // picture under toolbar
             
             reportButton
                 .padding(.top, 5)
@@ -77,7 +77,7 @@ struct DetailView: View {
         )
         .toolbar() {
             ToolbarItem(placement: .topBarLeading) {
-                topBarLeadingArrow
+                TopBarLeadingArrow()
             }
             ToolbarItem(placement: .topBarTrailing) {
                 HStack(alignment: .bottom, spacing: 0) {
@@ -100,15 +100,6 @@ struct DetailView_Previews: PreviewProvider {
 }
 
 extension DetailView {
-    
-    private var topBarLeadingArrow: some View {
-        Button(action: {
-            dismiss()
-        }, label: {
-            Image(systemName: "arrow.left")
-        })
-        .tint(Color.theme.accent)
-    }
     
     private var topBarTrailingHeart: some View {
         Button(action: {

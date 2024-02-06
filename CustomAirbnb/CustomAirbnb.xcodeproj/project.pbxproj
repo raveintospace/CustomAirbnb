@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3400040D2B72A1D8006DD022 /* UploadSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400040C2B72A1D8006DD022 /* UploadSecondView.swift */; };
+		3400040F2B72A60D006DD022 /* TopBarLeadingArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400040E2B72A60D006DD022 /* TopBarLeadingArrow.swift */; };
 		34013B582B6FAAE400D65078 /* FiltersRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34013B572B6FAAE400D65078 /* FiltersRowView.swift */; };
 		340631D92B6FD60200D85802 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340631D82B6FD60200D85802 /* Binding.swift */; };
 		341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58932B3C99DC00414188 /* HostImageDataService.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		3400040C2B72A1D8006DD022 /* UploadSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSecondView.swift; sourceTree = "<group>"; };
+		3400040E2B72A60D006DD022 /* TopBarLeadingArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarLeadingArrow.swift; sourceTree = "<group>"; };
 		34013B572B6FAAE400D65078 /* FiltersRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersRowView.swift; sourceTree = "<group>"; };
 		340631D82B6FD60200D85802 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		341A58932B3C99DC00414188 /* HostImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageDataService.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				34B4E5482B542F2800FDE7E4 /* DismissXButton.swift */,
 				348603462B55AE6D0064C51D /* RedDivider.swift */,
 				348A87472B4ACF7300BBDF4D /* SearchBarView.swift */,
+				3400040E2B72A60D006DD022 /* TopBarLeadingArrow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */,
 				34B635A52B681D13007D980F /* FrameRectTen.swift in Sources */,
 				3400040D2B72A1D8006DD022 /* UploadSecondView.swift in Sources */,
+				3400040F2B72A60D006DD022 /* TopBarLeadingArrow.swift in Sources */,
 				342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */,
 				348A57512B385202007FBB9B /* DetailView.swift in Sources */,
 				342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */,
