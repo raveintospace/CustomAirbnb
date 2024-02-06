@@ -15,6 +15,7 @@ struct UploadFirstView: View {
     
     @State private var currentImageIndex = 0
     @State private var listingLocation: String = "Amsterdam"
+    @State private var showUploadSecondView: Bool = false
     
     init() {
         _viewModel = StateObject(wrappedValue: UploadViewModel())
@@ -41,6 +42,9 @@ struct UploadFirstView: View {
                         DismissXButton()
                     }
                 })
+            }
+            .navigationDestination(isPresented: $showUploadSecondView) {
+                UploadSecondView()
             }
         }
     }
@@ -88,16 +92,16 @@ extension UploadFirstView {
         .tint(Color.theme.airRed)
         .scaleEffect(1.2)
     }
-
+    
     private var ContinueButton: some View {
         Button(action: {
-            debugPrint("move to uploadsecondview")
+            showUploadSecondView.toggle()
         }, label: {
             Text("Continue")
-            .foregroundStyle(Color.white)
-            .bold()
-            .frame(maxWidth: .infinity)
-            .frame(height: 30)
+                .foregroundStyle(Color.white)
+                .bold()
+                .frame(maxWidth: .infinity)
+                .frame(height: 30)
         })
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
