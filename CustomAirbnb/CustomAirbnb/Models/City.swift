@@ -10,6 +10,8 @@ import Foundation
 struct City: Identifiable {
     let id = UUID()
     let name: String
+    // let hoods: [String]
+    // let coverPicture
 }
 
 #if DEBUG

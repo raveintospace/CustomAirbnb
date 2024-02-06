@@ -28,12 +28,13 @@ struct UploadFirstView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 15) {
+                    // circle progress
                     Spacer()
                     globeImages
                     homeText
                     homePicker
                     Spacer()
-                    ContinueButton
+                    continueButton
                 }
                 .navigationTitle("List your home")
                 .navigationBarTitleDisplayMode(.inline)
@@ -44,7 +45,7 @@ struct UploadFirstView: View {
                 })
             }
             .navigationDestination(isPresented: $showUploadSecondView) {
-                UploadSecondView()
+                UploadSecondView(listingLocation: $listingLocation)
             }
         }
     }
@@ -93,19 +94,9 @@ extension UploadFirstView {
         .scaleEffect(1.2)
     }
     
-    private var ContinueButton: some View {
-        Button(action: {
+    private var continueButton: some View {
+        ContinueRedButton {
             showUploadSecondView.toggle()
-        }, label: {
-            Text("Continue")
-                .foregroundStyle(Color.white)
-                .bold()
-                .frame(maxWidth: .infinity)
-                .frame(height: 30)
-        })
-        .buttonStyle(.borderedProminent)
-        .buttonBorderShape(.capsule)
-        .tint(Color.theme.airRed)
-        .padding(.horizontal, 30)
+        }
     }
 }
