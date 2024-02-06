@@ -15,7 +15,7 @@ This app features:
 <li>Reusable Local FileManager, to store downloaded images from the API</li>
 <br/>
 <li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
-<li>Reusable custom Circle Button View, Circle Button Animation, Divider, Dismiss Button & Confirmation Rectangle</li>
+<li>Reusable views: Circle Button (Animation & View), Confirmation Rectangle, Continue Button, Dismiss Button, Divider & TopBarLeading Arrow</li>
 <br/>
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>An empty view is displayed if the user hasn't favorited any listing</li>
@@ -32,9 +32,10 @@ This app features:
 <li>FiltersView for refining the results according to four criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms)</li>
 <li>InfoView presents info about the app's project</li>
 <br/>
-<li>UploadView for listing a new apartment in three steps</li>
+<li>UploadView for listing a new apartment in three steps, replicating some of Wallapop's upload screens</li>
   <ul>
     <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
+    <li>UploadSecondView for selecting the neighbourhood of the city previously selected</li>
   </ul>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
