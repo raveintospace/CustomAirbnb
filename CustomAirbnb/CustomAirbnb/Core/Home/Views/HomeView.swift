@@ -124,7 +124,7 @@ extension HomeView {
         List {
             ForEach(viewModel.allListings) { listing in
                 ListingRowView(listing: listing)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .listRowInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
                     .listRowSeparatorTint(Color.theme.airRed)
                     .onTapGesture {
                         segue(listing: listing)
@@ -152,7 +152,7 @@ extension HomeView {
         List {
             ForEach(viewModel.favoriteListings) { listing in
                 ListingRowView(listing: listing)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .listRowInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
                     .listRowSeparatorTint(Color.theme.airRed)
                     .onTapGesture {
                         segue(listing: listing)
