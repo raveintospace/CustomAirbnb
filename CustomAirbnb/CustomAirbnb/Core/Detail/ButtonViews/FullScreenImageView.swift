@@ -22,27 +22,31 @@ struct FullScreenImageView: View {
     
     var body: some View {
         NavigationStack {
-            HStack() {
-                DismissXButton()
-                Spacer()
-            }
-            .padding(.horizontal)
-            VStack {
-                TabView(selection: $sliderCurrentIndex) {
-                    ForEach(0..<viewModel.imagesForSlider.count, id: \.self) { imageIndex in
-                        
-                        // convert images from array to use them in slider
-                        let imageType = viewModel.imagesForSlider[imageIndex]
-                        let image = imageType.image
-                        
-                        image
-                            .scaledToFit()
-                            .aspectRatio(imageType.aspectRatio, contentMode: .fit)
-                            .tag(imageIndex)
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                VStack {
+                    TabView(selection: $sliderCurrentIndex) {
+                        ForEach(0..<viewModel.imagesForSlider.count, id: \.self) { imageIndex in
+                            
+                            // convert images from array to use them in slider
+                            let imageType = viewModel.imagesForSlider[imageIndex]
+                            let image = imageType.image
+                            
+                            image
+                                .scaledToFit()
+                                .aspectRatio(imageType.aspectRatio, contentMode: .fit)
+                                .tag(imageIndex)
+                        }
                     }
+                    .tabViewStyle(PageTabViewStyle())
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
                 }
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
+                .toolbar(content: {
+                    ToolbarItem(placement: .topBarLeading) {
+                        DismissXButton()
+                    }
+                })
             }
         }
     }

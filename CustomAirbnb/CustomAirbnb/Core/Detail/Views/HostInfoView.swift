@@ -79,10 +79,10 @@ extension HostInfoView {
     private var totalReviews: some View {
         if let reviewsInTotal = listing.numberOfReviews {
             Text("(\(reviewsInTotal))")
-                .font(.caption2)
+                .font(.system(size: 8, weight: .light))
         } else {
             Text("(0)")
-                .font(.caption2)
+                .font(.system(size: 8, weight: .light))
         }
     }
     

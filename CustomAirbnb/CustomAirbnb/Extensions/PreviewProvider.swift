@@ -41,7 +41,7 @@ final class DeveloperPreview {
         hostThumbnailURL: "https://a0.muscache.com/im/users/4101093/profile_pic/1352841808/original.jpg?aki_policy=profile_small", 
         hostURL: "https://www.airbnb.com/users/show/10188615",
         hostListingsCount: 26,
-        numberOfReviews: 87,
+        numberOfReviews: 1807,
         reviewScoresRating: 46
     )
 }

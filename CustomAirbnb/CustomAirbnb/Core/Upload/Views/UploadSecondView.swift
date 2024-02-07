@@ -18,7 +18,8 @@ struct UploadSecondView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 15) {
-                    // circle progress (image)
+                    // circle progress (image 1-2-3)
+                    // consider a form with navigation bullets
                     Spacer()
                     // image
                     hoodText
