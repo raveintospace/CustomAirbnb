@@ -9,7 +9,11 @@ import SwiftUI
 
 struct UploadSecondView: View {
     
+    @StateObject var viewModel: UploadViewModel
+    
     @Binding var listingLocation: String
+    
+    @State private var selectedHood: String? = nil
     
     var body: some View {
         NavigationStack {
@@ -18,11 +22,28 @@ struct UploadSecondView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 15) {
-                    // circle progress (image 1-2-3)
-                    // consider a form with navigation bullets
+                    // circle progress (canva)
                     Spacer()
                     // image
                     hoodText
+                    
+                    if let city = viewModel.cities.first(where: { $0.name == listingLocation }) {
+                        List(city.hoods, id: \.self) { hood in
+                            HStack {
+                                Text(hood)
+                                    .foregroundStyle(Color.theme.accent)
+                                Spacer()
+                                Image(systemName: selectedHood == hood ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(Color.theme.airRed)
+                            }
+                            .listRowSeparatorTint(Color.theme.airRed)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedHood = hood
+                            }
+                        }
+                        .listStyle(.plain)
+                    }
                     // picker
                     Spacer()
                     continueButton
@@ -42,7 +63,7 @@ struct UploadSecondView: View {
 }
 
 #Preview {
-    UploadSecondView(listingLocation: .constant("Amsterdam"))
+    UploadSecondView(viewModel: UploadViewModel(), listingLocation: .constant("Amsterdam"))
 }
 
 extension UploadSecondView {
@@ -61,3 +82,10 @@ extension UploadSecondView {
         }
     }
 }
+
+// MARK: - TO DO
+/*
+ red divider
+ continue disabled without a hood selected
+ extract views to extension
+ */

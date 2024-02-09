@@ -28,7 +28,7 @@ struct UploadFirstView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 15) {
-                    // circle progress
+                    // circle progress canva
                     Spacer()
                     globeImages
                     homeText
@@ -45,7 +45,7 @@ struct UploadFirstView: View {
                 })
             }
             .navigationDestination(isPresented: $showUploadSecondView) {
-                UploadSecondView(listingLocation: $listingLocation)
+                UploadSecondView(viewModel: viewModel, listingLocation: $listingLocation)
             }
         }
     }
