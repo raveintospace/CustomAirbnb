@@ -33,7 +33,7 @@ struct FiltersView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
                     ToolbarItem(placement: .topBarLeading) {
-                        DismissXButton()
+                        applyFiltersbutton
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         navigationBarResetButton
@@ -52,6 +52,15 @@ struct FiltersView_Previews: PreviewProvider {
 }
 
 extension FiltersView {
+    
+    private var applyFiltersbutton: some View {
+        Button(action: {
+            dismiss()
+        }, label: {
+            Image(systemName: "checkmark")
+                .font(.headline)
+        })
+    }
     
     private var navigationBarResetButton: some View {
         Button(action: {
