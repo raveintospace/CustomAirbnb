@@ -77,6 +77,7 @@ extension UploadSecondView {
             -20
         }
         .listRowSeparatorTint(Color.theme.airRed)
+        .listRowBackground(Color.theme.background)
         .contentShape(Rectangle())
         .onTapGesture {
             onTap()
@@ -93,6 +94,5 @@ extension UploadSecondView {
 
 // MARK: - TO DO
 /*
- continue disabled without a hood selected
  extract views to extension
  */
