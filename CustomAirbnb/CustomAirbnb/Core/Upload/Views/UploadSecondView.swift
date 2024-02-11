@@ -36,6 +36,9 @@ struct UploadSecondView: View {
                                 Image(systemName: selectedHood == hood ? "checkmark.circle.fill" : "circle")
                                     .foregroundStyle(Color.theme.airRed)
                             }
+                            .alignmentGuide(.listRowSeparatorLeading) { _ in
+                                0
+                            }
                             .listRowSeparatorTint(Color.theme.airRed)
                             .contentShape(Rectangle())
                             .onTapGesture {
@@ -44,11 +47,9 @@ struct UploadSecondView: View {
                         }
                         .listStyle(.plain)
                     }
-                    // picker
                     Spacer()
                     continueButton
                 }
-                
             }
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)

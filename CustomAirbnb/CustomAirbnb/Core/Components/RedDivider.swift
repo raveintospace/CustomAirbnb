@@ -12,6 +12,7 @@ struct RedDivider: View {
     var body: some View {
         Divider()
             .overlay(Color.theme.airRed)
+            .padding(.horizontal, -25)
     }
 }
 
