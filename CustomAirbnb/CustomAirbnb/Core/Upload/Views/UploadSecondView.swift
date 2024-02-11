@@ -39,12 +39,12 @@ struct UploadSecondView: View {
                     Spacer()
                     continueButton
                 }
-            }
-            .navigationTitle("List your home")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar() {
-                ToolbarItem(placement: .topBarLeading) {
-                    TopBarLeadingArrow()
+                .navigationTitle("List your home")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar() {
+                    ToolbarItem(placement: .topBarLeading) {
+                        TopBarLeadingArrow()
+                    }
                 }
             }
             .navigationBarBackButtonHidden()
@@ -110,3 +110,9 @@ extension UploadSecondView {
         .disabled(selectedHood == nil ? true : false)
     }
 }
+
+
+
+//            .navigationDestination(isPresented: $showUploadThirdView) {
+//                UploadThirdView()
+//            }
