@@ -19,7 +19,7 @@ struct FiltersView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                VStack(spacing: 40) {
+                VStack(spacing: 30) {
                     guestsFilter
                     RedDivider()
                     bedsFilter
@@ -27,6 +27,8 @@ struct FiltersView: View {
                     bedroomsFilter
                     RedDivider()
                     bathroomsFilter
+                    RedDivider()
+                    priceFilter
                 }
                 .padding(.horizontal, 25)
                 .navigationTitle("Filter listings")
@@ -156,6 +158,29 @@ extension FiltersView {
                 step: 1,
                 minimumValueLabel: Text("1"),
                 maximumValueLabel: Text("20"),
+                label: {
+                    Text("Values")
+                }
+            )
+            .tint(Color.theme.airRed)
+        }
+    }
+    
+    private var priceFilter: some View {
+        VStack {
+            HStack() {
+                Image(systemName: "creditcard")
+                Text("Daily price: \(viewModel.priceFilter)")
+            }
+            .font(.title3)
+            .foregroundStyle(Color.theme.accent)
+            
+            Slider(
+                value: .convert(from: $viewModel.priceFilter),
+                in: 10...2000,
+                step: 10,
+                minimumValueLabel: Text("10"),
+                maximumValueLabel: Text("2000"),
                 label: {
                     Text("Values")
                 }

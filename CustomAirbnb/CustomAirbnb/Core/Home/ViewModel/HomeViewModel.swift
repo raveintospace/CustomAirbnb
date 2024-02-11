@@ -49,6 +49,12 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    @Published var priceFilter: Int = 10 {
+        didSet {
+            updateListingsWithAllFilters()
+        }
+    }
+    
     // DataServices
     private let listingDataService = ListingDataService()
     private let favoritesDataService = FavoritesDataService()
@@ -117,6 +123,13 @@ final class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        $priceFilter
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.updateListingsWithAllFilters()
+            }
+            .store(in: &cancellables)
+        
         // subscription to destinationPublisher
         destinationPublisher
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
@@ -144,6 +157,7 @@ final class HomeViewModel: ObservableObject {
         bedroomsFilter = 1
         bedsFilter = 1
         bathroomsFilter = 1
+        priceFilter = 10
     }
     
 // MARK: - Extracted methods
@@ -193,7 +207,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Grid methods
     private func applyGridFilters(_ listings: [Listing]) -> [Listing] {
-        return applyBathroomsFilter(applyBedsFilter(applyBedroomsFilter(applyGuestsFilter(listings))))
+        return applyPriceFilter(applyBathroomsFilter(applyBedsFilter(applyBedroomsFilter(applyGuestsFilter(listings)))))
     }
 
     private func applyGuestsFilter(_ listings: [Listing]) -> [Listing] {
@@ -226,6 +240,14 @@ final class HomeViewModel: ObservableObject {
         }
         
         return listings.filter( { $0.bathrooms >= bathroomsFilter })
+    }
+    
+    private func applyPriceFilter(_ listings: [Listing]) -> [Listing] {
+        guard priceFilter >= 10 else {
+            return listings
+        }
+        
+        return listings.filter( { $0.priceToSearch >= priceFilter })
     }
     
     // extracted .map from $searchText
