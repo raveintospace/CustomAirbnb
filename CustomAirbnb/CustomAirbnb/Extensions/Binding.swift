@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Binding {
     
-    // From Int to Float (Double)
+    // From Int to Float (Double) - Used in sliders
     static func convert<TInt, TFloat>(from intBinding: Binding<TInt>) -> Binding<TFloat>
     where TInt:   BinaryInteger,
           TFloat: BinaryFloatingPoint{
