@@ -112,7 +112,9 @@ extension UploadSecondView {
 }
 
 
-
-//            .navigationDestination(isPresented: $showUploadThirdView) {
-//                UploadThirdView()
-//            }
+// MARK: - NavigationStack Vs NavigationLink
+/*
+            .navigationDestination(isPresented: $showUploadThirdView) {
+                UploadThirdView()
+            }
+*/
