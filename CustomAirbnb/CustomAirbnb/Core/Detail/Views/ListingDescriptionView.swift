@@ -10,6 +10,7 @@ import SwiftUI
 struct ListingDescriptionView: View {
     
     let listing: Listing
+    
     @State private var showFullDescription: Bool = false
     
     var body: some View {

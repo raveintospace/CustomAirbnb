@@ -84,15 +84,15 @@ extension HomeView {
     
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: showFavoritesView ? "plus" : "info")
+            CircleButtonView(iconName: showFavoritesView ? "info" : "plus")
                 .transaction { transaction in
                     transaction.animation = nil
                 }
                 .onTapGesture {
                     if showFavoritesView {
-                        sheet = .uploadView
-                    } else {
                         sheet = .infoView
+                    } else {
+                        sheet = .uploadView
                     }
                 }
                 .background(
@@ -106,6 +106,9 @@ extension HomeView {
                 Text(showFavoritesView ? "Favorite listings" : "Available listings")
                     .font(.headline)
                     .foregroundStyle(Color.theme.accent)
+                    .transaction { transaction in
+                        transaction.animation = nil
+                    }
             }
             Spacer()
             

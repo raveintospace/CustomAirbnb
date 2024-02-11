@@ -14,6 +14,7 @@ struct UploadSecondView: View {
     @Binding var listingLocation: String
     
     @State private var selectedHood: String? = nil
+    @State private var showUploadThirdView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -46,6 +47,9 @@ struct UploadSecondView: View {
                 }
             }
             .navigationBarBackButtonHidden()
+            .navigationDestination(isPresented: $showUploadThirdView) {
+                UploadThirdView()
+            }
         }
     }
 }
@@ -86,13 +90,8 @@ extension UploadSecondView {
     
     private var continueButton: some View {
         ContinueRedButton {
-            debugPrint("go to third")
+            showUploadThirdView.toggle()
         }
         .disabled(selectedHood == nil ? true : false)
     }
 }
-
-// MARK: - TO DO
-/*
- extract views to extension
- */
