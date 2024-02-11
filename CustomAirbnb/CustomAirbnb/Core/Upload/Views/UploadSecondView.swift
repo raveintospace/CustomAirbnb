@@ -24,24 +24,11 @@ struct UploadSecondView: View {
                 VStack(spacing: 15) {
                     // circle progress (canva)
                     Spacer()
-                    // image
                     hoodText
                     
                     if let city = viewModel.cities.first(where: { $0.name == listingLocation }) {
                         List(city.hoods, id: \.self) { hood in
-                            HStack {
-                                Text(hood)
-                                    .foregroundStyle(Color.theme.accent)
-                                Spacer()
-                                Image(systemName: selectedHood == hood ? "checkmark.circle.fill" : "circle")
-                                    .foregroundStyle(Color.theme.airRed)
-                            }
-                            .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                -20
-                            }
-                            .listRowSeparatorTint(Color.theme.airRed)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
+                            customHoodRow(hood: hood, selectedHood: $selectedHood) {
                                 selectedHood = hood
                             }
                         }
@@ -80,6 +67,25 @@ extension UploadSecondView {
     private var continueButton: some View {
         ContinueRedButton {
             debugPrint("go to third")
+        }
+    }
+    
+    private func customHoodRow(hood: String, selectedHood: Binding<String?>, onTap: @escaping () -> Void) -> some View {
+        HStack {
+            Text(hood)
+                .foregroundStyle(Color.theme.accent)
+            Spacer()
+            Image(systemName: selectedHood.wrappedValue == hood ? "checkmark.circle.fill" : "circle")
+                .foregroundStyle(Color.theme.airRed)
+        }
+        .font(.title3)
+        .alignmentGuide(.listRowSeparatorLeading) { _ in
+            -20
+        }
+        .listRowSeparatorTint(Color.theme.airRed)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            onTap()
         }
     }
 }
