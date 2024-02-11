@@ -37,7 +37,7 @@ struct UploadSecondView: View {
                                     .foregroundStyle(Color.theme.airRed)
                             }
                             .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                0
+                                -20
                             }
                             .listRowSeparatorTint(Color.theme.airRed)
                             .contentShape(Rectangle())
