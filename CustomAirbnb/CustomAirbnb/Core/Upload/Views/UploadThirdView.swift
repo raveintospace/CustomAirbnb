@@ -15,7 +15,10 @@ struct UploadThirdView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                Text("Fato")
+                VStack {
+                    progressImage
+                    Spacer()
+                }
             }
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)
@@ -31,4 +34,14 @@ struct UploadThirdView: View {
 
 #Preview {
     UploadThirdView()
+}
+
+extension UploadThirdView {
+    
+    private var progressImage: some View {
+        Image("prog3")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 25)
+    }
 }

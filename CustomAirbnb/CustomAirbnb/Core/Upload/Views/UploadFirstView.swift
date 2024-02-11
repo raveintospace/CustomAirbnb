@@ -28,7 +28,7 @@ struct UploadFirstView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 15) {
-                    // circle progress canva
+                    progressImage
                     Spacer()
                     globeImages
                     homeText
@@ -59,6 +59,13 @@ struct UploadView_Previews: PreviewProvider {
 }
 
 extension UploadFirstView {
+    
+    private var progressImage: some View {
+        Image("prog1")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 25)
+    }
     
     private var globeImages: some View {
         Image(systemName: viewModel.globeImages[currentImageIndex])

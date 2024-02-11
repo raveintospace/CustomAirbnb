@@ -22,8 +22,8 @@ struct UploadSecondView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                VStack(spacing: 15) {
-                    // circle progress (canva)
+                VStack(spacing: 10) {
+                    progressImage
                     Spacer()
                     hoodText
                     
@@ -35,6 +35,7 @@ struct UploadSecondView: View {
                         }
                         .listStyle(.plain)
                     }
+                    
                     Spacer()
                     continueButton
                 }
@@ -47,9 +48,15 @@ struct UploadSecondView: View {
                 }
             }
             .navigationBarBackButtonHidden()
-            .navigationDestination(isPresented: $showUploadThirdView) {
-                UploadThirdView()
-            }
+            .background(
+                NavigationLink(
+                    destination: UploadThirdView(),
+                    isActive: $showUploadThirdView
+                ) {
+                    EmptyView()
+                }
+                    .hidden()
+            )
         }
     }
 }
@@ -60,12 +67,20 @@ struct UploadSecondView: View {
 
 extension UploadSecondView {
     
+    private var progressImage: some View {
+        Image("prog2")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 25)
+    }
+    
     private var hoodText: some View {
         Text("Select your neighbourhood in \(listingLocation)")
             .font(.title2)
             .multilineTextAlignment(.center)
             .bold()
             .foregroundStyle(Color.theme.accent)
+            .padding(.horizontal)
     }
     
     private func customHoodRow(hood: String, selectedHood: Binding<String?>, onTap: @escaping () -> Void) -> some View {
