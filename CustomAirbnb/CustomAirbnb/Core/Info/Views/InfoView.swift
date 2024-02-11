@@ -24,9 +24,9 @@ struct InfoView: View {
                     .ignoresSafeArea()
                 
                 List {
-                    courseInfoSection
+                    appPurposeSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
-                    coinGeckoSection
+                    openDatasoftSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
                     developerSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
@@ -55,7 +55,7 @@ struct InfoView_Previews: PreviewProvider {
 
 extension InfoView {
     
-    private var courseInfoSection: some View {
+    private var appPurposeSection: some View {
         Section {
             VStack(alignment: .leading) {
                 Image("customlogo")
@@ -77,7 +77,7 @@ extension InfoView {
         }
     }
     
-    private var coinGeckoSection: some View {
+    private var openDatasoftSection: some View {
         Section {
             VStack(alignment: .leading) {
                 Image("ods")
