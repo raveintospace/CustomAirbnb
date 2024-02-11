@@ -64,12 +64,6 @@ extension UploadSecondView {
             .foregroundStyle(Color.theme.accent)
     }
     
-    private var continueButton: some View {
-        ContinueRedButton {
-            debugPrint("go to third")
-        }
-    }
-    
     private func customHoodRow(hood: String, selectedHood: Binding<String?>, onTap: @escaping () -> Void) -> some View {
         HStack {
             Text(hood)
@@ -88,11 +82,17 @@ extension UploadSecondView {
             onTap()
         }
     }
+    
+    private var continueButton: some View {
+        ContinueRedButton {
+            debugPrint("go to third")
+        }
+        .disabled(selectedHood == nil ? true : false)
+    }
 }
 
 // MARK: - TO DO
 /*
- red divider
  continue disabled without a hood selected
  extract views to extension
  */
