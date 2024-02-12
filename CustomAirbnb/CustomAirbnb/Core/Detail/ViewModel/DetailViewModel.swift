@@ -11,6 +11,14 @@ final class DetailViewModel: ObservableObject {
     
     @Published var listing: Listing
     
+    @Published var arrivalDate: Date = Date.now
+    @Published var departureDate: Date = Date.now.addingTimeInterval(86400)
+    @Published var numberOfNights: Int = 1 {
+        didSet {
+            updateDepartureDate()
+        }
+    }
+    
     let reportReasons = ReportReason.stub
     
     init(listing: Listing) {
@@ -42,6 +50,10 @@ final class DetailViewModel: ObservableObject {
         let numberOfDays = calendar.dateComponents([.day], from: startOfStartDate, to: startOfEndDate)
 
         return max(numberOfDays.day!, 0)
+    }
+    
+    func updateDepartureDate() {
+        departureDate = Calendar.current.date(byAdding: .day, value: numberOfNights, to: arrivalDate) ?? Date.now
     }
 
 }

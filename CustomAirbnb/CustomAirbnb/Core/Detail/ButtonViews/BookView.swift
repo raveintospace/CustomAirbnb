@@ -75,30 +75,40 @@ extension BookView {
     
     private var arrivalDatePicker: some View {
         DatePicker("Date of arrival",
-                   selection: $arrivalDate,
+                   selection: $viewModel.arrivalDate,
                    in: Date()...,
                    displayedComponents: .date)
             .tint(Color.theme.airRed)
-            .padding()
+            .padding(10)
     }
     
     private var departureDatePicker: some View {
         DatePicker("Date of departure",
-                   selection: $departureDate,
+                   selection: $viewModel.departureDate,
                    in: viewModel.returnNextDay(currentDay: arrivalDate)...,
                    displayedComponents: .date)
             .tint(Color.theme.airRed)
-            .padding()
+            .padding(10)
     }
     
     private var nightsHStack: some View {
         HStack {
             Text("Number of nights")
             Spacer()
-            Text("\(calculateNumberOfNights())")
+            
+            Stepper(value: $viewModel.numberOfNights,
+                    in: 1...Int.max,
+                    label: {
+                EmptyView()
+            })
+            .fixedSize()
+            .labelsHidden()
+            .padding(.trailing, 20)
+            
+            Text("\(viewModel.numberOfNights)")
                 .bold()
         }
-        .padding()
+        .padding(10)
     }
     
     private var priceHStack: some View {
@@ -108,7 +118,7 @@ extension BookView {
             Text("\(calculateTotalPrice()) €")
                 .bold()
         }
-        .padding()
+        .padding(10)
     }
     
     private var requestBookButton: some View {
