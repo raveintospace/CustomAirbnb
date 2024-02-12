@@ -46,6 +46,9 @@ extension FiltersRowView {
             menuTitleView(sortOption: viewModel.sortOption)
         }
         .tint(Color.theme.airRed)
+        .transaction { transaction in
+            transaction.animation = nil
+        }
     }
     
     private func menuTitleView(sortOption: SortOption) -> some View {
