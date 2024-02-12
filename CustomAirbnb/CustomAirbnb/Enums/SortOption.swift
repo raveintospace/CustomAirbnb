@@ -6,24 +6,43 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum SortOption: String, CaseIterable {
     case name, nameReversed, price, priceReversed, neighbourhood, neighbourhoodReversed
     
-    func displayName() -> String {
+    func displayName() -> some View {
         switch self {
         case .name:
-            return "Name ⬇️"
+            return HStack(spacing: 4) {
+                Text("Name")
+                Image(systemName: "chevron.down")
+            }
         case .nameReversed:
-            return "Name ⬆️"
+            return HStack(spacing: 4) {
+                Text("Name")
+                Image(systemName: "chevron.up")
+            }
         case .price:
-            return "Price ⬇️"
+            return HStack(spacing: 4) {
+                Text("Price")
+                Image(systemName: "chevron.down")
+            }
         case .priceReversed:
-            return "Price ⬆️"
+            return HStack(spacing: 4) {
+                Text("Price")
+                Image(systemName: "chevron.up")
+            }
         case .neighbourhood:
-            return "Neighbourhood ⬇️"
+            return HStack(spacing: 4) {
+                Text("Neighbourhood")
+                Image(systemName: "chevron.down")
+            }
         case .neighbourhoodReversed:
-            return "Neighbourhood ⬆️"
+            return HStack(spacing: 4) {
+                Text("Neighbourhood")
+                Image(systemName: "chevron.up")
+            }
         }
     }
 }
