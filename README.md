@@ -20,16 +20,16 @@ This app features:
 <li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>An empty view is displayed if the user hasn't favorited any listing</li>
 <li>InfoView & UploadView sheets presented using @ViewBuilder & switch</li>
-<li>The list of apartments can be sorted with six different criteria</li>
-<li>The list of apartments can be filtered with four different criteria + text of SearchBar</li>
+<li>The list of apartments can be sorted with six different criteria, defined in an enum</li>
+<li>The list of apartments can be filtered with five different criteria (FiltersView) + text of SearchBar</li>
 <li>When the user changes the destination, the API call is updated with the city selected</li>
 <br/>
 <li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
 <li>ReportView for reporting listings, notifies DetailView to display a gratitude message to the user</li>
-<li>BookView for simulating a booking request for the listing, featuring a DatePicker and price calculation</li>
+<li>BookView for simulating a booking request for the listing, featuring a DatePicker and days & price calculation</li>
 <li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
 <br/>
-<li>FiltersView for refining the results according to four criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms)</li>
+<li>FiltersView for refining the results according to five criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
 <li>InfoView presents info about the app's project</li>
 <br/>
 <li>UploadView for listing a new apartment in three steps, replicating some of Wallapop's upload screens</li>
