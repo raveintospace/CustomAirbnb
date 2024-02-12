@@ -103,7 +103,7 @@ extension BookView {
             })
             .fixedSize()
             .labelsHidden()
-            .padding(.trailing, 20)
+            .padding(.trailing, 10)
             
             Text("\(viewModel.numberOfNights)")
                 .bold()
