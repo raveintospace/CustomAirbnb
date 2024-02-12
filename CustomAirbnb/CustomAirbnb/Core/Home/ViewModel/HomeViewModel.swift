@@ -49,7 +49,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    @Published var priceFilter: Int = 10 {
+    @Published var priceFilter: Int = 2000 {
         didSet {
             updateListingsWithAllFilters()
         }
@@ -157,7 +157,7 @@ final class HomeViewModel: ObservableObject {
         bedroomsFilter = 1
         bedsFilter = 1
         bathroomsFilter = 1
-        priceFilter = 10
+        priceFilter = 2000
     }
     
 // MARK: - Extracted methods
@@ -243,11 +243,11 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func applyPriceFilter(_ listings: [Listing]) -> [Listing] {
-        guard priceFilter >= 10 else {
+        guard priceFilter <= 2000 else {
             return listings
         }
         
-        return listings.filter( { $0.priceToSearch >= priceFilter })
+        return listings.filter( { $0.priceToSearch <= priceFilter })
     }
     
     // extracted .map from $searchText

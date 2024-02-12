@@ -170,7 +170,7 @@ extension FiltersView {
         VStack {
             HStack() {
                 Image(systemName: "creditcard")
-                Text("Daily price: \(viewModel.priceFilter)")
+                Text("Maximum daily price: \(viewModel.priceFilter)")
             }
             .font(.title3)
             .foregroundStyle(Color.theme.accent)
