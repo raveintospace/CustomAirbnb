@@ -75,7 +75,7 @@ extension BookView {
     
     private var arrivalDatePicker: some View {
         DatePicker("Date of arrival",
-                   selection: $viewModel.arrivalDate,
+                   selection: $arrivalDate,
                    in: Date()...,
                    displayedComponents: .date)
             .tint(Color.theme.airRed)
@@ -84,7 +84,7 @@ extension BookView {
     
     private var departureDatePicker: some View {
         DatePicker("Date of departure",
-                   selection: $viewModel.departureDate,
+                   selection: $departureDate,
                    in: viewModel.returnNextDay(currentDay: arrivalDate)...,
                    displayedComponents: .date)
             .tint(Color.theme.airRed)
@@ -95,17 +95,7 @@ extension BookView {
         HStack {
             Text("Number of nights")
             Spacer()
-            
-            Stepper(value: $viewModel.numberOfNights,
-                    in: 1...Int.max,
-                    label: {
-                EmptyView()
-            })
-            .fixedSize()
-            .labelsHidden()
-            .padding(.trailing, 10)
-            
-            Text("\(viewModel.numberOfNights)")
+            Text("\(calculateNumberOfNights())")
                 .bold()
         }
         .padding(10)
@@ -136,11 +126,10 @@ extension BookView {
         .tint(Color.theme.airRed)
         .padding()
     }
-    /*
+    
     private func calculateNumberOfNights() -> Int {
         viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)
     }
-     */
     
     private func calculateTotalPrice() -> Int {
         (viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)
