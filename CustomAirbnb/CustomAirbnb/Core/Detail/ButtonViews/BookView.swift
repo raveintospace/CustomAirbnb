@@ -136,10 +136,11 @@ extension BookView {
         .tint(Color.theme.airRed)
         .padding()
     }
-    
+    /*
     private func calculateNumberOfNights() -> Int {
         viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)
     }
+     */
     
     private func calculateTotalPrice() -> Int {
         (viewModel.calculateDaysBetweenDates(startDate: arrivalDate, endDate: departureDate)) * (listing.price ?? 0)
