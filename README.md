@@ -2,7 +2,7 @@
 <br/>
 SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Freestyle app to test my learnings from previous projects and new challenges.
 
-⚠️ Project in construction ⚠️
+⚠️⚠️ Project in construction ⚠️⚠️
 <br/>
 <br/>
 This app features: 
