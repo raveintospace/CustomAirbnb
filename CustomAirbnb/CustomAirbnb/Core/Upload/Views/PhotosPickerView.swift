@@ -1,7 +1,7 @@
 //
 //  PhotosPickerView.swift
 //  CustomAirbnb
-//
+//  https://www.youtube.com/watch?v=jCskmh46L-s
 //  Created by Uri on 16/2/24.
 //
 
@@ -15,8 +15,12 @@ struct PhotosPickerView: View {
     
     var body: some View {
         PhotosPicker(selection: $photosPickerItem, matching: .images) {
-            Image(systemName: "camera")
+            Image(uiImage: imagePreview ?? UIImage(resource: .airlogo))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 100, height: 100)
         }
+        
         // convert data from photosPicker to UIImage
         .onChange(of: photosPickerItem) { _, _ in
             Task {
@@ -27,7 +31,7 @@ struct PhotosPickerView: View {
                     }
                 }
                 
-                // make it available for future selections
+                // make photosPickerItem available for future selections
                 photosPickerItem = nil
             }
         }
