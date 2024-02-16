@@ -21,6 +21,7 @@
 		342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AC2B65568F00611B25 /* XLImageView.swift */; };
 		343374052B5304EB001A5144 /* ApartmentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343374042B5304EB001A5144 /* ApartmentInfoView.swift */; };
 		343EE7072B39A95400F1E548 /* ImagesSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EE7062B39A95400F1E548 /* ImagesSlider.swift */; };
+		3447218E2B7FC91C00D37E28 /* PhotosPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447218D2B7FC91C00D37E28 /* PhotosPickerView.swift */; };
 		344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */; };
 		344DC51A2B277D6100481B0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC5192B277D6100481B0E /* HomeView.swift */; };
 		344DC51C2B277D6400481B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344DC51B2B277D6400481B0E /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		342FB6AC2B65568F00611B25 /* XLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageView.swift; sourceTree = "<group>"; };
 		343374042B5304EB001A5144 /* ApartmentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentInfoView.swift; sourceTree = "<group>"; };
 		343EE7062B39A95400F1E548 /* ImagesSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSlider.swift; sourceTree = "<group>"; };
+		3447218D2B7FC91C00D37E28 /* PhotosPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerView.swift; sourceTree = "<group>"; };
 		344DC5142B277D6100481B0E /* CustomAirbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAirbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		344DC5172B277D6100481B0E /* CustomAirbnbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAirbnbApp.swift; sourceTree = "<group>"; };
 		344DC5192B277D6100481B0E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				349575542B6D3F0100DC4643 /* UploadFirstView.swift */,
 				3400040C2B72A1D8006DD022 /* UploadSecondView.swift */,
 				34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */,
+				3447218D2B7FC91C00D37E28 /* PhotosPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				34A1EFF12B34AE3300E1F948 /* ListingImageViewModel.swift in Sources */,
 				341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */,
 				349575532B6D3EE100DC4643 /* InfoView.swift in Sources */,
+				3447218E2B7FC91C00D37E28 /* PhotosPickerView.swift in Sources */,
 				34C9E05C2B71551E0019CDC5 /* UploadViewModel.swift in Sources */,
 				343374052B5304EB001A5144 /* ApartmentInfoView.swift in Sources */,
 				34B635A22B681513007D980F /* ImageType.swift in Sources */,
@@ -627,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -681,7 +685,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
