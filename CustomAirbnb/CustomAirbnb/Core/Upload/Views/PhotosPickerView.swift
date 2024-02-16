@@ -10,29 +10,39 @@ import PhotosUI
 
 struct PhotosPickerView: View {
     
-    @State private var imagePreview: UIImage?
-    @State private var photosPickerItem: PhotosPickerItem?
+    @State private var imagePreviews: [UIImage] = []
+    @State private var photosPickerItems: [PhotosPickerItem] = []
     
     var body: some View {
-        PhotosPicker(selection: $photosPickerItem, matching: .images) {
-            Image(uiImage: imagePreview ?? UIImage(resource: .airlogo))
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
+        VStack {
+            PhotosPicker("Select photos", selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images)
+            
+            ScrollView(.horizontal) {
+                HStack(spacing: 20) {
+                    ForEach(0..<imagePreviews.count, id: \.self) { index in
+                        Image(uiImage: imagePreviews[index])
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .clipShape(.circle)
+                    }
+                }
+            }
         }
         
         // convert data from photosPicker to UIImage
-        .onChange(of: photosPickerItem) { _, _ in
+        .onChange(of: photosPickerItems) { _, _ in
             Task {
-                if let photosPickerItem,
-                   let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
-                    if let image = UIImage(data: data) {
-                        imagePreview = image
+                for item in photosPickerItems {
+                    if let data = try? await item.loadTransferable(type: Data.self) {
+                        if let image = UIImage(data: data) {
+                            imagePreviews.append(image)
+                        }
                     }
                 }
-                
-                // make photosPickerItem available for future selections
-                photosPickerItem = nil
+        
+                // make photosPickerItems available for future selections
+                    photosPickerItems.removeAll()
             }
         }
     }
