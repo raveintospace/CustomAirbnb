@@ -51,3 +51,13 @@ struct PhotosPickerView: View {
 #Preview {
     PhotosPickerView()
 }
+
+// MARK: - To Do
+/*
+ Placeholder effect, if user does not upload a picture, show the placeholder like Wallapop
+ Image(uiImage: imagePreview ?? UIImage(resource: .airlogo))
+     .resizable()
+     .aspectRatio(contentMode: .fill)
+     .frame(width: 100, height: 100)
+
+ */
