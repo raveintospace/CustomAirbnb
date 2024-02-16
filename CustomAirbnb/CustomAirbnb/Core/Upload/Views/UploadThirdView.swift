@@ -18,6 +18,8 @@ struct UploadThirdView: View {
                 VStack {
                     progressImage
                     Spacer()
+                    imagePicker
+                    Spacer()
                 }
             }
             .navigationTitle("List your home")
@@ -43,5 +45,9 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
+    }
+    
+    private var imagePicker: some View {
+        Text("Test")
     }
 }
