@@ -15,7 +15,18 @@ struct PhotosPickerView: View {
     
     var body: some View {
         VStack {
-            PhotosPicker("Select photos", selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images)
+            PhotosPicker(selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images) {
+                    Image(systemName: "camera")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .foregroundStyle(Color.theme.accent)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
+                                    .padding(-10)
+                                )
+                    }
             
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
@@ -25,6 +36,7 @@ struct PhotosPickerView: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 100, height: 100)
                             .clipShape(.circle)
+                            
                     }
                 }
             }
