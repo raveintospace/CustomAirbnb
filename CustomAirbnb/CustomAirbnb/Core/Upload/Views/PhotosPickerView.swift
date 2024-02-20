@@ -13,34 +13,30 @@ struct PhotosPickerView: View {
     @State private var imagePreviews: [UIImage] = []
     @State private var photosPickerItems: [PhotosPickerItem] = []
     
-    // properties for LazyHGrid
-    private let rows: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
-    private let spacing: CGFloat = 30
-    
     var body: some View {
         VStack {
             PhotosPicker(selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images) {
                 ScrollView(.horizontal) {
-                    LazyHGrid(rows: rows, 
-                              spacing: spacing) {
-                        ForEach(0..<10, id: \.self) { index in
-                            if index < imagePreviews.count {
-                                Image(uiImage: imagePreviews[index])
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .onTapGesture {
-                                            // delete or replace picture
-                                        }
-                            } else {
-                                cameraPlaceholder
+                    Grid(horizontalSpacing: 10, verticalSpacing: 15) {
+                        ForEach(0..<2, id: \.self) { rowIndex in
+                            GridRow {
+                                ForEach(0..<5, id: \.self) { columnIndex in
+                                    let index = rowIndex * 5 + columnIndex
+                                    if index < imagePreviews.count {
+                                        Image(uiImage: imagePreviews[index])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50)
+                                            .onTapGesture {
+                                                // delete or replace picture
+                                            }
+                                    } else {
+                                        cameraPlaceholder
+                                    }
+                                }
                             }
                         }
                     }
-                              
                 }
             }
         }
@@ -55,9 +51,9 @@ struct PhotosPickerView: View {
                         }
                     }
                 }
-        
+                
                 // make photosPickerItems available for future selections
-                    photosPickerItems.removeAll()
+                photosPickerItems.removeAll()
             }
         }
     }
@@ -70,16 +66,16 @@ struct PhotosPickerView: View {
 extension PhotosPickerView {
     
     private var cameraPlaceholder: some View {
-        Image(systemName: "camera")
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
+                .frame(width: 60, height: 60)
+            Image(systemName: "camera")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
                 .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
-                        .padding(-10)
-                    )
+        }
     }
 }
 
@@ -91,22 +87,22 @@ extension PhotosPickerView {
  - update color
  
  Image(uiImage: imagePreview ?? UIImage(resource: .airlogo))
-     .resizable()
-     .aspectRatio(contentMode: .fill)
-     .frame(width: 100, height: 100)
+ .resizable()
+ .aspectRatio(contentMode: .fill)
+ .frame(width: 100, height: 100)
  
  code for photospicker array
  ScrollView(.horizontal) {
-     HStack(spacing: 20) {
-         ForEach(0..<imagePreviews.count, id: \.self) { index in
-             Image(uiImage: imagePreviews[index])
-                 .resizable()
-                 .aspectRatio(contentMode: .fill)
-                 .frame(width: 100, height: 100)
-                 .clipShape(.circle)
-                 
-         }
-     }
+ HStack(spacing: 20) {
+ ForEach(0..<imagePreviews.count, id: \.self) { index in
+ Image(uiImage: imagePreviews[index])
+ .resizable()
+ .aspectRatio(contentMode: .fill)
+ .frame(width: 100, height: 100)
+ .clipShape(.circle)
+ 
  }
-
+ }
+ }
+ 
  */
