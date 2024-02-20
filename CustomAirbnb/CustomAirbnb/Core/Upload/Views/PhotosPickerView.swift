@@ -63,11 +63,11 @@ struct PhotosPickerView: View {
         if let dummyImage = image {
             dummyImage
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 300, height: 300)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                .shadow(radius: 10)
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
+                    .frame(width: 50, height: 50))
                 .onTapGesture { self.shouldPresentActionScheet = true }
                 .sheet(isPresented: $shouldPresentImagePicker) {
                     ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
