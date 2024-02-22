@@ -10,6 +10,7 @@ import SwiftUI
 struct DescriptionTextEditorView: View {
     
     @Binding var descriptionText: String
+    @FocusState private var isTextEditorFocused: Bool
     @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     
     var body: some View {
@@ -19,7 +20,9 @@ struct DescriptionTextEditorView: View {
                     .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                     .padding(.horizontal)
                     .padding(.top)
+                
                 Spacer()
+                
                 if !descriptionText.isEmpty {
                     Button(action: {
                         descriptionText = ""
@@ -39,6 +42,7 @@ struct DescriptionTextEditorView: View {
                 .autocorrectionDisabled()
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal, 10)
+                .focused($isTextEditorFocused)
                 .onChange(of: descriptionText) {
                     if descriptionText.count > 3000 {
                         descriptionText = String(descriptionText.prefix(3000))
@@ -47,11 +51,8 @@ struct DescriptionTextEditorView: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(strokeColor)
+                .stroke(isTextEditorFocused ? Color.theme.accent : strokeColor)
         )
-        .onAppear {
-            strokeColor = Color.theme.secondaryText.opacity(0.3)
-        }
         .padding(.horizontal, 10)
     }
 }
