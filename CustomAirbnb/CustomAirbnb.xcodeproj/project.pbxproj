@@ -16,6 +16,7 @@
 		341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58952B3C9B7300414188 /* HostImageViewModel.swift */; };
 		341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58972B3C9C7C00414188 /* HostImageView.swift */; };
 		341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58992B3C9FAB00414188 /* HostInfoView.swift */; };
+		342876D92B8764DC008CBDE1 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */; };
 		342FB6A82B654E5300611B25 /* XLImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6A72B654E5300611B25 /* XLImageDataService.swift */; };
 		342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AA2B65501000611B25 /* XLImageViewModel.swift */; };
 		342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AC2B65568F00611B25 /* XLImageView.swift */; };
@@ -79,6 +80,7 @@
 		341A58952B3C9B7300414188 /* HostImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageViewModel.swift; sourceTree = "<group>"; };
 		341A58972B3C9C7C00414188 /* HostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageView.swift; sourceTree = "<group>"; };
 		341A58992B3C9FAB00414188 /* HostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoView.swift; sourceTree = "<group>"; };
+		342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldView.swift; sourceTree = "<group>"; };
 		342FB6A72B654E5300611B25 /* XLImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageDataService.swift; sourceTree = "<group>"; };
 		342FB6AA2B65501000611B25 /* XLImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageViewModel.swift; sourceTree = "<group>"; };
 		342FB6AC2B65568F00611B25 /* XLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				3400040C2B72A1D8006DD022 /* UploadSecondView.swift */,
 				34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */,
 				3447218D2B7FC91C00D37E28 /* PhotosPickerView.swift */,
+				342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				34D358182B40625100255E11 /* ReportView.swift in Sources */,
 				34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */,
 				346DEBEA2B4AF3150090BD27 /* CircleButtonAnimationView.swift in Sources */,
+				342876D92B8764DC008CBDE1 /* TitleTextFieldView.swift in Sources */,
 				344DC5182B277D6100481B0E /* CustomAirbnbApp.swift in Sources */,
 				348603472B55AE6D0064C51D /* RedDivider.swift in Sources */,
 				348A874A2B4ACFD300BBDF4D /* UIApplication.swift in Sources */,
