@@ -11,6 +11,7 @@ struct UploadThirdView: View {
     
     @State private var title: String = ""
     @State private var description: String = ""
+    @State private var price: String = ""
     
     var body: some View {
         NavigationStack {
@@ -23,6 +24,7 @@ struct UploadThirdView: View {
                     PhotosPickerView()
                     TitleTextFieldView(listingTitle: $title)
                     DescriptionTextEditorView(descriptionText: $description)
+                    PriceTextField(price: $price)
                     Spacer()
                 }
             }
@@ -51,3 +53,8 @@ extension UploadThirdView {
             .frame(height: 25)
     }
 }
+
+/*
+ TO DO
+ Validate that "integers" are not 0 or negative numbers -> method in VM
+ */
