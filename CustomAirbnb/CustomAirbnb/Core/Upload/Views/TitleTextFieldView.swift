@@ -15,7 +15,7 @@ struct TitleTextFieldView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Listing title")
+                Text("Title")
                     .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                     .padding(.horizontal)
                     .padding(.top)

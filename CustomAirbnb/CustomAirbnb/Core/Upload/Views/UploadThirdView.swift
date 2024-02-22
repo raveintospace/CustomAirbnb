@@ -9,7 +9,8 @@ import SwiftUI
 
 struct UploadThirdView: View {
     
-    @State private var listingTitle: String = ""
+    @State private var title: String = ""
+    @State private var description: String = ""
     
     var body: some View {
         NavigationStack {
@@ -20,7 +21,8 @@ struct UploadThirdView: View {
                 VStack(spacing: 20) {
                     progressImage
                     PhotosPickerView()
-                    TitleTextFieldView(listingTitle: $listingTitle)
+                    TitleTextFieldView(listingTitle: $title)
+                    DescriptionTextEditorView(descriptionText: $description)
                     Spacer()
                 }
             }
