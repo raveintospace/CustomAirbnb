@@ -23,7 +23,7 @@ struct DescriptionTextEditorView: View {
                 
                 Spacer()
                 
-                if !descriptionText.isEmpty {
+                if !descriptionText.isEmpty && isTextEditorFocused {
                     Button(action: {
                         descriptionText = ""
                     }) {

@@ -51,9 +51,6 @@ struct TitleTextFieldView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(strokeColor)
         )
-        .onAppear {
-            strokeColor = Color.theme.secondaryText.opacity(0.3)
-        }
         .padding(.horizontal, 10)
     }
 }
