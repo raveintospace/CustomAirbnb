@@ -10,6 +10,7 @@ import SwiftUI
 struct TitleTextFieldView: View {
     
     @Binding var listingTitle: String
+    @FocusState private var isTextFieldFocused: Bool
     @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     
     var body: some View {
@@ -23,19 +24,20 @@ struct TitleTextFieldView: View {
                 TextField("",
                           text: $listingTitle,
                           onEditingChanged: { editing in
-                    strokeColor = editing ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3)
+                    isTextFieldFocused = editing
                 })
                 .autocorrectionDisabled()
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal)
                 .padding(.bottom)
+                .focused($isTextFieldFocused)
                 .onChange(of: listingTitle) {
                     if listingTitle.count > 40 {
                         listingTitle = String(listingTitle.prefix(40))
                     }
                 }
             }
-            if !listingTitle.isEmpty {
+            if !listingTitle.isEmpty && isTextFieldFocused {
                 Button(action: {
                     listingTitle = ""
                 }) {
@@ -49,7 +51,7 @@ struct TitleTextFieldView: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(strokeColor)
+                .stroke(isTextFieldFocused ? Color.theme.accent : strokeColor)
         )
         .padding(.horizontal, 10)
     }
@@ -58,3 +60,8 @@ struct TitleTextFieldView: View {
 #Preview {
     TitleTextFieldView(listingTitle: .constant("a"))
 }
+
+/*
+ 
+ strokeColor = editing ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3)
+ */
