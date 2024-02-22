@@ -1,7 +1,7 @@
 //
 //  PhotosPickerView.swift
 //  CustomAirbnb
-//  https://www.youtube.com/watch?v=jCskmh46L-s
+//  https://www.youtube.com/watch?v=jCskmh46L-s - SwiftUI PhotoPicker Sean Allen
 //  Created by Uri on 16/2/24.
 //
 
@@ -20,23 +20,21 @@ struct PhotosPickerView: View {
     
     var body: some View {
         PhotosPicker(selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images) {
-            ScrollView(.horizontal) {
-                Grid(horizontalSpacing: 10, verticalSpacing: 15) {
-                    ForEach(0..<2, id: \.self) { rowIndex in
-                        GridRow {
-                            ForEach(0..<5, id: \.self) { columnIndex in
-                                let index = rowIndex * 5 + columnIndex
-                                if index < imagePreviews.count {
-                                    Image(uiImage: imagePreviews[index])
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .onTapGesture {
-                                            // delete or replace picture
-                                        }
-                                } else {
-                                    cameraPlaceholder
-                                }
+            Grid(horizontalSpacing: 10, verticalSpacing: 15) {
+                ForEach(0..<2, id: \.self) { rowIndex in
+                    GridRow {
+                        ForEach(0..<5, id: \.self) { columnIndex in
+                            let index = rowIndex * 5 + columnIndex
+                            if index < imagePreviews.count {
+                                Image(uiImage: imagePreviews[index])
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                    .onTapGesture {
+                                        // delete or replace picture
+                                    }
+                            } else {
+                                cameraPlaceholder
                             }
                         }
                     }
@@ -60,27 +58,27 @@ struct PhotosPickerView: View {
             }
         }
         
-        if let dummyImage = image {
-            dummyImage
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
-                    .frame(width: 50, height: 50))
-                .onTapGesture { self.shouldPresentActionScheet = true }
-                .sheet(isPresented: $shouldPresentImagePicker) {
-                    ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
-                }.actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
-                    ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-                        self.shouldPresentImagePicker = true
-                        self.shouldPresentCamera = true
-                    }), ActionSheet.Button.default(Text("Photo Library"), action: {
-                        self.shouldPresentImagePicker = true
-                        self.shouldPresentCamera = false
-                    }), ActionSheet.Button.cancel()])
-                }
-        }
+        //        if let dummyImage = image {
+        //            dummyImage
+        //                .resizable()
+        //                .scaledToFit()
+        //                .frame(width: 50, height: 50)
+        //                .overlay(RoundedRectangle(cornerRadius: 10)
+        //                    .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
+        //                    .frame(width: 50, height: 50))
+        //                .onTapGesture { self.shouldPresentActionScheet = true }
+        //                .sheet(isPresented: $shouldPresentImagePicker) {
+        //                    ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
+        //                }.actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
+        //                    ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+        //                        self.shouldPresentImagePicker = true
+        //                        self.shouldPresentCamera = true
+        //                    }), ActionSheet.Button.default(Text("Photo Library"), action: {
+        //                        self.shouldPresentImagePicker = true
+        //                        self.shouldPresentCamera = false
+        //                    }), ActionSheet.Button.cancel()])
+        //                }
+        //        }
     }
 }
 

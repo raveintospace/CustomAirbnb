@@ -15,10 +15,9 @@ struct UploadThirdView: View {
                 Color.theme.background
                     .ignoresSafeArea()
                 
-                VStack {
+                VStack(spacing: 20) {
                     progressImage
-                    Spacer()
-                    imagePicker
+                    PhotosPickerView()
                     Spacer()
                 }
             }
@@ -45,9 +44,5 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
-    }
-    
-    private var imagePicker: some View {
-        Text("Test")
     }
 }
