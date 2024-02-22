@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UploadThirdView: View {
     
+    @State private var titlePlaceHolder: String = ""
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -18,6 +20,7 @@ struct UploadThirdView: View {
                 VStack(spacing: 20) {
                     progressImage
                     PhotosPickerView()
+                    titleTextField
                     Spacer()
                 }
             }
@@ -44,5 +47,26 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
+    }
+    
+    private var titleTextField: some View {
+        VStack(alignment: .leading) {
+            Text("Listing title")
+                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
+                .padding(.horizontal)
+                .padding(.top)
+            
+            TextField("",
+                      text: $titlePlaceHolder)
+            .autocorrectionDisabled()
+            .foregroundStyle(Color.theme.accent)
+            .padding(.horizontal)
+            .padding(.bottom)
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.theme.secondaryText.opacity(0.3))
+        )
+        .padding(.horizontal)
     }
 }
