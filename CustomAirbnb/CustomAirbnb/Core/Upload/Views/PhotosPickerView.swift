@@ -20,7 +20,7 @@ struct PhotosPickerView: View {
     
     var body: some View {
         PhotosPicker(selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images) {
-            Grid(horizontalSpacing: 10, verticalSpacing: 15) {
+            Grid(horizontalSpacing: 20, verticalSpacing: 15) {
                 ForEach(0..<2, id: \.self) { rowIndex in
                     GridRow {
                         ForEach(0..<5, id: \.self) { columnIndex in

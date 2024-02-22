@@ -23,6 +23,7 @@ struct UploadThirdView: View {
                     titleTextField
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)
@@ -62,11 +63,15 @@ extension UploadThirdView {
             .foregroundStyle(Color.theme.accent)
             .padding(.horizontal)
             .padding(.bottom)
+            .onChange(of: titlePlaceHolder) {
+                if titlePlaceHolder.count > 40 {
+                    titlePlaceHolder = String(titlePlaceHolder.prefix(40))
+                }
+            }
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.theme.secondaryText.opacity(0.3))
         )
-        .padding(.horizontal)
     }
 }
