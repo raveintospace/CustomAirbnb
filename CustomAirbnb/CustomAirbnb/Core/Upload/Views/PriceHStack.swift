@@ -43,6 +43,7 @@ struct PriceHStack: View {
                             Text(currency)
                         }
                     }
+                    .padding(.bottom, 5)
                 }
             }
             .frame(width: 110)
