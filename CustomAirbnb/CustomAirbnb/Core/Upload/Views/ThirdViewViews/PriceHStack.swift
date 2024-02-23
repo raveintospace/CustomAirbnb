@@ -11,7 +11,7 @@ struct PriceHStack: View {
     
     @Binding var price: String
     @FocusState private var isPriceFieldFocused: Bool
-    @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
+    var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     @State private var selectedCurrency: String = "EUR"
     
     private let currencies: [String] = ["AUD", "CAD", "EUR", "GBP", "USD"]

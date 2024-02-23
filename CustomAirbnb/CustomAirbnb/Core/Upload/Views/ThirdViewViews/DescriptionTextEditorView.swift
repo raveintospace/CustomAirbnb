@@ -11,7 +11,6 @@ struct DescriptionTextEditorView: View {
     
     @Binding var descriptionText: String
     @FocusState private var isTextEditorFocused: Bool
-    @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     
     var body: some View {
         VStack(alignment: .leading, spacing: 1) {
@@ -53,7 +52,7 @@ struct DescriptionTextEditorView: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(isTextEditorFocused ? Color.theme.accent : strokeColor)
+                .stroke(isTextEditorFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
         )
         .padding(.horizontal, 10)
     }

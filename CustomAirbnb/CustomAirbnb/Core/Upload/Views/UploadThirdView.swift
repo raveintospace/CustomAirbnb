@@ -56,7 +56,7 @@ extension UploadThirdView {
 
 /*
  TO DO
- When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM
+ When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM & user convert string to int
  Scroll hides navigation title
  keyboard with enter to submit (crypto currency!)
  */

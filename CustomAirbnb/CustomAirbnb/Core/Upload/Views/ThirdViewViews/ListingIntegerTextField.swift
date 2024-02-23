@@ -1,45 +1,47 @@
 //
-//  TitleTextFieldView.swift
+//  GuestsTextField.swift
 //  CustomAirbnb
 //
-//  Created by Uri on 22/2/24.
+//  Created by Uri on 23/2/24.
 //
 
 import SwiftUI
 
-struct TitleTextFieldView: View {
+struct ListingIntegerTextField: View {
     
-    @Binding var listingTitle: String
-    @FocusState private var isTextFieldFocused: Bool
-    @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
+    @Binding var inputText: String
+    @FocusState private var isFieldFocused: Bool
+    var fieldText: String
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Title")
+                Text(fieldText)
                     .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                     .padding(.horizontal)
                     .padding(.top)
                 
                 TextField("",
-                          text: $listingTitle,
+                          text: $inputText,
                           onEditingChanged: { editing in
-                    isTextFieldFocused = editing
+                    isFieldFocused = editing
                 })
                 .autocorrectionDisabled()
+                .keyboardType(.numberPad)
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal)
                 .padding(.bottom)
-                .focused($isTextFieldFocused)
-                .onChange(of: listingTitle) {
-                    if listingTitle.count > 40 {
-                        listingTitle = String(listingTitle.prefix(40))
+                .focused($isFieldFocused)
+                .onChange(of: inputText) {
+                    if inputText.count > 3 {
+                        inputText = String(inputText.prefix(3))
                     }
                 }
             }
-            if !listingTitle.isEmpty && isTextFieldFocused {
+            
+            if !inputText.isEmpty && isFieldFocused {
                 Button(action: {
-                    listingTitle = ""
+                    inputText = ""
                 }) {
                     Image(systemName: "multiply.circle.fill")
                         .foregroundColor(Color.theme.accent)
@@ -48,20 +50,17 @@ struct TitleTextFieldView: View {
                         .padding()
                 }
             }
+            
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(isTextFieldFocused ? Color.theme.accent : strokeColor)
+                .stroke(isFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
         )
         .padding(.horizontal, 10)
+        .frame(width: UIScreen.main.bounds.width/2)
     }
 }
 
 #Preview {
-    TitleTextFieldView(listingTitle: .constant("a"))
+    ListingIntegerTextField(inputText: .constant("3"), fieldText: "Guests")
 }
-
-/*
- 
- strokeColor = editing ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3)
- */
