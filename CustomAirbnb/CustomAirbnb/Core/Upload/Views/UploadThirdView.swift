@@ -56,5 +56,5 @@ extension UploadThirdView {
 
 /*
  TO DO
- Validate that "integers" are not 0 or negative numbers -> method in VM
+ When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM
  */

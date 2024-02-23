@@ -10,23 +10,50 @@ import SwiftUI
 struct PriceTextField: View {
     
     @Binding var price: String
-    @FocusState private var isTextFieldFocused: Bool
+    @FocusState private var isPriceFieldFocused: Bool
+    @FocusState private var isCurrencyPickerFocused: Bool
     @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
+    @State private var selectedCurrency: String = "EUR"
+    
+    private let currencies: [String] = ["AUD", "CAD", "EUR", "GBP", "USD"]
     
     var body: some View {
-        HStack {
-            textPriceVStack
-            
-            if !price.isEmpty && isTextFieldFocused {
-                deletionButton
+        HStack(alignment: .center) {
+            HStack {
+                textPriceVStack
+                
+                if !price.isEmpty && isPriceFieldFocused {
+                    deletionButton
+                }
             }
+            .frame(width: 180)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(isPriceFieldFocused ? Color.theme.accent : strokeColor)
+            )
+            .padding(.leading, 10)
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Currency")
+                        .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
+                        .padding(.top)
+                    
+                    Picker("Currency", selection: $selectedCurrency) {
+                        ForEach(currencies, id: \.self) { currency in
+                            Text(currency)
+                        }
+                    }
+                    .focused($isCurrencyPickerFocused)
+                }
+            }
+            .frame(width: 180)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(isCurrencyPickerFocused ? Color.theme.accent : strokeColor)
+            )
+            .padding(.trailing, 10)
         }
-        .frame(width: 200)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(isTextFieldFocused ? Color.theme.accent : strokeColor)
-        )
-        .padding(.horizontal, 10)
     }
 }
 
@@ -38,7 +65,7 @@ extension PriceTextField {
     
     private var textPriceVStack: some View {
         VStack(alignment: .leading) {
-            Text("Daily price (€)")
+            Text("Daily price")
                 .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                 .padding(.horizontal)
                 .padding(.top)
@@ -46,14 +73,14 @@ extension PriceTextField {
             TextField("",
                       text: $price,
                       onEditingChanged: { editing in
-                isTextFieldFocused = editing
+                isPriceFieldFocused = editing
             })
             .autocorrectionDisabled()
             .keyboardType(.numberPad)
             .foregroundStyle(Color.theme.accent)
             .padding(.horizontal)
             .padding(.bottom)
-            .focused($isTextFieldFocused)
+            .focused($isPriceFieldFocused)
             .onChange(of: price) {
                 if price.count > 7 {
                     price = String(price.prefix(7))
