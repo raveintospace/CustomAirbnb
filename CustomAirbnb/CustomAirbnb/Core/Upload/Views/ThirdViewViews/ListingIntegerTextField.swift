@@ -56,7 +56,7 @@ struct ListingIntegerTextField: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(isFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
         )
-        .padding(.horizontal, 10)
+        .padding(.horizontal)
         .frame(width: UIScreen.main.bounds.width/2)
     }
 }
