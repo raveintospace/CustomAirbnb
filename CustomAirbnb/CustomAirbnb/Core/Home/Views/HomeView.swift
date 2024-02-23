@@ -211,7 +211,7 @@ extension HomeView {
             ForEach(viewModel.cities) { city in
                 Text(city.name)
                     .tag(city.name)
-                    .onChange(of: destination) { newValue in
+                    .onChange(of: destination) { _, _ in
                         viewModel.destination = destination
                         isLoading = true
                         

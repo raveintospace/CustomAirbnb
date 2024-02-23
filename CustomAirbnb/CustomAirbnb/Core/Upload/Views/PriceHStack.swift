@@ -33,18 +33,7 @@ struct PriceHStack: View {
             .padding(.leading, 10)
             
             HStack {
-                VStack(alignment: .center) {
-                    Text("Currency")
-                        .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
-                        .padding(.top)
-                    
-                    Picker("Currency", selection: $selectedCurrency) {
-                        ForEach(currencies, id: \.self) { currency in
-                            Text(currency)
-                        }
-                    }
-                    .padding(.bottom, 5)
-                }
+                currencyVStack
             }
             .frame(width: 110)
             .overlay(
@@ -97,6 +86,21 @@ extension PriceHStack {
                 .font(.body)
                 .frame(width: 20)
                 .padding()
+        }
+    }
+    
+    private var currencyVStack: some View {
+        VStack(alignment: .center) {
+            Text("Currency")
+                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
+                .padding(.top)
+            
+            Picker("Currency", selection: $selectedCurrency) {
+                ForEach(currencies, id: \.self) { currency in
+                    Text(currency)
+                }
+            }
+            .padding(.bottom, 5)
         }
     }
 }
