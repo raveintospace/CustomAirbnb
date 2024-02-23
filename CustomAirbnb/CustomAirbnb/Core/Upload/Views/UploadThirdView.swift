@@ -24,7 +24,7 @@ struct UploadThirdView: View {
                     PhotosPickerView()
                     TitleTextFieldView(listingTitle: $title)
                     DescriptionTextEditorView(descriptionText: $description)
-                    PriceTextField(price: $price)
+                    PriceHStack(price: $price)
                     Spacer()
                 }
             }

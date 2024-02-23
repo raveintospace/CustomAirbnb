@@ -18,7 +18,7 @@
 		341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58992B3C9FAB00414188 /* HostInfoView.swift */; };
 		342876D92B8764DC008CBDE1 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */; };
 		342876DB2B876D47008CBDE1 /* DescriptionTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */; };
-		342876DF2B87C051008CBDE1 /* PriceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DE2B87C051008CBDE1 /* PriceTextField.swift */; };
+		342876DF2B87C051008CBDE1 /* PriceHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DE2B87C051008CBDE1 /* PriceHStack.swift */; };
 		342FB6A82B654E5300611B25 /* XLImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6A72B654E5300611B25 /* XLImageDataService.swift */; };
 		342FB6AB2B65501000611B25 /* XLImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AA2B65501000611B25 /* XLImageViewModel.swift */; };
 		342FB6AD2B65569000611B25 /* XLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FB6AC2B65568F00611B25 /* XLImageView.swift */; };
@@ -84,7 +84,7 @@
 		341A58992B3C9FAB00414188 /* HostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoView.swift; sourceTree = "<group>"; };
 		342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldView.swift; sourceTree = "<group>"; };
 		342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextEditorView.swift; sourceTree = "<group>"; };
-		342876DE2B87C051008CBDE1 /* PriceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTextField.swift; sourceTree = "<group>"; };
+		342876DE2B87C051008CBDE1 /* PriceHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHStack.swift; sourceTree = "<group>"; };
 		342FB6A72B654E5300611B25 /* XLImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageDataService.swift; sourceTree = "<group>"; };
 		342FB6AA2B65501000611B25 /* XLImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageViewModel.swift; sourceTree = "<group>"; };
 		342FB6AC2B65568F00611B25 /* XLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLImageView.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 				3447218D2B7FC91C00D37E28 /* PhotosPickerView.swift */,
 				342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */,
 				342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */,
-				342876DE2B87C051008CBDE1 /* PriceTextField.swift */,
+				342876DE2B87C051008CBDE1 /* PriceHStack.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 				34E8B08B2B5C3C390043B979 /* ConfirmationRectangle.swift in Sources */,
 				344DC5282B277F4700481B0E /* Color.swift in Sources */,
 				34F440352B3DED69004D581A /* ListingDescriptionView.swift in Sources */,
-				342876DF2B87C051008CBDE1 /* PriceTextField.swift in Sources */,
+				342876DF2B87C051008CBDE1 /* PriceHStack.swift in Sources */,
 				343EE7072B39A95400F1E548 /* ImagesSlider.swift in Sources */,
 				34F063AC2B30B90D003966B9 /* HomeViewModel.swift in Sources */,
 				349588DB2B3F3B9900B55884 /* Double.swift in Sources */,

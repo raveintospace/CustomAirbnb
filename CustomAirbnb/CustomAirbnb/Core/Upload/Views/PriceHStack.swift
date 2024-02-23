@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct PriceTextField: View {
+struct PriceHStack: View {
     
     @Binding var price: String
     @FocusState private var isPriceFieldFocused: Bool
-    @FocusState private var isCurrencyPickerFocused: Bool
     @State private var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     @State private var selectedCurrency: String = "EUR"
     
@@ -26,7 +25,7 @@ struct PriceTextField: View {
                     deletionButton
                 }
             }
-            .frame(width: 180)
+            .frame(width: 250)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(isPriceFieldFocused ? Color.theme.accent : strokeColor)
@@ -34,7 +33,7 @@ struct PriceTextField: View {
             .padding(.leading, 10)
             
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Text("Currency")
                         .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                         .padding(.top)
@@ -44,13 +43,12 @@ struct PriceTextField: View {
                             Text(currency)
                         }
                     }
-                    .focused($isCurrencyPickerFocused)
                 }
             }
-            .frame(width: 180)
+            .frame(width: 110)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(isCurrencyPickerFocused ? Color.theme.accent : strokeColor)
+                    .stroke(strokeColor)
             )
             .padding(.trailing, 10)
         }
@@ -58,10 +56,10 @@ struct PriceTextField: View {
 }
 
 #Preview {
-    PriceTextField(price: .constant("50"))
+    PriceHStack(price: .constant("50"))
 }
 
-extension PriceTextField {
+extension PriceHStack {
     
     private var textPriceVStack: some View {
         VStack(alignment: .leading) {
