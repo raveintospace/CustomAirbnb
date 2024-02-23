@@ -25,7 +25,7 @@ struct PriceHStack: View {
                     deletionButton
                 }
             }
-            .frame(width: 250)
+            .frame(width: UIScreen.main.bounds.width * 0.61)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(isPriceFieldFocused ? Color.theme.accent : strokeColor)
@@ -35,7 +35,7 @@ struct PriceHStack: View {
             HStack {
                 currencyVStack
             }
-            .frame(width: 110)
+            .frame(width: UIScreen.main.bounds.width * 0.31)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(strokeColor)
