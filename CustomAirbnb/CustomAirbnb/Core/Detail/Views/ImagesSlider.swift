@@ -19,7 +19,7 @@ struct ImagesSlider: View {
         VStack(spacing: 0) {
             XLImageView(listing: listing)
             
-            if let listingWebsite = listing.listingURL {
+            if listing.listingURL != nil {
                 ZStack {
                     Rectangle()
                         .frame(height: 50)

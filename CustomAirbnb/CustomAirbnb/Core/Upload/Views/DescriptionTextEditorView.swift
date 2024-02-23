@@ -41,6 +41,8 @@ struct DescriptionTextEditorView: View {
                 .frame(height: 120)
                 .autocorrectionDisabled()
                 .foregroundStyle(Color.theme.accent)
+                .scrollContentBackground(.hidden)   // avoids a default gray color
+                .background(Color.theme.background) // avoids a default gray color
                 .padding(.horizontal, 10)
                 .focused($isTextEditorFocused)
                 .onChange(of: descriptionText) {
