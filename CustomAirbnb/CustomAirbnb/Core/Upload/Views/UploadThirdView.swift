@@ -66,7 +66,6 @@ extension UploadThirdView {
 
 /*
  TO DO
- When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM & user convert string to int
- Fix priceHstack
- keyboard with enter to submit (crypto currency!)
+ When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM & user convert string to int // dismiss view and go back to home view with a confirmation message
+ keyboard with enter to submit (crypto currency! & SearchBarView)
  */
