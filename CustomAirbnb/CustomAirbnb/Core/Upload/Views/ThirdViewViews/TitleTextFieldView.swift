@@ -37,15 +37,7 @@ struct TitleTextFieldView: View {
                 }
             }
             if !listingTitle.isEmpty && isTextFieldFocused {
-                Button(action: {
-                    listingTitle = ""
-                }) {
-                    Image(systemName: "multiply.circle.fill")
-                        .foregroundColor(Color.theme.accent)
-                        .font(.body)
-                        .frame(width: 40)
-                        .padding()
-                }
+                UploadThirdViewDeletionButton(text: $listingTitle)
             }
         }
         .overlay(

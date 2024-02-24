@@ -21,7 +21,7 @@ struct PriceHStack: View {
                 textPriceVStack
                 
                 if !price.isEmpty && isPriceFieldFocused {
-                    deletionButton
+                    UploadThirdViewDeletionButton(text: $price)
                 }
             }
             .overlay(
@@ -74,18 +74,6 @@ extension PriceHStack {
                     price = String(price.prefix(7))
                 }
             }
-        }
-    }
-    
-    private var deletionButton: some View {
-        Button(action: {
-            price = ""
-        }) {
-            Image(systemName: "multiply.circle.fill")
-                .foregroundColor(Color.theme.accent)
-                .font(.body)
-                .frame(width: 20)
-                .padding()
         }
     }
     
