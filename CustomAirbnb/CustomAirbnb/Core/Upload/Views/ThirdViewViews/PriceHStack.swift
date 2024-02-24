@@ -24,20 +24,22 @@ struct PriceHStack: View {
                     deletionButton
                 }
             }
-            .frame(width: UIScreen.main.bounds.width / 2)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(isPriceFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
             )
+            .padding(.leading)
+            .frame(width: UIScreen.main.bounds.width / 2)
             
             HStack {
                 currencyVStack
             }
-            .frame(width: UIScreen.main.bounds.width / 2)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.theme.secondaryText.opacity(0.3))
             )
+            .padding(.trailing)
+            .frame(width: UIScreen.main.bounds.width / 2)
         }
         
     }

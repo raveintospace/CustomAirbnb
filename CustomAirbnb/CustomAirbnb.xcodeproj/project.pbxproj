@@ -46,6 +46,7 @@
 		349575552B6D3F0100DC4643 /* UploadFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349575542B6D3F0100DC4643 /* UploadFirstView.swift */; };
 		349588DB2B3F3B9900B55884 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DA2B3F3B9900B55884 /* Double.swift */; };
 		349588DD2B3F40BF00B55884 /* ListingGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349588DC2B3F40BF00B55884 /* ListingGridView.swift */; };
+		3496955C2B8A0AEF003C0A59 /* GuestBedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496955B2B8A0AEF003C0A59 /* GuestBedHStack.swift */; };
 		34A1EFEF2B34AD2400E1F948 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */; };
 		34A1EFF12B34AE3300E1F948 /* ListingImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1EFF02B34AE3300E1F948 /* ListingImageViewModel.swift */; };
 		34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4E5442B54245D00FDE7E4 /* BookView.swift */; };
@@ -114,6 +115,7 @@
 		349575542B6D3F0100DC4643 /* UploadFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFirstView.swift; sourceTree = "<group>"; };
 		349588DA2B3F3B9900B55884 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		349588DC2B3F40BF00B55884 /* ListingGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingGridView.swift; sourceTree = "<group>"; };
+		3496955B2B8A0AEF003C0A59 /* GuestBedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBedHStack.swift; sourceTree = "<group>"; };
 		34A1EFEE2B34AD2400E1F948 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		34A1EFF02B34AE3300E1F948 /* ListingImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageViewModel.swift; sourceTree = "<group>"; };
 		34B4E5442B54245D00FDE7E4 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */,
 				342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */,
 				342876DE2B87C051008CBDE1 /* PriceHStack.swift */,
+				3496955B2B8A0AEF003C0A59 /* GuestBedHStack.swift */,
 				3457FCA72B89062D0077585F /* ListingIntegerTextField.swift */,
 			);
 			path = ThirdViewViews;
@@ -571,6 +574,7 @@
 				34A1EFF12B34AE3300E1F948 /* ListingImageViewModel.swift in Sources */,
 				341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */,
 				349575532B6D3EE100DC4643 /* InfoView.swift in Sources */,
+				3496955C2B8A0AEF003C0A59 /* GuestBedHStack.swift in Sources */,
 				3447218E2B7FC91C00D37E28 /* PhotosPickerView.swift in Sources */,
 				34C9E05C2B71551E0019CDC5 /* UploadViewModel.swift in Sources */,
 				343374052B5304EB001A5144 /* ApartmentInfoView.swift in Sources */,
