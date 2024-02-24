@@ -18,16 +18,14 @@ struct GuestsBedsHStack: View {
     var body: some View {
         HStack(alignment: .center) {
             HStack {
-                IntegerVStackWithTextField(inputText: $guests, placeholder: "", title: "Guests").focused($isGuestsFieldFocused)
-                
+                IntegerVStackWithTextField(inputText: $guests, placeholder: "", title: "Guests")
+                    .focused($isGuestsFieldFocused)
+                    
                 if !guests.isEmpty && isGuestsFieldFocused {
                     UploadThirdViewDeletionButton(text: $guests)
                 }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isGuestsFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-            )
+            .focusedStroke(isGuestsFieldFocused)
             .padding(.leading)
             .frame(width: UIScreen.main.bounds.width / 2)
             
@@ -38,10 +36,7 @@ struct GuestsBedsHStack: View {
                     UploadThirdViewDeletionButton(text: $beds)
                 }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isBedsFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-            )
+            .focusedStroke(isBedsFieldFocused)
             .padding(.trailing)
             .frame(width: UIScreen.main.bounds.width / 2)
         }

@@ -24,10 +24,7 @@ struct PriceHStack: View {
                     UploadThirdViewDeletionButton(text: $price)
                 }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isPriceFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-            )
+            .focusedStroke(isPriceFieldFocused)
             .padding(.leading)
             .frame(width: UIScreen.main.bounds.width / 2)
             

@@ -10,7 +10,7 @@ import SwiftUI
 struct TitleTextFieldView: View {
     
     @Binding var listingTitle: String
-    @FocusState private var isTextFieldFocused: Bool
+    @FocusState private var isTitleTextFieldFocused: Bool
     
     var body: some View {
         HStack {
@@ -23,27 +23,24 @@ struct TitleTextFieldView: View {
                 TextField("",
                           text: $listingTitle,
                           onEditingChanged: { editing in
-                    isTextFieldFocused = editing
+                    isTitleTextFieldFocused = editing
                 })
                 .autocorrectionDisabled()
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal)
                 .padding(.bottom)
-                .focused($isTextFieldFocused)
+                .focused($isTitleTextFieldFocused)
                 .onChange(of: listingTitle) {
                     if listingTitle.count > 40 {
                         listingTitle = String(listingTitle.prefix(40))
                     }
                 }
             }
-            if !listingTitle.isEmpty && isTextFieldFocused {
+            if !listingTitle.isEmpty && isTitleTextFieldFocused {
                 UploadThirdViewDeletionButton(text: $listingTitle)
             }
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(isTextFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-        )
+        .focusedStroke(isTitleTextFieldFocused)
         .padding(.horizontal, 10)
     }
 }

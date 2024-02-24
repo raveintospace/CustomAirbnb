@@ -23,10 +23,7 @@ struct RoomsHStack: View {
                     UploadThirdViewDeletionButton(text: $bedrooms)
                 }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isBedroomsFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-            )
+            .focusedStroke(isBedroomsFieldFocused)
             .padding(.leading)
             .frame(width: UIScreen.main.bounds.width / 2)
             
@@ -37,10 +34,7 @@ struct RoomsHStack: View {
                     UploadThirdViewDeletionButton(text: $bathrooms)
                 }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isBathroomsFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-            )
+            .focusedStroke(isBathroomsFieldFocused)
             .padding(.trailing)
             .frame(width: UIScreen.main.bounds.width / 2)
         }

@@ -39,10 +39,7 @@ struct DescriptionTextEditorView: View {
                 UploadThirdViewDeletionButton(text: $descriptionText)
             }
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(isTextEditorFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
-        )
+        .focusedStroke(isTextEditorFocused)
         .padding(.horizontal, 10)
     }
 }
