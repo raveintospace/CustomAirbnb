@@ -11,7 +11,6 @@ struct PriceHStack: View {
     
     @Binding var price: String
     @FocusState private var isPriceFieldFocused: Bool
-    var strokeColor: Color = Color.theme.secondaryText.opacity(0.3)
     @State private var selectedCurrency: String = "EUR"
     
     private let currencies: [String] = ["AUD", "CAD", "EUR", "GBP", "USD"]
@@ -25,23 +24,22 @@ struct PriceHStack: View {
                     deletionButton
                 }
             }
-            .frame(width: UIScreen.main.bounds.width * 0.61)
+            .frame(width: UIScreen.main.bounds.width / 2)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(isPriceFieldFocused ? Color.theme.accent : strokeColor)
+                    .stroke(isPriceFieldFocused ? Color.theme.accent : Color.theme.secondaryText.opacity(0.3))
             )
-            .padding(.leading, 10)
             
             HStack {
                 currencyVStack
             }
-            .frame(width: UIScreen.main.bounds.width * 0.31)
+            .frame(width: UIScreen.main.bounds.width / 2)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(strokeColor)
+                    .stroke(Color.theme.secondaryText.opacity(0.3))
             )
-            .padding(.trailing, 10)
         }
+        
     }
 }
 
@@ -91,16 +89,23 @@ extension PriceHStack {
     
     private var currencyVStack: some View {
         VStack(alignment: .center) {
-            Text("Currency")
-                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
+            HStack {
+                Text("Currency")
+                    .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
                 .padding(.top)
-            
-            Picker("Currency", selection: $selectedCurrency) {
-                ForEach(currencies, id: \.self) { currency in
-                    Text(currency)
-                }
+                .padding(.leading, 10)
+                Spacer()
             }
-            .padding(.bottom, 5)
+            
+            HStack {
+                Picker("Currency", selection: $selectedCurrency) {
+                    ForEach(currencies, id: \.self) { currency in
+                        Text(currency)
+                    }
+                }
+                .padding(.bottom, 5)
+                Spacer()
+            }
         }
     }
 }
