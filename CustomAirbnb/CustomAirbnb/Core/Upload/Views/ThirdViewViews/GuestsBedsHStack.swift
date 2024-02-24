@@ -18,7 +18,7 @@ struct GuestsBedsHStack: View {
     var body: some View {
         HStack(alignment: .center) {
             HStack {
-                guestsPriceVStack
+                IntegerVStackWithTextField(inputText: $guests, placeholder: "", title: "Guests").focused($isGuestsFieldFocused)
                 
                 if !guests.isEmpty && isGuestsFieldFocused {
                     UploadThirdViewDeletionButton(text: $guests)
@@ -32,7 +32,7 @@ struct GuestsBedsHStack: View {
             .frame(width: UIScreen.main.bounds.width / 2)
             
             HStack {
-                bedsPriceVStack
+                IntegerVStackWithTextField(inputText: $beds, placeholder: "", title: "Beds").focused($isBedsFieldFocused)
                 
                 if !beds.isEmpty && isBedsFieldFocused {
                     UploadThirdViewDeletionButton(text: $beds)
@@ -50,59 +50,4 @@ struct GuestsBedsHStack: View {
 
 #Preview {
     GuestsBedsHStack(guests: .constant("300"), beds: .constant("300"))
-}
-
-extension GuestsBedsHStack {
-    
-    private var guestsPriceVStack: some View {
-        VStack(alignment: .leading) {
-            Text("Guests")
-                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
-                .padding(.horizontal)
-                .padding(.top)
-            
-            TextField("",
-                      text: $guests,
-                      onEditingChanged: { editing in
-                isGuestsFieldFocused = editing
-            })
-            .autocorrectionDisabled()
-            .keyboardType(.numberPad)
-            .foregroundStyle(Color.theme.accent)
-            .padding(.horizontal)
-            .padding(.bottom)
-            .focused($isGuestsFieldFocused)
-            .onChange(of: guests) {
-                if guests.count > 3 {
-                    guests = String(guests.prefix(3))
-                }
-            }
-        }
-    }
-    
-    private var bedsPriceVStack: some View {
-        VStack(alignment: .leading) {
-            Text("Beds")
-                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
-                .padding(.horizontal)
-                .padding(.top)
-            
-            TextField("",
-                      text: $beds,
-                      onEditingChanged: { editing in
-                isBedsFieldFocused = editing
-            })
-            .autocorrectionDisabled()
-            .keyboardType(.numberPad)
-            .foregroundStyle(Color.theme.accent)
-            .padding(.horizontal)
-            .padding(.bottom)
-            .focused($isBedsFieldFocused)
-            .onChange(of: beds) {
-                if beds.count > 3 {
-                    beds = String(beds.prefix(3))
-                }
-            }
-        }
-    }
 }
