@@ -38,7 +38,7 @@ struct UploadThirdView: View {
                         TitleTextFieldView(listingTitle: $title)
                         DescriptionTextEditorView(descriptionText: $description)
                         PriceHStack(price: $price)
-                        GuestBedHStack(guests: $guestsText, beds: $bedsText)
+                        GuestsBedsHStack(guests: $guestsText, beds: $bedsText)
                         //listingIntegerVStack
                         //continue button
                         Spacer()

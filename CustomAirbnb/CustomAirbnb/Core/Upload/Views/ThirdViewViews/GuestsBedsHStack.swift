@@ -1,5 +1,5 @@
 //
-//  GuestBedHStack.swift
+//  GuestsBedsHStack.swift
 //  CustomAirbnb
 //
 //  Created by Uri on 24/2/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GuestBedHStack: View {
+struct GuestsBedsHStack: View {
     
     @Binding var guests: String
     @FocusState private var isGuestsFieldFocused: Bool
@@ -21,7 +21,7 @@ struct GuestBedHStack: View {
                 guestsPriceVStack
                 
                 if !guests.isEmpty && isGuestsFieldFocused {
-                    deletionGuestsButton
+                    UploadThirdViewDeletionButton(text: $guests)
                 }
             }
             .overlay(
@@ -35,7 +35,7 @@ struct GuestBedHStack: View {
                 bedsPriceVStack
                 
                 if !beds.isEmpty && isBedsFieldFocused {
-                    deletionBedsButton
+                    UploadThirdViewDeletionButton(text: $beds)
                 }
             }
             .overlay(
@@ -49,10 +49,10 @@ struct GuestBedHStack: View {
 }
 
 #Preview {
-    GuestBedHStack(guests: .constant("300"), beds: .constant("300"))
+    GuestsBedsHStack(guests: .constant("300"), beds: .constant("300"))
 }
 
-extension GuestBedHStack {
+extension GuestsBedsHStack {
     
     private var guestsPriceVStack: some View {
         VStack(alignment: .leading) {
@@ -80,18 +80,6 @@ extension GuestBedHStack {
         }
     }
     
-    private var deletionGuestsButton: some View {
-        Button(action: {
-            guests = ""
-        }) {
-            Image(systemName: "multiply.circle.fill")
-                .foregroundColor(Color.theme.accent)
-                .font(.body)
-                .frame(width: 40)
-                .padding()
-        }
-    }
-    
     private var bedsPriceVStack: some View {
         VStack(alignment: .leading) {
             Text("Beds")
@@ -115,18 +103,6 @@ extension GuestBedHStack {
                     beds = String(beds.prefix(3))
                 }
             }
-        }
-    }
-    
-    private var deletionBedsButton: some View {
-        Button(action: {
-            beds = ""
-        }) {
-            Image(systemName: "multiply.circle.fill")
-                .foregroundColor(Color.theme.accent)
-                .font(.body)
-                .frame(width: 40)
-                .padding()
         }
     }
 }
