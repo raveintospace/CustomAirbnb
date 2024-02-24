@@ -11,7 +11,6 @@ struct UploadThirdViewDeletionButton: View {
     
     @Binding var text: String
     
-    
     var body: some View {
         Button(action: {
             text = ""
@@ -19,7 +18,7 @@ struct UploadThirdViewDeletionButton: View {
             Image(systemName: "multiply.circle.fill")
                 .foregroundColor(Color.theme.accent)
                 .font(.body)
-                .frame(width: 40)
+                .frame(width: 20)
                 .padding()
         }
     }

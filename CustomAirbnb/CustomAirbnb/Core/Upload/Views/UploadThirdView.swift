@@ -12,18 +12,10 @@ struct UploadThirdView: View {
     @State private var title: String = ""
     @State private var description: String = ""
     @State private var price: String = ""
-    
     @State private var guestsText: String = ""
-    @FocusState private var guestsFieldFocused: Bool
-    
     @State private var bedsText: String = ""
-    @FocusState private var bedsFieldFocused: Bool
-    
     @State private var bedroomsText: String = ""
-    @FocusState private var bedroomsFieldFocused: Bool
-    
     @State private var bathroomsText: String = ""
-    @FocusState private var bathroomsFieldFocused: Bool
     
     var body: some View {
         NavigationStack {
@@ -39,7 +31,7 @@ struct UploadThirdView: View {
                         DescriptionTextEditorView(descriptionText: $description)
                         PriceHStack(price: $price)
                         GuestsBedsHStack(guests: $guestsText, beds: $bedsText)
-                        //listingIntegerVStack
+                        RoomsHStack(bedrooms: $bedroomsText, bathrooms: $bathroomsText)
                         //continue button
                         Spacer()
                     }
@@ -69,19 +61,6 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
-    }
-    
-    private var listingIntegerVStack: some View {
-        VStack(spacing: 20) {
-            HStack() {
-                ListingIntegerTextField(inputText: $guestsText, fieldText: "Guests").focused($guestsFieldFocused)
-                ListingIntegerTextField(inputText: $bedsText, fieldText: "Beds").focused($bedsFieldFocused)
-            }
-            HStack() {
-                ListingIntegerTextField(inputText: $bedroomsText, fieldText: "Bedrooms").focused($bedroomsFieldFocused)
-                ListingIntegerTextField(inputText: $bathroomsText, fieldText: "Bathrooms").focused($bathroomsFieldFocused)
-            }
-        }
     }
 }
 
