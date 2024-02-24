@@ -36,6 +36,7 @@ This app features:
   <ul>
     <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
     <li>UploadSecondView for selecting the neighbourhood of the city previously selected</li>
+    <li>UploadThirdView for uploading pictures from gallery or taking pictures with device camera; inputing price, currency, number of guests / beds / bedrooms / bathrooms</li>
   </ul>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
