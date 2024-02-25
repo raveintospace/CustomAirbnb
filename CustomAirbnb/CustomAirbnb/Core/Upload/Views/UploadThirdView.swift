@@ -9,13 +9,7 @@ import SwiftUI
 
 struct UploadThirdView: View {
     
-    @State private var title: String = ""
-    @State private var description: String = ""
-    @State private var price: String = ""
-    @State private var guestsText: String = ""
-    @State private var bedsText: String = ""
-    @State private var bedroomsText: String = ""
-    @State private var bathroomsText: String = ""
+    @StateObject var viewModel: UploadViewModel
     
     var body: some View {
         NavigationStack {
@@ -29,11 +23,11 @@ struct UploadThirdView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             PhotosPickerView()
-                            TitleTextFieldView(listingTitle: $title)
-                            DescriptionTextEditorView(descriptionText: $description)
-                            PriceHStack(price: $price)
-                            GuestsBedsHStack(guests: $guestsText, beds: $bedsText)
-                            RoomsHStack(bedrooms: $bedroomsText, bathrooms: $bathroomsText)
+                            TitleTextFieldView(listingTitle: $viewModel.title)
+                            DescriptionTextEditorView(descriptionText: $viewModel.description)
+                            PriceHStack(price: $viewModel.price)
+                            GuestsBedsHStack(guests: $viewModel.guestsText, beds: $viewModel.bedsText)
+                            RoomsHStack(bedrooms: $viewModel.bedroomsText, bathrooms: $viewModel.bathroomsText)
                             continueButton
                         }
                     }
@@ -53,7 +47,7 @@ struct UploadThirdView: View {
 }
 
 #Preview {
-    UploadThirdView()
+    UploadThirdView(viewModel: UploadViewModel())
 }
 
 extension UploadThirdView {
@@ -69,7 +63,7 @@ extension UploadThirdView {
         ContinueRedButton {
             debugPrint("continue button pressed")
         }
-        .disabled(title.isEmpty ? true : false)
+        .disabled(!viewModel.isContinueButtonThirdViewEnabled)
     }
 }
 

@@ -49,7 +49,7 @@ struct UploadSecondView: View {
             .navigationBarBackButtonHidden()
             .background(
                 NavigationLink(
-                    destination: UploadThirdView(),
+                    destination: UploadThirdView(viewModel: viewModel),
                     isActive: $showUploadThirdView
                 ) {
                     EmptyView()
