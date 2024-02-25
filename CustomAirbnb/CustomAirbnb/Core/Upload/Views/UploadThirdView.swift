@@ -31,7 +31,7 @@ struct UploadThirdView: View {
                             continueButton
                         }
                     }
-                }   
+                }
             }
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)
@@ -40,6 +40,14 @@ struct UploadThirdView: View {
             .toolbar() {
                 ToolbarItem(placement: .topBarLeading) {
                     TopBarLeadingArrow()
+                }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.hideKeyboard()
+                    }, label: {
+                        Text("Done")
+                    })
                 }
             }
         }
