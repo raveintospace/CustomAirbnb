@@ -24,6 +24,7 @@ struct SearchBarView: View {
                 .font(.system(size: 16))
                 .foregroundColor(Color.theme.accent)
                 .autocorrectionDisabled()
+                .submitLabel(.done)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .padding()

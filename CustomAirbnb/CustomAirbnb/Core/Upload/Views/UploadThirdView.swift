@@ -47,6 +47,7 @@ struct UploadThirdView: View {
                         UIApplication.shared.hideKeyboard()
                     }, label: {
                         Text("Done")
+                            .foregroundStyle(Color.theme.accent)
                     })
                 }
             }
