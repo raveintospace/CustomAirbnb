@@ -41,6 +41,7 @@ struct UploadSecondView: View {
                 }
                 .navigationTitle("List your home")
                 .navigationBarTitleDisplayMode(.inline)
+                .scrollIndicators(.hidden)
                 .toolbar() {
                     ToolbarItem(placement: .topBarLeading) {
                         TopBarLeadingArrow()
