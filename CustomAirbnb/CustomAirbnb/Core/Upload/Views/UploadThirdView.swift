@@ -71,6 +71,9 @@ extension UploadThirdView {
     private var continueButton: some View {
         ContinueRedButton {
             debugPrint("continue button pressed")
+            // dismiss
+            // show alert to confirm the upload & announce a review
+            // show a confirmation rectangle in homeview
         }
         .disabled(!viewModel.isContinueButtonThirdViewEnabled)
     }
@@ -79,6 +82,4 @@ extension UploadThirdView {
 /*
  TO DO
  When Continue button pressed: dismiss view and go back to home view with a confirmation message
- 
- Keyboard with enter to submit (crypto currency! & SearchBarView)
  */
