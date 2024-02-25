@@ -36,6 +36,7 @@ This app features:
   <ul>
     <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
     <li>UploadSecondView for selecting the neighbourhood of the city previously selected</li>
+    <li>UploadThirdView for uploading pictures from gallery or taking pictures with device camera; inputing price, currency, number of guests / beds / bedrooms / bathrooms</li>
   </ul>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
@@ -45,7 +46,15 @@ This app features:
 <li>Custom Header for Navigation View, with animated icons and titles</li>
 <li>Overrode navigationBarTitles to use Color Theme</li>
 <br/>
-<li>Extensions for Binding (Integers to Floats and vice versa), Double (converting to a rounded String), Preview Provider (Object model mocks), UIApplication (dismiss keyboard)</li>
+<li>Extensions</li>
+  <ul>
+    <li>Binding (Integers to Floats and vice versa)</li>
+    <li>Double (Converting to a rounded String)</li>
+    <li>Preview Provider (Object model mocks)</li>
+    <li>UIApplication (Dismiss keyboard)</li>
+    <li>View (Overlay's stroke color)</li>
+  </ul>
+<br>  
 <li>ImageType protocol to handle an array of UIImage & Image</li>
 <li>ViewModifiers extracted for improved modularity</li>
 <li>City & ReportReason models with Stub</li>
