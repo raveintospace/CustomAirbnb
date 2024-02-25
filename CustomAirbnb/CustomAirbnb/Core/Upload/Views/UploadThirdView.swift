@@ -69,7 +69,7 @@ extension UploadThirdView {
 
 /*
  TO DO
- When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM & user convert string to int // dismiss view and go back to home view with a confirmation message
+ When Continue button pressed: dismiss view and go back to home view with a confirmation message
  
  Keyboard with enter to submit (crypto currency! & SearchBarView)
  */

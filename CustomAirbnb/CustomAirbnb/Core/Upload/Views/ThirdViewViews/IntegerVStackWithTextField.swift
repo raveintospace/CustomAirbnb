@@ -11,6 +11,7 @@ struct IntegerVStackWithTextField: View {
     
     @Binding var inputText: String
     @FocusState private var isFieldFocused: Bool
+    
     let placeholder: String
     let title: String
     
