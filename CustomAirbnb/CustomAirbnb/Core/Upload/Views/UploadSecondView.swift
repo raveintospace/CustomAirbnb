@@ -24,7 +24,6 @@ struct UploadSecondView: View {
                 
                 VStack(spacing: 10) {
                     progressImage
-                    Spacer()
                     hoodText
                     
                     if let city = viewModel.cities.first(where: { $0.name == listingLocation }) {
@@ -36,7 +35,6 @@ struct UploadSecondView: View {
                         .listStyle(.plain)
                     }
                     
-                    Spacer()
                     continueButton
                 }
                 .navigationTitle("List your home")

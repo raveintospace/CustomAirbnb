@@ -34,8 +34,7 @@ struct UploadThirdView: View {
                             PriceHStack(price: $price)
                             GuestsBedsHStack(guests: $guestsText, beds: $bedsText)
                             RoomsHStack(bedrooms: $bedroomsText, bathrooms: $bathroomsText)
-                            //continue button
-                            Spacer()
+                            continueButton
                         }
                     }
                 }   
@@ -64,6 +63,13 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
+    }
+    
+    private var continueButton: some View {
+        ContinueRedButton {
+            debugPrint("continue button pressed")
+        }
+        .disabled(title.isEmpty ? true : false)
     }
 }
 
