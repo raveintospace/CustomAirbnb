@@ -47,15 +47,9 @@ struct UploadSecondView: View {
                 }
             }
             .navigationBarBackButtonHidden()
-            .background(
-                NavigationLink(
-                    destination: UploadThirdView(viewModel: viewModel),
-                    isActive: $showUploadThirdView
-                ) {
-                    EmptyView()
-                }
-                    .hidden()
-            )
+            .navigationDestination(isPresented: $showUploadThirdView) {
+                UploadThirdView(viewModel: viewModel, activateUploadThanks: {})
+            }
         }
     }
 }
