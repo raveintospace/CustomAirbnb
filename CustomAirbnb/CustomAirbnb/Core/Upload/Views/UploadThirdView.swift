@@ -54,8 +54,6 @@ struct UploadThirdView: View {
                     }
                 )
             }
-            
-            
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
