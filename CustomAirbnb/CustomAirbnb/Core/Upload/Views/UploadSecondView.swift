@@ -47,9 +47,15 @@ struct UploadSecondView: View {
                 }
             }
             .navigationBarBackButtonHidden()
-            .navigationDestination(isPresented: $showUploadThirdView) {
-                UploadThirdView(viewModel: viewModel, activateUploadThanks: {})
-            }
+            .background(
+                NavigationLink(
+                    destination: UploadThirdView(viewModel: viewModel),
+                    isActive: $showUploadThirdView
+                ) {
+                    EmptyView()
+                }
+                    .hidden()
+            )
         }
     }
 }
@@ -103,3 +109,23 @@ extension UploadSecondView {
         .disabled(selectedHood == nil ? true : false)
     }
 }
+
+/*
+ Allows going back to secondView from thirdView
+ .background(
+     NavigationLink(
+         destination: UploadThirdView(viewModel: viewModel),
+         isActive: $showUploadThirdView
+     ) {
+         EmptyView()
+     }
+         .hidden()
+ )
+
+ Goes back from thirdView to FirstView
+ .navigationDestination(isPresented: $showUploadThirdView) {
+     UploadThirdView(viewModel: viewModel, activateUploadThanks: {})
+ }
+
+
+ */

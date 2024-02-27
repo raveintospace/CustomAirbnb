@@ -13,9 +13,6 @@ struct UploadThirdView: View {
     
     @State private var showPublishAlert: Bool = false
     
-    // notifies HomeView to activate a thanks message
-    var activateUploadThanks: () -> Void
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -43,7 +40,6 @@ struct UploadThirdView: View {
                     title: Text("Submit your listing"),
                     message: Text("Your listing will be reviewed before becoming published"),
                     primaryButton: .default(Text("Submit")) {
-                        self.activateUploadThanks()
                         viewModel.dismissUploadSheet.toggle()
                     },
                     secondaryButton: .cancel() {
@@ -74,7 +70,7 @@ struct UploadThirdView: View {
 }
 
 #Preview {
-    UploadThirdView(viewModel: UploadViewModel(), activateUploadThanks: {})
+    UploadThirdView(viewModel: UploadViewModel())
 }
 
 extension UploadThirdView {

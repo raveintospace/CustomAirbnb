@@ -68,8 +68,15 @@ struct HomeView: View {
                     DetailLoadingView(listing: $selectedListing)
                 }
             .safeAreaInset(edge: .bottom) {
-                if showUploadThanks {
-                    ConfirmationRectangle(copy: "Listing submited, thanks", iconName: "checkmark.shield")
+                if viewModel.showUploadThanks {
+                    ConfirmationRectangle(copy: "Listing submited, thanks", iconName: "checkmark.seal")
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                withAnimation(.easeOut) {
+                                    viewModel.showUploadThanks = false
+                                }
+                            }
+                        }
                 }
             }
         }
@@ -235,18 +242,6 @@ extension HomeView {
     private func segue(listing: Listing) {
         selectedListing = listing
         showDetailView.toggle()
-    }
-    
-    private func activateUploadThanks() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            showUploadThanks = true
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            withAnimation(.easeOut) {
-                showUploadThanks = false
-            }
-        }
     }
     
     @ViewBuilder

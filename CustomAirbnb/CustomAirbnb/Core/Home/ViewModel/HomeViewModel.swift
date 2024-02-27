@@ -55,6 +55,8 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    @Published var showUploadThanks: Bool = false
+    
     // DataServices
     private let listingDataService = ListingDataService()
     private let favoritesDataService = FavoritesDataService()

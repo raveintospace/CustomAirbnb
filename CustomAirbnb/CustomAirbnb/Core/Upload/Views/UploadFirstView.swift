@@ -10,6 +10,7 @@ import SwiftUI
 struct UploadFirstView: View {
     
     @StateObject private var viewModel: UploadViewModel
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -50,6 +51,7 @@ struct UploadFirstView: View {
             .onReceive(viewModel.$dismissUploadSheet) { shouldDismissSheet in
                 if shouldDismissSheet {
                     dismiss()
+                    homeViewModel.showUploadThanks = true
                 }
             }
         }
