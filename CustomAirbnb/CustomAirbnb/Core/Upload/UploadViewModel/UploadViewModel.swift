@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import Combine
 
 final class UploadViewModel: ObservableObject {
     
     let cities = City.stub
     
     let globeImages = ["globe.americas", "globe.europe.africa", "globe.central.south.asia", "globe.asia.australia"]
+    
+    // MARK: - Dismiss Upload sheet from UploadThirdView
+    private var cancellables = Set<AnyCancellable>()
+    private var dismissSubject = PassthroughSubject<Bool, Never>()
+    @Published var dismissUploadSheet: Bool = false
     
     @Published var title: String = ""
     @Published var description: String = ""
@@ -37,4 +43,5 @@ final class UploadViewModel: ObservableObject {
         }
         return false
     }
+    
 }

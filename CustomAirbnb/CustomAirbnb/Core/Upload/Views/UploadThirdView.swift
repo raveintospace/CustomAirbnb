@@ -13,9 +13,6 @@ struct UploadThirdView: View {
     
     @State private var showPublishAlert: Bool = false
     
-    // return to HomeView and dismiss the whole upload module
-    @Environment(\.presentationMode) var presentationMode
-    
     // notifies HomeView to activate a thanks message
     var activateUploadThanks: () -> Void
     
@@ -46,8 +43,8 @@ struct UploadThirdView: View {
                     title: Text("Submit your listing"),
                     message: Text("Your listing will be reviewed before becoming published"),
                     primaryButton: .default(Text("Submit")) {
-                        presentationMode.wrappedValue.dismiss()
                         self.activateUploadThanks()
+                        viewModel.dismissUploadSheet.toggle()
                     },
                     secondaryButton: .cancel() {
                         showPublishAlert = false
@@ -92,8 +89,6 @@ extension UploadThirdView {
     private var continueButton: some View {
         ContinueRedButton {
             showPublishAlert = true
-            // dismiss
-            // show alert to confirm the upload & announce a review
             // show a confirmation rectangle in homeview
         }
         .disabled(!viewModel.isContinueButtonThirdViewEnabled)

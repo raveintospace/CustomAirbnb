@@ -103,11 +103,3 @@ extension UploadSecondView {
         .disabled(selectedHood == nil ? true : false)
     }
 }
-
-
-// MARK: - NavigationStack Vs NavigationLink
-/*
-            .navigationDestination(isPresented: $showUploadThirdView) {
-                UploadThirdView()
-            }
-*/

@@ -47,6 +47,11 @@ struct UploadFirstView: View {
             .navigationDestination(isPresented: $showUploadSecondView) {
                 UploadSecondView(viewModel: viewModel, listingLocation: $listingLocation)
             }
+            .onReceive(viewModel.$dismissUploadSheet) { shouldDismissSheet in
+                if shouldDismissSheet {
+                    dismiss()
+                }
+            }
         }
     }
 }
