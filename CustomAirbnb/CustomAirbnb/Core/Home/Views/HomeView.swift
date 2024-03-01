@@ -72,9 +72,9 @@ struct HomeView: View {
                     ConfirmationRectangle(copy: "Listing submited, thanks", iconName: "checkmark.seal")
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                //withAnimation(.easeOut) {
+                                withAnimation(.easeOut) {
                                     viewModel.showUploadThanks = false
-                               // }
+                                }
                             }
                         }
                 }
