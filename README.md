@@ -36,11 +36,11 @@ This app features:
   <ul>
     <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
     <li>UploadSecondView for selecting the neighbourhood of the city previously selected</li>
-    <li>UploadThirdView for uploading pictures from gallery or taking pictures with device's camera and inputing price, currency, number of guests / beds / bedrooms / bathrooms</li>
+    <li>UploadThirdView for uploading pictures from device's gallery or taking pictures with device's camera, also for inputing listing's title, description, price, currency, number of guests, beds, bedrooms and bathrooms</li>
   </ul>
 <br/>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
-<li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row or a button in DetailView</li>
+<li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row. Alternatively, user can tap a button in the DetailView's toolbar, then a Lottie animation is played to enhance the interaction</li>
 </br>
 <li>Color Theme</li>
 <li>Custom Header for Navigation View, with animated icons and titles</li>
