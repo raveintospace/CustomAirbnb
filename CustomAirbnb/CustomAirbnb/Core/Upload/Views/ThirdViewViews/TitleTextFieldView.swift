@@ -26,6 +26,7 @@ struct TitleTextFieldView: View {
                     isTitleTextFieldFocused = editing
                 })
                 .autocorrectionDisabled()
+                .submitLabel(.done)
                 .foregroundStyle(Color.theme.accent)
                 .padding(.horizontal)
                 .padding(.bottom)

@@ -10,8 +10,8 @@ import SwiftUI
 
 extension UIApplication {
     
-    // dismiss keyboard for onTapGesture
-    func endEditing() {
+    // dismiss keyboard
+    func hideKeyboard() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

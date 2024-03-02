@@ -23,6 +23,7 @@ struct HomeView: View {
     @State private var sheet: Sheet?
     @State private var showDetailView: Bool = false
     @State private var showFavoritesView: Bool = false
+    @State private var showUploadThanks: Bool = false
     @State private var isLoading: Bool = false
     
     var body: some View {
@@ -66,6 +67,18 @@ struct HomeView: View {
             .navigationDestination(isPresented: $showDetailView) {
                     DetailLoadingView(listing: $selectedListing)
                 }
+            .safeAreaInset(edge: .bottom) {
+                if viewModel.showUploadThanks {
+                    ConfirmationRectangle(copy: "Listing submited, thanks", iconName: "checkmark.seal")
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                withAnimation(.easeOut) {
+                                    viewModel.showUploadThanks = false
+                                }
+                            }
+                        }
+                }
+            }
         }
     }
 }

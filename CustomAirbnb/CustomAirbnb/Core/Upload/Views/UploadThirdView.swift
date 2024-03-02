@@ -9,33 +9,43 @@ import SwiftUI
 
 struct UploadThirdView: View {
     
-    @State private var title: String = ""
-    @State private var description: String = ""
-    @State private var price: String = ""
-    @State private var guestsText: String = ""
-    @State private var bedsText: String = ""
-    @State private var bedroomsText: String = ""
-    @State private var bathroomsText: String = ""
+    @StateObject var viewModel: UploadViewModel
+    
+    @State private var showPublishAlert: Bool = false
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ZStack {
-                    Color.theme.background
-                        .ignoresSafeArea()
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    progressImage
                     
-                    VStack(spacing: 20) {
-                        progressImage
-                        PhotosPickerView()
-                        TitleTextFieldView(listingTitle: $title)
-                        DescriptionTextEditorView(descriptionText: $description)
-                        PriceHStack(price: $price)
-                        GuestsBedsHStack(guests: $guestsText, beds: $bedsText)
-                        RoomsHStack(bedrooms: $bedroomsText, bathrooms: $bathroomsText)
-                        //continue button
-                        Spacer()
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            PhotosPickerView()
+                            TitleTextFieldView(listingTitle: $viewModel.title)
+                            DescriptionTextEditorView(descriptionText: $viewModel.description)
+                            PriceHStack(price: $viewModel.price)
+                            GuestsBedsHStack(guests: $viewModel.guestsText, beds: $viewModel.bedsText)
+                            RoomsHStack(bedrooms: $viewModel.bedroomsText, bathrooms: $viewModel.bathroomsText)
+                            continueButton
+                        }
                     }
                 }
+            }
+            .alert(isPresented: $showPublishAlert) {
+                Alert(
+                    title: Text("Submit your listing"),
+                    message: Text("Your listing will be reviewed before becoming published"),
+                    primaryButton: .default(Text("Submit")) {
+                        viewModel.dismissUploadSheet.toggle()
+                    },
+                    secondaryButton: .cancel() {
+                        showPublishAlert = false
+                    }
+                )
             }
             .navigationTitle("List your home")
             .navigationBarTitleDisplayMode(.inline)
@@ -45,13 +55,22 @@ struct UploadThirdView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     TopBarLeadingArrow()
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.hideKeyboard()
+                    }, label: {
+                        Text("Done")
+                            .foregroundStyle(Color.theme.accent)
+                    })
+                }
             }
         }
     }
 }
 
 #Preview {
-    UploadThirdView()
+    UploadThirdView(viewModel: UploadViewModel())
 }
 
 extension UploadThirdView {
@@ -61,63 +80,18 @@ extension UploadThirdView {
             .resizable()
             .scaledToFit()
             .frame(height: 25)
-            .padding(.top)
+    }
+    
+    private var continueButton: some View {
+        ContinueRedButton {
+            showPublishAlert = true
+            // show a confirmation rectangle in homeview
+        }
+        .disabled(!viewModel.isContinueButtonThirdViewEnabled)
     }
 }
 
 /*
  TO DO
- Background color for navigationbar
- 
- When Continue button pressed: validate that "integers" are not 0 or negative numbers -> method in VM & user convert string to int // dismiss view and go back to home view with a confirmation message
- 
- Keyboard with enter to submit (crypto currency! & SearchBarView)
- */
-
-/*
- 
- Add to this view
- .navigationBarTitle("List your home")
- .navigationBarTitleDisplayMode(.inline)
- .navigationBarBackButtonHidden()
- .background(
-     NavigationConfigurator { navigationBarAppearance in
-         navigationBarAppearance.configureWithOpaqueBackground()
-         navigationBarAppearance.backgroundColor = .yourDesiredColor
-     }
- )
- .scrollIndicators(.hidden)
- .toolbar {
-     ToolbarItem(placement: .topBarLeading) {
-         TopBarLeadingArrow()
-     }
- }
- 
- Create a new swift file in components
- struct NavigationConfigurator: View {
-     let configure: (UINavigationBarAppearance) -> Void
-
-     init(configure: @escaping (UINavigationBarAppearance) -> Void) {
-         self.configure = configure
-     }
-
-     var body: some View {
-         VStack {
-             Spacer()
-         }
-         .background(
-             GeometryReader { geometry in
-                 Color.clear.onAppear {
-                     let appearance = UINavigationBarAppearance()
-                     configure(appearance)
-                     UINavigationBar.appearance().standardAppearance = appearance
-                     UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                 }
-                 .frame(height: 0)
-             }
-         )
-     }
- }
-
-
+ When Continue button pressed: dismiss view and go back to home view with a confirmation message
  */

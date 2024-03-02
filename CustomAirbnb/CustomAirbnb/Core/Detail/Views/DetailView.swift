@@ -175,3 +175,10 @@ extension DetailView {
         }
     }
 }
+
+/*
+ Lottie
+ https://medium.com/@mobile_44538/lottie-magic-in-swiftui-5d600f068287 - Lottie
+ https://lottiefiles.com/animations/heart-E3NfCZitfh - animation
+ https://github.com/airbnb/lottie-ios
+ */

@@ -24,7 +24,6 @@ struct UploadSecondView: View {
                 
                 VStack(spacing: 10) {
                     progressImage
-                    Spacer()
                     hoodText
                     
                     if let city = viewModel.cities.first(where: { $0.name == listingLocation }) {
@@ -36,11 +35,11 @@ struct UploadSecondView: View {
                         .listStyle(.plain)
                     }
                     
-                    Spacer()
                     continueButton
                 }
                 .navigationTitle("List your home")
                 .navigationBarTitleDisplayMode(.inline)
+                .scrollIndicators(.hidden)
                 .toolbar() {
                     ToolbarItem(placement: .topBarLeading) {
                         TopBarLeadingArrow()
@@ -50,7 +49,7 @@ struct UploadSecondView: View {
             .navigationBarBackButtonHidden()
             .background(
                 NavigationLink(
-                    destination: UploadThirdView(),
+                    destination: UploadThirdView(viewModel: viewModel),
                     isActive: $showUploadThirdView
                 ) {
                     EmptyView()
@@ -111,10 +110,22 @@ extension UploadSecondView {
     }
 }
 
-
-// MARK: - NavigationStack Vs NavigationLink
 /*
-            .navigationDestination(isPresented: $showUploadThirdView) {
-                UploadThirdView()
-            }
-*/
+ Allows going back to secondView from thirdView
+ .background(
+     NavigationLink(
+         destination: UploadThirdView(viewModel: viewModel),
+         isActive: $showUploadThirdView
+     ) {
+         EmptyView()
+     }
+         .hidden()
+ )
+
+ Goes back from thirdView to FirstView
+ .navigationDestination(isPresented: $showUploadThirdView) {
+     UploadThirdView(viewModel: viewModel, activateUploadThanks: {})
+ }
+
+
+ */

@@ -13,7 +13,8 @@ final class ListingDataService {
     @Published var allListings: [Listing] = []
     @Published var destination: String = "" {
         didSet {
-            getListings(city: destination)
+            let apiCityName = convertToAPICityName(displayCityName: destination)
+            getListings(city: apiCityName)
         }
     }
     
@@ -38,5 +39,14 @@ final class ListingDataService {
                 self.allListings = returnedListings.results
                 self.listingSubscription?.cancel()
             })
+    }
+    
+    func convertToAPICityName(displayCityName: String) -> String {
+        switch displayCityName {
+        case "Rome":
+            return "Roma"
+        default:
+            return displayCityName
+        }
     }
 }

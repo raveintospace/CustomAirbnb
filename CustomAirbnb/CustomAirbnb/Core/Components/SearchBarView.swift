@@ -24,6 +24,7 @@ struct SearchBarView: View {
                 .font(.system(size: 16))
                 .foregroundColor(Color.theme.accent)
                 .autocorrectionDisabled()
+                .submitLabel(.done)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .padding()
@@ -31,7 +32,7 @@ struct SearchBarView: View {
                         .foregroundColor(Color.theme.accent)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
-                            UIApplication.shared.endEditing()
+                            UIApplication.shared.hideKeyboard()
                             searchText = ""
                         }
                     
