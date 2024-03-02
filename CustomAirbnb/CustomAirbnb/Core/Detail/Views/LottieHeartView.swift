@@ -35,6 +35,7 @@ struct LottieView: UIViewRepresentable {
         animationView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         animationView.loopMode = loopMode
         animationView.animationSpeed = animationSpeed
+        animationView.contentMode = contentMode
         animationView.play()
         return view
     }

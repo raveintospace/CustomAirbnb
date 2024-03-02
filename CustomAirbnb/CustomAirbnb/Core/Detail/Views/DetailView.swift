@@ -41,6 +41,7 @@ struct DetailView: View {
     @State private var sheet: Sheet?
     @State private var showReportThanks: Bool = false
     @State private var showBookRequestConfirmation: Bool = false
+    @State private var showHearts: Bool = false
     
     var body: some View {
         ScrollView {
@@ -50,7 +51,7 @@ struct DetailView: View {
                     .sheet(item: $sheet, content: makeSheet)
                 
                 VStack(alignment: .leading) {
-                    ImagesSlider(listing: viewModel.listing)
+                    ImagesSlider(listing: viewModel.listing, showHearts: $showHearts)
                     ApartmentInfoView(listing: viewModel.listing)
                     RedDivider()
                     HostInfoView(listing: viewModel.listing, activateBookView: self.activateBookView)
@@ -106,6 +107,9 @@ extension DetailView {
         Button(action: {
             withAnimation {
                 homeViewModel.updateFavorites(listing: viewModel.listing)
+                if homeViewModel.setDesignForHeartFav(listing: viewModel.listing) {
+                    activateHearts()
+                }
             }
         }, label: {
             Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
@@ -121,6 +125,16 @@ extension DetailView {
             }
         }
         .tint(Color.theme.accent)
+    }
+    
+    private func activateHearts() {
+        showHearts = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            withAnimation(.easeOut) {
+                showHearts = false
+            }
+        }
     }
     
     private func activateBookView() {
