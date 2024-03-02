@@ -37,6 +37,7 @@
 		346EBF292B93433400E606DA /* HeartAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EBF282B93433400E606DA /* HeartAnimation.json */; };
 		346EBF2D2B9343A000E606DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 346EBF2C2B9343A000E606DA /* Lottie */; };
 		347BADFE2B9371BC00F0CFFF /* hearts.json in Resources */ = {isa = PBXBuildFile; fileRef = 347BADFD2B9371BC00F0CFFF /* hearts.json */; };
+		347BAE012B93982F00F0CFFF /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = 347BAE002B93982F00F0CFFF /* Vortex */; };
 		347E60C22B41AC7E00A86FDD /* ReportReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E60C12B41AC7E00A86FDD /* ReportReason.swift */; };
 		348603472B55AE6D0064C51D /* RedDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348603462B55AE6D0064C51D /* RedDivider.swift */; };
 		348680A72B6420B500E0D95A /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348680A62B6420B500E0D95A /* FullScreenImageView.swift */; };
@@ -161,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				347BAE012B93982F00F0CFFF /* Vortex in Frameworks */,
 				346EBF2D2B9343A000E606DA /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +530,7 @@
 			name = CustomAirbnb;
 			packageProductDependencies = (
 				346EBF2C2B9343A000E606DA /* Lottie */,
+				347BAE002B93982F00F0CFFF /* Vortex */,
 			);
 			productName = CustomAirbnb;
 			productReference = 344DC5142B277D6100481B0E /* CustomAirbnb.app */;
@@ -559,6 +562,7 @@
 			mainGroup = 344DC50B2B277D6100481B0E;
 			packageReferences = (
 				346EBF2B2B9343A000E606DA /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				347BADFF2B93982F00F0CFFF /* XCRemoteSwiftPackageReference "Vortex" */,
 			);
 			productRefGroup = 344DC5152B277D6100481B0E /* Products */;
 			projectDirPath = "";
@@ -865,6 +869,14 @@
 				minimumVersion = 4.4.1;
 			};
 		};
+		347BADFF2B93982F00F0CFFF /* XCRemoteSwiftPackageReference "Vortex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Vortex";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -872,6 +884,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 346EBF2B2B9343A000E606DA /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		347BAE002B93982F00F0CFFF /* Vortex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 347BADFF2B93982F00F0CFFF /* XCRemoteSwiftPackageReference "Vortex" */;
+			productName = Vortex;
 		};
 /* End XCSwiftPackageProductDependency section */
 
