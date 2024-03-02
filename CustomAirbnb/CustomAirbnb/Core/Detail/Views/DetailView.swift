@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Lottie
 
 // intented to deal with @binding management
 struct DetailLoadingView: View {
@@ -42,8 +41,6 @@ struct DetailView: View {
     @State private var showReportThanks: Bool = false
     @State private var showBookRequestConfirmation: Bool = false
     
-    @State private var playbackMode: LottiePlaybackMode = LottiePlaybackMode.paused
-    
     var body: some View {
         ScrollView {
             ZStack {
@@ -62,17 +59,6 @@ struct DetailView: View {
                     ListingGridView(listing: viewModel.listing)
                     RedDivider()
                 }
-                
-                Image(systemName: "heart.fill")
-                    .resizable()
-                    .frame(width: 120, height: 110)
-                    .scaledToFit()
-                    .foregroundStyle(Color.theme.airRed)
-                    .opacity(playbackMode != .paused ? 0.5 : 1.0)
-                    .offset(y: -350)
-                    .animation(.linear, value: playbackMode)
-                
-                LottieHeart
             }
             .padding(.top, -42) // picture under toolbar
             
@@ -119,7 +105,6 @@ extension DetailView {
         Button(action: {
             withAnimation {
                 homeViewModel.updateFavorites(listing: viewModel.listing)
-                playbackMode = .playing(.fromProgress(0, toProgress: 1, loopMode: .loop))
             }
         }, label: {
             Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
@@ -189,18 +174,6 @@ extension DetailView {
             ReportView(viewModel: viewModel, activateReportThanks: self.activateReportThanks)
         }
     }
-    
-    private var LottieHeart: some View {
-        LottieView(animation: .named("heartAnimation"))
-         .playbackMode(playbackMode)
-         .animationDidFinish { completed in
-          playbackMode = LottiePlaybackMode.paused
-         }
-         .resizable()
-         .offset(y: playbackMode != .paused ? 0 : -UIScreen.main.bounds.height)
-         .animation(.spring, value: playbackMode)
-    }
-    
 }
 
 /*
