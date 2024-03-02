@@ -16,6 +16,7 @@
 		341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58952B3C9B7300414188 /* HostImageViewModel.swift */; };
 		341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58972B3C9C7C00414188 /* HostImageView.swift */; };
 		341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58992B3C9FAB00414188 /* HostInfoView.swift */; };
+		341FFFC52B936AFE007C0CF7 /* LottieHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FFFC42B936AFE007C0CF7 /* LottieHeartView.swift */; };
 		342876D92B8764DC008CBDE1 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */; };
 		342876DB2B876D47008CBDE1 /* DescriptionTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */; };
 		342876DF2B87C051008CBDE1 /* PriceHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DE2B87C051008CBDE1 /* PriceHStack.swift */; };
@@ -33,8 +34,9 @@
 		344DC52E2B2780FF00481B0E /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DC52D2B2780FF00481B0E /* Listing.swift */; };
 		346DEBE82B4AF2400090BD27 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346DEBE72B4AF2400090BD27 /* CircleButtonView.swift */; };
 		346DEBEA2B4AF3150090BD27 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346DEBE92B4AF3150090BD27 /* CircleButtonAnimationView.swift */; };
-		346EBF292B93433400E606DA /* Animation - 1709378407783.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EBF282B93433400E606DA /* Animation - 1709378407783.json */; };
+		346EBF292B93433400E606DA /* HeartAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EBF282B93433400E606DA /* HeartAnimation.json */; };
 		346EBF2D2B9343A000E606DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 346EBF2C2B9343A000E606DA /* Lottie */; };
+		347BADFE2B9371BC00F0CFFF /* hearts.json in Resources */ = {isa = PBXBuildFile; fileRef = 347BADFD2B9371BC00F0CFFF /* hearts.json */; };
 		347E60C22B41AC7E00A86FDD /* ReportReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E60C12B41AC7E00A86FDD /* ReportReason.swift */; };
 		348603472B55AE6D0064C51D /* RedDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348603462B55AE6D0064C51D /* RedDivider.swift */; };
 		348680A72B6420B500E0D95A /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348680A62B6420B500E0D95A /* FullScreenImageView.swift */; };
@@ -89,6 +91,7 @@
 		341A58952B3C9B7300414188 /* HostImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageViewModel.swift; sourceTree = "<group>"; };
 		341A58972B3C9C7C00414188 /* HostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageView.swift; sourceTree = "<group>"; };
 		341A58992B3C9FAB00414188 /* HostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoView.swift; sourceTree = "<group>"; };
+		341FFFC42B936AFE007C0CF7 /* LottieHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieHeartView.swift; sourceTree = "<group>"; };
 		342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldView.swift; sourceTree = "<group>"; };
 		342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextEditorView.swift; sourceTree = "<group>"; };
 		342876DE2B87C051008CBDE1 /* PriceHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHStack.swift; sourceTree = "<group>"; };
@@ -107,7 +110,8 @@
 		344DC52D2B2780FF00481B0E /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		346DEBE72B4AF2400090BD27 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		346DEBE92B4AF3150090BD27 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
-		346EBF282B93433400E606DA /* Animation - 1709378407783.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation - 1709378407783.json"; sourceTree = "<group>"; };
+		346EBF282B93433400E606DA /* HeartAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartAnimation.json; sourceTree = "<group>"; };
+		347BADFD2B9371BC00F0CFFF /* hearts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hearts.json; sourceTree = "<group>"; };
 		347E60C12B41AC7E00A86FDD /* ReportReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReason.swift; sourceTree = "<group>"; };
 		348603462B55AE6D0064C51D /* RedDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedDivider.swift; sourceTree = "<group>"; };
 		348680A62B6420B500E0D95A /* FullScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
@@ -309,7 +313,8 @@
 		346EBF2A2B93434400E606DA /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				346EBF282B93433400E606DA /* Animation - 1709378407783.json */,
+				347BADFD2B9371BC00F0CFFF /* hearts.json */,
+				346EBF282B93433400E606DA /* HeartAnimation.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				341A58992B3C9FAB00414188 /* HostInfoView.swift */,
 				34F440342B3DED69004D581A /* ListingDescriptionView.swift */,
 				349588DC2B3F40BF00B55884 /* ListingGridView.swift */,
+				341FFFC42B936AFE007C0CF7 /* LottieHeartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -569,7 +575,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				344DC51F2B277D6400481B0E /* Preview Assets.xcassets in Resources */,
-				346EBF292B93433400E606DA /* Animation - 1709378407783.json in Resources */,
+				346EBF292B93433400E606DA /* HeartAnimation.json in Resources */,
+				347BADFE2B9371BC00F0CFFF /* hearts.json in Resources */,
 				344DC51C2B277D6400481B0E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +608,7 @@
 				34B661F42B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld in Sources */,
 				344DC52E2B2780FF00481B0E /* Listing.swift in Sources */,
 				34A1EFF12B34AE3300E1F948 /* ListingImageViewModel.swift in Sources */,
+				341FFFC52B936AFE007C0CF7 /* LottieHeartView.swift in Sources */,
 				349695642B8A1CF8003C0A59 /* View.swift in Sources */,
 				341A58942B3C99DC00414188 /* HostImageDataService.swift in Sources */,
 				349575532B6D3EE100DC4643 /* InfoView.swift in Sources */,

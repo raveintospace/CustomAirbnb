@@ -16,17 +16,23 @@ struct ImagesSlider: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            XLImageView(listing: listing)
-            
-            if listing.listingURL != nil {
-                ZStack {
-                    Rectangle()
-                        .frame(height: 50)
-                        .foregroundStyle(Color.theme.airRed)
-                    listingWebsiteHStack
+        ZStack {
+            VStack(spacing: 0) {
+                XLImageView(listing: listing)
+                
+                if listing.listingURL != nil {
+                    ZStack {
+                        Rectangle()
+                            .frame(height: 50)
+                            .foregroundStyle(Color.theme.airRed)
+                        listingWebsiteHStack
+                    }
                 }
             }
+                LottieHeartView(filename: "hearts",
+                                loopMode: .playOnce,
+                                animationSpeed: 9.0)
+                .frame(width: 5, height: 5)
         }
     }
 }

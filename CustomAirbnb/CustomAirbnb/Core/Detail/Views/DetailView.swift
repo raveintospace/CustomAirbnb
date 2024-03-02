@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 // intented to deal with @binding management
 struct DetailLoadingView: View {
