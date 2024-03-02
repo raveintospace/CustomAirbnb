@@ -146,7 +146,7 @@ final class HomeViewModel: ObservableObject {
         favoritesDataService.updatePortfolio(listing: listing)
     }
     
-    func setDesignForHeartFav(listing: Listing) -> Bool {
+    func checkIfIsNewFav(listing: Listing) -> Bool {
         if favoriteListings.contains(where: { $0.id == listing.id }) {
             return true
         } else {

@@ -107,15 +107,15 @@ extension DetailView {
         Button(action: {
             withAnimation {
                 homeViewModel.updateFavorites(listing: viewModel.listing)
-                if homeViewModel.setDesignForHeartFav(listing: viewModel.listing) {
+                if homeViewModel.checkIfIsNewFav(listing: viewModel.listing) {
                     activateHearts()
                 }
             }
         }, label: {
-            Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
+            Image(systemName: homeViewModel.checkIfIsNewFav(listing: viewModel.listing) ? "heart.fill" : "heart")
                 .offset(y: 2.5)
         })
-        .tint(homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? Color.theme.airRed : Color.theme.accent)
+        .tint(homeViewModel.checkIfIsNewFav(listing: viewModel.listing) ? Color.theme.airRed : Color.theme.accent)
     }
     
     private var topBarTrailingShare: some View {
