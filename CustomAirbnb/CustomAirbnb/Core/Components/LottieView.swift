@@ -1,5 +1,5 @@
 //
-//  LottieHeartView.swift
+//  LottieView.swift
 //  CustomAirbnb
 //
 //  Created by Uri on 2/3/24.
