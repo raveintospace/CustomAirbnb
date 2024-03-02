@@ -113,7 +113,7 @@ extension DetailView {
             }
         }, label: {
             Image(systemName: homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? "heart.fill" : "heart")
-                .font(.system(size: 20))
+                .offset(y: 2.5)
         })
         .tint(homeViewModel.setDesignForHeartFav(listing: viewModel.listing) ? Color.theme.airRed : Color.theme.accent)
     }
