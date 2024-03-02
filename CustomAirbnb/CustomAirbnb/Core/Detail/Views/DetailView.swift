@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 // intented to deal with @binding management
 struct DetailLoadingView: View {
@@ -40,6 +41,8 @@ struct DetailView: View {
     @State private var sheet: Sheet?
     @State private var showReportThanks: Bool = false
     @State private var showBookRequestConfirmation: Bool = false
+    
+    @State private var playbackMode: LottiePlaybackMode = LottiePlaybackMode.paused
     
     var body: some View {
         ScrollView {
