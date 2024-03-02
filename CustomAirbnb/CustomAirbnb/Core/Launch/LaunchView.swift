@@ -39,7 +39,9 @@ struct LaunchView: View {
         .ignoresSafeArea()
         .onAppear {
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
-                showLaunchView = false
+                withAnimation(.easeOut(duration: 0.3)) {
+                    showLaunchView = false
+                }
             }
         }
     }

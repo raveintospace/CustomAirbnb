@@ -11,6 +11,7 @@ import SwiftUI
 struct CustomAirbnbApp: App {
     
     @StateObject private var vm = HomeViewModel()
+    @State private var showLaunchView: Bool = true
     
     // override navigationBarTitles & tableView appearence (list)
     init() {
@@ -29,6 +30,10 @@ struct CustomAirbnbApp: App {
                 }
                 .navigationViewStyle(StackNavigationViewStyle())    // -> sets iPad navigation like iPhone navigation
                 .environmentObject(vm)  // -> Available for the whole app
+                
+                LaunchView(showLaunchView: $showLaunchView)
+                    .opacity(showLaunchView ? 1.0 : 0.0)
+                    .zIndex(2.0)
             }
         }
     }
