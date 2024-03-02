@@ -68,7 +68,7 @@ struct DetailView: View {
                     .frame(width: 120, height: 110)
                     .scaledToFit()
                     .foregroundStyle(Color.theme.airRed)
-                    .opacity(playbackMode != .paused ? 1.0 : 0.0)
+                    .opacity(playbackMode != .paused ? 0.5 : 1.0)
                     .offset(y: -350)
                     .animation(.linear, value: playbackMode)
                 
@@ -197,6 +197,7 @@ extension DetailView {
           playbackMode = LottiePlaybackMode.paused
          }
          .resizable()
+         .offset(y: playbackMode != .paused ? 0 : -UIScreen.main.bounds.height)
          .animation(.spring, value: playbackMode)
     }
     
