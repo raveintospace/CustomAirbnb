@@ -31,9 +31,11 @@ struct CustomAirbnbApp: App {
                 .navigationViewStyle(StackNavigationViewStyle())    // -> sets iPad navigation like iPhone navigation
                 .environmentObject(vm)  // -> Available for the whole app
                 
-                LaunchView(showLaunchView: $showLaunchView)
-                    .opacity(showLaunchView ? 1.0 : 0.0)
-                    .zIndex(2.0)
+                ZStack {
+                    LaunchView(showLaunchView: $showLaunchView)
+                        .opacity(showLaunchView ? 1.0 : 0.0)
+                }
+                .zIndex(2.0)    // -> LaunchView above NavigationView
             }
         }
     }
