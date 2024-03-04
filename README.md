@@ -39,6 +39,7 @@ This app features:
     <li>UploadThirdView for uploading pictures from device's gallery or taking pictures with device's camera, also for inputing listing's title, description, price, currency, number of guests, beds, bedrooms and bathrooms</li>
   </ul>
 <br/>
+<li>LaunchView that includes an animation created with Vortex library</li>li>
 <li>Core Data to manage listings favorited by user, including a DataService</li>
 <li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row. Alternatively, user can tap a button in the DetailView's toolbar, then a Lottie animation is played to enhance the interaction</li>
 </br>
@@ -58,4 +59,5 @@ This app features:
 <li>ImageType protocol to handle an array of UIImage & Image</li>
 <li>ViewModifiers extracted for improved modularity</li>
 <li>City & ReportReason models with Stub</li>
+<li>External libraries used in the project: Lottie and Vortex</li>
 <br/>
