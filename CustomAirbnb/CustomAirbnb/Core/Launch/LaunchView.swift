@@ -11,7 +11,7 @@ import Vortex
 struct LaunchView: View {
     
     let cities = City.stub
-    @State private var cityName: String = "Amsterdam"
+    @State private var currentCityIndex: Int = 0
     @Binding var showLaunchView: Bool
     
     var body: some View {
@@ -19,7 +19,7 @@ struct LaunchView: View {
             Color.launch.background
             
             VortexView(.snow) {
-                Text(cityName)
+                Text(cities[currentCityIndex].name)
                     .foregroundStyle(Color.launch.accent)
                     .font(.largeTitle)
                     .blur(radius: 1)
@@ -27,7 +27,7 @@ struct LaunchView: View {
             }
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { timer in
-                        cityName = cities.randomElement()?.name ?? "Amsterdam"
+                        currentCityIndex = (currentCityIndex + 1) % cities.count
                 }
             }
             
@@ -50,3 +50,8 @@ struct LaunchView: View {
 #Preview {
     LaunchView(showLaunchView: .constant(true))
 }
+
+/*
+ % cities.count
+ when the index reaches the last element in the array (Vancouver), adding 1 and taking the modulo of the array count will bring the index back to the first element (Amsterdam), creating a cyclic effect
+ */
