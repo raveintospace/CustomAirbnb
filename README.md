@@ -90,17 +90,5 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app
     <img src="images/Screenshot 2024-03-05 at 18.47.22.png" alt="Upload View" title="Upload View 1" width="300">
     <img src="images/Screenshot 2024-03-05 at 18.47.34.png" alt="Upload View" title="Upload View 2" width="300">
     <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="300">
  </div>     
-<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">    
- <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="300">
-</div>
-
-
-
-
-
-
-
-
-
-
