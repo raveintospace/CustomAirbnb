@@ -5,7 +5,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app
 ⚠️⚠️ Project in construction ⚠️⚠️
 <br/>
 <br/>
-## This app features: 
+## This app features 
 <ul>
 <li>MVVM & Environment Object for our Home VM</li>
 <li>API request using Combine</li>
@@ -73,4 +73,33 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app
 ## License
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) [MIT](https://choosealicense.com/licenses/mit/) 
+
+## Screenshots
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="images/Screenshot 2024-03-05 at 18.43.48.png" alt="Home View" title="Home View" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.44.25.png" alt="Favorites View" title="Favorites View" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.45.47.png" alt="Detail View" title="Detail View 1/2" width="300">
+</div>   
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="images/Screenshot 2024-03-05 at 18.46.07.png" alt="Detail View" title="Detail View 2/2" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.46.27.png" alt="Book View" title="Book View" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.59.12.png" alt="Report View" title="Report View" width="300">
+ </div> 
+ <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">   
+    <img src="images/Screenshot 2024-03-05 at 18.47.22.png" alt="Upload View" title="Upload View 1" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.47.34.png" alt="Upload View" title="Upload View 2" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3" width="300">
+ </div>     
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">    
+ <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="300">
+</div>
+
+
+
+
+
+
+
+
+
 
