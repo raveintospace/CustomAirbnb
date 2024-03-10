@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UploadSecondView: View {
     
-    @StateObject var viewModel: UploadViewModel
+    @ObservedObject var viewModel: UploadViewModel
     
     @Binding var listingLocation: String
     

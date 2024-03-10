@@ -11,7 +11,7 @@ struct ReportView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel: DetailViewModel
+    @ObservedObject var viewModel: DetailViewModel
     
     @State private var selectedReportReason: ReportReason? = nil
     @State private var showReportAlert: Bool = false

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UploadFirstView: View {
     
-    @StateObject private var viewModel: UploadViewModel
+    @ObservedObject private var viewModel: UploadViewModel
     @EnvironmentObject private var homeViewModel: HomeViewModel
     
     @Environment(\.dismiss) var dismiss
@@ -19,7 +19,7 @@ struct UploadFirstView: View {
     @State private var showUploadSecondView: Bool = false
     
     init() {
-        _viewModel = StateObject(wrappedValue: UploadViewModel())
+        _viewModel = ObservedObject(wrappedValue: UploadViewModel())
     }
     
     var body: some View {

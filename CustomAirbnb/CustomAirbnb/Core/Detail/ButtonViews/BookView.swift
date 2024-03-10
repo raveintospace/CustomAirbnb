@@ -13,7 +13,7 @@ struct BookView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel: DetailViewModel
+    @ObservedObject var viewModel: DetailViewModel
     
     @State private var arrivalDate = Date.now
     @State private var departureDate = Date.now.addingTimeInterval(86400)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UploadThirdView: View {
     
-    @StateObject var viewModel: UploadViewModel
+    @ObservedObject var viewModel: UploadViewModel
     
     @State private var showPublishAlert: Bool = false
     
