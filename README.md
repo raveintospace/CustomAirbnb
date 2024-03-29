@@ -3,7 +3,7 @@
 SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app to test my learnings from previous projects and new challenges.
 <br/>
 <br/>
-⚠️⚠️ Project in construction ⚠️⚠️
+⚠️⚠️ Project under construction ⚠️⚠️
 <br/>
 
 ## This app features 
