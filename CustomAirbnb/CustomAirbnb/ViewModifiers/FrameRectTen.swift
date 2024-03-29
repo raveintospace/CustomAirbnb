@@ -26,6 +26,6 @@ struct FrameRectTen: ViewModifier {
 
 extension View {
     func frameRectTenShape(height: CGFloat) -> some View {
-        self.modifier(FrameRectTen(height: height))
+        modifier(FrameRectTen(height: height))
     }
 }
