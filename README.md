@@ -8,7 +8,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app
 
 ## This app features 
 <ul>
-<li>MVVM & Environment Object for our Home VM</li>
+<li>MVVM Architechture & Home ViewModel as Environment Object for the whole app</li>
 <li>API request using Combine</li>
 <li>Reusable Network Manager</li>
 <br/>
