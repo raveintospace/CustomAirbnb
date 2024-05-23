@@ -30,6 +30,8 @@ final class ListingDataService {
         
         guard let url = URL(string: "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/air-bnb-listings/records?limit=40&refine=room_type%3A%22Entire%20home%2Fapt%22&refine=city%3A%22\(encodedCity)%22") else { return }
         
+        debugPrint(url)
+        
         listingSubscription = NetworkManager.fetch(url: url)
             .decode(type: ListingsResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
