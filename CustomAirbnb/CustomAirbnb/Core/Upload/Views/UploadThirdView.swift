@@ -91,7 +91,4 @@ extension UploadThirdView {
     }
 }
 
-/*
- TO DO
- When Continue button pressed: dismiss view and go back to home view with a confirmation message
- */
+
