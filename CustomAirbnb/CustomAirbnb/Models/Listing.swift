@@ -7,6 +7,7 @@
 
 import Foundation
 
+// old response
 /*
  
  URL:
@@ -79,6 +80,34 @@ import Foundation
      let url: String?
  }
  
+ */
+
+// new response
+/*
+ 
+ url: https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/air-bnb-listings/records?limit=40&refine=room_type%3A%22Entire%20home%2Fapt%22&refine=city%3A%22Paris%22
+ 
+ 
+ "id": 11112336,
+       "name": "Gótico, Las Ramblas (Cheaper for months!!)",
+       "host_id": 51838891,
+       "neighbourhood": "el Barri Gòtic",
+       "room_type": "Entire home/apt",
+       "column_10": 50,
+       "minimum_nights": 31,
+       "number_of_reviews": 17,
+       "last_review": "2019-02-26",
+       "reviews_per_month": 0.33,
+       "calculated_host_listings_count": 2,
+       "availability_365": 153,
+       "updated_date": "2020-06-13",
+       "city": "Barcelona",
+       "column_19": "Spain",
+       "coordinates": {
+         "lon": 2.17432366342202,
+         "lat": 41.3821572837473
+       },
+       "column_20": "Spain, Barcelona, el Barri Gòtic"
  */
 
 struct Listing: Codable, Identifiable {
