@@ -153,55 +153,81 @@ struct Listing: Codable, Identifiable {
         case reviewScoresRating = "review_scores_rating"
     }
     
-    // Custom initializer for decoding
+    // Custom initializer for decoding the json
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try container.decode(String.self, forKey: .id)
-        listingURL = try? container.decode(String.self, forKey: .listingURL)
-        name = try? container.decode(String.self, forKey: .name)
-        description = try? container.decode(String.self, forKey: .description)
-        thumbnailURL = try? container.decode(String.self, forKey: .thumbnailURL)
-        mediumURL = try? container.decode(String.self, forKey: .mediumURL)
-        xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
-        neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
-        price = try? container.decode(Int.self, forKey: .price)
+        // fix for id, was a String in old json, now an Int in new json
+        let idInt = try container.decode(Int.self, forKey: .id)
+        let id = String(idInt)
+        
+        let listingURL = try? container.decode(String.self, forKey: .listingURL)
+        let name = try? container.decode(String.self, forKey: .name)
+        let description = try? container.decode(String.self, forKey: .description)
+        let thumbnailURL = try? container.decode(String.self, forKey: .thumbnailURL)
+        let mediumURL = try? container.decode(String.self, forKey: .mediumURL)
+        let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
+        let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
+        let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
         
         // Random values for properties not present in the new response
-        guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
-        bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...10)
-        bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
-        beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
+        let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
+        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...10)
+        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
+        let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
         
-        hostName = try? container.decode(String.self, forKey: .hostName)
-        hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
-        hostURL = try? container.decode(String.self, forKey: .hostURL)
-        hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...10)
-        numberOfReviews = try? container.decode(Int.self, forKey: .numberOfReviews)
-        reviewScoresRating = (try? container.decode(Int.self, forKey: .reviewScoresRating)) ?? Int.random(in: 1...10)
+        let hostName = try? container.decode(String.self, forKey: .hostName)
+        let hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
+        let hostURL = try? container.decode(String.self, forKey: .hostURL)
+        let hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...20)
+        let numberOfReviews = try? container.decode(Int.self, forKey: .numberOfReviews)
+        let reviewScoresRating = (try? container.decode(Int.self, forKey: .reviewScoresRating)) ?? Int.random(in: 10...100)
+        
+        self.init(
+            id: id,
+            listingURL: listingURL,
+            name: name,
+            description: description,
+            thumbnailURL: thumbnailURL,
+            mediumURL: mediumURL,
+            xlPictureURL: xlPictureURL,
+            neighbourhood: neighbourhood,
+            price: price,
+            guests: guests,
+            bathrooms: bathrooms,
+            bedrooms: bedrooms,
+            beds: beds,
+            hostName: hostName,
+            hostThumbnailURL: hostThumbnailURL,
+            hostURL: hostURL,
+            hostListingsCount: hostListingsCount,
+            numberOfReviews: numberOfReviews,
+            reviewScoresRating: reviewScoresRating
+        )
     }
     
-    // MARK: - Convenience initializer for creating instances directly
-    init(id: String,
-         listingURL: String? = nil,
-         name: String? = nil,
-         description: String? = nil,
-         thumbnailURL: String? = nil,
-         mediumURL: String? = nil,
-         xlPictureURL: String? = nil,
-         neighbourhood: String? = nil,
-         price: Int? = nil,
-         guests: Int = Int.random(in: 1...10),
-         bathrooms: Double = Double.random(in: 1...10),
-         bedrooms: Int = Int.random(in: 1...10),
-         beds: Int = Int.random(in: 1...10),
-         hostName: String? = nil,
-         hostThumbnailURL: String? = nil,
-         hostURL: String? = nil,
-         hostListingsCount: Int = Int.random(in: 1...10),
-         numberOfReviews: Int? = nil,
-         reviewScoresRating: Int? = Int.random(in: 1...10)) {
-        
+    // MARK: - Convenience initializer for creating instances directly, such as PreviewProvider
+    init(
+        id: String,
+        listingURL: String? = nil,
+        name: String? = nil,
+        description: String? = nil,
+        thumbnailURL: String? = nil,
+        mediumURL: String? = nil,
+        xlPictureURL: String? = nil,
+        neighbourhood: String? = nil,
+        price: Int = Int.random(in: 50...500),
+        guests: Int = Int.random(in: 1...10),
+        bathrooms: Double = Double.random(in: 1...10),
+        bedrooms: Int = Int.random(in: 1...10),
+        beds: Int = Int.random(in: 1...10),
+        hostName: String? = nil,
+        hostThumbnailURL: String? = nil,
+        hostURL: String? = nil,
+        hostListingsCount: Int = Int.random(in: 1...20),
+        numberOfReviews: Int? = nil,
+        reviewScoresRating: Int? = Int.random(in: 10...100)
+    ) {
         self.id = id
         self.listingURL = listingURL
         self.name = name
