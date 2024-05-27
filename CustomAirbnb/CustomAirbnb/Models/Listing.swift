@@ -148,11 +148,82 @@ struct Listing: Codable, Identifiable {
         case hostName = "host_name"
         case hostThumbnailURL = "host_thumbnail_url"
         case hostURL = "host_url"
-        case hostListingsCount = "host_listings_count"
+        case hostListingsCount = "calculated_host_listings_count"
         case numberOfReviews = "number_of_reviews"
         case reviewScoresRating = "review_scores_rating"
     }
     
+    // Custom initializer for decoding
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try container.decode(String.self, forKey: .id)
+        listingURL = try? container.decode(String.self, forKey: .listingURL)
+        name = try? container.decode(String.self, forKey: .name)
+        description = try? container.decode(String.self, forKey: .description)
+        thumbnailURL = try? container.decode(String.self, forKey: .thumbnailURL)
+        mediumURL = try? container.decode(String.self, forKey: .mediumURL)
+        xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
+        neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
+        price = try? container.decode(Int.self, forKey: .price)
+        
+        // Random values for properties not present in the new response
+        guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
+        bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...10)
+        bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
+        beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
+        
+        hostName = try? container.decode(String.self, forKey: .hostName)
+        hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
+        hostURL = try? container.decode(String.self, forKey: .hostURL)
+        hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...10)
+        numberOfReviews = try? container.decode(Int.self, forKey: .numberOfReviews)
+        reviewScoresRating = (try? container.decode(Int.self, forKey: .reviewScoresRating)) ?? Int.random(in: 1...10)
+    }
+    
+    // MARK: - Convenience initializer for creating instances directly
+    init(id: String,
+         listingURL: String? = nil,
+         name: String? = nil,
+         description: String? = nil,
+         thumbnailURL: String? = nil,
+         mediumURL: String? = nil,
+         xlPictureURL: String? = nil,
+         neighbourhood: String? = nil,
+         price: Int? = nil,
+         guests: Int = Int.random(in: 1...10),
+         bathrooms: Double = Double.random(in: 1...10),
+         bedrooms: Int = Int.random(in: 1...10),
+         beds: Int = Int.random(in: 1...10),
+         hostName: String? = nil,
+         hostThumbnailURL: String? = nil,
+         hostURL: String? = nil,
+         hostListingsCount: Int = Int.random(in: 1...10),
+         numberOfReviews: Int? = nil,
+         reviewScoresRating: Int? = Int.random(in: 1...10)) {
+        
+        self.id = id
+        self.listingURL = listingURL
+        self.name = name
+        self.description = description
+        self.thumbnailURL = thumbnailURL
+        self.mediumURL = mediumURL
+        self.xlPictureURL = xlPictureURL
+        self.neighbourhood = neighbourhood
+        self.price = price
+        self.guests = guests
+        self.bathrooms = bathrooms
+        self.bedrooms = bedrooms
+        self.beds = beds
+        self.hostName = hostName
+        self.hostThumbnailURL = hostThumbnailURL
+        self.hostURL = hostURL
+        self.hostListingsCount = hostListingsCount
+        self.numberOfReviews = numberOfReviews
+        self.reviewScoresRating = reviewScoresRating
+    }
+    
+    // MARK: - Calculated property to get star width
     var starsWidth: Double {
         if let score = reviewScoresRating {
             return (Double(score) / Double(20))
@@ -161,6 +232,7 @@ struct Listing: Codable, Identifiable {
         }
     }
     
+    // MARK: - Convenience properties for filter
     var nameToSearch: String {
         if let nameFromApi = name {
             return nameFromApi

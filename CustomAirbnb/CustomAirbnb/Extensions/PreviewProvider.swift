@@ -13,7 +13,6 @@ extension PreviewProvider {
     static var dev: DeveloperPreview {
         return DeveloperPreview.instance
     }
-    
 }
 
 final class DeveloperPreview {
