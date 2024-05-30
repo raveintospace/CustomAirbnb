@@ -67,6 +67,7 @@
 		34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC02B320E700051985E /* ListingImageView.swift */; };
 		34B8CBC32B320F6C0051985E /* ListingImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */; };
 		34BFC35D2B78E9FD0071659E /* UploadThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */; };
+		34C7181C2C08E1990029FD4A /* NewApiStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7181B2C08E1990029FD4A /* NewApiStubs.swift */; };
 		34C980CC2B851E1C004D478A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C980CB2B851E1C004D478A /* ImagePickerView.swift */; };
 		34C9E05C2B71551E0019CDC5 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E05B2B71551E0019CDC5 /* UploadViewModel.swift */; };
 		34D358182B40625100255E11 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358172B40625100255E11 /* ReportView.swift */; };
@@ -143,6 +144,7 @@
 		34B8CBC02B320E700051985E /* ListingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageView.swift; sourceTree = "<group>"; };
 		34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageDataService.swift; sourceTree = "<group>"; };
 		34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadThirdView.swift; sourceTree = "<group>"; };
+		34C7181B2C08E1990029FD4A /* NewApiStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewApiStubs.swift; sourceTree = "<group>"; };
 		34C980CB2B851E1C004D478A /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		34C9E05B2B71551E0019CDC5 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		34D358172B40625100255E11 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */,
 				347E60C12B41AC7E00A86FDD /* ReportReason.swift */,
 				34B661F22B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld */,
+				34C7181B2C08E1990029FD4A /* NewApiStubs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				341A58962B3C9B7300414188 /* HostImageViewModel.swift in Sources */,
 				341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */,
 				34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */,
+				34C7181C2C08E1990029FD4A /* NewApiStubs.swift in Sources */,
 				344DC51A2B277D6100481B0E /* HomeView.swift in Sources */,
 				34E8B08B2B5C3C390043B979 /* ConfirmationRectangle.swift in Sources */,
 				344DC5282B277F4700481B0E /* Color.swift in Sources */,

@@ -116,6 +116,7 @@ struct Listing: Codable, Identifiable {
     let id: String
     let listingURL: String?
     let name: String?
+    let city: String?
     let description: String?
     let thumbnailURL: String?
     let mediumURL: String?
@@ -139,7 +140,7 @@ struct Listing: Codable, Identifiable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, neighbourhood, price, bathrooms, bedrooms, beds
+        case id, name, city, description, neighbourhood, price, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
         case thumbnailURL = "thumbnail_url"
         case mediumURL = "medium_url"
@@ -153,7 +154,7 @@ struct Listing: Codable, Identifiable {
         case reviewScoresRating = "review_scores_rating"
     }
     
-    // Custom initializer for decoding the json
+    // Custom init for decoding the json
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -163,7 +164,18 @@ struct Listing: Codable, Identifiable {
         
         let listingURL = try? container.decode(String.self, forKey: .listingURL)
         let name = try? container.decode(String.self, forKey: .name)
-        let description = try? container.decode(String.self, forKey: .description)
+        
+        let city = try? container.decode(String.self, forKey: .city)
+        let description: String
+        
+        if let decodedDescription = try? container.decode(String.self, forKey: .description) {
+            description = decodedDescription
+        } else if let city = city, let cityDescriptions = NewApiStubs.sampleDescriptions[city] {
+            description = cityDescriptions.randomElement()!
+        } else {
+            description = "A comfortable place to stay."
+        }
+        
         let thumbnailURL = try? container.decode(String.self, forKey: .thumbnailURL)
         let mediumURL = try? container.decode(String.self, forKey: .mediumURL)
         let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
@@ -175,7 +187,7 @@ struct Listing: Codable, Identifiable {
         let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
         let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
         
-        let hostName = try? container.decode(String.self, forKey: .hostName)
+        let hostName = (try? container.decode(String.self, forKey: .hostName)) ?? NewApiStubs.sampleHostNames.randomElement()!
         let hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
         let hostURL = try? container.decode(String.self, forKey: .hostURL)
         let hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...20)
@@ -205,11 +217,12 @@ struct Listing: Codable, Identifiable {
         )
     }
     
-    // MARK: - Convenience initializer for creating instances directly, such as PreviewProvider
+    // MARK: - Convenience init for creating instances directly, such as PreviewProvider
     init(
         id: String,
         listingURL: String? = nil,
         name: String? = nil,
+        city: String? = nil,
         description: String? = nil,
         thumbnailURL: String? = nil,
         mediumURL: String? = nil,
@@ -230,6 +243,7 @@ struct Listing: Codable, Identifiable {
         self.id = id
         self.listingURL = listingURL
         self.name = name
+        self.city = city
         self.description = description
         self.thumbnailURL = thumbnailURL
         self.mediumURL = mediumURL
