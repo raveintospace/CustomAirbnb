@@ -287,9 +287,9 @@
 				349575502B6D39D500DC4643 /* City.swift */,
 				344DC52D2B2780FF00481B0E /* Listing.swift */,
 				34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */,
+				34C7181B2C08E1990029FD4A /* NewApiStubs.swift */,
 				347E60C12B41AC7E00A86FDD /* ReportReason.swift */,
 				34B661F22B4C6D11006ABA26 /* FavoritesContainer.xcdatamodeld */,
-				34C7181B2C08E1990029FD4A /* NewApiStubs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
