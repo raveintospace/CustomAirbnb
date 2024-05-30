@@ -170,7 +170,6 @@ struct Listing: Codable, Identifiable {
         let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
         let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
         
-        // Random values for properties not present in the new response
         let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
         let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...10)
         let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
@@ -259,35 +258,9 @@ struct Listing: Codable, Identifiable {
     }
     
     // MARK: - Convenience properties for filter
-    var nameToSearch: String {
-        if let nameFromApi = name {
-            return nameFromApi
-        } else {
-            return ""
-        }
-    }
+    var nameToSearch: String { name ?? "" }
+    var descriptionToSearch: String { description ?? "" }
+    var hoodToSearch: String { neighbourhood ?? "" }
+    var priceToSearch: Int { price ?? 0 }
     
-    var descriptionToSearch: String {
-        if let descriptionFromApi = description {
-            return descriptionFromApi
-        } else {
-            return ""
-        }
-    }
-    
-    var hoodToSearch: String {
-        if let hoodFromApi = neighbourhood {
-            return hoodFromApi
-        } else {
-            return ""
-        }
-    }
-    
-    var priceToSearch: Int {
-        if let priceFromApi = price {
-            return priceFromApi
-        } else {
-            return 0
-        }
-    }
 }
