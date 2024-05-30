@@ -61,7 +61,7 @@ struct NewApiStubs {
         "Madrid": [
                 "A chic apartment in the heart of Madrid, located in the lively neighborhood of Malasaña. Enjoy the vibrant nightlife and trendy cafes that define this area.",
                 "Experience the charm of Madrid in this elegant home situated in the Salamanca district. Shop at luxury boutiques and dine at gourmet restaurants.",
-                "Stay in the historic center of Madrid, in the La Latina neighborhood. Explore the famous tapas bars and vibrant street markets."
+                "Stay in the historic center of Madrid, in the La Latina neighborhood. Explore the famous tapas bars and vibrant street markets or go to Fabrik to party hard."
             ]
     ]
     
