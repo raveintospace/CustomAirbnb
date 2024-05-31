@@ -86,7 +86,11 @@ extension InfoView {
                     .frame(height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.bottom, 10)
-                Text("The Airbnb data used in this app comes from a free Opendata's API. JSON content may vary or come incomplete.")
+                Text("""
+                The Airbnb data used in this app comes from a free Opendatasoft's API. JSON content may vary or come incomplete.
+                
+                Some dummy data has been added, as the app was created with a json response that is completely different from the current one offered by Opendatasoft.
+                """)
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundColor(Color.theme.accent)
