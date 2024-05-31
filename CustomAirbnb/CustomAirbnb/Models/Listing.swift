@@ -133,7 +133,6 @@ struct Listing: Codable, Identifiable {
     // Host details
     let hostName: String?
     let hostThumbnailURL: String?
-    let hostURL: String?
     let hostListingsCount: Int
     let numberOfReviews: Int?
     let reviewScoresRating: Int?
@@ -148,7 +147,6 @@ struct Listing: Codable, Identifiable {
         case guests = "accommodates"
         case hostName = "host_name"
         case hostThumbnailURL = "host_thumbnail_url"
-        case hostURL = "host_url"
         case hostListingsCount = "calculated_host_listings_count"
         case numberOfReviews = "number_of_reviews"
         case reviewScoresRating = "review_scores_rating"
@@ -189,7 +187,6 @@ struct Listing: Codable, Identifiable {
         
         let hostName = (try? container.decode(String.self, forKey: .hostName)) ?? NewApiStubs.sampleHostNames.randomElement()!
         let hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
-        let hostURL = try? container.decode(String.self, forKey: .hostURL)
         let hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...20)
         let numberOfReviews = try? container.decode(Int.self, forKey: .numberOfReviews)
         let reviewScoresRating = (try? container.decode(Int.self, forKey: .reviewScoresRating)) ?? Int.random(in: 10...100)
@@ -210,7 +207,6 @@ struct Listing: Codable, Identifiable {
             beds: beds,
             hostName: hostName,
             hostThumbnailURL: hostThumbnailURL,
-            hostURL: hostURL,
             hostListingsCount: hostListingsCount,
             numberOfReviews: numberOfReviews,
             reviewScoresRating: reviewScoresRating
@@ -235,7 +231,6 @@ struct Listing: Codable, Identifiable {
         beds: Int = Int.random(in: 1...10),
         hostName: String? = nil,
         hostThumbnailURL: String? = nil,
-        hostURL: String? = nil,
         hostListingsCount: Int = Int.random(in: 1...20),
         numberOfReviews: Int? = nil,
         reviewScoresRating: Int? = Int.random(in: 10...100)
@@ -256,7 +251,6 @@ struct Listing: Codable, Identifiable {
         self.beds = beds
         self.hostName = hostName
         self.hostThumbnailURL = hostThumbnailURL
-        self.hostURL = hostURL
         self.hostListingsCount = hostListingsCount
         self.numberOfReviews = numberOfReviews
         self.reviewScoresRating = reviewScoresRating
