@@ -162,10 +162,9 @@ struct Listing: Codable, Identifiable {
         
         let listingURL = try? container.decode(String.self, forKey: .listingURL)
         let name = try? container.decode(String.self, forKey: .name)
-        
         let city = try? container.decode(String.self, forKey: .city)
-        let description: String
         
+        let description: String
         if let decodedDescription = try? container.decode(String.self, forKey: .description) {
             description = decodedDescription
         } else if let city = city, let cityDescriptions = NewApiStubs.sampleDescriptions[city] {

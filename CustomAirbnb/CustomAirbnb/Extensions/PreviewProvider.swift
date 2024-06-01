@@ -44,5 +44,3 @@ final class DeveloperPreview {
         reviewScoresRating: 46
     )
 }
-
-

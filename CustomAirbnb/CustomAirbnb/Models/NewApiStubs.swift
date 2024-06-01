@@ -9,7 +9,8 @@ import Foundation
 
 struct NewApiStubs {
     
-    static let sampleHostNames = [
+    // MARK: - Host Names
+    static let sampleHostNames: [String] = [
         "John Doe",
         "Jane Smith",
         "Alice Johnson",
@@ -37,6 +38,7 @@ struct NewApiStubs {
         "Antonio Romano"
     ]
     
+    // MARK: - Listing Descriptions
     static let sampleDescriptions: [String: [String]] = [
         "Amsterdam": [
             "A delightful retreat in the heart of Amsterdam, located in the Jordaan neighborhood. Explore the charming canals and trendy shops that make this area so unique. This beautifully designed apartment features a cozy living area, a modern kitchen, and a comfortable bedroom. The Jordaan is known for its narrow streets, picturesque canals, and vibrant cultural scene. Visit the Anne Frank House, browse the unique boutiques and art galleries, and enjoy the variety of cafes and restaurants. Experience the local markets, such as the Noordermarkt, and soak in the laid-back yet lively atmosphere of this iconic Amsterdam neighborhood.",

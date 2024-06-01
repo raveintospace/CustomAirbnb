@@ -25,11 +25,22 @@ struct HostImageView: View {
                     .frame(width: circleSize, height: circleSize)
                     .clipShape(Circle())
             } else {
-                Image("hostPlaceholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: circleSize, height: circleSize)
-                    .clipShape(Circle())
+                let usePlaceholder = Bool.random()
+                if usePlaceholder {
+                    Image("hostPlaceholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: circleSize, height: circleSize)
+                        .clipShape(Circle())
+                } else {
+                    let assetImages = ["host1", "host2", "host3"]
+                    let randomImageName = assetImages.randomElement() ?? "hostPlaceholder"
+                    Image(randomImageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: circleSize, height: circleSize)
+                        .clipShape(Circle())
+                }
             }
         }
     }
