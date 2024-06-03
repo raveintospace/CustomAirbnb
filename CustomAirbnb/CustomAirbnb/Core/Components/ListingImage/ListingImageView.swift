@@ -17,17 +17,10 @@ struct ListingImageView: View {
     
     var body: some View {
         ZStack {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(.rect(cornerRadius: 10))
-            } else {
-                Image("airlogo")
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(.rect(cornerRadius: 10))
-            }
+            renderListingImage()
+                .resizable()
+                .scaledToFit()
+                .clipShape(.rect(cornerRadius: 10))
         }
     }
 }
@@ -35,5 +28,23 @@ struct ListingImageView: View {
 struct ListingImageView_Previews: PreviewProvider {
     static var previews: some View {
         ListingImageView(listing: dev.listing)
+    }
+}
+
+extension ListingImageView {
+    
+    private func renderListingImage() -> Image {
+        if let image = viewModel.image {
+            return Image(uiImage: image)
+        } else {
+            let usePlaceholder = Bool.random()
+            if usePlaceholder {
+                return Image("airlogo")
+            } else {
+                let assetImages = ["midlist1", "midlist2", "midlist3", "midlist4", "midlist5", "midlist6", "midlist7", "midlist8"]
+                let randomImageName = assetImages.randomElement() ?? "hostPlaceholder"
+                return Image(randomImageName)
+            }
+        }
     }
 }
