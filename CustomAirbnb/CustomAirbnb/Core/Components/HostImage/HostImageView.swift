@@ -39,7 +39,7 @@ extension HostImageView {
         if let image = viewModel.image {
             return Image(uiImage: image)
         } else {
-            let usePlaceholder = Bool.random()
+            let usePlaceholder = Int.random(in: 0..<4) == 0 // 1 out of 4 times
             if usePlaceholder {
                 return Image("hostPlaceholder")
             } else {

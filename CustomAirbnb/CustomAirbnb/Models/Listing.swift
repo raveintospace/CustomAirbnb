@@ -180,8 +180,8 @@ struct Listing: Codable, Identifiable {
         let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
         
         let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
-        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...10)
-        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...10)
+        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...5)
+        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...8)
         let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
         
         let hostName = (try? container.decode(String.self, forKey: .hostName)) ?? NewApiStubs.sampleHostNames.randomElement()!
