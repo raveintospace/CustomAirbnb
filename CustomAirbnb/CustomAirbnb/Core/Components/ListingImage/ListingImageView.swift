@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ListingImageView: View {
     
-    @StateObject var viewModel: ListingImageViewModel
+    @StateObject private var viewModel: ListingImageViewModel
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: ListingImageViewModel(listing: listing))

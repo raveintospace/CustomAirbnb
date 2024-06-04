@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HostImageView: View {
     
-    @StateObject var viewModel: HostImageViewModel
+    @StateObject private var viewModel: HostImageViewModel
     let circleSize: CGFloat = 65
     
     init(listing: Listing) {

@@ -40,5 +40,4 @@ final class UploadViewModel: ObservableObject {
         }
         return false
     }
-    
 }

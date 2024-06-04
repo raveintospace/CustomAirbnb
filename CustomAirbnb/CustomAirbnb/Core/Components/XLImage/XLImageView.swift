@@ -9,7 +9,7 @@ import SwiftUI
 
 struct XLImageView: View {
     
-    @StateObject var viewModel: XLImageViewModel
+    @StateObject private var viewModel: XLImageViewModel
     
     @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
