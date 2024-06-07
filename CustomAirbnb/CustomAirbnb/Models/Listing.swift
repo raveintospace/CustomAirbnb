@@ -118,7 +118,6 @@ struct Listing: Codable, Identifiable {
     let name: String?
     let city: String?
     let description: String?
-    let thumbnailURL: String?
     let mediumURL: String?
     let xlPictureURL: String?
     let neighbourhood: String?
@@ -137,11 +136,14 @@ struct Listing: Codable, Identifiable {
     let numberOfReviews: Int?
     let reviewScoresRating: Int?
     
+    // Computed property to determine the asset image name
+    var assetImageName: String {
+        return Listing.getAssetImageName(for: id)
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, name, city, description, neighbourhood, price, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
-        case thumbnailURL = "thumbnail_url"
         case mediumURL = "medium_url"
         case xlPictureURL = "xl_picture_url"
         case guests = "accommodates"
@@ -173,9 +175,12 @@ struct Listing: Codable, Identifiable {
             description = "A comfortable place to stay."
         }
         
-        let thumbnailURL = try? container.decode(String.self, forKey: .thumbnailURL)
-        let mediumURL = try? container.decode(String.self, forKey: .mediumURL)
-        let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
+        let decodedMediumURL = (try? container.decode(String.self, forKey: .mediumURL)) ?? ""
+        let mediumURL = decodedMediumURL.isEmpty ? Listing.getAssetImageName(for: id) : decodedMediumURL
+        
+        let decodedXlPictureURL = (try? container.decode(String.self, forKey: .xlPictureURL)) ?? ""
+        let xlPictureURL = decodedXlPictureURL.isEmpty ? Listing.getAssetImageName(for: id) : decodedXlPictureURL
+        
         let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
         let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
         
@@ -195,7 +200,6 @@ struct Listing: Codable, Identifiable {
             listingURL: listingURL,
             name: name,
             description: description,
-            thumbnailURL: thumbnailURL,
             mediumURL: mediumURL,
             xlPictureURL: xlPictureURL,
             neighbourhood: neighbourhood,
@@ -219,7 +223,6 @@ struct Listing: Codable, Identifiable {
         name: String? = nil,
         city: String? = nil,
         description: String? = nil,
-        thumbnailURL: String? = nil,
         mediumURL: String? = nil,
         xlPictureURL: String? = nil,
         neighbourhood: String? = nil,
@@ -239,7 +242,6 @@ struct Listing: Codable, Identifiable {
         self.name = name
         self.city = city
         self.description = description
-        self.thumbnailURL = thumbnailURL
         self.mediumURL = mediumURL
         self.xlPictureURL = xlPictureURL
         self.neighbourhood = neighbourhood
@@ -270,4 +272,10 @@ struct Listing: Codable, Identifiable {
     var hoodToSearch: String { neighbourhood ?? "" }
     var priceToSearch: Int { price ?? 0 }
     
+    // Static method to get the asset image name
+    static func getAssetImageName(for id: String) -> String {
+        let assetImages = ["midlist1", "midlist2", "midlist3", "midlist4", "midlist5", "midlist6", "midlist7", "midlist8"]
+        let assetImageIndex = (id.hashValue % assetImages.count)
+        return assetImages[assetImageIndex]
+    }
 }

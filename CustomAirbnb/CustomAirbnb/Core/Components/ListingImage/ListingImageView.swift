@@ -10,7 +10,6 @@ import SwiftUI
 struct ListingImageView: View {
     
     @StateObject private var viewModel: ListingImageViewModel
-    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: ListingImageViewModel(listing: listing))
@@ -42,9 +41,7 @@ extension ListingImageView {
             if usePlaceholder {
                 return Image("airlogo")
             } else {
-                let assetImages = ["midlist1", "midlist2", "midlist3", "midlist4", "midlist5", "midlist6", "midlist7", "midlist8"]
-                let randomImageName = assetImages.randomElement() ?? "hostPlaceholder"
-                return Image(randomImageName)
+                return Image(viewModel.listing.assetImageName)
             }
         }
     }
