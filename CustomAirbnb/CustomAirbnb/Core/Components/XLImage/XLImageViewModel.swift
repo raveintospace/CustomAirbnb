@@ -14,7 +14,7 @@ final class XLImageViewModel: ObservableObject {
     @Published var image: UIImage? = nil
     
     @Published var imagesForSlider: [ImageType] = [
-        
+    
     ]
     
     private let defaultReturnedImage = UIImage(named: "noXLPictureAvailable")
@@ -43,7 +43,7 @@ final class XLImageViewModel: ObservableObject {
                 if let xlImage = returnedImage {
                     self.populateImagesForSliderWith(image: xlImage)
                 } else {
-                    self.image = defaultReturnedImage
+                    self.populateImagesForSliderWith(image: dummyPicImage())
                 }
             }
             .store(in: &cancellables)
@@ -59,5 +59,12 @@ final class XLImageViewModel: ObservableObject {
         imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageTwo))
         imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageThree))
         imagesForSlider.append(SwiftUIImage(swiftUIImage: dummyImageFour))
+    }
+    
+    private func dummyPicImage() -> UIImage {
+        guard let image = UIImage(named: listing.dummyPic) else {
+            return defaultReturnedImage ?? UIImage()
+        }
+        return image
     }
 }
