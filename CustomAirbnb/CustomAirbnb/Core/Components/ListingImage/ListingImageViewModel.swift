@@ -13,7 +13,7 @@ final class ListingImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
     
-    let listing: Listing
+    private let listing: Listing
     private let dataService: ListingImageDataService
     private var cancellables = Set<AnyCancellable>()
     
@@ -32,4 +32,6 @@ final class ListingImageViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    
 }

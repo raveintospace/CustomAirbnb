@@ -136,11 +136,6 @@ struct Listing: Codable, Identifiable {
     let numberOfReviews: Int?
     let reviewScoresRating: Int?
     
-    // Computed property to determine the asset image name
-    var assetImageName: String {
-        return Listing.getAssetImageName(for: id)
-    }
-    
     enum CodingKeys: String, CodingKey {
         case id, name, city, description, neighbourhood, price, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
@@ -175,11 +170,8 @@ struct Listing: Codable, Identifiable {
             description = "A comfortable place to stay."
         }
         
-        let decodedMediumURL = (try? container.decode(String.self, forKey: .mediumURL)) ?? ""
-        let mediumURL = decodedMediumURL.isEmpty ? Listing.getAssetImageName(for: id) : decodedMediumURL
-        
-        let decodedXlPictureURL = (try? container.decode(String.self, forKey: .xlPictureURL)) ?? ""
-        let xlPictureURL = decodedXlPictureURL.isEmpty ? Listing.getAssetImageName(for: id) : decodedXlPictureURL
+        let mediumURL = try? container.decode(String.self, forKey: .mediumURL)
+        let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
         
         let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
         let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
@@ -271,11 +263,4 @@ struct Listing: Codable, Identifiable {
     var descriptionToSearch: String { description ?? "" }
     var hoodToSearch: String { neighbourhood ?? "" }
     var priceToSearch: Int { price ?? 0 }
-    
-    // Static method to get the asset image name
-    static func getAssetImageName(for id: String) -> String {
-        let assetImages = ["midlist1", "midlist2", "midlist3", "midlist4", "midlist5", "midlist6", "midlist7", "midlist8"]
-        let assetImageIndex = (id.hashValue % assetImages.count)
-        return assetImages[assetImageIndex]
-    }
 }
