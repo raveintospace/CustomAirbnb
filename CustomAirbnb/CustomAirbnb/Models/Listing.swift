@@ -263,4 +263,9 @@ struct Listing: Codable, Identifiable {
     var descriptionToSearch: String { description ?? "" }
     var hoodToSearch: String { neighbourhood ?? "" }
     var priceToSearch: Int { price ?? 0 }
+    
+    // MARK: - Dummy listing picture
+    var dummyPic: String {
+        
+    }
 }
