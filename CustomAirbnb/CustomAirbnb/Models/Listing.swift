@@ -266,6 +266,9 @@ struct Listing: Codable, Identifiable {
     
     // MARK: - Dummy listing picture
     var dummyPic: String {
+        guard let lastChar = id.last else { return "airlogo" }
         
+        let dummyImageName = "midlist\(lastChar)"
+        return dummyImageName
     }
 }

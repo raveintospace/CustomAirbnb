@@ -41,7 +41,7 @@ extension ListingImageView {
             if usePlaceholder {
                 return Image("airlogo")
             } else {
-                return Image(viewModel.listing.assetImageName)
+                return Image(viewModel.dummyPicString())
             }
         }
     }
