@@ -13,7 +13,7 @@ struct XLImageView: View {
     
     @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
-    @State private var isLoading: Bool = true
+    @State private var isLoading: Bool = false
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: XLImageViewModel(listing: listing))
