@@ -37,12 +37,7 @@ extension ListingImageView {
         if let image = viewModel.image {
             return Image(uiImage: image)
         } else {
-            let usePlaceholder = Int.random(in: 0..<4) == 0 // 1 out of 4 times
-            if usePlaceholder {
-                return Image("airlogo")
-            } else {
-                return Image(viewModel.dummyPicString())
-            }
+            return Image(viewModel.dummyPicString())
         }
     }
 }
