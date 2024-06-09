@@ -1,10 +1,14 @@
 # CustomAirbnb
-<br/>
 SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & portfolio app to test my learnings from previous projects and new challenges.
 <br/>
 <br/>
 ⚠️⚠️ The project has been updated on 05/26/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details. ⚠️⚠️
 <br/>
+
+##
+<p align="center">
+<img src="CustomAirbnb/CustomAirbnb/Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" alt="App icon" title="App icon" width="150" height="150">
+</p>
 
 ## This app features 
 <ul>
@@ -78,18 +82,18 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & p
 
 ## Screenshots
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="images/Screenshot 2024-03-05 at 18.43.48.png" alt="Home View" title="Home View" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.44.25.png" alt="Favorites View" title="Favorites View" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.45.47.png" alt="Detail View" title="Detail View 1/2" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.43.48.png" alt="Home View" title="Home View" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.44.25.png" alt="Favorites View" title="Favorites View" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.45.47.png" alt="Detail View" title="Detail View 1/2" width="200">
 </div>   
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="images/Screenshot 2024-03-05 at 18.46.07.png" alt="Detail View" title="Detail View 2/2" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.46.27.png" alt="Book View" title="Book View" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.59.12.png" alt="Report View" title="Report View" width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.46.07.png" alt="Detail View" title="Detail View 2/2" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.46.27.png" alt="Book View" title="Book View" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.59.12.png" alt="Report View" title="Report View" width="200">
  </div> 
  <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">   
-    <img src="images/Screenshot 2024-03-05 at 18.47.22.png" alt="Upload View" title="Upload View 1" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.47.34.png" alt="Upload View" title="Upload View 2" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3" width="300">
-    <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="300">
+    <img src="images/Screenshot 2024-03-05 at 18.47.22.png" alt="Upload View" title="Upload View 1" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.47.34.png" alt="Upload View" title="Upload View 2" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="200">
  </div>     
