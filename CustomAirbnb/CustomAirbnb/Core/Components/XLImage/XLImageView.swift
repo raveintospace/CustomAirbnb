@@ -13,7 +13,7 @@ struct XLImageView: View {
     
     @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
-    @State private var isLoading: Bool = false
+    @State private var isLoading: Bool = true
     
     init(listing: Listing) {
         _viewModel = StateObject(wrappedValue: XLImageViewModel(listing: listing))
@@ -60,14 +60,18 @@ extension XLImageView {
     }
     
     private var loadingPicturesProgressView: some View {
-        ProgressView {
-            Text("Loading pictures")
-                .foregroundStyle(Color.theme.secondaryText)
-                .bold()
+        VStack {
+            ProgressView {
+                Text("Loading pictures")
+                    .foregroundStyle(Color.theme.secondaryText)
+                    .bold()
+            }
+            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+            .controlSize(.large)
+            .frameRectTenShape(height: 400)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
-        .controlSize(.large)
-        .frameRectTenShape(height: 400)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                 isLoading = false
