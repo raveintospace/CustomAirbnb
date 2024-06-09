@@ -83,13 +83,20 @@ extension XLImageView {
                 let imageType = viewModel.imagesForSlider[imageIndex]
                 let image = imageType.image
                 
-                image
-                    .scaledToFill()
-                    .aspectRatio(imageType.aspectRatio, contentMode: .fill)
-                    .tag(imageIndex)
-                    .onTapGesture {
-                        showFullScreenImage.toggle()
-                    }
+                // GR sizes and positions the image based on its parent view
+                GeometryReader { geometry in
+                    image
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                        .tag(imageIndex)
+                        .onTapGesture {
+                            showFullScreenImage.toggle()
+                        }
+                }
+                // set height 400 for all images
+                .frame(height: 400)
             }
         }
         .tabViewStyle(PageTabViewStyle())
