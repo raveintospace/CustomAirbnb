@@ -174,12 +174,12 @@ struct Listing: Codable, Identifiable {
         let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
         
         let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
-        let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 50...500)
+        let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 10...2000)
         
-        let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...10)
-        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...5)
-        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...8)
-        let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...10)
+        let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...20)
+        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...20)
+        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...20)
+        let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...20)
         
         let hostName = (try? container.decode(String.self, forKey: .hostName)) ?? NewApiStubs.sampleHostNames.randomElement()!
         let hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
@@ -218,11 +218,11 @@ struct Listing: Codable, Identifiable {
         mediumURL: String? = nil,
         xlPictureURL: String? = nil,
         neighbourhood: String? = nil,
-        price: Int = Int.random(in: 50...500),
-        guests: Int = Int.random(in: 1...10),
-        bathrooms: Double = Double.random(in: 1...10),
-        bedrooms: Int = Int.random(in: 1...10),
-        beds: Int = Int.random(in: 1...10),
+        price: Int = Int.random(in: 10...2000),
+        guests: Int = Int.random(in: 1...20),
+        bathrooms: Double = Double.random(in: 1...20),
+        bedrooms: Int = Int.random(in: 1...20),
+        beds: Int = Int.random(in: 1...20),
         hostName: String? = nil,
         hostThumbnailURL: String? = nil,
         hostListingsCount: Int = Int.random(in: 1...20),
