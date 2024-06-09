@@ -1,9 +1,9 @@
 # CustomAirbnb
 <br/>
-SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app to test my learnings from previous projects and new challenges.
+SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & portfolio app to test my learnings from previous projects and new challenges.
 <br/>
 <br/>
-⚠️⚠️ Project under construction ⚠️⚠️
+⚠️⚠️ The project has been updated on 05/26/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details. ⚠️⚠️
 <br/>
 
 ## This app features 
@@ -60,6 +60,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground app
 <li>ImageType protocol to handle an array of UIImage & Image</li>
 <li>ViewModifiers extracted for improved modularity</li>
 <li>City & ReportReason models with Stub</li>
+<li>Dummy data and images are used to handle changes in the JSON response from the new version of OpenDataSoft's API</li>
 <li>External libraries used in the project: Lottie and Vortex</li>
 </ul>
 
