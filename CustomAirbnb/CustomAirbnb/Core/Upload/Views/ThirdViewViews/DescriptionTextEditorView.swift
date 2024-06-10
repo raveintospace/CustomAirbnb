@@ -10,7 +10,7 @@ import SwiftUI
 struct DescriptionTextEditorView: View {
     
     @Binding var descriptionText: String
-    @FocusState private var isTextEditorFocused: Bool
+    @FocusState var isTextEditorFocused: Bool
     
     var body: some View {
         HStack {

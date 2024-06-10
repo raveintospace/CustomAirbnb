@@ -7,11 +7,23 @@
 
 import SwiftUI
 
+// Hashable so each case is uniquely identified
+enum FieldFocused: Hashable {
+    case title
+    case description
+    case price
+    case guests
+    case beds
+    case bedrooms
+    case bathrooms
+}
+
 struct UploadThirdView: View {
     
     @ObservedObject var viewModel: UploadViewModel
     
     @State private var showPublishAlert: Bool = false
+    @FocusState private var focusedField: FieldFocused?
     
     var body: some View {
         NavigationStack {
@@ -26,9 +38,12 @@ struct UploadThirdView: View {
                         VStack(spacing: 20) {
                             PhotosPickerView()
                             TitleTextFieldView(listingTitle: $viewModel.title)
+                                .focused($focusedField, equals: .title)
                             DescriptionTextEditorView(descriptionText: $viewModel.description)
+                                .focused($focusedField, equals: .description)
                             PriceHStack(price: $viewModel.price)
-                            GuestsBedsHStack(guests: $viewModel.guestsText, beds: $viewModel.bedsText)
+                                .focused($focusedField, equals: .price)
+                            GuestsBedsHStack(guests: $viewModel.guestsText, beds: $viewModel.bedsText, focusedField: $focusedField)
                             RoomsHStack(bedrooms: $viewModel.bedroomsText, bathrooms: $viewModel.bathroomsText)
                             continueButton
                         }
@@ -58,12 +73,15 @@ struct UploadThirdView: View {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
                     Button(action: {
-                        UIApplication.shared.hideKeyboard()
+                        handleDoneButtonTapped()
                     }, label: {
                         Text("Done")
                             .foregroundStyle(Color.theme.accent)
                     })
                 }
+            }
+            .onAppear {
+                focusedField = .title
             }
         }
     }
@@ -89,6 +107,40 @@ extension UploadThirdView {
         }
         .disabled(!viewModel.isContinueButtonThirdViewEnabled)
     }
+    
+    private func handleDoneButtonTapped() {
+        UIApplication.shared.hideKeyboard()
+        switch focusedField {
+        case .title:
+            if !viewModel.title.isEmpty {
+                focusedField = .description
+            }
+        case .description:
+            if !viewModel.description.isEmpty {
+                focusedField = .price
+            }
+        case .price:
+            if !viewModel.price.isEmpty {
+                focusedField = .guests
+            }
+        case .guests:
+            if !viewModel.guestsText.isEmpty {
+                focusedField = .beds
+            }
+        case .beds:
+            if !viewModel.bedsText.isEmpty {
+                focusedField = .bedrooms
+            }
+        case .bedrooms:
+            if !viewModel.bedroomsText.isEmpty {
+                focusedField = .bathrooms
+            }
+        case .bathrooms:
+            if !viewModel.bathroomsText.isEmpty {
+                focusedField = nil
+            }
+        case .none:
+            break
+        }
+    }
 }
-
-
