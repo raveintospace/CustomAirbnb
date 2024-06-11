@@ -33,7 +33,7 @@ struct UploadThirdView: View {
                             PriceHStack(price: $viewModel.price)
                                 .focused($focusedField, equals: .price)
                             GuestsBedsHStack(guests: $viewModel.guestsText, beds: $viewModel.bedsText, focusedField: $focusedField)
-                            RoomsHStack(bedrooms: $viewModel.bedroomsText, bathrooms: $viewModel.bathroomsText)
+                            RoomsHStack(bedrooms: $viewModel.bedroomsText, bathrooms: $viewModel.bathroomsText, focusedField: $focusedField)
                             continueButton
                         }
                     }
