@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-// Hashable so each case is uniquely identified
-enum FieldFocused: Hashable {
-    case title
-    case description
-    case price
-    case guests
-    case beds
-    case bedrooms
-    case bathrooms
-}
-
 struct UploadThirdView: View {
     
     @ObservedObject var viewModel: UploadViewModel
