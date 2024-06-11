@@ -43,30 +43,3 @@ struct GuestsBedsHStack: View {
         }
     }
 }
-
-
-
-/*
- create a file for this
- 
- struct StatefulPreviewWrapper<Value, Content: View>: View {
-     @State private var value: Value
-     private var content: (Binding<Value>) -> Content
-
-     init(_ initialValue: Value, @ViewBuilder content: @escaping (Binding<Value>) -> Content) where Value: Equatable {
-         _value = State(wrappedValue: initialValue)
-         self.content = content
-     }
-
-     var body: some View {
-         content($value)
-     }
- }
- 
- update #Preview
- #Preview {
-     StatefulPreviewWrapper(FieldFocused?.guests) { state in
-         GuestsBedsHStack(guests: .constant("300"), beds: .constant("300"), focusedField: state)
-     }
- }
- */
