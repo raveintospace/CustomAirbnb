@@ -44,9 +44,7 @@ struct GuestsBedsHStack: View {
     }
 }
 
-//#Preview {
-//    GuestsBedsHStack(guests: .constant("300"), beds: .constant("300"), focusedField: .constant(FieldFocused.guests))
-//}
+
 
 /*
  create a file for this

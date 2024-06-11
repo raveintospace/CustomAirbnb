@@ -5,7 +5,6 @@
 //  Created by Uri on 3/2/24.
 //
 
-import Foundation
 import SwiftUI
 
 enum SortOption: String, CaseIterable {
