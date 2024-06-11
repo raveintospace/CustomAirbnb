@@ -264,7 +264,7 @@ struct Listing: Codable, Identifiable {
     var hoodToSearch: String { neighbourhood ?? "" }
     var priceToSearch: Int { price ?? 0 }
     
-    // MARK: - Dummy listing picture
+    // MARK: - Dummy listing picture assignment
     var dummyPic: String {
         guard let lastChar = id.last else { return "airlogo" }
         
