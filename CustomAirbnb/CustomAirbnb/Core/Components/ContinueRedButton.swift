@@ -21,9 +21,7 @@ struct ContinueRedButton: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 30)
         })
-        .buttonStyle(.borderedProminent)
-        .buttonBorderShape(.capsule)
-        .tint(Color.theme.airRed)
+        .customRedButtonStyle()
         .padding(.horizontal, 30)
     }
 }
