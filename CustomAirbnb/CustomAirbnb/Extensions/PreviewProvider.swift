@@ -5,7 +5,6 @@
 //  Created by Uri on 18/12/23.
 //
 
-import Foundation
 import SwiftUI
 
 extension PreviewProvider {
