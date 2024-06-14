@@ -61,7 +61,8 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & p
   </ul>
 <br>  
 <li>ImageType protocol to handle an array of UIImage & Image</li>
-<li>ImagePicker UIViewControllerRepresentable to select pictures from gallery or to take new ones using device's camera</li>
+<li>ImagePicker UIViewControllerRepresentable to select multiple pictures from gallery</li>
+<li>ImagePickerCamera UIViewControllerRepresentable to take photos with device's camera
 <li>ViewModifiers extracted to improve modularity</li>
 <li>City & ReportReason models with Stub</li>
 <li>Dummy data and images are used to handle changes in the JSON response from the new version of OpenDataSoft's API</li>
