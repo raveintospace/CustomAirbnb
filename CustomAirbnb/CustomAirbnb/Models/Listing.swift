@@ -116,8 +116,8 @@ struct Listing: Codable, Identifiable {
     let id: String
     let listingURL: String?
     let name: String?
+    let city: String?
     let description: String?
-    let thumbnailURL: String?
     let mediumURL: String?
     let xlPictureURL: String?
     let neighbourhood: String?
@@ -132,27 +132,124 @@ struct Listing: Codable, Identifiable {
     // Host details
     let hostName: String?
     let hostThumbnailURL: String?
-    let hostURL: String?
     let hostListingsCount: Int
     let numberOfReviews: Int?
     let reviewScoresRating: Int?
     
-    
     enum CodingKeys: String, CodingKey {
-        case id, name, description, neighbourhood, price, bathrooms, bedrooms, beds
+        case id, name, city, description, neighbourhood, price, bathrooms, bedrooms, beds
         case listingURL = "listing_url"
-        case thumbnailURL = "thumbnail_url"
         case mediumURL = "medium_url"
         case xlPictureURL = "xl_picture_url"
         case guests = "accommodates"
         case hostName = "host_name"
         case hostThumbnailURL = "host_thumbnail_url"
-        case hostURL = "host_url"
-        case hostListingsCount = "host_listings_count"
+        case hostListingsCount = "calculated_host_listings_count"
         case numberOfReviews = "number_of_reviews"
         case reviewScoresRating = "review_scores_rating"
     }
     
+    // Custom init for decoding the json
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // fix for id, was a String in old json, now an Int in new json
+        let idInt = try container.decode(Int.self, forKey: .id)
+        let id = String(idInt)
+        
+        let listingURL = try? container.decode(String.self, forKey: .listingURL)
+        let name = try? container.decode(String.self, forKey: .name)
+        let city = try? container.decode(String.self, forKey: .city)
+        
+        let description: String
+        if let decodedDescription = try? container.decode(String.self, forKey: .description) {
+            description = decodedDescription
+        } else if let city = city, let cityDescriptions = NewApiStubs.sampleDescriptions[city] {
+            description = cityDescriptions.randomElement()!
+        } else {
+            description = "A comfortable place to stay."
+        }
+        
+        let mediumURL = try? container.decode(String.self, forKey: .mediumURL)
+        let xlPictureURL = try? container.decode(String.self, forKey: .xlPictureURL)
+        
+        let neighbourhood = try? container.decode(String.self, forKey: .neighbourhood)
+        let price = (try? container.decode(Int.self, forKey: .price)) ?? Int.random(in: 10...2000)
+        
+        let guests = (try? container.decode(Int.self, forKey: .guests)) ?? Int.random(in: 1...20)
+        let bathrooms = (try? container.decode(Double.self, forKey: .bathrooms)) ?? Double.random(in: 1...20)
+        let bedrooms = (try? container.decode(Int.self, forKey: .bedrooms)) ?? Int.random(in: 1...20)
+        let beds = (try? container.decode(Int.self, forKey: .beds)) ?? Int.random(in: 1...20)
+        
+        let hostName = (try? container.decode(String.self, forKey: .hostName)) ?? NewApiStubs.sampleHostNames.randomElement()!
+        let hostThumbnailURL = try? container.decode(String.self, forKey: .hostThumbnailURL)
+        let hostListingsCount = (try? container.decode(Int.self, forKey: .hostListingsCount)) ?? Int.random(in: 1...20)
+        let numberOfReviews = try? container.decode(Int.self, forKey: .numberOfReviews)
+        let reviewScoresRating = (try? container.decode(Int.self, forKey: .reviewScoresRating)) ?? Int.random(in: 10...100)
+        
+        self.init(
+            id: id,
+            listingURL: listingURL,
+            name: name,
+            description: description,
+            mediumURL: mediumURL,
+            xlPictureURL: xlPictureURL,
+            neighbourhood: neighbourhood,
+            price: price,
+            guests: guests,
+            bathrooms: bathrooms,
+            bedrooms: bedrooms,
+            beds: beds,
+            hostName: hostName,
+            hostThumbnailURL: hostThumbnailURL,
+            hostListingsCount: hostListingsCount,
+            numberOfReviews: numberOfReviews,
+            reviewScoresRating: reviewScoresRating
+        )
+    }
+    
+    // MARK: - Convenience init for creating instances directly, such as PreviewProvider
+    init(
+        id: String,
+        listingURL: String? = nil,
+        name: String? = nil,
+        city: String? = nil,
+        description: String? = nil,
+        mediumURL: String? = nil,
+        xlPictureURL: String? = nil,
+        neighbourhood: String? = nil,
+        price: Int = Int.random(in: 10...2000),
+        guests: Int = Int.random(in: 1...20),
+        bathrooms: Double = Double.random(in: 1...20),
+        bedrooms: Int = Int.random(in: 1...20),
+        beds: Int = Int.random(in: 1...20),
+        hostName: String? = nil,
+        hostThumbnailURL: String? = nil,
+        hostListingsCount: Int = Int.random(in: 1...20),
+        numberOfReviews: Int? = nil,
+        reviewScoresRating: Int? = Int.random(in: 10...100)
+    ) {
+        self.id = id
+        self.listingURL = listingURL
+        self.name = name
+        self.city = city
+        self.description = description
+        self.mediumURL = mediumURL
+        self.xlPictureURL = xlPictureURL
+        self.neighbourhood = neighbourhood
+        self.price = price
+        self.guests = guests
+        self.bathrooms = bathrooms
+        self.bedrooms = bedrooms
+        self.beds = beds
+        self.hostName = hostName
+        self.hostThumbnailURL = hostThumbnailURL
+        self.hostListingsCount = hostListingsCount
+        self.numberOfReviews = numberOfReviews
+        self.reviewScoresRating = reviewScoresRating
+    }
+    
+    // MARK: - Calculated property to get star width
     var starsWidth: Double {
         if let score = reviewScoresRating {
             return (Double(score) / Double(20))
@@ -161,35 +258,17 @@ struct Listing: Codable, Identifiable {
         }
     }
     
-    var nameToSearch: String {
-        if let nameFromApi = name {
-            return nameFromApi
-        } else {
-            return ""
-        }
-    }
+    // MARK: - Convenience properties for filter
+    var nameToSearch: String { name ?? "" }
+    var descriptionToSearch: String { description ?? "" }
+    var hoodToSearch: String { neighbourhood ?? "" }
+    var priceToSearch: Int { price ?? 0 }
     
-    var descriptionToSearch: String {
-        if let descriptionFromApi = description {
-            return descriptionFromApi
-        } else {
-            return ""
-        }
-    }
-    
-    var hoodToSearch: String {
-        if let hoodFromApi = neighbourhood {
-            return hoodFromApi
-        } else {
-            return ""
-        }
-    }
-    
-    var priceToSearch: Int {
-        if let priceFromApi = price {
-            return priceFromApi
-        } else {
-            return 0
-        }
+    // MARK: - Dummy listing picture assignment
+    var dummyPic: String {
+        guard let lastChar = id.last else { return "airlogo" }
+        
+        let dummyImageName = "dp\(lastChar)"
+        return dummyImageName
     }
 }

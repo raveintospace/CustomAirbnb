@@ -121,9 +121,7 @@ extension BookView {
             }
             .foregroundStyle(Color.white)
         })
-        .buttonStyle(.borderedProminent)
-        .buttonBorderShape(.capsule)
-        .tint(Color.theme.airRed)
+        .customRedButtonStyle()
         .padding()
     }
     

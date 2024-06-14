@@ -10,39 +10,36 @@ import SwiftUI
 struct GuestsBedsHStack: View {
     
     @Binding var guests: String
-    @FocusState private var isGuestsFieldFocused: Bool
-    
     @Binding var beds: String
-    @FocusState private var isBedsFieldFocused: Bool
+    
+    // FocusState.Binding because it is linked to UploadThirdView's @FocusState
+    @FocusState.Binding var focusedField: FieldFocused?
     
     var body: some View {
         HStack(alignment: .center) {
             HStack {
                 IntegerVStackWithTextField(inputText: $guests, placeholder: "", title: "Guests")
-                    .focused($isGuestsFieldFocused)
+                    .focused($focusedField, equals: .guests)
                     
-                if !guests.isEmpty && isGuestsFieldFocused {
+                if !guests.isEmpty && focusedField == .guests {
                     UploadThirdViewDeletionButton(text: $guests)
                 }
             }
-            .focusedStroke(isGuestsFieldFocused)
+            .focusedStroke(focusedField == .guests)
             .padding(.leading)
             .frame(width: UIScreen.main.bounds.width / 2)
             
             HStack {
-                IntegerVStackWithTextField(inputText: $beds, placeholder: "", title: "Beds").focused($isBedsFieldFocused)
+                IntegerVStackWithTextField(inputText: $beds, placeholder: "", title: "Beds")
+                    .focused($focusedField, equals: .beds)
                 
-                if !beds.isEmpty && isBedsFieldFocused {
+                if !beds.isEmpty && focusedField == .beds {
                     UploadThirdViewDeletionButton(text: $beds)
                 }
             }
-            .focusedStroke(isBedsFieldFocused)
+            .focusedStroke(focusedField == .beds)
             .padding(.trailing)
             .frame(width: UIScreen.main.bounds.width / 2)
         }
     }
-}
-
-#Preview {
-    GuestsBedsHStack(guests: .constant("300"), beds: .constant("300"))
 }

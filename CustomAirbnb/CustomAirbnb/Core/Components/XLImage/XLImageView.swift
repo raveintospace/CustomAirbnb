@@ -9,7 +9,7 @@ import SwiftUI
 
 struct XLImageView: View {
     
-    @StateObject var viewModel: XLImageViewModel
+    @StateObject private var viewModel: XLImageViewModel
     
     @State private var sliderCurrentIndex: Int = 0
     @State private var showFullScreenImage: Bool = false
@@ -60,14 +60,18 @@ extension XLImageView {
     }
     
     private var loadingPicturesProgressView: some View {
-        ProgressView {
-            Text("Loading pictures")
-                .foregroundStyle(Color.theme.secondaryText)
-                .bold()
+        VStack {
+            ProgressView {
+                Text("Loading pictures")
+                    .foregroundStyle(Color.theme.secondaryText)
+                    .bold()
+            }
+            .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
+            .controlSize(.large)
+            .frameRectTenShape(height: 400)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .progressViewStyle(CircularProgressViewStyle(tint: Color.theme.airRed))
-        .controlSize(.large)
-        .frameRectTenShape(height: 400)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                 isLoading = false
@@ -83,13 +87,20 @@ extension XLImageView {
                 let imageType = viewModel.imagesForSlider[imageIndex]
                 let image = imageType.image
                 
-                image
-                    .scaledToFill()
-                    .aspectRatio(imageType.aspectRatio, contentMode: .fill)
-                    .tag(imageIndex)
-                    .onTapGesture {
-                        showFullScreenImage.toggle()
-                    }
+                // GR sizes and positions the image based on its parent view
+                GeometryReader { geometry in
+                    image
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                        .tag(imageIndex)
+                        .onTapGesture {
+                            showFullScreenImage.toggle()
+                        }
+                }
+                // set height 400 for all images
+                .frame(height: 400)
             }
         }
         .tabViewStyle(PageTabViewStyle())

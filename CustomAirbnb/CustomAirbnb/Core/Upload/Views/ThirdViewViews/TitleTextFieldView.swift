@@ -10,7 +10,7 @@ import SwiftUI
 struct TitleTextFieldView: View {
     
     @Binding var listingTitle: String
-    @FocusState private var isTitleTextFieldFocused: Bool
+    @FocusState var isTitleTextFieldFocused: Bool
     
     var body: some View {
         HStack {

@@ -10,7 +10,7 @@ import SwiftUI
 struct PriceHStack: View {
     
     @Binding var price: String
-    @FocusState private var isPriceFieldFocused: Bool
+    @FocusState var isPriceFieldFocused: Bool
     @State private var selectedCurrency: String = "EUR"
     
     private let currencies: [String] = ["AUD", "CAD", "EUR", "GBP", "USD"]

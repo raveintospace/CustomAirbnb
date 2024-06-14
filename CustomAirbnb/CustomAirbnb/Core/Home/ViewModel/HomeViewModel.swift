@@ -162,7 +162,7 @@ final class HomeViewModel: ObservableObject {
         priceFilter = 2000
     }
     
-// MARK: - Extracted methods
+    // MARK: - Extracted methods
     
     // filter using searchText & grid filters
     private func filterListings(text: String, listings: [Listing]) -> [Listing] {

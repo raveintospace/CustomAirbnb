@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HostImageView: View {
     
-    @StateObject var viewModel: HostImageViewModel
+    @StateObject private var viewModel: HostImageViewModel
     let circleSize: CGFloat = 65
     
     init(listing: Listing) {
@@ -18,19 +18,11 @@ struct HostImageView: View {
     
     var body: some View {
         ZStack {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: circleSize, height: circleSize)
-                    .clipShape(Circle())
-            } else {
-                Image("hostPlaceholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: circleSize, height: circleSize)
-                    .clipShape(Circle())
-            }
+            renderHostImage()
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: circleSize, height: circleSize)
+                .clipShape(Circle())
         }
     }
 }
@@ -38,5 +30,23 @@ struct HostImageView: View {
 struct HostImageView_Previews: PreviewProvider {
     static var previews: some View {
         HostImageView(listing: dev.listing)
+    }
+}
+
+extension HostImageView {
+    
+    private func renderHostImage() -> Image {
+        if let image = viewModel.image {
+            return Image(uiImage: image)
+        } else {
+            let usePlaceholder = Int.random(in: 0..<4) == 0 // 1 out of 4 times
+            if usePlaceholder {
+                return Image("hostPlaceholder")
+            } else {
+                let assetImages = ["host1", "host2", "host3"]
+                let randomImageName = assetImages.randomElement() ?? "hostPlaceholder"
+                return Image(randomImageName)
+            }
+        }
     }
 }

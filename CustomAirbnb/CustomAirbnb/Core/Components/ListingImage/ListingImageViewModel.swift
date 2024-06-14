@@ -32,4 +32,9 @@ final class ListingImageViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func dummyPicString() -> String {
+        return listing.dummyPic
+    }
+    
 }
