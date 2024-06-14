@@ -7,7 +7,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & p
 
 ##
 <p align="center">
-<img src="CustomAirbnb/CustomAirbnb/Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" alt="App icon" title="App icon" width="150" height="150">
+<img src="CustomAirbnb/CustomAirbnb/Assets.xcassets/AppIcon.appiconset/customAppLogo.png" alt="App icon" title="App icon" width="150" height="150">
 </p>
 
 ## This app features 
