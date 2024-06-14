@@ -13,9 +13,7 @@ final class XLImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
     
-    @Published var imagesForSlider: [ImageType] = [
-    
-    ]
+    @Published var imagesForSlider: [ImageType] = []
     
     private let defaultReturnedImage = UIImage(named: "noXLPictureAvailable")
     private let dummyImageOne = Image("dummyPicSlider1")
