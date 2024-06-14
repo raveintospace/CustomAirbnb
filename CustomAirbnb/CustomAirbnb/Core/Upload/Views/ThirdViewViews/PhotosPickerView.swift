@@ -13,72 +13,83 @@ struct PhotosPickerView: View {
     @State private var imagePreviews: [UIImage] = []
     @State private var photosPickerItems: [PhotosPickerItem] = []
     
-    @State private var image: Image? = Image("airlogo")
+    @State private var shouldPresentConfirmationDialog: Bool = false
     @State private var shouldPresentImagePicker: Bool = false
-    @State private var shouldPresentActionScheet: Bool = false
     @State private var shouldPresentCamera: Bool = false
+    @State private var selectedImage: UIImage?
     
     var body: some View {
-        PhotosPicker(selection: $photosPickerItems, maxSelectionCount: 10, selectionBehavior: .ordered, matching: .images) {
-            Grid(horizontalSpacing: 20, verticalSpacing: 15) {
-                ForEach(0..<2, id: \.self) { rowIndex in
-                    GridRow {
-                        ForEach(0..<5, id: \.self) { columnIndex in
-                            let index = rowIndex * 5 + columnIndex
-                            if index < imagePreviews.count {
-                                Image(uiImage: imagePreviews[index])
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
-                                    .onTapGesture {
-                                        // delete or replace picture
-                                    }
-                            } else {
-                                cameraPlaceholder
+        VStack {
+            PhotosPicker(
+                selection: $photosPickerItems,
+                maxSelectionCount: 10,
+                selectionBehavior: .ordered,
+                matching: .images
+            ) {
+                Grid(horizontalSpacing: 20, verticalSpacing: 15) {
+                    ForEach(0..<2, id: \.self) { rowIndex in
+                        GridRow {
+                            ForEach(0..<5, id: \.self) { columnIndex in
+                                let index = rowIndex * 5 + columnIndex
+                                if index < imagePreviews.count {
+                                    Image(uiImage: imagePreviews[index])
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .onTapGesture {
+                                            // delete or replace picture
+                                        }
+                                } else {
+                                    cameraPlaceholder
+                                        .onTapGesture {
+                                            shouldPresentConfirmationDialog = true
+                                        }
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        
-        // convert data from photosPicker to UIImage
-        .onChange(of: photosPickerItems) { _, _ in
-            Task {
-                for item in photosPickerItems {
-                    if let data = try? await item.loadTransferable(type: Data.self) {
-                        if let image = UIImage(data: data) {
-                            imagePreviews.append(image)
+            
+            // convert data from photosPicker to UIImage
+            .onChange(of: photosPickerItems) { _, _ in
+                Task {
+                    for item in photosPickerItems {
+                        if let data = try? await item.loadTransferable(type: Data.self) {
+                            if let image = UIImage(data: data) {
+                                imagePreviews.append(image)
+                            }
                         }
                     }
+                    
+                    // make photosPickerItems available for future selections
+                    photosPickerItems.removeAll()
                 }
-                
-                // make photosPickerItems available for future selections
-                photosPickerItems.removeAll()
+        }
+            .sheet(isPresented: $shouldPresentImagePicker) {
+                ImagePicker(sourceType: .photoLibrary) { image in
+                    if let image = image {
+                        imagePreviews.append(image)
+                    }
+                }
+            }
+            .sheet(isPresented: $shouldPresentCamera) {
+                ImagePicker(sourceType: .camera) { image in
+                    if let image = image {
+                        imagePreviews.append(image)
+                    }
+                }
+            }
+            .confirmationDialog("Select photo", isPresented: $shouldPresentConfirmationDialog) {
+                Button("Camera") {
+                    shouldPresentCamera = true
+                }
+                Button("Photo library") {
+                    shouldPresentImagePicker = true
+                }
+                Button("Cancel", role: .cancel) { }
             }
         }
-        
-        //        if let dummyImage = image {
-        //            dummyImage
-        //                .resizable()
-        //                .scaledToFit()
-        //                .frame(width: 50, height: 50)
-        //                .overlay(RoundedRectangle(cornerRadius: 10)
-        //                    .stroke(Color.theme.secondaryText.opacity(0.5), lineWidth: 1)
-        //                    .frame(width: 50, height: 50))
-        //                .onTapGesture { self.shouldPresentActionScheet = true }
-        //                .sheet(isPresented: $shouldPresentImagePicker) {
-        //                    ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
-        //                }.actionSheet(isPresented: $shouldPresentActionScheet) { () -> ActionSheet in
-        //                    ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-        //                        self.shouldPresentImagePicker = true
-        //                        self.shouldPresentCamera = true
-        //                    }), ActionSheet.Button.default(Text("Photo Library"), action: {
-        //                        self.shouldPresentImagePicker = true
-        //                        self.shouldPresentCamera = false
-        //                    }), ActionSheet.Button.cancel()])
-        //                }
-        //        }
     }
 }
 

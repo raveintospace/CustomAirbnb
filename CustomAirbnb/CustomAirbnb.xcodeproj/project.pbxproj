@@ -70,7 +70,7 @@
 		34B8CBC32B320F6C0051985E /* ListingImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */; };
 		34BFC35D2B78E9FD0071659E /* UploadThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */; };
 		34C7181C2C08E1990029FD4A /* NewApiStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7181B2C08E1990029FD4A /* NewApiStubs.swift */; };
-		34C980CC2B851E1C004D478A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C980CB2B851E1C004D478A /* ImagePickerView.swift */; };
+		34C980CC2B851E1C004D478A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C980CB2B851E1C004D478A /* ImagePicker.swift */; };
 		34C9E05C2B71551E0019CDC5 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E05B2B71551E0019CDC5 /* UploadViewModel.swift */; };
 		34D358182B40625100255E11 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358172B40625100255E11 /* ReportView.swift */; };
 		34D3581A2B4098F800255E11 /* ReportRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358192B4098F800255E11 /* ReportRowView.swift */; };
@@ -149,7 +149,7 @@
 		34B8CBC22B320F6C0051985E /* ListingImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageDataService.swift; sourceTree = "<group>"; };
 		34BFC35C2B78E9FD0071659E /* UploadThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadThirdView.swift; sourceTree = "<group>"; };
 		34C7181B2C08E1990029FD4A /* NewApiStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewApiStubs.swift; sourceTree = "<group>"; };
-		34C980CB2B851E1C004D478A /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		34C980CB2B851E1C004D478A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		34C9E05B2B71551E0019CDC5 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		34D358172B40625100255E11 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		34D358192B4098F800255E11 /* ReportRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRowView.swift; sourceTree = "<group>"; };
@@ -462,7 +462,7 @@
 		34C980CA2B851DEC004D478A /* UIViewControllerRepresentable */ = {
 			isa = PBXGroup;
 			children = (
-				34C980CB2B851E1C004D478A /* ImagePickerView.swift */,
+				34C980CB2B851E1C004D478A /* ImagePicker.swift */,
 			);
 			path = UIViewControllerRepresentable;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 				34EBC6D92B6E795000AC68C5 /* SortOption.swift in Sources */,
 				348680A72B6420B500E0D95A /* FullScreenImageView.swift in Sources */,
 				342876DB2B876D47008CBDE1 /* DescriptionTextEditorView.swift in Sources */,
-				34C980CC2B851E1C004D478A /* ImagePickerView.swift in Sources */,
+				34C980CC2B851E1C004D478A /* ImagePicker.swift in Sources */,
 				349695622B8A15D4003C0A59 /* RoomsHStack.swift in Sources */,
 				348A87482B4ACF7300BBDF4D /* SearchBarView.swift in Sources */,
 				34F063B02B30C041003966B9 /* PreviewProvider.swift in Sources */,
