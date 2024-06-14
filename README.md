@@ -2,7 +2,7 @@
 SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & portfolio app to test my learnings from previous projects and new challenges.
 <br/>
 <br/>
-⚠️⚠️ The project has been updated on 05/26/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details. ⚠️⚠️
+⚠️⚠️ The project has been updated on 06/14/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details and the commits before merging it to main. ⚠️⚠️
 <br/>
 
 ##
