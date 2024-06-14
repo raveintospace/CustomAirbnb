@@ -17,6 +17,7 @@
 		341A58982B3C9C7C00414188 /* HostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58972B3C9C7C00414188 /* HostImageView.swift */; };
 		341A589A2B3C9FAB00414188 /* HostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A58992B3C9FAB00414188 /* HostInfoView.swift */; };
 		341FFFC52B936AFE007C0CF7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FFFC42B936AFE007C0CF7 /* LottieView.swift */; };
+		34221BFB2C1CAE82005BC33A /* ImagePickerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34221BFA2C1CAE82005BC33A /* ImagePickerCamera.swift */; };
 		342876D92B8764DC008CBDE1 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */; };
 		342876DB2B876D47008CBDE1 /* DescriptionTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */; };
 		342876DF2B87C051008CBDE1 /* PriceHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342876DE2B87C051008CBDE1 /* PriceHStack.swift */; };
@@ -99,6 +100,7 @@
 		341A58972B3C9C7C00414188 /* HostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostImageView.swift; sourceTree = "<group>"; };
 		341A58992B3C9FAB00414188 /* HostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoView.swift; sourceTree = "<group>"; };
 		341FFFC42B936AFE007C0CF7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		34221BFA2C1CAE82005BC33A /* ImagePickerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCamera.swift; sourceTree = "<group>"; };
 		342876D82B8764DC008CBDE1 /* TitleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldView.swift; sourceTree = "<group>"; };
 		342876DA2B876D47008CBDE1 /* DescriptionTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextEditorView.swift; sourceTree = "<group>"; };
 		342876DE2B87C051008CBDE1 /* PriceHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHStack.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				34C980CB2B851E1C004D478A /* ImagePicker.swift */,
+				34221BFA2C1CAE82005BC33A /* ImagePickerCamera.swift */,
 			);
 			path = UIViewControllerRepresentable;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				34F063AA2B30B69F003966B9 /* ListingDataService.swift in Sources */,
 				34013B582B6FAAE400D65078 /* FiltersRowView.swift in Sources */,
 				34B4E5492B542F2800FDE7E4 /* DismissXButton.swift in Sources */,
+				34221BFB2C1CAE82005BC33A /* ImagePickerCamera.swift in Sources */,
 				34BFC35D2B78E9FD0071659E /* UploadThirdView.swift in Sources */,
 				34B4E5452B54245E00FDE7E4 /* BookView.swift in Sources */,
 				34B8CBC12B320E700051985E /* ListingImageView.swift in Sources */,

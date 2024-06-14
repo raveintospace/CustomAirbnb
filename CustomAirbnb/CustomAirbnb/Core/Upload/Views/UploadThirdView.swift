@@ -70,7 +70,7 @@ struct UploadThirdView: View {
                 }
             }
             .onAppear {
-                focusedField = .title
+                focusedField = .title // MARK: - TO DO: remove this modifier
             }
         }
     }

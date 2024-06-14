@@ -1,36 +1,39 @@
 //
 //  ImagePickerView.swift
 //  CustomAirbnb
-//  To select images from the photo library or taking new photos using the camera
+//  To select multiple images from the photo library
 //  Created by Uri on 20/2/24.
 //
 
 import SwiftUI
-import UIKit
+import PhotosUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     
-    var sourceType: UIImagePickerController.SourceType      // camera or library
-    var onImagePicked: (UIImage?) -> Void                   // closure to handle the selected image
+    // closure to handle the selected images
+    var onImagePicked: ([UIImage]) -> Void
+    
+    func makeUIViewController(context: Context) -> PHPickerViewController {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 10
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = context.coordinator
+        return picker
+    }
     
     // Communication between UIImagePickerController and SwiftUI.
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.sourceType = sourceType
-        picker.delegate = context.coordinator
-        return picker
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
         // Required method for UIViewControllerRepresentable
     }
 }
 
-class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class Coordinator: NSObject, PHPickerViewControllerDelegate {
     
     let parent: ImagePicker
     
@@ -38,15 +41,24 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         self.parent = parent
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as? UIImage
-        parent.onImagePicked(image)
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
+        
+        var images: [UIImage] = []
+        let dispatchGroup = DispatchGroup()
+        
+        for result in results {
+            dispatchGroup.enter()
+            result.itemProvider.loadObject(ofClass: UIImage.self) { (object, error) in
+                if let image = object as? UIImage {
+                    images.append(image)
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.parent.onImagePicked(images)
+        }
     }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        parent.onImagePicked(nil)
-        picker.dismiss(animated: true)
-    }
-    
 }
