@@ -76,6 +76,8 @@
 		34D3581A2B4098F800255E11 /* ReportRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D358192B4098F800255E11 /* ReportRowView.swift */; };
 		34E05C3C2B6BDDC500146F73 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E05C3B2B6BDDC500146F73 /* FiltersView.swift */; };
 		34E7BBE02B2786040043D7FA /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7BBDF2B2786040043D7FA /* ListingsResponse.swift */; };
+		34E7BE032C1CA7AD00F9A954 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = 34E7BE022C1CA7AD00F9A954 /* Vortex */; };
+		34E7BE052C1CA7B900F9A954 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34E7BE042C1CA7B900F9A954 /* Lottie */; };
 		34E8B08B2B5C3C390043B979 /* ConfirmationRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8B08A2B5C3C390043B979 /* ConfirmationRectangle.swift */; };
 		34EBC6D92B6E795000AC68C5 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBC6D82B6E795000AC68C5 /* SortOption.swift */; };
 		34F063A72B30B646003966B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F063A62B30B646003966B9 /* NetworkManager.swift */; };
@@ -172,6 +174,8 @@
 			files = (
 				347BAE012B93982F00F0CFFF /* Vortex in Frameworks */,
 				346EBF2D2B9343A000E606DA /* Lottie in Frameworks */,
+				34E7BE032C1CA7AD00F9A954 /* Vortex in Frameworks */,
+				34E7BE052C1CA7B900F9A954 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +555,8 @@
 			packageProductDependencies = (
 				346EBF2C2B9343A000E606DA /* Lottie */,
 				347BAE002B93982F00F0CFFF /* Vortex */,
+				34E7BE022C1CA7AD00F9A954 /* Vortex */,
+				34E7BE042C1CA7B900F9A954 /* Lottie */,
 			);
 			productName = CustomAirbnb;
 			productReference = 344DC5142B277D6100481B0E /* CustomAirbnb.app */;
@@ -919,6 +925,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 347BADFF2B93982F00F0CFFF /* XCRemoteSwiftPackageReference "Vortex" */;
 			productName = Vortex;
+		};
+		34E7BE022C1CA7AD00F9A954 /* Vortex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 347BADFF2B93982F00F0CFFF /* XCRemoteSwiftPackageReference "Vortex" */;
+			productName = Vortex;
+		};
+		34E7BE042C1CA7B900F9A954 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 346EBF2B2B9343A000E606DA /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
