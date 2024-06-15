@@ -1,7 +1,6 @@
 //
 //  PhotosPickerView.swift
 //  CustomAirbnb
-//  https://www.youtube.com/watch?v=jCskmh46L-s - SwiftUI PhotoPicker Sean Allen
 //  Created by Uri on 16/2/24.
 //
 
@@ -14,7 +13,8 @@ struct PhotosPickerView: View {
     @State private var shouldPresentConfirmationDialog: Bool = false
     @State private var shouldPresentImagePicker: Bool = false
     @State private var shouldPresentCamera: Bool = false
-    @State private var selectedImage: UIImage?
+    @State private var selectedImageIndex: Int?
+    @State private var isReplaceAction: Bool = false
     
     var body: some View {
         VStack {
@@ -29,11 +29,13 @@ struct PhotosPickerView: View {
                                     .scaledToFit()
                                     .frame(width: 50, height: 50)
                                     .onTapGesture {
-                                        // delete or replace picture
+                                        selectedImageIndex = index
+                                        shouldPresentConfirmationDialog = true
                                     }
                             } else {
                                 cameraPlaceholder
                                     .onTapGesture {
+                                        selectedImageIndex = nil
                                         shouldPresentConfirmationDialog = true
                                     }
                             }
@@ -44,22 +46,42 @@ struct PhotosPickerView: View {
         }
             .sheet(isPresented: $shouldPresentImagePicker) {
                 ImagePicker { images in
-                    imagePreviews.append(contentsOf: images)
+                    if let index = selectedImageIndex, isReplaceAction, let newImage = images.first {
+                        imagePreviews[index] = newImage
+                    } else {
+                        imagePreviews.append(contentsOf: images)
+                    }
                 }
             }
             .sheet(isPresented: $shouldPresentCamera) {
                 ImagePickerCamera(sourceType: .camera) { image in
-                    if let image = image {
-                        imagePreviews.append(image)
+                    if let index = selectedImageIndex, isReplaceAction, let newImage = image {
+                        imagePreviews[index] = newImage
+                    } else if let newImage = image {
+                        imagePreviews.append(newImage)
                     }
                 }
             }
             .confirmationDialog("Select photo", isPresented: $shouldPresentConfirmationDialog) {
-                Button("Camera") {
-                    shouldPresentCamera = true
-                }
-                Button("Photo library") {
-                    shouldPresentImagePicker = true
+                if selectedImageIndex != nil {
+                    Button("Replace") {
+                        isReplaceAction = true
+                        shouldPresentImagePicker = true
+                    }
+                    Button("Delete") {
+                        if let index = selectedImageIndex {
+                            imagePreviews.remove(at: index)
+                        }
+                    }
+                } else {
+                    Button("Camera") {
+                        isReplaceAction = false
+                        shouldPresentCamera = true
+                    }
+                    Button("Photo library") {
+                        isReplaceAction = false
+                        shouldPresentImagePicker = true
+                    }
                 }
                 Button("Cancel", role: .cancel) { }
             }
