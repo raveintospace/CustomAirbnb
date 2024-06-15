@@ -43,11 +43,11 @@ struct UploadThirdView: View {
                 Alert(
                     title: Text("Submit your listing"),
                     message: Text("Your listing will be reviewed before becoming published"),
-                    primaryButton: .default(Text("Submit")) {
-                        viewModel.dismissUploadSheet.toggle()
-                    },
-                    secondaryButton: .cancel() {
+                    primaryButton: .destructive(Text("Cancel")) {
                         showPublishAlert = false
+                    },
+                    secondaryButton: .default(Text("Submit")) {
+                        viewModel.dismissUploadSheet.toggle()
                     }
                 )
             }

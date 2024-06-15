@@ -50,12 +50,12 @@ struct ReportView: View {
                     Alert(
                         title: Text("Report listing"),
                         message: Text("Are you sure you want to report this listing"),
-                        primaryButton: .default(Text("Report")) {
+                        primaryButton: .destructive(Text("Cancel")) {
+                            removeSelectedReportReason()
+                        },
+                        secondaryButton: .default(Text("Report")) {
                             dismiss()
                             self.activateReportThanks()
-                        },
-                        secondaryButton: .cancel() {
-                            removeSelectedReportReason()
                         }
                     )
                 }

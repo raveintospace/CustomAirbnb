@@ -46,11 +46,11 @@ struct BookView: View {
                     Alert(
                         title: Text("Book listing"),
                         message: Text("Do you want to send this book request?"),
-                        primaryButton: .default(Text("Confirm")) {
+                        primaryButton: .destructive(Text("Cancel")),
+                        secondaryButton: .default(Text("Confirm")) {
                             dismiss()
                             self.activateBookRequested()
-                        },
-                        secondaryButton: .cancel()
+                        }
                     )
                 }
                     .navigationTitle("Book this listing")
