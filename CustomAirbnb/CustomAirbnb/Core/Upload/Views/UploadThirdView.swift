@@ -96,37 +96,42 @@ extension UploadThirdView {
     
     private func handleDoneButtonTapped() {
         UIApplication.shared.hideKeyboard()
-        switch focusedField {
-        case .title:
-            if !viewModel.title.isEmpty {
-                focusedField = .description
+        
+        if viewModel.isContinueButtonThirdViewEnabled {
+            focusedField = nil
+        } else {
+            switch focusedField {
+            case .title:
+                if !viewModel.title.isEmpty {
+                    focusedField = .description
+                }
+            case .description:
+                if !viewModel.description.isEmpty {
+                    focusedField = .price
+                }
+            case .price:
+                if !viewModel.price.isEmpty {
+                    focusedField = .guests
+                }
+            case .guests:
+                if !viewModel.guestsText.isEmpty {
+                    focusedField = .beds
+                }
+            case .beds:
+                if !viewModel.bedsText.isEmpty {
+                    focusedField = .bedrooms
+                }
+            case .bedrooms:
+                if !viewModel.bedroomsText.isEmpty {
+                    focusedField = .bathrooms
+                }
+            case .bathrooms:
+                if !viewModel.bathroomsText.isEmpty {
+                    focusedField = nil
+                }
+            case .none:
+                break
             }
-        case .description:
-            if !viewModel.description.isEmpty {
-                focusedField = .price
-            }
-        case .price:
-            if !viewModel.price.isEmpty {
-                focusedField = .guests
-            }
-        case .guests:
-            if !viewModel.guestsText.isEmpty {
-                focusedField = .beds
-            }
-        case .beds:
-            if !viewModel.bedsText.isEmpty {
-                focusedField = .bedrooms
-            }
-        case .bedrooms:
-            if !viewModel.bedroomsText.isEmpty {
-                focusedField = .bathrooms
-            }
-        case .bathrooms:
-            if !viewModel.bathroomsText.isEmpty {
-                focusedField = nil
-            }
-        case .none:
-            break
         }
     }
 }
