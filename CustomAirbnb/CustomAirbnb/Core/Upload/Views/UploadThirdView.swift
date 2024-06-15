@@ -69,9 +69,6 @@ struct UploadThirdView: View {
                     })
                 }
             }
-            .onAppear {
-                focusedField = .title // MARK: - TO DO: remove this modifier
-            }
         }
     }
 }
@@ -92,7 +89,7 @@ extension UploadThirdView {
     private var continueButton: some View {
         ContinueRedButton {
             showPublishAlert = true
-            // show a confirmation rectangle in homeview
+            // shows a confirmation rectangle in homeview
         }
         .disabled(!viewModel.isContinueButtonThirdViewEnabled)
     }
