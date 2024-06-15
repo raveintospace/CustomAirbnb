@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class UploadViewModel: ObservableObject {
     
@@ -16,6 +17,7 @@ final class UploadViewModel: ObservableObject {
     // MARK: - Dismiss Upload sheet from UploadThirdView
     @Published var dismissUploadSheet: Bool = false
     
+    @Published var imagePreviews: [UIImage] = []
     @Published var title: String = ""
     @Published var description: String = ""
     @Published var price: String = ""

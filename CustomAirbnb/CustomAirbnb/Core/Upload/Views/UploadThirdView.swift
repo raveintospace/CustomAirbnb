@@ -25,7 +25,7 @@ struct UploadThirdView: View {
                     
                     ScrollView {
                         VStack(spacing: 20) {
-                            PhotosPickerView()
+                            PhotosPickerView(viewModel: viewModel)
                             TitleTextFieldView(listingTitle: $viewModel.title)
                                 .focused($focusedField, equals: .title)
                             DescriptionTextEditorView(descriptionText: $viewModel.description)

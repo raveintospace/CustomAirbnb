@@ -9,7 +9,8 @@ import PhotosUI
 
 struct PhotosPickerView: View {
     
-    @State private var imagePreviews: [UIImage] = []
+    @ObservedObject var viewModel: UploadViewModel
+    
     @State private var shouldPresentConfirmationDialog: Bool = false
     @State private var shouldPresentImagePicker: Bool = false
     @State private var shouldPresentCamera: Bool = false
@@ -23,8 +24,8 @@ struct PhotosPickerView: View {
                     GridRow {
                         ForEach(0..<5, id: \.self) { columnIndex in
                             let index = rowIndex * 5 + columnIndex
-                            if index < imagePreviews.count {
-                                Image(uiImage: imagePreviews[index])
+                            if index < viewModel.imagePreviews.count {
+                                Image(uiImage: viewModel.imagePreviews[index])
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 50, height: 50)
@@ -47,18 +48,18 @@ struct PhotosPickerView: View {
             .sheet(isPresented: $shouldPresentImagePicker) {
                 ImagePicker { images in
                     if let index = selectedImageIndex, isReplaceAction, let newImage = images.first {
-                        imagePreviews[index] = newImage
+                        viewModel.imagePreviews[index] = newImage
                     } else {
-                        imagePreviews.append(contentsOf: images)
+                        viewModel.imagePreviews.append(contentsOf: images)
                     }
                 }
             }
             .sheet(isPresented: $shouldPresentCamera) {
                 ImagePickerCamera(sourceType: .camera) { image in
                     if let index = selectedImageIndex, isReplaceAction, let newImage = image {
-                        imagePreviews[index] = newImage
+                        viewModel.imagePreviews[index] = newImage
                     } else if let newImage = image {
-                        imagePreviews.append(newImage)
+                        viewModel.imagePreviews.append(newImage)
                     }
                 }
             }
@@ -70,7 +71,7 @@ struct PhotosPickerView: View {
                     }
                     Button("Delete") {
                         if let index = selectedImageIndex {
-                            imagePreviews.remove(at: index)
+                            viewModel.imagePreviews.remove(at: index)
                         }
                     }
                 } else {
@@ -89,7 +90,7 @@ struct PhotosPickerView: View {
 }
 
 #Preview {
-    PhotosPickerView()
+    PhotosPickerView(viewModel: UploadViewModel())
 }
 
 extension PhotosPickerView {
