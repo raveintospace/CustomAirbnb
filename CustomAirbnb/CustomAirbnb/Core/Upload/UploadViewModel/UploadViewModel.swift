@@ -14,8 +14,10 @@ final class UploadViewModel: ObservableObject {
     
     let globeImages = ["globe.americas", "globe.europe.africa", "globe.central.south.asia", "globe.asia.australia"]
     
-    // MARK: - Dismiss Upload sheet from UploadThirdView
+    // Dismiss Upload sheet from UploadThirdView when form is submited
     @Published var dismissUploadSheet: Bool = false
+    
+    @Published var selectedHood: String? = nil
     
     @Published var imagePreviews: [UIImage] = []
     @Published var title: String = ""

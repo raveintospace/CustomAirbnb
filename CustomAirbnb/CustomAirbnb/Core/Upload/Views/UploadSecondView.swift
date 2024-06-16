@@ -13,7 +13,6 @@ struct UploadSecondView: View {
     
     @Binding var listingLocation: String
     
-    @State private var selectedHood: String? = nil
     @State private var showUploadThirdView: Bool = false
     
     var body: some View {
@@ -28,8 +27,8 @@ struct UploadSecondView: View {
                     
                     if let city = viewModel.cities.first(where: { $0.name == listingLocation }) {
                         List(city.hoods, id: \.self) { hood in
-                            customHoodRow(hood: hood, selectedHood: $selectedHood) {
-                                selectedHood = hood
+                            customHoodRow(hood: hood, selectedHood: $viewModel.selectedHood) {
+                                viewModel.selectedHood = hood
                             }
                         }
                         .listStyle(.plain)
@@ -100,6 +99,6 @@ extension UploadSecondView {
         ContinueRedButton {
             showUploadThirdView.toggle()
         }
-        .disabled(selectedHood == nil ? true : false)
+        .disabled(viewModel.selectedHood == nil ? true : false)
     }
 }
