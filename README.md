@@ -1,8 +1,8 @@
 # CustomAirbnb
-SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & portfolio app to test my learnings from previous projects and new challenges.
+SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playground & portfolio app is designed to test my learnings from previous projects and new challenges.
 <br/>
 <br/>
-⚠️⚠️ The project has been updated on 06/14/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details and the commits before merging it to main. ⚠️⚠️
+⚠️⚠️ The project was updated on 06/14/2024 to handle the JSON response from the new version of OpenDataSoft's API. Check the "newApi" branch for further details and review the commits before merging it to main. ⚠️⚠️
 <br/>
 
 ##
@@ -12,62 +12,88 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. Playground & p
 
 ## This app features 
 <ul>
-<li>MVVM Architechture & Home ViewModel as Environment Object for the whole app</li>
-<li>API request using Combine</li>
+<li><b>MVVM Architecture & Home ViewModel as Environment Object</b> for the whole app</li>
+<li><b>API requests using Combine</b></li>
+<br/>
 <li>Reusable Network Manager</li>
+<li>Reusable Local FileManager, to store downloaded images from the API</li>
+<li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
+<li>Reusable views</li>
+  <ul>
+    <li>Circle Button (Animation & View)</li>
+    <li>Confirmation Rectangle</li>
+    <li>Continue Button</li>
+    <li>Dismiss Button</li>
+    <li>Divider</li>
+    <li>TopBarLeading Arrow</li>
+  </ul>
 <br/>
 <li>Specific modules for downloaded images: Views, ViewModel & DataService</li>
-<li>Reusable Local FileManager, to store downloaded images from the API</li>
+  <li>ViewModifiers extracted to improve modularity</li>
 <br/>
-<li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
-<li>Reusable views: Circle Button (Animation & View), Confirmation Rectangle, Continue Button, Dismiss Button, Divider & TopBarLeading Arrow</li>
+  
+### HomeView
+<li>Shows a list of apartments & user's favorites within the same view, using a transition effect</li>
+<li>Displays an empty view if the user hasn't favorited any listing</li>
+<li>Sorts the list of apartments with six different criteria, defined in an enu</li>
+<li>Filters the list of apartments with five different criteria (FiltersView) + text of SearchBar</li>
+<li>Updates the API call with the city selected when the user changes the destination</li>
+<li><b>FiltersView</b> for refining the results according to five criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
+
 <br/>
-<li>HomeView shows a list of apartments & user's favorites within the same view, using a transition effect</li>
-<li>An empty view is displayed if the user hasn't favorited any listing</li>
-<li>The list of apartments can be sorted with six different criteria, defined in an enum</li>
-<li>The list of apartments can be filtered with five different criteria (FiltersView) + text of SearchBar</li>
-<li>When the user changes the destination, the API call is updated with the city selected</li>
-<li>FiltersView for refining the results according to five criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
-<br/>
-<li>InfoView & UploadView sheets presented using @ViewBuilder & switch statement</li>  
-<li>InfoView presents info about the app's project</li>
-<li>UploadView for listing a new apartment in three steps, replicating some of Wallapop's upload screens</li>
+
+### InfoView & UploadView
+<li><b>InfoView</b> presents info about the app's project</li>
+<li><b>UploadView</b> for listing a new apartment in three steps, replicating and improving some of Wallapop's upload screens</li>
   <ul>
     <li>UploadFirstView for selecting the city, includes an animation made with Timer</li>
-    <li>UploadSecondView for selecting the neighbourhood of the city previously selected</li>
+    <li>UploadSecondView for selecting the neighbourhood of the previously selected city</li>
     <li>UploadThirdView for uploading pictures from device's gallery or taking pictures with device's camera, also for inputing listing's title, description, price, currency, number of guests, beds, bedrooms and bathrooms</li>
   </ul>
+<li>Both sheets presented using @ViewBuilder & switch statement</li>
   <br/>
-<li>DetailView that replicates Wallapop's DetailView, including an Image Carousel</li>
-<li>ReportView for reporting listings, notifies DetailView to display a gratitude message to the user</li>
-<li>BookView for simulating a booking request for the listing, featuring a DatePicker and days & price calculation</li>
-<li>ReportView & BookView sheets presented using @ViewBuilder & switch</li>
+  
+### DetailView
+<li>Replicates Wallapop's DetailView, including an improved Image Carousel</li>
+<ul>
+<li><b>ReportView</b> for reporting listings, notifies DetailView to display a gratitude message to the user</li>
+<li><b>BookView</b> for simulating a booking request for the listing, featuring a DatePicker and days & price calculation</li>
+</ul>
+<li>Both sheets presented using @ViewBuilder & switch statement</li>
 <br/>
-<li>LaunchView that includes an animation created with Vortex library</li>
+
+### LaunchView
+  <li>Includes an animation created with Vortex library</li>
   <br/>
-<li>Favorites UX: User can favorite / unfavorite listings with a swipe action in list's row. Alternatively, user can tap a button in the DetailView's toolbar, then a Lottie animation is played to enhance the interaction</li>
-  <li>Core Data to manage listings favorited by user, including a DataService</li>
-</br>
-<li>Custom Header for Navigation View, with animated icons and titles</li>
+  
+### Favorites UX
+<li>User can favorite / unfavorite listings with a swipe action in list's row.</li> 
+  <li>Alternatively, user can tap a button in the DetailView's toolbar, then a Lottie animation is played to enhance the interaction</li>
+<li><b>Core Data</b> to manage listings favorited by user, including a DataService</li>
+<br/>
+
+### Custom Navigation View
+<li>Custom Header with animated icons and titles</li>
 <li>Overrode navigationBarTitles to use Color Theme</li>
 <br/>
-<li>Extensions</li>
-  <ul>
-    <li>Binding (Integers to Floats and vice versa)</li>
-    <li>Double (Converting to a rounded String)</li>
-    <li>Preview Provider (Object model mocks)</li>
-    <li>UIApplication (Dismiss keyboard)</li>
-    <li>View (Overlay's stroke color)</li>
-  </ul>
-<br>  
+
+### Extensions
+<li>Binding (Integers to Floats and vice versa)</li>
+<li>Double (Converting to a rounded String)</li>
+<li>Preview Provider (Object model mocks)</li>
+<li>UIApplication (Dismiss keyboard)</li>
+<li>View (Overlay's stroke color)</li>
+<br/>  
+
+### Additional Features
 <li>ImageType protocol to handle an array of UIImage & Image</li>
 <li>ImagePicker UIViewControllerRepresentable to select multiple pictures from gallery</li>
 <li>ImagePickerCamera UIViewControllerRepresentable to take photos with device's camera
-<li>ViewModifiers extracted to improve modularity</li>
 <li>City & ReportReason models with Stub</li>
 <li>Dummy data and images are used to handle changes in the JSON response from the new version of OpenDataSoft's API</li>
 <li>External libraries used in the project: Lottie and Vortex</li>
-</ul>
+<li>Custom app icon made with Canva & Photopea</li>
+
 
 ## Color Reference
 
