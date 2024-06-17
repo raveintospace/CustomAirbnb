@@ -31,17 +31,10 @@ final class UploadViewModel: ObservableObject {
     var isContinueButtonThirdViewEnabled: Bool {
         return !title.isEmpty &&
         !description.isEmpty &&
-        isValidInteger(price) &&
-        isValidInteger(guestsText) &&
-        isValidInteger(bedsText) &&
-        isValidInteger(bedroomsText) &&
-        isValidInteger(bathroomsText)
-    }
-    
-    private func isValidInteger(_ value: String) -> Bool {
-        if let intValue = Int(value), intValue > 0 {
-            return true
-        }
-        return false
+        isGreaterThanOne(price) &&
+        isGreaterThanOne(guestsText) &&
+        isGreaterThanOne(bedsText) &&
+        isGreaterThanOne(bedroomsText) &&
+        isGreaterThanOne(bathroomsText)
     }
 }
