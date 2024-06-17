@@ -16,14 +16,14 @@ struct GreaterThanZeroModifier: ViewModifier {
     }
     
     private func color(for value: String) -> Color {
-            if value.isEmpty {
-                return Color.theme.secondaryText.opacity(0.5)
-            } else if value.isGreaterThanZero() {
-                return Color.theme.secondaryText.opacity(0.5)
-            } else {
-                return Color.theme.airRed
-            }
+        if value.isEmpty {
+            return Color.theme.secondaryText.opacity(0.5)
+        } else if value.isGreaterThanZero() {
+            return Color.theme.secondaryText.opacity(0.5)
+        } else {
+            return Color.theme.airRed
         }
+    }
 }
 
 extension View {
