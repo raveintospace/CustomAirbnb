@@ -7,7 +7,7 @@
 
 import Foundation
 
-func isGreaterThanOne(_ value: String) -> Bool {
+func isGreaterThanZero(_ value: String) -> Bool {
     if let intValue = Int(value), intValue > 0 {
         return true
     }
