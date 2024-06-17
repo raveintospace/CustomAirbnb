@@ -81,6 +81,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 <li>Binding (Integers to Floats and vice versa)</li>
 <li>Double (Converting to a rounded String)</li>
 <li>Preview Provider (Object model mocks)</li>
+<li>String (Check if number, as String, is greater than zero)</li>
 <li>UIApplication (Dismiss keyboard)</li>
 <li>View (Overlay's stroke color)</li>
 <br/>  
