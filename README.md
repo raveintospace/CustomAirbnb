@@ -110,9 +110,11 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
     <img src="images/Screenshot 2024-03-05 at 18.43.48.png" alt="Home View" title="Home View" width="200">
     <img src="images/Screenshot 2024-03-05 at 18.44.25.png" alt="Favorites View" title="Favorites View" width="200">
-    <img src="images/Screenshot 2024-03-05 at 18.45.47.png" alt="Detail View" title="Detail View 1/2" width="200">
+     <img src="images/Screenshot 2024-06-17 at 19.03.27.png" alt="Filters View" title="Filters View" width="200">
+  <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="200">
 </div>   
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <img src="images/Screenshot 2024-03-05 at 18.45.47.png" alt="Detail View" title="Detail View 1/2" width="200">
     <img src="images/Screenshot 2024-03-05 at 18.46.07.png" alt="Detail View" title="Detail View 2/2" width="200">
     <img src="images/Screenshot 2024-03-05 at 18.46.27.png" alt="Book View" title="Book View" width="200">
     <img src="images/Screenshot 2024-03-05 at 18.59.12.png" alt="Report View" title="Report View" width="200">
@@ -120,6 +122,6 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
  <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">   
     <img src="images/Screenshot 2024-03-05 at 18.47.22.png" alt="Upload View" title="Upload View 1" width="200">
     <img src="images/Screenshot 2024-03-05 at 18.47.34.png" alt="Upload View" title="Upload View 2" width="200">
-    <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3" width="200">
-    <img src="images/Screenshot 2024-03-05 at 18.48.46.png" alt="Info View" title="Info View " width="200">
+   <img src="images/Screenshot 2024-06-17 at 19.02.39.png" alt="Upload View" title="Upload View 3.1" width="200">
+    <img src="images/Screenshot 2024-03-05 at 18.48.29.png" alt="Upload View" title="Upload View 3.2" width="200">  
  </div>     
