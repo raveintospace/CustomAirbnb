@@ -12,13 +12,13 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 
 ## This app features 
 <ul>
-<li><b>MVVM Architecture & Home ViewModel as Environment Object</b> for the whole app</li>
+<li><b>MVVM Architecture</b> & Home ViewModel as Environment Object for the whole app</li>
 <li><b>API requests using Combine</b></li>
 <br/>
 <li>Reusable Network Manager</li>
 <li>Reusable Local FileManager, to store downloaded images from the API</li>
 <li>Reusable SearchBarView that binds to strings and filters results using Combine</li>
-<li>Reusable views</li>
+<li>Reusable views:</li>
   <ul>
     <li>Circle Button (Animation & View)</li>
     <li>Confirmation Rectangle</li>
@@ -38,7 +38,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 <li>Sorts the list of apartments with six different criteria, defined in an enu</li>
 <li>Filters the list of apartments with five different criteria (FiltersView) + text of SearchBar</li>
 <li>Updates the API call with the city selected when the user changes the destination</li>
-<li><b>FiltersView</b> for refining the results according to five criterias that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
+<li><b>FiltersView</b> for refining the results according to five criteria that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
 
 <br/>
 
@@ -55,10 +55,8 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
   
 ### DetailView
 <li>Replicates Wallapop's DetailView, including an improved Image Carousel</li>
-<ul>
 <li><b>ReportView</b> for reporting listings, notifies DetailView to display a gratitude message to the user</li>
 <li><b>BookView</b> for simulating a booking request for the listing, featuring a DatePicker and days & price calculation</li>
-</ul>
 <li>Both sheets presented using @ViewBuilder & switch statement</li>
 <br/>
 
@@ -87,12 +85,12 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 <br/>  
 
 ### Additional Features
-<li>ImageType protocol to handle an array of UIImage & Image</li>
-<li>ImagePicker UIViewControllerRepresentable to select multiple pictures from gallery</li>
-<li>ImagePickerCamera UIViewControllerRepresentable to take photos with device's camera
+<li><b>ImageType protocol</b> to handle an array of UIImage & Image</li>
+<li><b>ImagePicker UIViewControllerRepresentable</b> to select multiple pictures from gallery</li>
+<li><b>ImagePickerCamera UIViewControllerRepresentable</b> to take photos with device's camera
 <li>City & ReportReason models with Stub</li>
 <li>Dummy data and images are used to handle changes in the JSON response from the new version of OpenDataSoft's API</li>
-<li>External libraries used in the project: Lottie and Vortex</li>
+<li><b>External libraries</b> used in the project: <a href="https://github.com/airbnb/lottie-ios">Lottie</a> and <a href="https://github.com/twostraws/Vortex">Vortex</a></li>
 <li>Custom app icon made with Canva & Photopea</li>
 
 
