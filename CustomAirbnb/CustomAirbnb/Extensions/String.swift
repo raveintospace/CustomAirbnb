@@ -7,9 +7,11 @@
 
 import Foundation
 
-func isGreaterThanZero(_ value: String) -> Bool {
-    if let intValue = Int(value), intValue > 0 {
-        return true
+extension String {
+    func isGreaterThanZero() -> Bool {
+        if let intValue = Int(self), intValue > 0 {
+            return true
+        }
+        return false
     }
-    return false
 }

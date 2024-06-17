@@ -51,7 +51,7 @@ extension PriceHStack {
     private var textPriceVStack: some View {
         VStack(alignment: .leading) {
             Text("Daily price")
-                .foregroundStyle(isGreaterThanZero(price) ? Color.theme.secondaryText.opacity(0.5) : Color.theme.airRed)
+                .greaterThanZeroTint(value: price)
                 .padding(.horizontal)
                 .padding(.top)
             

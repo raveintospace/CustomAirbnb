@@ -19,6 +19,7 @@ struct RoomsHStack: View {
             HStack {
                 IntegerVStackWithTextField(inputText: $bedrooms, placeholder: "", title: "Bedrooms")
                     .focused($focusedField, equals: .bedrooms)
+                    .greaterThanZeroTint(value: bedrooms)
                 
                 if !bedrooms.isEmpty && focusedField == .bedrooms {
                     UploadThirdViewDeletionButton(text: $bedrooms)
@@ -31,6 +32,7 @@ struct RoomsHStack: View {
             HStack {
                 IntegerVStackWithTextField(inputText: $bathrooms, placeholder: "", title: "Bathrooms")
                     .focused($focusedField, equals: .bathrooms)
+                    .greaterThanZeroTint(value: bathrooms)
                 
                 if !bathrooms.isEmpty && focusedField == .bathrooms {
                     UploadThirdViewDeletionButton(text: $bathrooms)

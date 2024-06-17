@@ -31,10 +31,10 @@ final class UploadViewModel: ObservableObject {
     var isContinueButtonThirdViewEnabled: Bool {
         return !title.isEmpty &&
         !description.isEmpty &&
-        isGreaterThanZero(price) &&
-        isGreaterThanZero(guestsText) &&
-        isGreaterThanZero(bedsText) &&
-        isGreaterThanZero(bedroomsText) &&
-        isGreaterThanZero(bathroomsText)
+        price.isGreaterThanZero() &&
+        guestsText.isGreaterThanZero() &&
+        bedsText.isGreaterThanZero() &&
+        bedroomsText.isGreaterThanZero() &&
+        bathroomsText.isGreaterThanZero()
     }
 }

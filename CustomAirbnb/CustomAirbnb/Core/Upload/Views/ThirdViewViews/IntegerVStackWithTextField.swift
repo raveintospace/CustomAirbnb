@@ -18,7 +18,7 @@ struct IntegerVStackWithTextField: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
+                //.greaterThanZeroTint(value: title)
                 .padding(.horizontal)
                 .padding(.top)
             
