@@ -29,7 +29,8 @@ final class UploadViewModel: ObservableObject {
     @Published var bathroomsText: String = ""
     
     var isContinueButtonThirdViewEnabled: Bool {
-        return !title.isEmpty &&
+        return !imagePreviews.isEmpty &&
+        !title.isEmpty &&
         !description.isEmpty &&
         price.isGreaterThanZero() &&
         guestsText.isGreaterThanZero() &&
