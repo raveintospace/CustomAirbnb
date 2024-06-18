@@ -35,7 +35,7 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 ### HomeView
 <li>Shows a list of apartments & user's favorites within the same view, using a transition effect</li>
 <li>Displays an empty view if the user hasn't favorited any listing</li>
-<li>Sorts the list of apartments with six different criteria, defined in an enu</li>
+<li>Sorts the list of apartments with six different criteria, defined in an enum</li>
 <li>Filters the list of apartments with five different criteria (FiltersView) + text of SearchBar</li>
 <li>Updates the API call with the city selected when the user changes the destination</li>
 <li><b>FiltersView</b> for refining the results according to five criteria that the apartment has to meet (guests, beds, bedrooms, bathrooms, price)</li>
