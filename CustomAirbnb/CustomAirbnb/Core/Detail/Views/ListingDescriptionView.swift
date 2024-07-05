@@ -30,9 +30,7 @@ struct ListingDescriptionView: View {
                         .foregroundStyle(Color.theme.secondaryText)
                     
                     Button(action: {
-                        withAnimation(.easeInOut) {
-                            showFullDescription.toggle()
-                        }
+                        showFullDescription.toggle()
                     }, label: {
                         Text(showFullDescription ? "Show less" : "Read more...")
                             .font(.caption)
