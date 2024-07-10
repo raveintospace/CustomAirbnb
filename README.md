@@ -4,6 +4,8 @@ SwiftUI CustomAirbnb - MVVM, Core Data, Combine and Api Requests. This playgroun
 <br/>
 ⚠️⚠️ The project was updated on 06/14/2024 to handle the JSON response from the new version of <a href="https://public.opendatasoft.com/explore/dataset/air-bnb-listings/api/?disjunctive.neighbourhood&disjunctive.column_10&disjunctive.city">OpenDataSoft's API</a>. Check the "newApi" branch for further details and review the commits before merging it to main. ⚠️⚠️
 <br/>
+<br/>
+Video presentation available here: https://shorturl.at/prnAB
 
 ##
 <p align="center">
